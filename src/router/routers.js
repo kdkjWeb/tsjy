@@ -1,11 +1,15 @@
-const Index = ()=>import('@/pages/index/index')
+/**
+ * Created by kdkjPC on 2018/4/14.
+ */
+import index from '@/pages/index/index'
+
 
 export default {
-    routes: [
-        {
-            path: '/',
-            name: Index,
-            component: Index
-        }
-    ]
+  routes: [
+    {
+      path:"/",
+      name:index,
+      component:index
+    }
+  ]
 }
