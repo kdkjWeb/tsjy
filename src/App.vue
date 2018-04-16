@@ -94,7 +94,6 @@
   }
   a {
     text-decoration: none;
-    color:white;
   }
   img {
     border:none;
@@ -206,5 +205,6 @@
     min-width: 1200px;
     height: 60px;
     background-color: #4d484f;
+    margin-top: 190px;
   }
 </style>
