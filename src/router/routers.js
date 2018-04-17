@@ -37,6 +37,7 @@ import atlas from '@/pages/6_netred/2_atlas/atlas'
 // 许愿树
 import wish from '@/pages/7_wish/0_activeH/activeH'
 import wishtree from '@/pages/7_wish/1_wishtree/wishtree'
+import treeWar from '@/pages/7_wish/2_treeWar/treeWar'
 
 
 
@@ -158,6 +159,10 @@ export default {
             path: '/wish/wishtree',
             name: 'wishtree',
             component: wishtree
+          },{
+            path: '/wish/treeWar',
+            name: 'treeWar',
+            component: treeWar
           }
         ]
 

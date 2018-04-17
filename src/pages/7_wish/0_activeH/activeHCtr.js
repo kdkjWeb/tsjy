@@ -23,7 +23,7 @@ export default {
               break;
         case 1:
           this.$router.push({
-            path:"/employment/job"
+            path:"/wish/treeWar"
           });
               break;
         case 2:
