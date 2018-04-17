@@ -14,15 +14,15 @@
     <nav class="nav">
       <ul class="nav_bar">
         <li class="nav_bar_title" :class="index==thisIndex?'nav_bar_titleA':''" v-for="(item,index) in navList" :key="index" @click="toLink(index)">
-          <a v-if="index !=6 " href="javascript:void(0)">{{item.title}}</a>
-          <div v-else>
-            <div><a href="javascript:void(0)">{{item.title}}</a></div>
-            <ul class="secondNav">
-              <li class="secondNav_bar" v-for="(item,index) in item.secondNav" :key="index">
-                <a href="javascript:void(0)">{{item.title}}</a>
-              </li>
-            </ul>
-          </div>
+          <a href="javascript:void(0)">{{item.title}}</a>
+          <!--<div v-else>-->
+            <!--<div><a href="javascript:void(0)">{{item.title}}</a></div>-->
+            <!--<ul class="secondNav">-->
+              <!--<li class="secondNav_bar" v-for="(item,index) in item.secondNav" :key="index">-->
+                <!--<a href="javascript:void(0)">{{item.title}}</a>-->
+              <!--</li>-->
+            <!--</ul>-->
+          <!--</div>-->
         </li>
       </ul>
     </nav>
