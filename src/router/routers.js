@@ -14,8 +14,15 @@ import activeH from '@/pages/10_active/0_activeH/activeH'
 import affiche from '@/pages/10_active/1_affiche/affiche'
 import luckDraw from '@/pages/10_active/2_luckDraw/luckDraw'
 import vote from '@/pages/10_active/3_vote/vote'
+
+// 快讯
 import fast from '@/pages/2_fast/fast'
+// 视频
 import video from '@/pages/4_video/video'
+// 音乐
+import music from '@/pages/5_music/music'
+// 探城
+import citySearcher from '@/pages/9_citySearcher/citySearcher'
 
 //跳蚤
 import flea from '@/pages/8_flea/flea'
@@ -33,6 +40,10 @@ export default {
       path:"/",
       name:"name",
       component:index
+    },{
+      path:"/fast",
+      name:"fast",
+      component:fast
     },{
       path: '/employment',
       name: 'employment',
@@ -52,14 +63,42 @@ export default {
           name: 'family',
           component: family
         } ]
-      },{
-      path:"/fast",
-      name:"fast",
-      component:fast
-    }, {
+    },{
       path: "/video",
       name: "video",
       component: video
+    },{
+      path: "/music",
+      name: "music",
+      component: music
+    },{
+      path: '/netred',
+      name: 'netred',
+      component: netred,
+      redirect: '/netred/personal',
+      children: [
+        {
+          path: '/netred/personal',
+          name: 'personal',
+          component: personal
+        },{
+          path: '/netred/information',
+          name: 'information',
+          component: information
+        },{
+          path: '/netred/atlas',
+          name: 'atlas',
+          component: atlas
+        }
+      ]
+    },{
+      path: '/flea',
+      name: 'flea',
+      component: flea
+    },{
+      path: '/citySearcher',
+      name: 'citySearcher',
+      component: citySearcher
     },{
         path:"/active",
         name:"activeH",
@@ -78,30 +117,6 @@ export default {
           name:"vote",
           component:vote
         },
-        ]
-      },{
-        path: '/flea',
-        name: 'flea',
-        component: flea
-      },{
-        path: '/netred',
-        name: 'netred',
-        component: netred,
-        redirect: '/netred/personal',
-        children: [
-          {
-            path: '/netred/personal',
-            name: 'personal',
-            component: personal
-          },{
-            path: '/netred/information',
-            name: 'information',
-            component: information
-          },{
-            path: '/netred/atlas',
-            name: 'atlas',
-            component: atlas
-          }
         ]
       }
   ]
