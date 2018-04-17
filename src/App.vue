@@ -97,7 +97,10 @@
             });
             break;
           case 4:
-          console.log(4)
+            this.$router.push({
+              path: "/music"
+            });
+            break;
           break;
           case 5:
           this.$router.push({
@@ -115,7 +118,9 @@
             });
             break;
           case 8:
-            console.log(8)
+            this.$router.push({
+              path: "/citySearcher"
+            });
             break;
           case 9:
             this.$router.push({
@@ -128,8 +133,18 @@
     mounted(){
       if (this.$route.path.indexOf("/fast")>=0) {
         this.thisIndex = 1;
+      }else if (this.$route.path.indexOf("/employment")>=0) {
+        this.thisIndex = 2;
       }else if (this.$route.path.indexOf("/video")>=0) {
         this.thisIndex = 3;
+      }else if (this.$route.path.indexOf("/music")>=0) {
+        this.thisIndex = 4;
+      }else if (this.$route.path.indexOf("/netred")>=0) {
+        this.thisIndex = 5;
+      }else if (this.$route.path.indexOf("/flea")>=0) {
+        this.thisIndex = 7;
+      }else if (this.$route.path.indexOf("/citySearcher")>=0) {
+        this.thisIndex = 8;
       }else if (this.$route.path.indexOf("/active")>=0) {
         this.thisIndex = 9;
       }

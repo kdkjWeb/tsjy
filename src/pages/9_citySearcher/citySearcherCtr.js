@@ -6,8 +6,9 @@ export default {
     return {
       thisIndex:0,
       tabBarList:[
-        {"title":"精彩VIDEO"},
-        {"title":"推荐影视"},
+        {"title":"探吃"},
+        {"title":"探玩"},
+        {"title":"探逛"},
       ],
       amusement: {
         btn: '>',
