@@ -20,6 +20,13 @@ import video from '@/pages/4_video/video'
 //跳蚤
 import flea from '@/pages/8_flea/flea'
 
+//网红
+import netred from '@/pages/6_netred/0_activeH/activeH'
+import personal from '@/pages/6_netred/1_personal/personal'
+import information from '@/pages/6_netred/3_information/information'
+import atlas from '@/pages/6_netred/2_atlas/atlas'
+
+
 export default {
   routes: [
     {
@@ -76,6 +83,26 @@ export default {
         path: '/flea',
         name: 'flea',
         component: flea
+      },{
+        path: '/netred',
+        name: 'netred',
+        component: netred,
+        redirect: '/netred/personal',
+        children: [
+          {
+            path: '/netred/personal',
+            name: 'personal',
+            component: personal
+          },{
+            path: '/netred/information',
+            name: 'information',
+            component: information
+          },{
+            path: '/netred/atlas',
+            name: 'atlas',
+            component: atlas
+          }
+        ]
       }
   ]
 }
