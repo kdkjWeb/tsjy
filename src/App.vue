@@ -88,7 +88,7 @@
             break;
           case 2:
             this.$router.push({
-              path: "/scroll"
+              path: "/employment"
             });
             break;
           case 9:
