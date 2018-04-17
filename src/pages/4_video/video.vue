@@ -3,7 +3,7 @@
       <div class="amusement">
         <div class="amusement_music">
           <div class="amusement_video">
-            <video id="video" :poster="amusement.video.bgSrc" controls="controls" width="930" height="495" :src="amusement.video.src"></video>
+            <video id="video" :poster="amusement.video.bgSrc" controls="controls" width="830" height="495" :src="amusement.video.src"></video>
           </div>
           <div class="amusement_list" :class="{amusement_list_active: amusement.btnFlag}">
             <h3 class="amusement_title">相关视屏</h3>
@@ -16,7 +16,31 @@
             <div class="amusement_btn" @click="amusementBtn">{{amusement.btn}}</div>
           </div>
         </div>
+        <div class="amusementT"><p>vue学习视频</p><p>2017-03-02</p></div>
       </div>
+      <div class="actHeader">
+        <ul class="clear">
+          <li :class="thisIndex==index?'liAct':''" v-for="item,index in tabBarList" :key="index" @click="toLink(index)">{{item.title}}</li>
+        </ul>
+      </div>
+
+      <!--列表-->
+      <div class="con">
+        <div class="conB clear" v-for="item,index in list" :key="index">
+          <img :src="item.src" alt="">
+          <div class="conDes">
+            <p>{{item.title}}</p>
+          </div>
+        </div>
+      </div>
+      <el-pagination class="pagination"
+                     background
+                     @current-change="handleCurrentChange"
+                     :current-page.sync="currentPage1"
+                     :page-size="100"
+                     :total="1000"
+                     layout="prev, pager, next">
+      </el-pagination>
     </div>
 </template>
 <script>
@@ -40,6 +64,18 @@
     height: 495px;
     background-color: #ddd;
     overflow: hidden;
+  }
+  .amusementT{
+    width:100%;
+    height:50px;
+    padding:0 30px;
+    box-sizing: border-box;
+    color:#333;
+    background-color: #f2f2f2;
+    line-height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
   .amusement_list{
     /* position: absolute;
@@ -109,5 +145,70 @@
   }
   .amusement_more{
     margin: 55px auto 90px;
+  }
+
+  /*小标题*/
+  .actHeader{
+    padding:40px 0 0 0;
+    text-align: center;
+  }
+  .actHeader ul {
+    width:318px;
+    margin:0 auto;
+  }
+  .actHeader ul li {
+    width:100px;
+    padding:7px 0;
+    border:3px solid #e2e2e2;
+    float: left;
+    cursor: pointer;
+  }
+  .actHeader ul li.liAct {
+    border:3px solid #97857b;
+    background-color: #97857b;
+    color:white;
+  }
+
+  /*列表*/
+  .con {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .conB {
+    width:335px;
+    margin-top:50px;
+  }
+  .conB img{
+    width:100%;
+    height:231px;
+    float: left;
+  }
+  .conDes {
+    width:100%;
+    height:60px;
+    padding:20px 30px;
+    border:1px solid #e3e3e3;
+    box-sizing: border-box;
+    border-top:none;
+    float: left;
+  }
+  .conDes p:nth-of-type(1) {
+    color:#333;
+    margin-bottom:15px;
+    font-size: 15px;
+  }
+  .conDes p:nth-of-type(2){
+    color:#666;
+    margin-bottom:15px;
+  }
+  .conDes p:nth-of-type(3){
+    color:#999;
+    text-align: right;
+  }
+  .pagination {
+    text-align: center;
+    margin-top:50px;
   }
 </style>

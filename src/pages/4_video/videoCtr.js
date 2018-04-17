@@ -4,22 +4,12 @@
 export default {
   data(){
     return {
+      thisIndex:0,
+      tabBarList:[
+        {"title":"精彩VIDEO"},
+        {"title":"推荐影视"},
+      ],
       amusement: {
-        header: [
-          {
-            title: '精彩VIEDEO'
-          },{
-            title: '推荐影视'
-          },{
-            title: '倾听FM'
-          },{
-            title: '精彩MUSIC'
-          },{
-            title: '留声机'
-          },{
-            title: '点歌台'
-          }
-        ],
         btn: '>',
         btnFlag: false,
         video: {
@@ -66,6 +56,38 @@ export default {
           }
         ]
       },
+      currentPage1:5,
+      list:[{
+        title:"2017年度盘点",
+        src:"http://pic31.photophoto.cn/20140609/0034034883622832_b.jpg",
+        des:"创意方法论线下沙龙为设计工作创意方法论线下沙龙为设计工作创意方法论线下沙龙为设计工作创意方法论线下沙龙为设计工作",
+        time:"2017-03-02"
+      },{
+        title:"2017年度盘点",
+        src:"http://pic31.photophoto.cn/20140609/0034034883622832_b.jpg",
+        des:"创意方法论线下沙龙为设计工作创意方法论线下沙龙为设计工作创意方法论线下沙龙为设计工作创意方法论线下沙龙为设计工作",
+        time:"2017-03-02"
+      },{
+        title:"2017年度盘点",
+        src:"http://pic31.photophoto.cn/20140609/0034034883622832_b.jpg",
+        des:"创意方法论线下沙龙为设计工作创意方法论线下沙龙为设计工作创意方法论线下沙龙为设计工作创意方法论线下沙龙为设计工作",
+        time:"2017-03-02"
+      },{
+        title:"2017年度盘点",
+        src:"http://pic31.photophoto.cn/20140609/0034034883622832_b.jpg",
+        des:"创意方法论线下沙龙为设计工作创意方法论线下沙龙为设计工作创意方法论线下沙龙为设计工作创意方法论线下沙龙为设计工作",
+        time:"2017-03-02"
+      },{
+        title:"2017年度盘点",
+        src:"http://pic31.photophoto.cn/20140609/0034034883622832_b.jpg",
+        des:"创意方法论线下沙龙为设计工作创意方法论线下沙龙为设计工作创意方法论线下沙龙为设计工作创意方法论线下沙龙为设计工作",
+        time:"2017-03-02"
+      },{
+        title:"2017年度盘点",
+        src:"http://pic31.photophoto.cn/20140609/0034034883622832_b.jpg",
+        des:"创意方法论线下沙龙为设计工作创意方法论线下沙龙为设计工作创意方法论线下沙龙为设计工作创意方法论线下沙龙为设计工作",
+        time:"2017-03-02"
+      }]
     }
   },
   methods:{
@@ -88,8 +110,16 @@ export default {
         video.play()
       },0)
     },
+    toLink(index) {
+      this.thisIndex = index;
+    },
+    handleSizeChange(val) {
+      console.log(`每页 ${val} 条`);
+    },
+    handleCurrentChange(val) {
+      console.log(`当前页: ${val}`);
+    }
   },
   mounted(){
-
   }
 }
