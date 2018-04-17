@@ -96,10 +96,24 @@
               path: "/video"
             });
             break;
+          case 4:
+          console.log(4)
+          break;
+          case 5:
+          this.$router.push({
+            path: "/netred"
+          });
+            break;
+          case 6:
+          console.log(6)
+            break;
           case 7:
             this.$router.push({
               path: "/flea"
             });
+            break;
+          case 8:
+            console.log(8)
             break;
           case 9:
             this.$router.push({
