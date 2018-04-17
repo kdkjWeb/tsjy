@@ -1,5 +1,5 @@
 <template>
-    <div class="width12">
+    <div class="">
       <div class="actHeader">
         <ul class="clear">
           <li :class="thisIndex==index?'liAct':''" v-for="(item,index) in tabBarList" :key="index" @click="toLink(index)">{{item.title}}</li>
