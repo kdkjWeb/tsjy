@@ -123,13 +123,13 @@
             </div>
             <div class="alerts_main">
                 <div class="exploreCity_left">
-
+                    
                     <div class="topBar"></div>
                     <div class="exploreCity_content">
                         <img :src="exploreCity.leftShow.src" width="100%" height="100%" alt="">
                         <span class="title">{{exploreCity.leftShow.title}}</span>
                         <span class="time">{{exploreCity.leftShow.time}}</span>
-                    </div>
+                    </div> 
                     <a class="more exploreCity_more">
                         <span>更多</span>
                     </a>
@@ -165,13 +165,13 @@
             </div>
             <div class="alerts_main">
                 <div class="exploreCity_left">
-
+                    
                     <div class="topBar"></div>
                     <div class="exploreCity_content">
                         <img :src="netRed.leftShow.src" width="100%" height="100%" alt="">
                         <span class="title">{{netRed.leftShow.title}}</span>
                         <span class="time">{{netRed.leftShow.time}}</span>
-                    </div>
+                    </div> 
                     <a class="more exploreCity_more">
                         <span>更多</span>
                     </a>
@@ -295,7 +295,7 @@ export {default} from './indexCtr'
 /* 主体部分 */
 .main{
     width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto 95px;
 }
 /* 许愿 */
 .wishTree{
@@ -450,7 +450,7 @@ export {default} from './indexCtr'
 }
 
 
-/* 娱乐 */
+/* 娱乐 */ 
 .amusement_music{
     /* position: relative; */
     display: flex;
@@ -491,7 +491,7 @@ export {default} from './indexCtr'
     padding-left: 10px;
     vertical-align: middle;
     display: inline-block;
-    width: 150px;
+    width: 160px;
     color: #fff;
     overflow: hidden;
     text-overflow:ellipsis;
