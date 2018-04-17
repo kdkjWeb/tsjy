@@ -16,10 +16,10 @@
         <li class="nav_bar_title" :class="index==thisIndex?'nav_bar_titleA':''" v-for="(item,index) in navList" :key="index" @click="toLink(index)">
           <a v-if="index !=6 " href="javascript:void(0)">{{item.title}}</a>
           <div v-else>
-            <div><a href="">{{item.title}}</a></div>
+            <div><a href="javascript:void(0)">{{item.title}}</a></div>
             <ul class="secondNav">
               <li class="secondNav_bar" v-for="(item,index) in item.secondNav" :key="index">
-                <a href="">{{item.title}}</a>
+                <a href="javascript:void(0)">{{item.title}}</a>
               </li>
             </ul>
           </div>
@@ -105,7 +105,9 @@
           });
             break;
           case 6:
-          console.log(6)
+          this.$router.push({
+            path: "/wish"
+          });
             break;
           case 7:
             this.$router.push({

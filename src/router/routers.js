@@ -27,6 +27,12 @@ import information from '@/pages/6_netred/3_information/information'
 import atlas from '@/pages/6_netred/2_atlas/atlas'
 
 
+// 许愿树
+import wish from '@/pages/7_wish/0_activeH/activeH'
+import wishtree from '@/pages/7_wish/1_wishtree/wishtree'
+
+
+
 export default {
   routes: [
     {
@@ -101,6 +107,18 @@ export default {
             path: '/netred/atlas',
             name: 'atlas',
             component: atlas
+          }
+        ]
+      },{
+        path: '/wish',
+        name: 'wish',
+        component: wish,
+        redirect: '/wish/wishtree',
+        children: [
+          {
+            path: '/wish/wishtree',
+            name: 'wishtree',
+            component: wishtree
           }
         ]
       }
