@@ -17,7 +17,8 @@ import vote from '@/pages/10_active/3_vote/vote'
 import fast from '@/pages/2_fast/fast'
 import video from '@/pages/4_video/video'
 
-
+//跳蚤
+import flea from '@/pages/8_flea/flea'
 
 export default {
   routes: [
@@ -71,6 +72,10 @@ export default {
           component:vote
         },
         ]
+      },{
+        path: '/flea',
+        name: 'flea',
+        component: flea
       }
   ]
 }

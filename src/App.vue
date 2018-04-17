@@ -96,6 +96,11 @@
               path: "/video"
             });
             break;
+          case 7:
+            this.$router.push({
+              path: "/flea"
+            });
+            break;
           case 9:
             this.$router.push({
               path: "/active"
