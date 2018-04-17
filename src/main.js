@@ -13,7 +13,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
 
 // 引入字体 iconfont.css
-// import '@/assets/font/iconfont.css'
+import '@/assets/font/iconfont.css'
 
 /**
  * 挂在在vue实例上，有两种写法
