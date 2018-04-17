@@ -72,7 +72,7 @@
     padding-left: 10px;
     vertical-align: middle;
     display: inline-block;
-    width: 160px;
+    width: 150px;
     color: #fff;
     overflow: hidden;
     text-overflow:ellipsis;
@@ -84,7 +84,7 @@
     color: #fff;
   }
   .amusement_video{
-    width: 930px;
+    width: 830px;
     height: 100%;
     /* background: pink; */
     margin: 0 auto;
