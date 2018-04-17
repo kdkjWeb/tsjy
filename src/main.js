@@ -30,6 +30,10 @@ import  Server from './server/server.js'
 Vue.prototype.$g = Server.g;
 Vue.prototype.$p = Server.p;
 
+// 引入公用方法 common.js
+import common from './util/common.js'
+Object.defineProperty(Vue.prototype,'$common',{value:common});
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

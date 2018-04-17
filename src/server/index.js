@@ -4,13 +4,17 @@
 import Vue from 'vue'
 import Axios from 'axios'
 
+var baseU = 'http://192.168.20.133:8886/tsjy/'
 const axiosConfig = Axios.create({
-    baseURL: '',
+    baseURL: baseU,
     withCredentials: true,
     timeout: 10000
-})
+});
 
 
 
 
-export default axiosConfig
+export default {
+  axiosConfig:axiosConfig,
+  baseU:baseU
+}
