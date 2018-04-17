@@ -221,7 +221,7 @@ export {default} from './indexCtr'
     top: -40px;
     width: 195px;
     height: 70px;
-    background-color: #fff;
+    background-color: #f2f2f2;
     text-align: center;
 }
 .main_title span{

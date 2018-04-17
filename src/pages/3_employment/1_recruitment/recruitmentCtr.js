@@ -1,6 +1,7 @@
 export default{
     data() {
         return {
+            currentPage1:5,
             jobList: [
                 {
                     src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1523947765539&di=1f17c730cabf2559e8a07b797cbb924b&imgtype=0&src=http%3A%2F%2Fnewimg.uumnt.com%2FThumb%2F2017%2F0112%2Fb57a1230e7af1478d8396a5fa436a7e6.jpg',
@@ -63,6 +64,11 @@ export default{
         }
     },
     methods: {
-        
+        handleSizeChange(val) {
+            console.log(`每页 ${val} 条`);
+          },
+        handleCurrentChange(val) {
+        console.log(`当前页: ${val}`);
+        }
     }
 }
