@@ -86,6 +86,11 @@
               path: "/fast"
             });
             break;
+          case 2:
+            this.$router.push({
+              path: "/employment"
+            });
+            break;
           case 3:
             this.$router.push({
               path: "/video"
