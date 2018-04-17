@@ -9,26 +9,50 @@
     <!-- 主体部分内容 -->
     <div class="main">
         <!-- 许愿树 -->
-        <div class="wish"></div>
+        <div class="wish">
+            <div class="wish_title">
+                <div class="wish_title_first">许愿</div>
+                <div class="wish_title_seconed">WISH</div>
+                <div class="wishTree">
+                    <div class="wishNav">
+                        <div class="wishNav_bar" v-for="(item,index) in wish.wishNav" :key="index" @click="wishNav(index)">{{item.title}}</div>
+                    </div>
+                    <div class="wishNext">
+                        <div class="wishNext_top" v-for="(item,index) in wish.wishNext" :key="index" @click="wishNext(index)">
+                            <span>{{item.firstTitle}}</span>
+                            <span>{{item.seconedTitle}}</span>
+                        </div>
+                        <!-- <div class="wishNext_bottom">
+                            <span>热门活动</span>
+                            <span>POPULAR ACTIVITY</span>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- 快讯 -->
         <div class="alerts">
             <div class="main_top">
-                快讯
+                <div class="main_title">
+                    <span>快讯</span>
+                    <span>NEWS FLASH</span>
+                </div>
             </div>
             <div class="main_header">
                 <ul>
                     <li v-for="(item,index) in alerts.header" :key="index">
-                        <a href="">{{item.title}}</a>
+                        <a href="javascript:void(0)">{{item.title}}</a>
                     </li>
                 </ul>
             </div>
             <div class="alerts_main">
                 <div class="alerts_left">
                     <div class="alerts_left_top">
-                        上面
+                        <img :src="alerts.leftTopShow.src" width="100%" height="100%" alt="">
                     </div>
                     <div class="alerts_left_bottom">
-                        下面
+                       <img :src="alerts.leftBottomShow.src" width="100%" height="100%" alt="">
+                       <span class="title">{{alerts.leftBottomShow.title}}</span>
                     </div>
                 </div>
                 <div class="alerts_right">
@@ -42,15 +66,130 @@
                             </a>
                         </li>
                     </ul>
+                    <a class="more alerts_more">
+                        <span>更多</span>
+                    </a>
                 </div>
             </div>
         </div>
         <!-- 娱乐 -->
-        <div class="amusement"></div>
+        <div class="amusement">
+            <div class="main_top">
+                <div class="main_title">
+                    <span>娱乐</span>
+                    <span>ENTERTAINMENT</span>
+                </div>
+            </div>
+            <div class="main_header">
+                <ul>
+                    <li v-for="(item,index) in amusement.header" :key="index">
+                        <a href="javascript:void(0)">{{item.title}}</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="amusement_music">
+                <div class="amusement_video">
+                    <video id="video" :poster="amusement.video.bgSrc" controls="controls" width="930" height="495" :src="amusement.video.src"></video>
+                </div>
+                <div class="amusement_list" :class="{amusement_list_active: amusement.btnFlag}">
+                    <h3 class="amusement_title">相关视屏</h3>
+                    <ul class="amusement_video_list">
+                        <li v-for="(item,index) in amusement.videoList" :key="index" @click="changeVedio(item)">
+                            <img :src="item.src" width="80" height="65" alt="">
+                            <span>{{item.title}}</span>
+                        </li>
+                    </ul>
+                    <div class="amusement_btn" @click="amusementBtn">{{amusement.btn}}</div>
+                </div>
+            </div>
+            <a class="more amusement_more">
+                    <span>更多</span>
+            </a>
+        </div>
         <!-- 探城 -->
-        <div class="exploreCity"></div>
+        <div class="exploreCity">
+            <div class="main_top">
+                <div class="main_title">
+                    <span>探城</span>
+                    <span>EXPLORE THE CITY</span>
+                </div>
+            </div>
+            <div class="main_header">
+                <ul>
+                    <li v-for="(item,index) in exploreCity.header" :key="index">
+                        <a href="javascript:void(0)">{{item.title}}</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="alerts_main">
+                <div class="exploreCity_left">
+                    
+                    <div class="topBar"></div>
+                    <div class="exploreCity_content">
+                        <img :src="exploreCity.leftShow.src" width="100%" height="100%" alt="">
+                        <span class="title">{{exploreCity.leftShow.title}}</span>
+                        <span class="time">{{exploreCity.leftShow.time}}</span>
+                    </div> 
+                    <a class="more exploreCity_more">
+                        <span>更多</span>
+                    </a>
+                </div>
+                <div class="exploreCity_right">
+                    <div class="alerts_left_top">
+                        <img :src="exploreCity.leftTopShow.src" width="100%" height="100%" alt="">
+                        <span class="title">{{exploreCity.leftTopShow.title}}</span>
+                        <span class="time">{{exploreCity.leftTopShow.time}}</span>
+                    </div>
+                    <div class="alerts_left_bottom">
+                       <img :src="exploreCity.leftBottomShow.src" width="100%" height="100%" alt="">
+                       <span class="title">{{exploreCity.leftBottomShow.title}}</span>
+                       <span class="time">{{exploreCity.leftBottomShow.time}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- 网红 -->
-        <div class="netRed"></div>
+        <div class="netRed">
+            <div class="main_top">
+                <div class="main_title">
+                    <span>网红</span>
+                    <span>INTERNET CELEBRITY</span>
+                </div>
+            </div>
+            <div class="main_header">
+                <ul>
+                    <li v-for="(item,index) in netRed.header" :key="index">
+                        <a href="javascript:void(0)">{{item.title}}</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="alerts_main">
+                <div class="exploreCity_left">
+                    
+                    <div class="topBar"></div>
+                    <div class="exploreCity_content">
+                        <img :src="netRed.leftShow.src" width="100%" height="100%" alt="">
+                        <span class="title">{{netRed.leftShow.title}}</span>
+                        <span class="time">{{netRed.leftShow.time}}</span>
+                    </div> 
+                    <a class="more exploreCity_more">
+                        <span>更多</span>
+                    </a>
+                </div>
+                <div class="exploreCity_right">
+                    <div class="alerts_left_top">
+                        <img :src="netRed.leftTopShow.src" width="100%" height="100%" alt="">
+                        <span class="title">{{netRed.leftTopShow.title}}</span>
+                        <span class="time">{{netRed.leftTopShow.time}}</span>
+                    </div>
+                    <div class="alerts_left_bottom">
+                       <img :src="netRed.leftBottomShow.src" width="100%" height="100%" alt="">
+                       <span class="title">{{netRed.leftBottomShow.title}}</span>
+                       <span class="time">{{netRed.leftBottomShow.time}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
   </div>
 </template>
@@ -66,9 +205,37 @@ export {default} from './indexCtr'
 }
 /* 公用的头部标题和头部导航 */
 .main_top{
-    text-align: center;
+    /* text-align: center;
     font-size: 30px;
+    border-bottom: 1px solid #000; */
+    position: relative;
+    width: 320px;
+    height: 20px;
+    border-top: 1px solid #000;
     border-bottom: 1px solid #000;
+    margin: 130px auto 35px;;
+}
+.main_title{
+    position: absolute;
+    left: 62px;
+    top: -40px;
+    width: 195px;
+    height: 70px;
+    background-color: #fff;
+    text-align: center;
+}
+.main_title span{
+    display: inline-block;
+    width: 100%;
+}
+.main_title span:first-child{
+    font-size: 40px;
+}
+.main_title span:last-child{
+    font-size: 16px;
+}
+.main_header{
+    border-top: 1px solid #000;
 }
 .main_header ul{
     display: flex;
@@ -80,10 +247,47 @@ export {default} from './indexCtr'
     width: 90px;
     text-align: center;
 }
+.main_header ul li a{
+    color: #000;
+}
+.main_header ul li a:hover{
+    color: #f3ab95;
+}
 .topBar{
     width: 100%;
     height: 5px;
     background-color: #fcfcfc;
+}
+.more{
+    display: block;
+    width: 165px;
+    height: 20px;
+    border: 1px solid #000;
+    padding: 10px;
+    cursor: pointer;
+}
+.more span{
+    position: relative;
+    display: inline-block;
+    width: 115px;
+    text-align: center;
+    border-right: 1px solid #000;
+    color: #000;
+}
+.more span::after{
+    position: absolute;
+    right: -40px;
+    top: -8px;
+    display: block;
+    content: '\2192';
+    font-size: 25px;
+}
+.more:hover{
+    border-color: #d38a55;
+}
+.more:hover span{
+    color: #d38a55;
+    border-color: #d38a55;
 }
 
 
@@ -91,10 +295,81 @@ export {default} from './indexCtr'
 /* 主体部分 */
 .main{
     width: 1200px;
-    height: 5000px;
     margin: 0 auto;
 }
-
+/* 许愿 */
+.wishTree{
+    position: relative;
+    width: 100%;
+    height: 520px;
+   /* background-color: pink; */
+    background: url('./../../assets/images/wishingtree.png');
+    background-repeat: no-repeat;
+    background-position: 65%;
+    margin-top: 35px;
+}
+.wishNav{
+    position: absolute;
+    left: 150px;
+    top: 140px;
+    width: 85px;
+    height: 345px;
+}
+.wishNav_bar{
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    margin-bottom: 30px;
+    text-align: center;
+    line-height: 85px;
+    background-color: #db844e;
+    color: #fff;
+}
+.wishNext{
+    position: absolute;
+    right: 0;
+    top: 40px;
+    width: 250px;
+    height: 200px;
+}
+.wishNext div{
+    width: 100%;
+    height: 70px;
+    color: #fff;
+    text-align: center;
+}
+.wishNext div span{
+    display: inline-block;
+    width: 100%;
+}
+.wishNext div span:first-child{
+    padding: 12px 0 8px;;
+}
+.wishNext div:first-child{
+    background: url('./../../assets/images/treeBg.png') no-repeat;
+}
+.wishNext div:last-child{
+     background: url('./../../assets/images/treeBg1.png') no-repeat;
+     margin-top: 110px;
+}
+/* .wishNext_top{
+     background: url('./../../assets/images/treeBg.png') no-repeat;
+}
+.wishNext_bottom{
+     background: url('./../../assets/images/treeBg1.png') no-repeat;
+     margin-top: 110px;
+} */
+.wish_title{
+    color: #3e3c3f;
+    padding-top: 100px;
+}
+.wish_title_first{
+    font-size: 30px;
+    /* padding-bottom: 5px; */
+}
+.wish_title_seconed{
+    letter-spacing: 12px;
+}
 /* 快讯模块 */
 .alerts_main{
     display: flex;
@@ -105,20 +380,46 @@ export {default} from './indexCtr'
     width: 505px;
 }
 .alerts_left_top{
+    position: relative;
     height: 445px;
-    background: red;
+}
+.alerts_left_top span.title{
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    color: #fff;
+}
+.alerts_left_top span.time{
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    color: #fff;
 }
 .alerts_left_bottom{
+    position: relative;
     height: 355px;
-    background: blue;
     margin-top: 35px;
 }
+.alerts_left_bottom span.title{
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    color: #fff;
+}
+.alerts_left_bottom span.time{
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    color: #fff;
+}
 .alerts_right{
+    position: relative;
     width: 655px;
 }
 .alerts_right ul{
     padding: 25px 15px;
     background-color: #ededed;
+    margin-top: 70px;
 }
 .alerts_right ul li{
     height: 90px;
@@ -142,4 +443,120 @@ export {default} from './indexCtr'
 .alerts_right ul li:last-child{
     border-bottom: none;
 }
+.alerts_more{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+
+/* 娱乐 */ 
+.amusement_music{
+    /* position: relative; */
+    display: flex;
+    display: -webkit-flex;
+    width: 100%;
+    height: 495px;
+    background-color: #ddd;
+    overflow: hidden;
+}
+.amusement_list{
+    /* position: absolute;
+    right: 0;
+    top: 0; */
+    position: relative;
+    height: 100%;
+    width: 270px;
+    background: #4b4b4b;
+    transition: all .5s;
+}
+.amusement_list_active{
+    width: 0px;
+    transition: all .5s;
+}
+.amusement_video_list{
+    height: 435px;
+    width: 100%;
+    margin-top: 10px;
+    padding: 0 15px;
+    overflow-y: scroll;
+}
+.amusement_video_list li{
+    padding-bottom: 15px;
+}
+.amusement_video_list li img{
+    vertical-align: middle;
+}
+.amusement_video_list li span{
+    padding-left: 10px;
+    vertical-align: middle;
+    display: inline-block;
+    width: 160px;
+    color: #fff;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.amusement_title{
+    line-height: 50px;
+    padding-left: 20px;
+    color: #fff;
+}
+.amusement_video{
+    width: 930px;
+    height: 100%;
+    /* background: pink; */
+    margin: 0 auto;
+}
+.amusement_video video{
+    object-fit: fill;
+}
+.amusement_btn{
+    position: absolute;
+    z-index: 999;
+    left: -18px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block;
+    content: "<";
+    width: 18px;
+    height: 60px;
+    background: rgba(0, 0, 0, .3);
+    text-align: center;
+    line-height: 60px;
+    color: #fff;
+}
+.amusement_more{
+    margin: 55px auto 90px;
+}
+.exploreCity_content{
+    position: relative;
+    width: 650px;
+    height: 670px;
+    margin-top: 70px;
+}
+.exploreCity_content span.title{
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    color: #fff;
+}
+.exploreCity_content span.time{
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    color: #fff;
+}
+.exploreCity_right{
+    width: 505px;
+}
+.exploreCity_left{
+    position: relative;
+}
+.exploreCity_more{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
 </style>
