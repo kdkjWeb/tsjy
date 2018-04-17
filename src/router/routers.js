@@ -7,6 +7,8 @@ import activeH from '@/pages/10_active/0_activeH/activeH'
 import affiche from '@/pages/10_active/1_affiche/affiche'
 import luckDraw from '@/pages/10_active/2_luckDraw/luckDraw'
 import vote from '@/pages/10_active/3_vote/vote'
+import fast from '@/pages/2_fast/fast'
+import video from '@/pages/4_video/video'
 
 
 export default {
@@ -35,6 +37,14 @@ export default {
       },
 
       ]
+    },{
+      path:"/fast",
+      name:"fast",
+      component:fast
+    },{
+      path:"/video",
+      name:"video",
+      component:video
     }
   ]
 }

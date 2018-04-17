@@ -83,12 +83,12 @@
             break;
           case 1:
             this.$router.push({
-              path: "/bSM"
+              path: "/fast"
             });
             break;
-          case 2:
+          case 3:
             this.$router.push({
-              path: "/scroll"
+              path: "/video"
             });
             break;
           case 9:
@@ -100,7 +100,11 @@
       }
     },
     mounted(){
-      if (this.$route.path.indexOf("/active")>=0) {
+      if (this.$route.path.indexOf("/fast")>=0) {
+        this.thisIndex = 1;
+      }else if (this.$route.path.indexOf("/video")>=0) {
+        this.thisIndex = 3;
+      }else if (this.$route.path.indexOf("/active")>=0) {
         this.thisIndex = 9;
       }
     }
