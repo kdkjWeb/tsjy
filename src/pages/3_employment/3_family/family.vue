@@ -21,11 +21,11 @@ export {default} from './familyCtr'
 
 <style scoped="">
 .family{
-    width: 1068px;
+    width: 1078px;
     /* height: 5000px; */
     border: 1px solid #ddd;
     box-shadow: 2px 2px 2px 2px #ddd;
-    margin: 0 auto;
+    margin: 0 auto 95px;
     padding: 65px 60px 0;
     display: flex;
     display: -webkit-flex;

@@ -16,6 +16,17 @@
           </div>
         </li>
       </ul>
+
+      <div class="page">
+        <el-pagination class="pagination"
+                     background
+                     @current-change="handleCurrentChange"
+                     :current-page.sync="currentPage1"
+                     :page-size="100"
+                     :total="1000"
+                     layout="prev, pager, next">
+      </el-pagination>
+      </div>
   </div>
 </template>
 
@@ -29,7 +40,7 @@ export {default} from './jobCtr'
   width: 1128px;
   border: 1px solid #ddd;
   box-shadow: 2px 2px 2px 2px #ddd;
-  margin: 0 auto;
+  margin: 0 auto 95px;
   padding: 0 35px;
 }
 .job_header{
@@ -95,6 +106,14 @@ export {default} from './jobCtr'
 }
 .job_right_time{
   padding-top: 20px;
+}
+
+.page{
+  margin: 80px auto;
+}
+.pagination {
+  text-align: center;
+  margin-top:50px;
 }
 </style>
 
