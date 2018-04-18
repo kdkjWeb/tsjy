@@ -28,7 +28,7 @@ export default {
               break;
         case 2:
           this.$router.push({
-            path:"/employment/family"
+            path:"/wish/store"
           });
               break;
       }
@@ -36,12 +36,12 @@ export default {
 
   },
   mounted(){
-    if (this.$route.path == "/employment/recruitment") {
+    if (this.$route.path == "/wish/wishtree") {
       this.thisIndex = 0;
-    }else if (this.$route.path == "/employment/job") {
+    }else if (this.$route.path == "/wish/treeWar") {
       this.thisIndex = 1;
     }
-    else if (this.$route.path == "/employment/family") {
+    else if (this.$route.path == "/wish/store") {
       this.thisIndex = 2;
     }
   }

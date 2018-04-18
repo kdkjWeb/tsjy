@@ -38,7 +38,7 @@ import atlas from '@/pages/6_netred/2_atlas/atlas'
 import wish from '@/pages/7_wish/0_activeH/activeH'
 import wishtree from '@/pages/7_wish/1_wishtree/wishtree'
 import treeWar from '@/pages/7_wish/2_treeWar/treeWar'
-
+import store from '@/pages/7_wish/3_store/store'
 
 
 export default {
@@ -163,6 +163,10 @@ export default {
             path: '/wish/treeWar',
             name: 'treeWar',
             component: treeWar
+          },{
+            path: '/wish/store',
+            name: 'store',
+            component: store
           }
         ]
 
