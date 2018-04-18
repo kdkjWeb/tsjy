@@ -99,10 +99,6 @@ export default {
         }
       ]
     },{
-      path: '/flea',
-      name: 'flea',
-      component: flea
-    },{
       path: '/citySearcher',
       name: 'citySearcher',
       component: citySearcher
@@ -129,26 +125,6 @@ export default {
         path: '/flea',
         name: 'flea',
         component: flea
-      },{
-        path: '/netred',
-        name: 'netred',
-        component: netred,
-        redirect: '/netred/personal',
-        children: [
-          {
-            path: '/netred/personal',
-            name: 'personal',
-            component: personal
-          },{
-            path: '/netred/information',
-            name: 'information',
-            component: information
-          },{
-            path: '/netred/atlas',
-            name: 'atlas',
-            component: atlas
-          }
-        ]
       },{
         path: '/wish',
         name: 'wish',
