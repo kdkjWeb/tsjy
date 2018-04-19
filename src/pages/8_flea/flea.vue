@@ -40,7 +40,7 @@ export {default} from './fleaCtr'
   width: 1128px;
   border: 1px solid #ddd;
   box-shadow: 2px 2px 2px 2px #ddd;
-  margin: 0 auto 95px;
+  margin: 50px auto 95px;
   padding: 0 35px;
 }
 .job_header{

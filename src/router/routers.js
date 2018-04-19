@@ -14,7 +14,7 @@ import activeH from '@/pages/10_active/0_activeH/activeH'
 import affiche from '@/pages/10_active/1_affiche/affiche'
 import luckDraw from '@/pages/10_active/2_luckDraw/luckDraw'
 import vote from '@/pages/10_active/3_vote/vote'
-
+import affichedetails from '@/pages/10_active/4_affichedetails/affichedetails'
 // 快讯
 import fast from '@/pages/2_fast/fast'
 import fastdetails from '@/pages/2_fast/details/details'
@@ -162,6 +162,10 @@ export default {
         path: '/recommendfilm',
         name: 'recommendfilm',
         component: recommendfilm
+      },{
+        path: '/affichedetails',
+        name: 'affichedetails',
+        component: affichedetails
       }
   ]
 }
