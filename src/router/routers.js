@@ -36,7 +36,7 @@ import netred from '@/pages/6_netred/0_activeH/activeH'
 import personal from '@/pages/6_netred/1_personal/personal'
 import information from '@/pages/6_netred/3_information/information'
 import atlas from '@/pages/6_netred/2_atlas/atlas'
-
+import personaldetails from '@/pages/6_netred/4_personaldetails/personaldetails'
 
 // 许愿树
 import wish from '@/pages/7_wish/0_activeH/activeH'
@@ -166,6 +166,10 @@ export default {
         path: '/affichedetails',
         name: 'affichedetails',
         component: affichedetails
+      },{
+        path: '/personaldetails',
+        name: 'personaldetails',
+        component: personaldetails
       }
   ]
 }
