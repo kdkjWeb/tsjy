@@ -16,13 +16,9 @@ import luckDraw from '@/pages/10_active/2_luckDraw/luckDraw'
 import vote from '@/pages/10_active/3_vote/vote'
 import affichedetails from '@/pages/10_active/4_affichedetails/affichedetails'
 // 快讯
-<<<<<<< HEAD
 import fast from '@/pages/2_fast/fast/fast'
-=======
-import fast from '@/pages/2_fast/fast'
 import fastdetails from '@/pages/2_fast/details/details'
 
->>>>>>> 99152e4544029ff781c191f247d6893f03cb5980
 // 视频
 import video from '@/pages/4_video/video'
 import wonderfulfilm from '@/pages/4_video/wonderfulfilm/wonderfulfilm'

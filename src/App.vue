@@ -45,7 +45,7 @@
     },
     data(){
       return {
-        show:true,
+        show:false,
         login:true,
         textTitle:"注册",
         thisIndex:0,
