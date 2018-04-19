@@ -17,7 +17,7 @@
       <div class="list">
         
         <ul class="listB">
-          <li class="job_list" v-for="(item,index) in jobList" :key="index">
+          <li class="job_list" v-for="(item,index) in allList" :key="index">
           <div class="job_left">
             <img :src="item.src" alt="">
             <p>{{item.name}}</p>
@@ -30,8 +30,8 @@
             </div>
             <!-- 用户输入评论内容 -->
             <div class="dis_content" v-if="firstIndex == index">
-              <textarea name="" id=""></textarea>
-              <div class="store_btn dis_content_btn" @click="send"><span class="iconfont icon-fasong"></span>发送</div>
+              <textarea name="" id="" v-model="firstContent"></textarea>
+              <div class="store_btn dis_content_btn" @click="firstSend"><span class="iconfont icon-fasong"></span>发送</div>
             </div>
        
             <ul class="user_dis_list" v-if="item.disList.length>0">
@@ -50,9 +50,34 @@
                   </div>
                 </div>
                 <div class="dis_content" v-if="seconedIndex == index">
-                  <textarea name="" id=""></textarea>
-                  <div class="store_btn dis_content_btn" @click="send"><span class="iconfont icon-fasong"></span>发送</div>
+                  <textarea name="" id="" v-model="seconedContent"></textarea>
+                  <div class="store_btn dis_content_btn" @click="seconedSend"><span class="iconfont icon-fasong"></span>发送</div>
                 </div>
+
+              <ul class="user_dis_list" v-if="item.threeList.length>0">
+              <li class="seconed_dis" v-for="(item,index) in item.threeList" :key="index">
+                <div class="seconed_dis_top">
+                  <div class="seconed_dis_img"> 
+                    <img :src="item.src" alt="">
+                  </div>
+                  <div class="seconed_dis_content">
+                    <p class="seconed_dis_content_top">
+                      <span>{{item.name}}</span>
+                      <span class="time">{{item.time}}</span>
+                      <span @click="threeDis(index)" class="reply">回复</span>
+                    </p>
+                    <p>{{item.content}}</p>
+                  </div>
+                </div>
+                <div class="dis_content" v-if="threeIndex == index">
+                  <textarea name="" id="" v-model="threeContent"></textarea>
+                  <div class="store_btn dis_content_btn" @click="threeSend"><span class="iconfont icon-fasong"></span>发送</div>
+                </div>
+              </li>
+            </ul>
+
+
+
               </li>
             </ul>
           </div>
@@ -220,7 +245,7 @@ export {default} from './storeCtr'
 
 /* 输入评论内容 */
 .dis_content{
-  width: 805px;
+  width: 745px;
   height: 150px;
   margin: 10px auto 0;
 }

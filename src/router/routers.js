@@ -14,11 +14,19 @@ import activeH from '@/pages/10_active/0_activeH/activeH'
 import affiche from '@/pages/10_active/1_affiche/affiche'
 import luckDraw from '@/pages/10_active/2_luckDraw/luckDraw'
 import vote from '@/pages/10_active/3_vote/vote'
-
+import affichedetails from '@/pages/10_active/4_affichedetails/affichedetails'
 // 快讯
+<<<<<<< HEAD
 import fast from '@/pages/2_fast/fast/fast'
+=======
+import fast from '@/pages/2_fast/fast'
+import fastdetails from '@/pages/2_fast/details/details'
+
+>>>>>>> 99152e4544029ff781c191f247d6893f03cb5980
 // 视频
 import video from '@/pages/4_video/video'
+import wonderfulfilm from '@/pages/4_video/wonderfulfilm/wonderfulfilm'
+import recommendfilm from '@/pages/4_video/recommendfilm/recommendfilm'
 // 音乐
 import music from '@/pages/5_music/music'
 // 探城
@@ -32,7 +40,7 @@ import netred from '@/pages/6_netred/0_activeH/activeH'
 import personal from '@/pages/6_netred/1_personal/personal'
 import information from '@/pages/6_netred/3_information/information'
 import atlas from '@/pages/6_netred/2_atlas/atlas'
-
+import personaldetails from '@/pages/6_netred/4_personaldetails/personaldetails'
 
 // 许愿树
 import wish from '@/pages/7_wish/0_activeH/activeH'
@@ -146,6 +154,26 @@ export default {
           }
         ]
 
+      },{
+        path: '/fastdetails',
+        name: 'fastdetails',
+        component: fastdetails
+      },{
+        path: '/wonderfulfilm',
+        name: 'wonderfulfilm',
+        component: wonderfulfilm
+      },{
+        path: '/recommendfilm',
+        name: 'recommendfilm',
+        component: recommendfilm
+      },{
+        path: '/affichedetails',
+        name: 'affichedetails',
+        component: affichedetails
+      },{
+        path: '/personaldetails',
+        name: 'personaldetails',
+        component: personaldetails
       }
   ]
 }

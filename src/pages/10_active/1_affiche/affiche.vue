@@ -8,7 +8,7 @@
         </div>
       </div>
       <div class="con">
-        <div class="conB clear" v-for="item,index in list" :key="index">
+        <div class="conB clear" v-for="item,index in list" :key="index" @click="details">
           <img :src="item.src" alt="">
           <div class="conDes">
             <p>{{item.title}}</p>
