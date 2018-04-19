@@ -17,8 +17,12 @@ import vote from '@/pages/10_active/3_vote/vote'
 
 // 快讯
 import fast from '@/pages/2_fast/fast'
+import fastdetails from '@/pages/2_fast/details/details'
+
 // 视频
 import video from '@/pages/4_video/video'
+import wonderfulfilm from '@/pages/4_video/wonderfulfilm/wonderfulfilm'
+import recommendfilm from '@/pages/4_video/recommendfilm/recommendfilm'
 // 音乐
 import music from '@/pages/5_music/music'
 // 探城
@@ -146,6 +150,18 @@ export default {
           }
         ]
 
+      },{
+        path: '/fastdetails',
+        name: 'fastdetails',
+        component: fastdetails
+      },{
+        path: '/wonderfulfilm',
+        name: 'wonderfulfilm',
+        component: wonderfulfilm
+      },{
+        path: '/recommendfilm',
+        name: 'recommendfilm',
+        component: recommendfilm
       }
   ]
 }
