@@ -16,7 +16,7 @@ import luckDraw from '@/pages/10_active/2_luckDraw/luckDraw'
 import vote from '@/pages/10_active/3_vote/vote'
 
 // 快讯
-import fast from '@/pages/2_fast/fast'
+import fast from '@/pages/2_fast/fast/fast'
 // 视频
 import video from '@/pages/4_video/video'
 // 音乐

@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <div class="headerBox">
-    <header class="header">
+      <header class="header">
       <div class="header_btn">
-        <div class="login">登录</div>
-        <div class="register">注册</div>
+        <div class="login" @click="loginBox(1)">登录</div>
+        <div class="register" @click="loginBox(0)">注册</div>
       </div>
       <div class="logo">
         <img src="@/assets/images/login.jpg" alt="">
@@ -28,14 +28,26 @@
     </nav>
     <router-view/>
     <footer class="footer"></footer>
+    <loginReg
+      :show="show"
+      :login="login"
+      :textTitle="textTitle"
+      @toReg="toReg" @close="loginBox(-1)"></loginReg>
   </div>
 </template>
 
 <script>
+  import loginReg from '@/components/loginReg/loginReg'
   export default {
     name: 'App',
+    components:{
+      loginReg
+    },
     data(){
       return {
+        show:true,
+        login:true,
+        textTitle:"注册",
         thisIndex:0,
         navList: [
           {
@@ -128,6 +140,30 @@
             });
             break;
         }
+      },
+      loginBox(item){
+        this.show = !this.show;
+        switch(item) {
+          case -1:
+            this.login = true;
+            break;
+          case 0:
+            this.login = false;
+            break;
+          case 1:
+            this.login = true;
+            break;
+        }
+      },
+      toReg(item){
+        if(item == 0) {
+          this.textTitle = "重置"
+        }else if (item == 1) {
+          this.textTitle = "注册"
+        }else {
+          this.textTitle = "注册"
+        }
+        this.login = !this.login;
       }
     },
     mounted(){
@@ -258,9 +294,11 @@
     width: 55px;
     border: 1px solid #9a9a9a;
     border-radius: 15px;
+    cursor: pointer;
   }
   .header_btn div.login{
     /* width: 65px; */
+    cursor: pointer;
   }
   .nav{
     width: 100%;
