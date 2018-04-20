@@ -46,7 +46,9 @@ export default {
       console.log(`当前页: ${val}`);
     },
     toVoteSign(){
-      this.$router.push("/voteSign")
+      this.$router.push({
+        name:"voteSign"
+      })
     }
   },
   mounted(){

@@ -181,7 +181,7 @@
         this.thisIndex = 7;
       }else if (this.$route.path.indexOf("/citySearcher")>=0) {
         this.thisIndex = 8;
-      }else if (this.$route.path.indexOf("/active")>=0) {
+      }else if (this.$route.path.indexOf("/active")>=0||this.$route.path.indexOf("/vote")>=0) {
         this.thisIndex = 9;
       }
     }
