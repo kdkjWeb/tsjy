@@ -48,7 +48,7 @@ export default {
     //点击到详情页面
     details(){
       this.$router.push({
-        name: 'affichedetails'
+        name: 'activeAffDetails'
       })
     }
   },

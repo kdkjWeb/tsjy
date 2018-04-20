@@ -123,11 +123,11 @@ export default {
     details() {
       if(this.thisIndex == 0){
         this.$router.push({
-          name: 'wonderfulfilm'
+          name: 'videoFilm'
         })
       }else if(this.thisIndex == 1){
         this.$router.push({
-          name: 'recommendfilm'
+          name: 'videoReFilm'
         })
       }
     }
