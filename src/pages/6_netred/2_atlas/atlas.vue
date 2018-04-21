@@ -1,6 +1,6 @@
 <template>
   <div class="personal">
-      <div class="personal_list" v-for="(item,index) in netredList" :key="index">
+      <div class="personal_list" v-for="(item,index) in netredList" :key="index" @click="details(item)">
           <img :src="item.src" alt="">
           <p>{{item.name}}</p>
           <p>{{item.title}}</p>

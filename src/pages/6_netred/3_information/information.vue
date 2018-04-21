@@ -1,6 +1,6 @@
 <template>
     <div class="information">
-        <div class="information_list" v-for="(item,index) in informationList" :key="index">
+        <div class="information_list" v-for="(item,index) in informationList" :key="index" @click="details(item)">
             <img :src="item.src" alt="">
             <div class="information_list_des">
                 <h6>{{item.title}}</h6>

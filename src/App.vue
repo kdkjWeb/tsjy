@@ -175,7 +175,7 @@
         this.thisIndex = 3;
       }else if (this.$route.path.indexOf("/music")>=0) {
         this.thisIndex = 4;
-      }else if (this.$route.path.indexOf("/netred")>=0) {
+      }else if (this.$route.path.indexOf("/netred")>=0||this.$route.path.indexOf("/imformationdetails")>=0) {
         this.thisIndex = 5;
       }else if (this.$route.path.indexOf("/flea")>=0) {
         this.thisIndex = 7;
