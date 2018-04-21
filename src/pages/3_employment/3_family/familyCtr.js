@@ -61,6 +61,15 @@ export default{
         }
     },
     methods: {
-
+      toFamilyDetail(){
+        this.$router.push({
+          name:"familyDetail"
+        })
+      },
+      toPublish(){
+        this.$router.push({
+          name:"familyForm"
+        })
+      }
     }
 }

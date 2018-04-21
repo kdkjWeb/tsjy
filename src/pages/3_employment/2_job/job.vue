@@ -2,7 +2,7 @@
   <div class="job">
       <div class="job_header">
         <span>选择你需要的人才</span>
-        <span class="job_btn">发布求职</span>
+        <span class="job_btn" @click="publishJob">发布求职</span>
       </div>
       <ul>
         <li class="job_list" v-for="(item,index) in jobList" :key="index">
@@ -11,7 +11,7 @@
             <p>发布人：{{item.name}}</p>
           </div>
           <div class="job_right">
-            <p class="job_right_top"><span>【{{item.subject}}】</span><span>{{item.content}}</span><span class="job_right_price"><span>{{item.price}}</span>/{{item.unit}}</span></p>
+            <p class="job_right_top"><span>【{{item.subject}}】</span><span @click="toJobDetail">{{item.content}}</span><span class="job_right_price"><span>{{item.price}}</span>/{{item.unit}}</span></p>
             <p class="job_right_time">{{item.time}}</p>
           </div>
         </li>
@@ -104,6 +104,10 @@ export {default} from './jobCtr'
 .job_right_price span{
   color: #da854f;
   font-size: 16px;
+}
+.job_right_top span:nth-of-type(2) {
+  cursor: pointer;
+  text-decoration: underline;
 }
 .job_right_time{
   padding-top: 20px;

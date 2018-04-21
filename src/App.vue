@@ -262,11 +262,21 @@
   .el-pagination.is-background .el-pager li:not(.disabled):hover {
     color:white;
   }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+  input[type="number"]{
+    -moz-appearance: textfield;
+  }
   .width12 {
     width:1200px;
     margin:0 auto;
     overflow: auto;
   }
+
+
 
 
 /*公用头部样式*/

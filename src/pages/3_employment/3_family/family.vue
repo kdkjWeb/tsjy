@@ -2,9 +2,9 @@
   <div class="family">
     <div class="job_header">
       <span>查看家教信息</span>
-      <span class="job_btn">发布信息</span>
+      <span class="job_btn" @click="toPublish">发布信息</span>
     </div>
-      <div class="teacher" v-for="(item,index) in teacherList" :key="index">
+      <div class="teacher" v-for="(item,index) in teacherList" :key="index" @click="toFamilyDetail">
           <img :src="item.src" alt="">
           <div class="family_content">
              <h4>{{item.subject}}</h4>

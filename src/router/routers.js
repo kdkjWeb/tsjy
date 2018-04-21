@@ -8,7 +8,11 @@ import employment from '@/pages/3_employment/0_activeH/activeH'
 import recruitment from '@/pages/3_employment/1_recruitment/recruitment'
 import job from '@/pages/3_employment/2_job/job'
 import family from '@/pages/3_employment/3_family/family'
-import jobDetail from '@/pages/3_employment/2_1_jobDetail/jobDetail'
+import jobDetail from '@/pages/3_employment/1_1_jobDetail/jobDetail'
+import getJob from '@/pages/3_employment/2_1_getJob/getJob'
+import getJobForm from '@/pages/3_employment/2_2_getJobForm/getJobForm'
+import familyDetail from '@/pages/3_employment/3_1_familyDetail/familyDetail'
+import familyForm from '@/pages/3_employment/3_2_familyForm/familyForm'
 //活动
 import activeH from '@/pages/10_active/0_activeH/activeH'
 import affiche from '@/pages/10_active/1_affiche/affiche'
@@ -90,6 +94,26 @@ let employmentRoute = {
     path:"/employment/jobDetail",
     name:"jobDetail",
     component:jobDetail
+  },
+  getJob:{
+    path:"/employment/getJob",
+    name:"getJob",
+    component:getJob
+  },
+  getJobForm:{
+    path:"/employment/getJobForm",
+    name:"getJobForm",
+    component:getJobForm
+  },
+  familyDetail:{
+    path:"/employment/familyDetail",
+    name:"familyDetail",
+    component:familyDetail
+  },
+  familyForm:{
+    path:"/employment/familyForm",
+    name:"familyForm",
+    component:familyForm
   }
 };
 // 视频
@@ -239,7 +263,12 @@ export default {
   routes: [
     indexRoute,
     fastRoute.fast,fastRoute.fastdetails,
-    employmentRoute.employment,employmentRoute.jobDetail,
+    employmentRoute.employment,
+    employmentRoute.jobDetail,
+    employmentRoute.getJob,
+    employmentRoute.getJobForm,
+    employmentRoute.familyDetail,
+    employmentRoute.familyForm,
     videoRoute.video,videoRoute.wonderful,videoRoute.recommendfilm,
     musicRoute,
     netRedRoute.netRed,netRedRoute.personDetail,
