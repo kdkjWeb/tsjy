@@ -73,6 +73,12 @@ export default{
           },
         handleCurrentChange(val) {
         console.log(`当前页: ${val}`);
+        },
+        //查看详情页面
+        details(item){
+            this.$router.push({
+                name: 'atlasdetails'
+            })
         }
     }
 }

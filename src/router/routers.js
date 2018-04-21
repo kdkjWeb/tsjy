@@ -43,6 +43,9 @@ import personal from '@/pages/6_netred/1_personal/personal'
 import information from '@/pages/6_netred/3_information/information'
 import atlas from '@/pages/6_netred/2_atlas/atlas'
 import personaldetails from '@/pages/6_netred/4_personaldetails/personaldetails'
+import atlasdetails from '@/pages/6_netred/5_atlasdetails/atlasdetails'
+import imformationdetails from '@/pages/6_netred/6_imformationdetails/imformationdetails'
+
 // 许愿树
 import wish from '@/pages/7_wish/0_activeH/activeH'
 import wishtree from '@/pages/7_wish/1_wishtree/wishtree'
@@ -167,6 +170,16 @@ let netRedRoute = {
     path: '/netRedDetails',
     name: 'netRedDetails',
     component: personaldetails
+  },
+  atlasdetails:{
+    path: '/atlasdetails',
+    name: 'atlasdetails',
+    component: atlasdetails
+  },
+  imformationdetails: {
+    path: 'imformationdetails',
+    name: 'imformationdetails',
+    component: imformationdetails
   }
 
 };
@@ -271,7 +284,7 @@ export default {
     employmentRoute.familyForm,
     videoRoute.video,videoRoute.wonderful,videoRoute.recommendfilm,
     musicRoute,
-    netRedRoute.netRed,netRedRoute.personDetail,
+    netRedRoute.netRed,netRedRoute.personDetail,netRedRoute.atlasdetails,netRedRoute.imformationdetails,
     wishRoute,
     fleaRoute,
     cityRouter,
