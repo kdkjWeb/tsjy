@@ -42,6 +42,7 @@ export {default} from './jobCtr'
   box-shadow: 2px 2px 2px 2px #ddd;
   margin: 0 auto 95px;
   padding: 0 35px;
+  background-color: white;
 }
 .job_header{
   position: relative;

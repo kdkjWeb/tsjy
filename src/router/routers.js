@@ -8,6 +8,7 @@ import employment from '@/pages/3_employment/0_activeH/activeH'
 import recruitment from '@/pages/3_employment/1_recruitment/recruitment'
 import job from '@/pages/3_employment/2_job/job'
 import family from '@/pages/3_employment/3_family/family'
+import jobDetail from '@/pages/3_employment/2_1_jobDetail/jobDetail'
 //活动
 import activeH from '@/pages/10_active/0_activeH/activeH'
 import affiche from '@/pages/10_active/1_affiche/affiche'
@@ -65,24 +66,31 @@ let fastRoute = {
 };
 // 就业
 let employmentRoute = {
-  path: '/employment',
-  name: 'employment',
-  component: employment,
-  redirect: '/employment/recruitment',
-  children: [
-    {
-      path: '/employment/recruitment',
-      name: 'recruitment',
-      component: recruitment
-    },{
-      path: '/employment/job',
-      name: 'job',
-      component: job
-    },{
-      path: '/employment/family',
-      name: 'family',
-      component: family
-    } ]
+  employment:{
+    path: '/employment',
+    name: 'employment',
+    component: employment,
+    redirect: '/employment/recruitment',
+    children: [
+      {
+        path: '/employment/recruitment',
+        name: 'recruitment',
+        component: recruitment
+      },{
+        path: '/employment/job',
+        name: 'job',
+        component: job
+      },{
+        path: '/employment/family',
+        name: 'family',
+        component: family
+      } ]
+  },
+  jobDetail:{
+    path:"/employment/jobDetail",
+    name:"jobDetail",
+    component:jobDetail
+  }
 };
 // 视频
 let videoRoute = {
@@ -231,7 +239,7 @@ export default {
   routes: [
     indexRoute,
     fastRoute.fast,fastRoute.fastdetails,
-    employmentRoute,
+    employmentRoute.employment,employmentRoute.jobDetail,
     videoRoute.video,videoRoute.wonderful,videoRoute.recommendfilm,
     musicRoute,
     netRedRoute.netRed,netRedRoute.personDetail,

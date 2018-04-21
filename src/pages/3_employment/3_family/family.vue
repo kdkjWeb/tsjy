@@ -1,5 +1,9 @@
 <template>
   <div class="family">
+    <div class="job_header">
+      <span>查看家教信息</span>
+      <span class="job_btn">发布信息</span>
+    </div>
       <div class="teacher" v-for="(item,index) in teacherList" :key="index">
           <img :src="item.src" alt="">
           <div class="family_content">
@@ -31,6 +35,25 @@ export {default} from './familyCtr'
     display: -webkit-flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    background-color: white;
+}
+.job_header{
+  width:100%;
+  position: relative;
+  padding: 0 0 30px;
+}
+.job_btn{
+  position: absolute;
+  right: 0;
+  top: -22px;
+  display: inline-block;
+  width: 150px;
+  height: 50px;
+  background-color: #da854f;
+  line-height: 50px;
+  text-align: center;
+  border-radius: 5px;
+  color: #fff;
 }
 .teacher{
     padding: 30px;

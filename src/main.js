@@ -23,8 +23,8 @@ import '@/assets/font/iconfont.css'
 import axiosConfig from "./server/index.js"
 Vue.prototype.$axios = axiosConfig.axiosConfig;
 Vue.prototype.$baseU = axiosConfig.baseU;
-
-
+//
+//
 // 封装方法axios的get以及post
 import  Server from './server/server.js'
 Vue.prototype.$g = Server.g;

@@ -1,9 +1,5 @@
 <template>
   <div class="job">
-      <div class="job_header">
-        <span>选择合适你的职位</span>
-        <span class="job_btn">发布招聘</span>
-      </div>
       <ul>
         <li class="job_list" v-for="(item,index) in jobList" :key="index">
           <div class="job_left">
@@ -11,7 +7,7 @@
             <p>发布人：{{item.name}}</p>
           </div>
           <div class="job_right">
-            <p class="job_right_top"><span>【{{item.subject}}】</span><span>{{item.content}}</span><span class="job_right_price"><span>{{item.price}}</span>/{{item.unit}}</span></p>
+            <p class="job_right_top"><span>【{{item.subject}}】</span><span @click="toJobDetail">{{item.content}}</span><span class="job_right_price"><span>{{item.price}}</span>/{{item.unit}}</span></p>
             <p class="job_right_time">{{item.time}}</p>
           </div>
         </li>
@@ -40,25 +36,10 @@ export {default} from './recruitmentCtr'
   border: 1px solid #ddd;
   box-shadow: 2px 2px 2px 2px #ddd;
   margin: 0 auto 95px;
-  padding: 0 35px;
+  padding: 50px 35px 0;
+  background-color: white;
 }
-.job_header{
-  position: relative;
-  padding: 50px 0 30px;
-}
-.job_btn{
-  position: absolute;
-  right: 0;
-  top: 22px;
-  display: inline-block;
-  width: 150px;
-  height: 50px;
-  background-color: #da854f;
-  line-height: 50px;
-  text-align: center;
-  border-radius: 5px;
-  color: #fff;
-}
+
 .job ul{
   border: 1px solid #ddd;
 }
@@ -95,6 +76,10 @@ export {default} from './recruitmentCtr'
 }
 .job_right_top{
   font-size: 16px;
+}
+.job_right_top span:nth-of-type(2) {
+  cursor: pointer;
+  text-decoration: underline;
 }
 .job_right_price{
   font-size: 14px;
