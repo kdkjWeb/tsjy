@@ -11,7 +11,7 @@
             <p>发布人：{{item.name}}</p>
           </div>
           <div class="job_right">
-            <p class="job_right_top"><span class="flea_type">【{{item.subject}}】</span><span>{{item.content}}</span></p>
+            <p class="job_right_top"><span class="flea_type">【{{item.subject}}】</span><span @click="toFleaDetail">{{item.content}}</span></p>
             <p class="job_right_time">{{item.time}}</p>
           </div>
         </li>
@@ -25,7 +25,7 @@
                      :page-size="100"
                      :total="1000"
                      layout="prev, pager, next">
-      </el-pagination>
+        </el-pagination>
       </div>
   </div>
 </template>
@@ -42,6 +42,7 @@ export {default} from './fleaCtr'
   box-shadow: 2px 2px 2px 2px #ddd;
   margin: 50px auto 95px;
   padding: 0 35px;
+  background-color: white;
 }
 .job_header{
   position: relative;
@@ -100,6 +101,10 @@ export {default} from './fleaCtr'
   overflow: hidden;
   text-overflow:ellipsis;
   white-space: nowrap;
+}
+.job_right_top span:nth-of-type(2) {
+  text-decoration: underline;
+  cursor: pointer;
 }
 .job_right_price{
   font-size: 14px;

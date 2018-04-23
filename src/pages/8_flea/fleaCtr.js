@@ -69,6 +69,11 @@ export default{
           },
         handleCurrentChange(val) {
         console.log(`当前页: ${val}`);
-        }
+        },
+      toFleaDetail(){
+          this.$router.push({
+            name:"fleaDetail"
+          })
+      }
     }
 }

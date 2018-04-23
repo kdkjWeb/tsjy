@@ -4,5 +4,5 @@
     </div>
 </template>
 <script>
-    export default require('');
+    export default require('./fleaDetailCtr');
 </script>

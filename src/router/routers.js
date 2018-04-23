@@ -35,8 +35,10 @@ import recommendfilm from '@/pages/4_video/recommendfilm/recommendfilm'
 import music from '@/pages/5_music/music'
 // 探城
 import citySearcher from '@/pages/9_citySearcher/citySearcher'
+import cityDetail from '@/pages/9_citySearcher/cityDetail/cityDetail'
 //跳蚤
 import flea from '@/pages/8_flea/flea'
+import fleaDetail from '@/pages/8_flea/fleaDetail/fleaDetail'
 //网红
 import netred from '@/pages/6_netred/0_activeH/activeH'
 import personal from '@/pages/6_netred/1_personal/personal'
@@ -207,15 +209,30 @@ let wishRoute = {
 };
 // 跳蚤
 let fleaRoute = {
-  path: '/flea',
-  name: 'flea',
-  component: flea
+  flea:{
+    path: '/flea',
+    name: 'flea',
+    component: flea
+  },
+  fleaDetail:{
+    path: '/fleaDetail',
+    name: 'fleaDetail',
+    component: fleaDetail
+  }
+
 };
 //探城
 let cityRouter={
-  path: '/citySearcher',
-  name: 'citySearcher',
-  component: citySearcher
+  city:{
+    path: '/citySearcher',
+    name: 'citySearcher',
+    component: citySearcher
+  },
+  cityDetail:{
+    path: '/cityDetail',
+    name: 'cityDetail',
+    component: cityDetail
+  }
 };
 // 活动
 let activeRouter = {
@@ -286,8 +303,8 @@ export default {
     musicRoute,
     netRedRoute.netRed,netRedRoute.personDetail,netRedRoute.atlasdetails,netRedRoute.imformationdetails,
     wishRoute,
-    fleaRoute,
-    cityRouter,
+    fleaRoute.flea,fleaRoute.fleaDetail,
+    cityRouter.city,cityRouter.cityDetail,
     activeRouter.active,
     activeRouter.affichedetails,
     activeRouter.voteSign,
