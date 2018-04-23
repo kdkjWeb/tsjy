@@ -54,6 +54,10 @@ import wishtree from '@/pages/7_wish/1_wishtree/wishtree'
 import treeWar from '@/pages/7_wish/2_treeWar/treeWar'
 import store from '@/pages/7_wish/3_store/store'
 
+//个人中心
+import personalcenter from '@/pages/personalcenter/personalcenter'
+
+
 // 首页
 let indexRoute = {
   path:"/",
@@ -287,7 +291,12 @@ let activeRouter = {
     component:voteVipDetail
   }
 };
-
+//个人中心
+let psersonalRoute = {
+  path: '/personalcenter',
+  name: 'personalcenter',
+  component: personalcenter
+}
 
 export default {
   routes: [
@@ -311,6 +320,7 @@ export default {
     activeRouter.voteSignForm,
     activeRouter.voteRanking,
     activeRouter.voteAffiche,
-    activeRouter.voteVipDetail
+    activeRouter.voteVipDetail,
+    psersonalRoute
   ]
 }
