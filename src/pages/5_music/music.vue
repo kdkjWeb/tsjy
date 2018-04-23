@@ -5,13 +5,13 @@
       </div>
       <div class="actHeader">
         <ul class="clear">
-          <li :class="thisIndex==index?'liAct':''" v-for="item,index in tabBarList" :key="index" @click="toLink(index)">{{item.title}}</li>
+          <li :class="thisIndex==index?'liAct':''" v-for="(item,index) in tabBarList" :key="index" @click="toLink(index)">{{item.title}}</li>
         </ul>
       </div>
 
       <!--列表-->
       <div class="con">
-        <div class="conB clear" v-for="item,index in list" :key="index">
+        <div class="conB clear" v-for="(item,index) in list" :key="index">
           <img :src="item.src" alt="">
           <div class="conDes">
             <p>{{item.title}}</p>
@@ -55,7 +55,7 @@
     text-align: center;
   }
   .actHeader ul {
-    width:318px;
+    width:424px;
     margin:0 auto;
   }
   .actHeader ul li {

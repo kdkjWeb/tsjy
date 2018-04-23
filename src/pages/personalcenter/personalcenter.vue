@@ -44,7 +44,7 @@ export {default} from './personalcenterCtr'
   display: -webkit-flex;
   width: 100%;
   height: 500px;
-  background-image: url('../../assets/images/treeWar.png');
+  background-image: url('../../assets/images/personal.png');
 }
 .center_left{
   flex: 3;

@@ -9,6 +9,7 @@ export default {
         {"title":"精彩MUSIC"},
         {"title":"倾听FM"},
         {"title":"留声机"},
+        {"title":"点播台"},
       ],
       amusement: {
         btn: '>',
@@ -113,6 +114,13 @@ export default {
     },
     toLink(index) {
       this.thisIndex = index;
+      switch(index){
+        case 2:
+        this.$router.push({
+          name: 'phonograph'
+        });
+        break;
+      }
     },
     handleSizeChange(val) {
       console.log(`每页 ${val} 条`);
