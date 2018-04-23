@@ -2,7 +2,7 @@
   <div class="job">
       <div class="job_header">
         <span>选择你需要的人才</span>
-        <span class="job_btn">发布信息</span>
+        <span class="job_btn" @click="alertOpen">发布信息</span>
       </div>
       <ul>
         <li class="job_list" v-for="(item,index) in jobList" :key="index">
@@ -27,6 +27,18 @@
                      layout="prev, pager, next">
         </el-pagination>
       </div>
+    <div class="alert" v-if="showAlert">
+      <div class="alertBox">
+        <i class="iconfont icon-remove" @click="alertOpen"></i>
+        <p>发表信息</p>
+        <el-input v-model="input" placeholder="请输入标题"></el-input>
+        <el-input v-model="input" placeholder="请输入类型"></el-input>
+        <el-input v-model="input" placeholder="请输入联系人"></el-input>
+        <el-input v-model="input" type="number" placeholder="请输入手机号"></el-input>
+        <el-input type="textarea" :rows="3" v-model="input" placeholder="更多介绍"></el-input>
+        <div class="alertBtn">确定</div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -126,6 +138,52 @@ export {default} from './fleaCtr'
   text-align: center;
   margin-top:50px;
 }
+  .alert {
+    position:fixed;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    background-color: rgba(0,0,0,.5);
+  }
+  .alertBox {
+    width:600px;
+    height:500px;
+    background-color: white;
+    border-radius: 10px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-top:-300px;
+    margin-left:-250px;
+    padding:30px 50px;
+    box-sizing: border-box;
+  }
+  .alertBox i {
+    position:absolute;
+    top:10px;
+    right:10px;
+    font-size:20px;
+  }
+  .alertBox p{
+    text-align: center;
+    margin-bottom:20px;
+  }
+.alertBox .el-input {
+  margin-bottom:20px;
+}
+  .alertBtn {
+    width:100%;
+    height:40px;
+    line-height: 40px;
+    text-align: center;
+    color:white;
+    font-size:16px;
+    background-color: #5b565d;
+    margin-top:20px;
+    cursor: pointer;
+  }
+
 </style>
 
 
