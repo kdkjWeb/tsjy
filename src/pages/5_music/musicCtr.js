@@ -5,6 +5,7 @@ export default {
   data(){
     return {
       thisIndex:0,
+      showAlert:false,
       tabBarList:[
         {"title":"精彩MUSIC"},
         {"title":"倾听FM"},
@@ -120,7 +121,18 @@ export default {
           name: 'phonograph'
         });
         break;
+        case 3:
+          this.showAlert = !this.showAlert;
+          break;
       }
+    },
+    alertOpen(){
+      this.showAlert = !this.showAlert;
+    },
+    toMusicDetail(){
+      this.$router.push({
+        name:"musicDetail"
+      })
     },
     handleSizeChange(val) {
       console.log(`每页 ${val} 条`);

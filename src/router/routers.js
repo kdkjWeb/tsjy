@@ -34,6 +34,7 @@ import recommendfilm from '@/pages/4_video/recommendfilm/recommendfilm'
 // 音乐
 import music from '@/pages/5_music/music'
 import phonograph from '@/pages/5_music/phonograph/phonograph'
+import musicDetail from '@/pages/5_music/musicDetail/musicDetail'
 // 探城
 import citySearcher from '@/pages/9_citySearcher/citySearcher'
 import cityDetail from '@/pages/9_citySearcher/cityDetail/cityDetail'
@@ -155,8 +156,13 @@ let musicRoute = {
     path: '/phonograph',
     name: 'phonograph',
     component: phonograph
+  },
+  musicDetail:{
+    path: '/musicDetail',
+    name: 'musicDetail',
+    component: musicDetail
   }
-  
+
 };
 // 网红
 let netRedRoute = {
@@ -318,7 +324,7 @@ export default {
     employmentRoute.familyDetail,
     employmentRoute.familyForm,
     videoRoute.video,videoRoute.wonderful,videoRoute.recommendfilm,
-    musicRoute.music,musicRoute.phonograph,
+    musicRoute.music,musicRoute.phonograph,musicRoute.musicDetail,
     netRedRoute.netRed,netRedRoute.personDetail,netRedRoute.atlasdetails,netRedRoute.imformationdetails,
     wishRoute,
     fleaRoute.flea,fleaRoute.fleaDetail,
