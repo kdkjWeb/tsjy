@@ -44,7 +44,7 @@ export default{
         },
         // 点击保存按钮
         save(){
-            if(!this.user.name || !this.user.accountnumber || this.user.newpas || this.successpas){
+            if(!this.user.name || !this.user.accountnumber || !this.user.newpas || !this.user.successpas){
                 this.$message.error({
                     message: '你的内容还没有填写完成',
                     center: true
