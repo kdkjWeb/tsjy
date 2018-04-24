@@ -262,7 +262,19 @@
   .el-pagination.is-background .el-pager li:not(.disabled):hover {
     color:white;
   }
-
+  .el-slider__button {
+    width:8px;
+    height:20px;
+    border-radius: 8px;
+    background-color: #d58351;
+    border:none;
+  }
+  .el-slider__bar {
+    background-color: #d58351;
+  }
+  .el-slider__runway {
+    background-color: rgba(255,255,255,.4);
+  }
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {
     -webkit-appearance: none;

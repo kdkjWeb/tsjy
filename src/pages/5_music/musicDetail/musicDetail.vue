@@ -3,6 +3,12 @@
     <div class="info">
       <div class="info_img">
         <img src="../../../assets/images/store.png" alt="" width="100%" height="100%">
+        <div class="block">
+          <div class="TimeRanges" :style="{width:timeRanges+'%'}"></div>
+          <el-slider v-model="currentTimeA" @change="slideTime" :format-tooltip="formatTooltip"></el-slider>
+        </div>
+        <i class="playBtn iconfont" :class="playAU?'icon-step':'icon-play'" @click="playAudio"></i>
+        <audio class="audio" src="http://dl.stream.qqmusic.qq.com/C4000022eEd52ZjUiA.m4a?vkey=EDB857442AE9E256457854181F6A8F98A8913805F7F0E898B8C287FFB86E2FFEE5177AF3B188E1CA44FD65C868A764E7531B20ADBE93999C&guid=1970694656&uin=428632259&fromtag=66" controls="controls" ref="audio"></audio>
       </div>
       <div class="info_list">
         <h1>{{user.name}}</h1>
@@ -40,6 +46,7 @@
     height:400px;
     margin-right:50px;
     border: 1px solid #ddd;
+    position:relative;
   }
   .info_list{
     width: 520px;
@@ -48,4 +55,30 @@
   .info_list p{
     padding-top: 20px;
   }
+  .block {
+    position:absolute;
+    bottom:10px;
+    left:20px;
+    width:325px;
+  }
+  .playBtn {
+    position:absolute;
+    bottom:15px;
+    right:20px;
+    font-size:25px;
+    color: #f1f1f1;
+    cursor: pointer;
+  }
+  .TimeRanges {
+    position:absolute;
+    top:16px;
+    /*width:100%;*/
+    height:6px;
+    background-color: rgba(213,131,81,.7);
+    border-radius: 3px;
+  }
+  .audio {
+    display: none;
+  }
+
 </style>
