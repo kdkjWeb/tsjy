@@ -20,6 +20,9 @@
           <div class="job_right">
             <p class="job_right_top">{{item.title}}</p>
             <p class="job_right_time"></p>
+            <span class="iconfont icon-play" :class="[activeIndex == index?'icon-step':'icon-play']" @click="play(index,$event)"></span>
+            <!-- <audio :src="item.audioSrc" controls></audio> -->
+            <p>空间看了就啊飒飒</p>
           </div>
         </li>
       </ul>
@@ -115,12 +118,16 @@ color:white;
   padding: 0px 0 5px;
 }
 .job_list .job_right{
+  position: relative;
   width: 865px;
   /* padding: 35px 85px 35px 70px; */
   padding: 15px;
 }
-.job_right_price{
-  float: right;
+.job_list .job_right span.iconfont{
+    position: absolute;
+    right: 12px;
+    font-size: 50px;
+    top: 60px;
 }
 .job_right_top{
   padding-bottom: 10px;
@@ -130,16 +137,10 @@ color:white;
   cursor: pointer;
   text-decoration: underline;
 }
-.job_right_price{
-  font-size: 14px;
-}
-.job_right_price span{
-  color: #da854f;
-  font-size: 16px;
-}
+
 .job_right_time{
   height: 60px;
-  width: 90%;
+  width: 92%;
   background-image: url('../../../assets/images/band.png');
   background-repeat: no-repeat;
   background-size: cover;
