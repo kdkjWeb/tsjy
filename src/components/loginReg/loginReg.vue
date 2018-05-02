@@ -5,17 +5,17 @@
         <div class="loginName">登录</div>
         <div class="input">
           <i class="iconfont icon-gaiicon"></i>
-          <input type="text" placeholder="请输入手机号">
+          <input type="text" v-model="userName" placeholder="请输入用户名">
         </div>
         <div class="input">
           <i class="iconfont icon-mima"></i>
-          <input type="text" placeholder="请输入密码">
+          <input type="password" v-model="passLg" placeholder="请输入密码">
         </div>
         <div class="input op">
           <span @click="toReg(1)">注册</span>
           <span @click="toReg(0)">忘记密码</span>
         </div>
-        <div class="input btn">登录</div>
+        <div class="input btn" @click="loginAjax">登录</div>
         <div class="hr">第三方账号登录</div>
         <div class="threeAccount">
           <i class="iconfont icon-QQ"></i>
@@ -27,21 +27,25 @@
         <div class="loginName">{{textTitle}}</div>
         <div class="input">
           <i class="iconfont icon-gaiicon"></i>
-          <input type="text" placeholder="请输入手机号">
+          <input type="text" v-model="userName" placeholder="请输入用户名">
         </div>
         <div class="input">
           <i class="iconfont icon-mima"></i>
-          <input type="text" placeholder="请输入密码">
+          <input type="password" v-model="passReg" placeholder="请输入密码">
         </div>
         <div class="input">
           <i class="iconfont icon-mima"></i>
-          <input type="text" placeholder="请再次确认密码">
+          <input type="password" v-model="rePassReg" placeholder="请再次确认密码">
         </div>
-        <div class="input code clear">
-          <input type="number" placeholder="请输入验证码">
-          <button @click="sendCode" :disabled="disabled">{{text}}</button>
+        <div class="input">
+          <i class="iconfont icon-shouji"></i>
+          <input type="number" v-model="phoneReg" placeholder="请输入联系手机号">
         </div>
-        <div class="input btn">{{textTitle}}</div>
+        <!--<div class="input code clear">-->
+          <!--<input type="number" placeholder="请输入验证码">-->
+          <!--<button @click="sendCode" :disabled="disabled">{{text}}</button>-->
+        <!--</div>-->
+        <div class="input btn" @click="registerAjax">{{textTitle}}</div>
         <div class="input op">
           <span></span>
           <span @click="toReg">已有账号</span>
@@ -209,5 +213,12 @@
   }
   .threeAccount i:nth-of-type(2) {
     color:#1ab10b;
+  }
+
+
+  input:-webkit-autofill {
+    -webkit-text-fill-color: #333 !important;
+    background-color: white !important;
+    transition: background-color 5000s ease-in-out 0s;
   }
 </style>

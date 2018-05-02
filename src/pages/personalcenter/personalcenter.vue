@@ -5,17 +5,18 @@
         <div class="change_header">
           <div class="change_header_img">
             <input class="change_header_file" type="file" @change="onFileChange">
-            <img :src="user.headerSrc" alt="">
+            <img :src="profilehead" alt="">
           </div>
-          <p class="change_header_name">{{user.name}}</p>
+          <p class="change_header_name">{{user.username}}</p>
           <p class="change_header_vip">VIP</p>
         </div>
       </div>
       <div class="center_right">
-        <p>昵称：<input type="text" v-model="user.name"></p>
-        <p>账号：<input type="text" v-model="user.accountnumber"></p>
-        <p>新密码：<input type="text" v-model="user.newpas"></p>
-        <p>确认密码：<input type="text" v-model="user.successpas"></p>
+        <p>昵&emsp;&emsp;称：<input type="text" v-model="user.nickname"></p>
+        <p>账&emsp;&emsp;号：<input type="text" disabled="disabled" v-model="user.username"></p>
+        <!--<p>电话号码：<input type="text" v-model="user.phone"></p>-->
+        <p>新&nbsp;&nbsp;密&nbsp;&nbsp;码：<input type="password" v-model="password"></p>
+        <p>确认密码：<input type="password" v-model="rePassword"></p>
         <div class="btn" @click="save">保存</div>
       </div>
     </div>
@@ -55,7 +56,7 @@ export {default} from './personalcenterCtr'
 .center_right{
   flex: 4;
   height: 100%;
-  padding-top: 160px;
+  padding-top: 100px;
 }
 .center_right p{
   text-align: center;
@@ -66,7 +67,10 @@ export {default} from './personalcenterCtr'
   outline: none;
   color: #fff;
   background-color: transparent;
-  border: none;
+  height:30px;
+  border-radius: 30px;
+  padding:0 10px;
+  border: 1px solid rgba(255,255,255,.8);
 }
 .center_right .btn{
   width: 115px;

@@ -8,7 +8,7 @@
         </ul>
       </div>
       <!-- 发布留音 -->
-      <div class="send_btn">发布留声</div>
+      <div class="send_btn" @click="showSendF">发布留声</div>
 
       <ul class="phonograph_list">
         <li class="job_list" v-for="(item,index) in jobList" :key="index">
@@ -20,12 +20,31 @@
           <div class="job_right">
             <p class="job_right_top">{{item.title}}</p>
             <p class="job_right_time"></p>
-            <span class="iconfont icon-play" :class="[activeIndex == index?'icon-step':'icon-play']" @click="play(index,$event)"></span>
-            <!-- <audio :src="item.audioSrc" controls></audio> -->
-            <p>空间看了就啊飒飒</p>
+            <span class="iconfont icon-play" :class="[item.isPlay?'icon-step':'icon-play']" @click="play(index)"></span>
+             <audio :ref="['audio'+index]" :src="item.audioSrc"  controls></audio>
           </div>
         </li>
       </ul>
+    <div class="alert" v-if="showAlert">
+      <div class="alertBox">
+        <i class="iconfont icon-remove" @click="alertOpen"></i>
+        <p>点歌台</p>
+        <el-input v-model="input" placeholder="请输入歌名"></el-input>
+        <el-input v-model="input" placeholder="请输入歌手"></el-input>
+        <el-input v-model="input" placeholder="请输入主题"></el-input>
+        <el-input type="textarea" :rows="3" v-model="input" placeholder="心里话"></el-input>
+        <div class="alertBtn" @click="">确定</div>
+      </div>
+    </div>
+    <div class="alert" v-if="showSendAlert">
+      <div class="alertBox alertBoxS">
+        <i class="iconfont icon-remove" @click="showSendF"></i>
+        <p>发布留声</p>
+        <el-input v-model="input" placeholder="请输入主题"></el-input>
+        <el-input type="file" v-model="input"></el-input>
+        <div class="alertBtn" @click="">确定</div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -94,7 +113,7 @@ color:white;
     border: 1px solid #ddd;
 }
 .container ul .job_list:last-child{
-  margin-bottom: none;
+  border-bottom: none;
 }
 .job_list{
   display: flex;
@@ -145,5 +164,58 @@ color:white;
   background-repeat: no-repeat;
   background-size: cover;
   margin-top: 10px;
+}
+
+.alert {
+  position:fixed;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  background-color: rgba(0,0,0,.5);
+}
+.alertBox {
+  width:400px;
+  height:450px;
+  background-color: white;
+  border-radius: 10px;
+  position:absolute;
+  top:50%;
+  left:50%;
+  margin-top:-300px;
+  margin-left:-250px;
+  padding:30px 50px;
+  box-sizing: border-box;
+}
+.alertBoxS{
+  height:300px;
+  margin-top:-150px;
+}
+.alertBox i {
+  position:absolute;
+  top:10px;
+  right:10px;
+  font-size:20px;
+}
+.alertBox p{
+  text-align: center;
+  margin-bottom:20px;
+}
+.alertBox .el-input {
+  margin-bottom:20px;
+}
+.alertBtn {
+  width:100%;
+  height:40px;
+  line-height: 40px;
+  text-align: center;
+  color:white;
+  font-size:16px;
+  background-color: #5b565d;
+  margin-top:20px;
+  cursor: pointer;
+}
+audio {
+  display: none;
 }
 </style>

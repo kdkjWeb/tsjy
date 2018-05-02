@@ -1,34 +1,34 @@
 <template>
   <div class="container">
     <div class="ad">
-      <img src="http://pic31.photophoto.cn/20140609/0034034883622832_b.jpg" alt="">
+      <img :src="banner.imgUrl" alt="">
       <div class="des">
-        <div><p>2017年终盘点</p><p>2017-03-02</p></div>
-        <p>创意方法论线下沙龙为设计工作创意方法论线下沙龙为设计工作创意方法论线下沙龙为设计工作创意方法论线下沙龙为设计工作</p>
+        <div><p>{{banner.titile}}</p><p>{{banner.pubDate}}</p></div>
+        <p>{{banner.newsText}}</p>
       </div>
     </div>
     <div class="con">
       <div class="conB clear" v-for="(item,index) in list" :key="index" @click="details">
-        <img :src="item.src" alt="">
+        <img :src="item.imgUrl" alt="">
         <div class="conDes">
-          <p>{{item.title}}</p>
-          <p>{{item.des}}</p>
-          <p>{{item.time}}</p>
+          <p>{{item.titile}}</p>
+          <p>{{item.newsText}}</p>
+          <p>{{item.pubDate}}</p>
         </div>
       </div>
     </div>
     <el-pagination class="pagination"
                    background
                    @current-change="handleCurrentChange"
-                   :current-page.sync="currentPage1"
-                   :page-size="100"
-                   :total="1000"
+                   :current-page.sync="currentPage"
+                   :page-size="pageSize"
+                   :total="total"
                    layout="prev, pager, next">
     </el-pagination>
   </div>
 </template>
 <script>
-  export default require('./fastCtr');
+  export default require('./fastCtr');                                                             
 </script>
 <style scoped>
   .container {
@@ -42,6 +42,7 @@
     position:relative;
     width:100%;
     height:500px;
+    background-color: rgba(0,0,0,.2);
   }
   .ad img {
     width:100%;

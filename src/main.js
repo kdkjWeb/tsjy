@@ -23,16 +23,21 @@ import '@/assets/font/iconfont.css'
 import axiosConfig from "./server/index.js"
 Vue.prototype.$axios = axiosConfig.axiosConfig;
 Vue.prototype.$baseU = axiosConfig.baseU;
-//
-//
+
+
 // 封装方法axios的get以及post
 import  Server from './server/server.js'
 Vue.prototype.$g = Server.g;
 Vue.prototype.$p = Server.p;
 
+// 接口配置文件
+import Interface from './server/interface.js'
+Vue.prototype.$api = Interface;
+
+
 // 引入公用方法 common.js
 import common from './util/common.js'
-Object.defineProperty(Vue.prototype,'$common',{value:common});
+Vue.prototype.$c = common;
 
 /* eslint-disable no-new */
 new Vue({

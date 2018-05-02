@@ -3,8 +3,9 @@
     <div class="headerBox">
       <header class="header">
       <div class="header_btn">
-        <div class="login" @click="loginBox(1)">登录</div>
-        <div class="register" @click="loginBox(0)">注册</div>
+        <div class="login" @click="loginBox(1)" v-if="!this.$store.state.loginIsYes">登录</div>
+        <div class="register" @click="loginBox(0)" v-if="!this.$store.state.loginIsYes">注册</div>
+        <div class="personCenter" @click="toPerson" v-if="this.$store.state.loginIsYes">个人中心</div>
       </div>
       <div class="logo">
         <img src="@/assets/images/login.jpg" alt="">
@@ -32,7 +33,11 @@
       :show="show"
       :login="login"
       :textTitle="textTitle"
-      @toReg="toReg" @close="loginBox(-1)"></loginReg>
+      :reg="reg"
+      @toReg="toReg"
+      @loginYes="loginYes"
+      @regSuc="regSuc"
+      @close="loginBox(-1)"></loginReg>
   </div>
 </template>
 
@@ -48,6 +53,7 @@
         show:false,
         login:true,
         textTitle:"注册",
+        reg:true,
         thisIndex:0,
         navList: [
           {
@@ -155,15 +161,38 @@
             break;
         }
       },
+      /**
+       * 跳转注册 注册有两种  重置和注册
+       */
       toReg(item){
         if(item == 0) {
-          this.textTitle = "重置"
+          this.textTitle = "重置";
+          this.reg = false;
         }else if (item == 1) {
-          this.textTitle = "注册"
+          this.textTitle = "注册";
+          this.reg = true;
         }else {
-          this.textTitle = "注册"
+          this.textTitle = "注册";
+          this.reg = true;
         }
         this.login = !this.login;
+      },
+      toPerson(){
+        this.$router.push({
+          name:"personalcenter"
+        })
+      },
+      /**
+       * 是否登录
+       */
+      loginYes(){
+        this.$store.commit("setloginIsYes",true);
+      },
+      /**
+       * 注册成功
+       */
+      regSuc(){
+        this.login = true;
       }
     },
     mounted(){
@@ -183,6 +212,9 @@
         this.thisIndex = 8;
       }else if (this.$route.path.indexOf("/active")>=0||this.$route.path.indexOf("/vote")>=0) {
         this.thisIndex = 9;
+      }
+      if(this.$c.getStorage("userInfo")) {
+        this.$store.commit("setloginIsYes",true);
       }
     }
   }
@@ -385,7 +417,9 @@
   ul.secondNav li.secondNav_barA {
     background-color:#97857b ;
   }
-
+  .header_btn .personCenter {
+  width:80px;
+}
 
 
   .footer{
@@ -397,4 +431,5 @@
     background-color: #4d484f;
     margin-top: 190px;
   }
+
 </style>
