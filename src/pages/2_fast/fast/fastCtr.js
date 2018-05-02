@@ -24,7 +24,6 @@ export default {
     },
     //点击到详情页面
     details(item){
-      console.log(item)
       this.$router.push({
         name: 'fastdetails',
         query:{

@@ -1,29 +1,29 @@
 <template>
     <div class="container">
       <div class="ad">
-        <img src="http://pic31.photophoto.cn/20140609/0034034883622832_b.jpg" alt="">
+        <img :src="banner.imgUrl" alt="">
       </div>
       <div class="actHeader">
         <ul class="clear">
-          <li :class="thisIndex==index?'liAct':''" v-for="item,index in tabBarList" :key="index" @click="toLink(index)">{{item.title}}</li>
+          <li :class="thisIndex==index?'liAct':''" v-for="item,index in tabBarList" :key="index" @click="toLink(item,index)">{{item.title}}</li>
         </ul>
       </div>
 
       <!--列表-->
       <div class="con">
-        <div class="conB clear" v-for="item,index in list" :key="index" @click="toCityDetail">
-          <img :src="item.src" alt="">
+        <div class="conB clear" v-for="item,index in list" :key="index" @click="toCityDetail(item)">
+          <img :src="item.imgUrl" alt="">
           <div class="conDes">
-            <p>{{item.title}}</p>
+            <p>{{item.titile}}</p>
           </div>
         </div>
       </div>
       <el-pagination class="pagination"
                      background
                      @current-change="handleCurrentChange"
-                     :current-page.sync="currentPage1"
-                     :page-size="100"
-                     :total="1000"
+                     :current-page.sync="currentPage"
+                     :page-size="pageSize"
+                     :total="total"
                      layout="prev, pager, next">
       </el-pagination>
     </div>
