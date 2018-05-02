@@ -8,7 +8,7 @@
       </div>
     </div>
     <div class="con">
-      <div class="conB clear" v-for="(item,index) in list" :key="index" @click="details">
+      <div class="conB clear" v-for="(item,index) in list" :key="index" @click="details(item)">
         <img :src="item.imgUrl" alt="">
         <div class="conDes">
           <p>{{item.titile}}</p>
@@ -28,7 +28,7 @@
   </div>
 </template>
 <script>
-  export default require('./fastCtr');                                                             
+  export default require('./fastCtr');
 </script>
 <style scoped>
   .container {

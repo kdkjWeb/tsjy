@@ -8,7 +8,7 @@ export default {
   data(){
     return {
       currentPage:1,
-      pageSize:3,
+      pageSize:10,
       total:null,
       banner:{},
       list:[]
@@ -23,16 +23,20 @@ export default {
       this.getFastList();
     },
     //点击到详情页面
-    details(){
+    details(item){
+      console.log(item)
       this.$router.push({
-        name: 'fastdetails'
+        name: 'fastdetails',
+        query:{
+          id:item.id
+        }
       })
     },
     /**
      * 获取快讯数据
      */
     getFastList(){
-      this.$g({
+      this.$p({
         url:this.$api.newsQuery,
         params:{
           pageSize:this.pageSize,
@@ -41,7 +45,6 @@ export default {
         }
       }).then(res=>{
         this.total = res.data.total;
-
         var arr = res.data.list;
         arr.forEach((e,index)=>{
           arr[index].pubDate = e.pubDate.split(" ")[0];

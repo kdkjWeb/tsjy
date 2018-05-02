@@ -24,6 +24,7 @@ Interface.uploadUnionFile = 'uploadUnionFile'; //上传视频文件，或者音�
  * 所有以及页面查询信息
  */
 Interface.newsQuery = 'news/query';  //所有一级页面查询接口
+Interface.findOneById = 'news/findOneById';  //所有一级页面详情
 
 
 
