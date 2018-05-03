@@ -4,6 +4,9 @@ export default{
       src: '../../../static/phonograph.png',
       activeIndex: null,
       thisIndex: 2,
+      currentPage:1,
+      pageSize:10,
+      total:null,
       showAlert: false,
       showSendAlert:false,
       tabBarList: [
@@ -72,12 +75,18 @@ export default{
       switch (index) {
         case 0:
           this.$router.push({
-            name: 'music'
+            name: 'music',
+            query:{
+              type:1,
+            }
           });
           break;
         case 1:
           this.$router.push({
-            name: 'music'
+            name: 'music',
+            query:{
+              type:2,
+            }
           });
           break;
         case 2:
@@ -120,5 +129,36 @@ export default{
         name: "musicDetail"
       })
     },
+    /**
+     * 获取列表
+     */
+    getList(str){
+      this.$p({
+        url:this.$api.newsQuery,
+        params:{
+          pageSize:this.pageSize,
+          current:this.currentPage,
+          category:3,
+          type:str
+        }
+      }).then(res=>{
+        this.total = res.data.total;
+        var arr = res.data.list;
+        arr.forEach((e,index)=>{
+          arr[index].pubDate = e.pubDate.split(" ")[0];
+          arr[index].imgUrl = this.$baseU + e.imgUrl;
+        });
+
+        if(this.currentPage==1) {
+          this.banner = arr[0];
+        }
+        this.list = JSON.parse(JSON.stringify(arr));
+      },errRes=>{
+
+      })
+    }
+  },
+  mounted(){
+    this.getList(this.tabBarList[this.thisIndex].title);
   }
 }

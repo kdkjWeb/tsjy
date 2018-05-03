@@ -36,7 +36,7 @@ export default{
      */
     getDetail(){
       this.$g({
-        url: this.$api.findOneById,
+        url: this.$api.memefindOneById,
         params: {
           id: this.id
         }

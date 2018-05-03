@@ -1,29 +1,35 @@
 <template>
     <div class="container">
       <div class="ad">
-        <img src="http://pic31.photophoto.cn/20140609/0034034883622832_b.jpg" alt="">
+        <img :src="src" alt="">
       </div>
       <div class="actHeader">
         <ul class="clear">
-          <li :class="thisIndex==index?'liAct':''" v-for="(item,index) in tabBarList" :key="index" @click="toLink(index)">{{item.title}}</li>
+          <li :class="thisIndex==index?'liAct':''" v-for="(item,index) in tabBarList" :key="index" @click="toLink(item,index)">{{item.title}}</li>
         </ul>
       </div>
 
       <!--列表-->
       <div class="con">
         <div class="conB clear" v-for="(item,index) in list" :key="index">
-          <img :src="item.src" alt="">
+          <div class="img">
+            <img :src="item.imgUrl" alt="加载失败...">
+            <div class="playBox">
+              <i class="iconfont icon-bofang" @click="play(index)"></i>
+              <audio :src="item.musicUrl" controls></audio>
+            </div>
+          </div>
           <div class="conDes">
-            <p>{{item.title}}</p>
+            <p>{{item.titile}}</p>
           </div>
         </div>
       </div>
       <el-pagination class="pagination"
                      background
                      @current-change="handleCurrentChange"
-                     :current-page.sync="currentPage1"
-                     :page-size="100"
-                     :total="1000"
+                     :current-page.sync="currentPage"
+                     :page-size="pageSize"
+                     :total="total"
                      layout="prev, pager, next">
       </el-pagination>
       <div class="alert" v-if="showAlert">
@@ -86,12 +92,36 @@
   .con {
     display:flex;
     flex-direction: row;
-    justify-content: space-between;
     flex-wrap: wrap;
   }
   .conB {
     width:335px;
-    margin-top:50px;
+    margin:50px 13px 0;
+  }
+  .conB .img {
+    width:100%;
+    height:231px;
+    position:relative;
+  }
+  .conB .playBox {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color: rgba(0,0,0,.5);
+    text-align: center;
+    line-height: 231px;
+  }
+  .conB .playBox i {
+    font-size:70px;
+    color:rgba(255,255,255,.8);
+    cursor: pointer;
+  }
+  .conB .playBox audio {
+    position:absolute;
+    top:0;
+    left:0;
   }
   .conB img{
     width:100%;
