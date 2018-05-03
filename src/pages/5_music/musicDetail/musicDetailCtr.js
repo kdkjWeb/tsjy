@@ -6,6 +6,7 @@ var currentTimeB;
 export default{
   data() {
     return {
+      id:"",
       currentTimeA:0,   //当前时间
       timeRanges:"0",   //缓冲条
       playAU:false,
@@ -60,13 +61,33 @@ export default{
       var audio = this.$refs.audio;
       audio.currentTime = val/100*audio.duration;
       this.currentTimeA =  this.transTime(audio.duration,audio.currentTime);
+    },
+    /**
+     * 获取详情
+     */
+    getDetail(){
+      this.$g({
+        url:this.$api.findOneById,
+        params:{
+          id:this.id,
+        }
+      }).then(res=>{
+        var j = JSON.parse(JSON.stringify(res.data));
+        j.pubDate = j.pubDate.split(" ")[0];
+        j.imgUrl = this.$baseU + j.imgUrl;
+        j.musicUrl = this.$baseU + j.musicUrl;
+        this.user = JSON.parse(JSON.stringify(j));
+      },errRes=>{
+
+      });
     }
   },
   watch:{
   }
   ,
   mounted(){
-
+    this.id = this.$route.query.id;
+    this.getDetail();
   }
 
 }

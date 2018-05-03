@@ -35,6 +35,7 @@ import recommendfilm from '@/pages/4_video/recommendfilm/recommendfilm'
 import music from '@/pages/5_music/music'
 import phonograph from '@/pages/5_music/phonograph/phonograph'
 import musicDetail from '@/pages/5_music/musicDetail/musicDetail'
+import orderMusic from '@/pages/5_music/orderMusic/orderMusic'
 // 探城
 import citySearcher from '@/pages/9_citySearcher/citySearcher'
 import cityDetail from '@/pages/9_citySearcher/cityDetail/cityDetail'
@@ -161,8 +162,12 @@ let musicRoute = {
     path: '/musicDetail',
     name: 'musicDetail',
     component: musicDetail
-  }
-
+  },
+  orderMusic:{
+    path: '/orderMusic',
+    name: 'orderMusic',
+    component: orderMusic
+  },
 };
 // 网红
 let netRedRoute = {
@@ -311,7 +316,7 @@ let psersonalRoute = {
   path: '/personalcenter',
   name: 'personalcenter',
   component: personalcenter
-}
+};
 
 export default {
   routes: [
@@ -324,7 +329,7 @@ export default {
     employmentRoute.familyDetail,
     employmentRoute.familyForm,
     videoRoute.video,videoRoute.wonderful,videoRoute.recommendfilm,
-    musicRoute.music,musicRoute.phonograph,musicRoute.musicDetail,
+    musicRoute.music,musicRoute.phonograph,musicRoute.musicDetail,musicRoute.orderMusic,
     netRedRoute.netRed,netRedRoute.personDetail,netRedRoute.atlasdetails,netRedRoute.imformationdetails,
     wishRoute,
     fleaRoute.flea,fleaRoute.fleaDetail,

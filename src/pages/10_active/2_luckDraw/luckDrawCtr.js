@@ -191,22 +191,22 @@ export default {
           console.log(array);
           var arr = Object.keys(res.data);
           var dom,t,h;
-          this.$nextTick(() => {
-            dom = this.$refs.rewNameB;
-            h = parseInt(dom.offsetHeight);
-            t = dom.style.marginTop==""?0:parseInt(dom.style.marginTop);
-            setInterval(()=>{
-              if(h >150&& t > -(h-150)){
-                t = dom.style.marginTop==""?0:parseInt(dom.style.marginTop);
-                dom.style.marginTop = parseInt(t)-75+"px";
-                dom.style.transition = "all 2s linear";
-              }else if(h >150&&t <=-(h-150)) {
-                t=0;
-                dom.style.marginTop = 0;
-                dom.style.transition = "all 0s linear";
-              }
-            },2000)
-      })
+        this.$nextTick(() => {
+          dom = this.$refs.rewNameB;
+          h = parseInt(dom.offsetHeight);
+          t = dom.style.marginTop==""?0:parseInt(dom.style.marginTop);
+          setInterval(()=>{
+            if(h >150&& t > -(h-150)){
+              t = dom.style.marginTop==""?0:parseInt(dom.style.marginTop);
+              dom.style.marginTop = parseInt(t)-75+"px";
+              dom.style.transition = "all 2s linear";
+            }else if(h >150&&t <=-(h-150)) {
+              t=0;
+              dom.style.marginTop = 0;
+              dom.style.transition = "all 0s linear";
+            }
+          },2000)
+        })
       })
     },
     /**

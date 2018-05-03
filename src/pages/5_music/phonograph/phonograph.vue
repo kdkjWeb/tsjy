@@ -11,38 +11,27 @@
       <div class="send_btn" @click="showSendF">发布留声</div>
 
       <ul class="phonograph_list">
-        <li class="job_list" v-for="(item,index) in jobList" :key="index">
+        <li class="job_list" v-for="(item,index) in list" :key="index">
           <div class="job_left">
-            <img :src="item.src" alt="">
-            <p>{{item.name}}</p>
-            <p>{{item.time}}</p>
+            <img :src="item.head" alt="">
+            <p>{{item.publisher}}</p>
+            <p>{{item.pubDate}}</p>
           </div>
           <div class="job_right">
-            <p class="job_right_top">{{item.title}}</p>
+            <p class="job_right_top">{{item.titile}}</p>
             <p class="job_right_time"></p>
             <span class="iconfont icon-play" :class="[item.isPlay?'icon-step':'icon-play']" @click="play(index)"></span>
-             <audio :ref="['audio'+index]" :src="item.audioSrc"  controls></audio>
+             <audio :ref="['audio'+index]" :src="item.musicUrl"  controls></audio>
           </div>
         </li>
       </ul>
-    <div class="alert" v-if="showAlert">
-      <div class="alertBox">
-        <i class="iconfont icon-remove" @click="alertOpen"></i>
-        <p>点歌台</p>
-        <el-input v-model="input" placeholder="请输入歌名"></el-input>
-        <el-input v-model="input" placeholder="请输入歌手"></el-input>
-        <el-input v-model="input" placeholder="请输入主题"></el-input>
-        <el-input type="textarea" :rows="3" v-model="input" placeholder="心里话"></el-input>
-        <div class="alertBtn" @click="">确定</div>
-      </div>
-    </div>
     <div class="alert" v-if="showSendAlert">
       <div class="alertBox alertBoxS">
         <i class="iconfont icon-remove" @click="showSendF"></i>
         <p>发布留声</p>
-        <el-input v-model="input" placeholder="请输入主题"></el-input>
-        <el-input type="file" v-model="input"></el-input>
-        <div class="alertBtn" @click="">确定</div>
+        <el-input v-model="voiceInput" placeholder="请输入主题"></el-input>
+        <input class="el-input__inner" type="file"  @change="upFileVoice($event)">
+        <div class="alertBtn" @click="sendMyVoice">确定</div>
       </div>
     </div>
   </div>
@@ -101,6 +90,7 @@ color:white;
     color: #fff;
     float: right;
     margin-top: 30px;
+    cursor: pointer;
 }
 
 
@@ -112,9 +102,9 @@ color:white;
     margin-bottom: 10px;
     border: 1px solid #ddd;
 }
-.container ul .job_list:last-child{
-  border-bottom: none;
-}
+/*.container ul .job_list:last-child{*/
+  /*border-bottom: none;*/
+/*}*/
 .job_list{
   display: flex;
   display: -webkit-flex;

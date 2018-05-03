@@ -2,20 +2,20 @@
   <div class="container">
     <div class="info">
       <div class="info_img">
-        <img src="../../../assets/images/store.png" alt="" width="100%" height="100%">
+        <img :src="user.imgUrl" alt="加载失败" width="100%" height="100%">
         <div class="block">
           <div class="TimeRanges" :style="{width:timeRanges+'%'}"></div>
           <el-slider v-model="currentTimeA" @change="slideTime" :format-tooltip="formatTooltip"></el-slider>
         </div>
         <i class="playBtn iconfont" :class="playAU?'icon-step':'icon-play'" @click="playAudio"></i>
-        <audio class="audio" src="http://dl.stream.qqmusic.qq.com/C4000022eEd52ZjUiA.m4a?vkey=EDB857442AE9E256457854181F6A8F98A8913805F7F0E898B8C287FFB86E2FFEE5177AF3B188E1CA44FD65C868A764E7531B20ADBE93999C&guid=1970694656&uin=428632259&fromtag=66" controls="controls" ref="audio"></audio>
+        <audio class="audio" :src="user.musicUrl" controls="controls" ref="audio"></audio>
       </div>
       <div class="info_list">
-        <h1>{{user.name}}</h1>
-        <p>歌&emsp;&emsp;手：{{user.stagename}}</p>
-        <p>点&nbsp; 歌&nbsp; 人：{{user.sex}}</p>
-        <p>主&emsp;&emsp;题：{{user.age}}岁</p>
-        <p>心&nbsp; 里&nbsp; 话：发货发到空间撒谎防静电货到付款骄傲了和大家撒付款后看电视发货发到空间撒谎防静电货到付款骄傲了和大家撒付款后看电视发货发到空间撒谎防静电货到付款骄傲了和大家撒付款后看电视</p>
+        <h1>{{user.musicName}}</h1>
+        <p>歌&emsp;&emsp;手：{{user.singer}}</p>
+        <p>点&nbsp; 歌&nbsp; 人：{{user.orderName}}</p>
+        <p>主&emsp;&emsp;题：{{user.titile}}岁</p>
+        <p>心&nbsp; 里&nbsp; 话：{{user.newsText}}</p>
       </div>
     </div>
   </div>

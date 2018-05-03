@@ -25,6 +25,7 @@ Interface.uploadUnionFile = 'uploadUnionFile'; //上传视频文件，或者音�
  */
 Interface.newsQuery = 'news/query';  //所有一级页面查询接口
 Interface.findOneById = 'news/findOneById';  //所有一级页面详情
+Interface.newAdd = 'news/add';
 
 /**
  * 网红页面查询信息

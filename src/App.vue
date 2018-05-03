@@ -202,7 +202,7 @@
         this.thisIndex = 2;
       }else if (this.$route.path.indexOf("/video")>=0) {
         this.thisIndex = 3;
-      }else if (this.$route.path.indexOf("/music"||this.$route.path.indexOf("/phonograph")>=0)>=0) {
+      }else if (this.$route.path.indexOf("/music")>=0||this.$route.path.indexOf("/phonograph")>=0) {
         this.thisIndex = 4;
       }else if (this.$route.path.indexOf("/netred")>=0||this.$route.path.indexOf("/netRed")>=0||this.$route.path.indexOf("/imformationdetails")>=0) {
         this.thisIndex = 5;

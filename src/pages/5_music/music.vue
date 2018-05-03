@@ -15,8 +15,8 @@
           <div class="img">
             <img :src="item.imgUrl" alt="加载失败...">
             <div class="playBox">
-              <i class="iconfont icon-bofang" @click="play(index)"></i>
-              <audio :src="item.musicUrl" controls></audio>
+              <i class="iconfont icon-play" :class="[item.isPlay?'icon-step':'icon-play']" @click="play(index)"></i>
+              <audio :ref="['audio'+index]" :src="item.musicUrl" controls></audio>
             </div>
           </div>
           <div class="conDes">
@@ -32,17 +32,6 @@
                      :total="total"
                      layout="prev, pager, next">
       </el-pagination>
-      <div class="alert" v-if="showAlert">
-        <div class="alertBox">
-          <i class="iconfont icon-remove" @click="alertOpen"></i>
-          <p>点歌台</p>
-          <el-input v-model="input" placeholder="请输入歌名"></el-input>
-          <el-input v-model="input" placeholder="请输入歌手"></el-input>
-          <el-input v-model="input" placeholder="请输入主题"></el-input>
-          <el-input type="textarea" :rows="3" v-model="input" placeholder="心里话"></el-input>
-          <div class="alertBtn" @click="toMusicDetail">确定</div>
-        </div>
-      </div>
     </div>
 </template>
 <script>
@@ -122,6 +111,7 @@
     position:absolute;
     top:0;
     left:0;
+    display: none;
   }
   .conB img{
     width:100%;
@@ -153,50 +143,5 @@
   .pagination {
     text-align: center;
     margin-top:50px;
-  }
-  .alert {
-    position:fixed;
-    top:0;
-    left:0;
-    bottom:0;
-    right:0;
-    background-color: rgba(0,0,0,.5);
-  }
-  .alertBox {
-    width:400px;
-    height:450px;
-    background-color: white;
-    border-radius: 10px;
-    position:absolute;
-    top:50%;
-    left:50%;
-    margin-top:-300px;
-    margin-left:-250px;
-    padding:30px 50px;
-    box-sizing: border-box;
-  }
-  .alertBox i {
-    position:absolute;
-    top:10px;
-    right:10px;
-    font-size:20px;
-  }
-  .alertBox p{
-    text-align: center;
-    margin-bottom:20px;
-  }
-  .alertBox .el-input {
-    margin-bottom:20px;
-  }
-  .alertBtn {
-    width:100%;
-    height:40px;
-    line-height: 40px;
-    text-align: center;
-    color:white;
-    font-size:16px;
-    background-color: #5b565d;
-    margin-top:20px;
-    cursor: pointer;
   }
 </style>
