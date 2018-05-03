@@ -3,13 +3,13 @@
       <h1>{{user.name}}</h1>
       <div class="imgShow">
           <div class="img">
-              <img :src="user.imgUrl1" alt="" width="100%" height="100%">
+              <img :src="user.imgUrl1" alt="加载失败..." width="100%" height="100%">
           </div>
           <div class="img_list1">
               <div class="img_list1_container">
                   <ul ref="imgList1" style="top: 0">
                       <li v-for="(item,index) in list" :key="index" @click="changeImg(item,0)">
-                        <img :src="item" alt="" width="100%" height="100%">
+                        <img :src="item" alt="加载失败..." width="100%" height="100%">
                     </li>
                   </ul>
               </div>
@@ -23,7 +23,7 @@
             <div class="img_container">
                 <ul class="info_imgList" ref="imgList" style="left: 0">
                     <li v-for="(item,index) in otherList" :key="index" @click="changeImg(item,1)">
-                        <img :src="item.imgUrl1" alt="" width="100%" height="100%">
+                        <img :src="item.imgUrl1" alt="加载失败..." width="100%" height="100%">
                     </li>
                 </ul>
             </div>

@@ -17,6 +17,8 @@ export default{
       } else if (index == 1) {
         this.user = JSON.parse(JSON.stringify(item));
         this.list = [];
+        this.top = 0;
+        this.$refs.imgList1.style.top = this.top + 'px';
         for (var i = 1; i < 9; i++) {
           var _m = "imgUrl" + i;
           if (this.user[_m]) {
@@ -42,7 +44,7 @@ export default{
         this.$refs.imgList1.style.top = this.top + 'px';
       } else if (index == 1) {
         this.left -= 245;
-        let left = (this.list.length - 4) * 245;
+        let left = (this.otherList.length - 4) * 245;
         if (parseInt(this.$refs.imgList.style.left) == -left) {
           this.left = -left;
           this.$refs.imgList.style.left = this.left + 'px';
