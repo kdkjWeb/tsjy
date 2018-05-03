@@ -20,7 +20,7 @@ export default {
      */
     handleCurrentChange(val) {
       this.currentPage = val;
-      this.getFastList();
+      this.getList();
     },
     //点击到详情页面
     details(item){
@@ -34,7 +34,7 @@ export default {
     /**
      * 获取快讯数据
      */
-    getFastList(){
+    getList(){
       this.$p({
         url:this.$api.newsQuery,
         params:{
@@ -61,6 +61,6 @@ export default {
     }
   },
   mounted(){
-    this.getFastList();
+    this.getList();
   }
 }

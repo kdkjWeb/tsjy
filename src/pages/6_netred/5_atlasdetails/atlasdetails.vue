@@ -3,13 +3,13 @@
       <h1>{{user.name}}</h1>
       <div class="imgShow">
           <div class="img">
-              <img :src="user.src" alt="" width="100%" height="100%">
+              <img :src="user.imgUrl1" alt="" width="100%" height="100%">
           </div>
           <div class="img_list1">
               <div class="img_list1_container">
                   <ul ref="imgList1" style="top: 0">
-                      <li v-for="(item,index) in user.srcList" :key="index" @click="changeImg(item,0)">
-                        <img :src="item.src" alt="" width="100%" height="100%">
+                      <li v-for="(item,index) in list" :key="index" @click="changeImg(item,0)">
+                        <img :src="item" alt="" width="100%" height="100%">
                     </li>
                   </ul>
               </div>
@@ -22,8 +22,8 @@
           <div class="img_list">
             <div class="img_container">
                 <ul class="info_imgList" ref="imgList" style="left: 0">
-                    <li v-for="(item,index) in user.otherList" :key="index" @click="changeImg(item,1)">
-                        <img :src="item.src" alt="" width="100%" height="100%">
+                    <li v-for="(item,index) in otherList" :key="index" @click="changeImg(item,1)">
+                        <img :src="item.imgUrl1" alt="" width="100%" height="100%">
                     </li>
                 </ul>
             </div>
@@ -31,7 +31,7 @@
             <div class="next" @click="next(1)">></div>
           </div>
         </div>
-      
+
   </div>
 </template>
 
@@ -118,7 +118,7 @@ export {default} from './atlasdetailsCtr'
 .img_list{
    position: relative;
    width: 1040px;
-   height: 230px; 
+   height: 230px;
    margin: 0 auto 0;
 }
 .img_container{
@@ -141,6 +141,7 @@ export {default} from './atlasdetailsCtr'
     width: 230px;
     height: 230px;
     margin: 0 7.5px;
+  cursor: pointer;
 }
 .img_list div.pre,.img_list div.next{
     position: absolute;

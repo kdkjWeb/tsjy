@@ -1,64 +1,63 @@
 export default{
     data() {
         return {
-            currentPage1:5,
-            informationList: [
-                {
-                   src: 'http://img2.imgtn.bdimg.com/it/u=862591842,2864954084&fm=27&gp=0.jpg',
-                   title: '2018年终极考核',
-                   content: '公司项目中大量的使用了vue，感觉对vue知识的掌握也越来越熟练了，录制视频教程也让我受益匪浅，自己成长的同时，我更希望帮助其他前端小伙伴一起成长。这篇文章我们主要讲解vuex公司项目中大量的使用了vue，感觉对vue知识的掌握也越来越熟练了，录制视频教程也让我受益匪浅，自己成长的同时，我更希望帮助其他前端小伙伴一起成长。这篇文章我们主要讲解vuex',
-                   time: '2018-04-17'
-                },{
-                    src: 'http://img2.imgtn.bdimg.com/it/u=862591842,2864954084&fm=27&gp=0.jpg',
-                    title: '2018年终极考核',
-                    content: '公司项目中大量的使用了vue，感觉对vue知识的掌握也越来越熟练了，录制视频教程也让我受益匪浅，自己成长的同时，我更希望帮助其他前端小伙伴一起成长。这篇文章我们主要讲解vuex',
-                    time: '2018-04-17'
-                 },{
-                    src: 'http://img2.imgtn.bdimg.com/it/u=862591842,2864954084&fm=27&gp=0.jpg',
-                    title: '2018年终极考核',
-                    content: '公司项目中大量的使用了vue，感觉对vue知识的掌握也越来越熟练了，录制视频教程也让我受益匪浅，自己成长的同时，我更希望帮助其他前端小伙伴一起成长。这篇文章我们主要讲解vuex',
-                    time: '2018-04-17'
-                 },{
-                    src: 'http://img2.imgtn.bdimg.com/it/u=862591842,2864954084&fm=27&gp=0.jpg',
-                    title: '2018年终极考核',
-                    content: '公司项目中大量的使用了vue，感觉对vue知识的掌握也越来越熟练了，录制视频教程也让我受益匪浅，自己成长的同时，我更希望帮助其他前端小伙伴一起成长。这篇文章我们主要讲解vuex',
-                    time: '2018-04-17'
-                 },{
-                    src: 'http://img2.imgtn.bdimg.com/it/u=862591842,2864954084&fm=27&gp=0.jpg',
-                    title: '2018年终极考核',
-                    content: '公司项目中大量的使用了vue，感觉对vue知识的掌握也越来越熟练了，录制视频教程也让我受益匪浅，自己成长的同时，我更希望帮助其他前端小伙伴一起成长。这篇文章我们主要讲解vuex',
-                    time: '2018-04-17'
-                 },{
-                    src: 'http://img2.imgtn.bdimg.com/it/u=862591842,2864954084&fm=27&gp=0.jpg',
-                    title: '2018年终极考核',
-                    content: '公司项目中大量的使用了vue，感觉对vue知识的掌握也越来越熟练了，录制视频教程也让我受益匪浅，自己成长的同时，我更希望帮助其他前端小伙伴一起成长。这篇文章我们主要讲解vuex',
-                    time: '2018-04-17'
-                 },{
-                    src: 'http://img2.imgtn.bdimg.com/it/u=862591842,2864954084&fm=27&gp=0.jpg',
-                    title: '2018年终极考核',
-                    content: '公司项目中大量的使用了vue，感觉对vue知识的掌握也越来越熟练了，录制视频教程也让我受益匪浅，自己成长的同时，我更希望帮助其他前端小伙伴一起成长。这篇文章我们主要讲解vuex',
-                    time: '2018-04-17'
-                 },{
-                    src: 'http://img2.imgtn.bdimg.com/it/u=862591842,2864954084&fm=27&gp=0.jpg',
-                    title: '2018年终极考核',
-                    content: '公司项目中大量的使用了vue，感觉对vue知识的掌握也越来越熟练了，录制视频教程也让我受益匪浅，自己成长的同时，我更希望帮助其他前端小伙伴一起成长。这篇文章我们主要讲解vuex',
-                    time: '2018-04-17'
-                 }
-            ]
+          currentPage: 1,
+          pageSize: 10,
+          total: null,
+          banner: {},
+          list: [],
+          tabBarTitle:"最新资讯",
         }
     },
     methods: {
-        handleSizeChange(val) {
-            console.log(`每页 ${val} 条`);
-          },
-        handleCurrentChange(val) {
-        console.log(`当前页: ${val}`);
-        },
+      /**
+       * 分页 当前第几页
+       */
+      handleCurrentChange(val) {
+        this.currentPage = val;
+        this.getList(this.tabBarTitle);
+      },
+      /**
+       * 获取网红个人数据
+       */
+      getList(str){
+        console.log(str);
+        this.$p({
+          url: this.$api.newsQuery,
+          params: {
+            pageSize: this.pageSize,
+            current: this.currentPage,
+            category: 7,
+            type:str
+          }
+        }).then(res=> {
+          this.total = res.data.total;
+          var arr = res.data.list;
+          arr.forEach((e, index)=> {
+            arr[index].pubDate = e.pubDate.split(" ")[0];
+            arr[index].imgUrl = this.$baseU + e.imgUrl;
+          });
+
+          if (this.currentPage == 1) {
+            this.banner = arr[0];
+          }
+          this.list = JSON.parse(JSON.stringify(arr));
+
+        }, errRes=> {
+
+        })
+      },
         //点击到详情页面
         details(item){
             this.$router.push({
-                name: 'imformationdetails'
+                name: 'imformationdetails',
+              query:{
+                  id:item.id
+              }
             })
         }
-    }
+    },
+  mounted(){
+    this.getList(this.tabBarTitle);
+  }
 }

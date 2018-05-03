@@ -18,17 +18,17 @@ export default {
       switch(index) {
         case 0:
           this.$router.push({
-            path:"/netred/personal"
+            path:"/netred/personal",
           });
               break;
         case 1:
           this.$router.push({
-            path: '/netred/atlas'
-          })
+            path: '/netred/atlas',
+          });
               break;
         case 2:
           this.$router.push({
-            path:"/netred/information"
+            path:"/netred/information",
           });
               break;
       }
@@ -36,12 +36,12 @@ export default {
 
   },
   mounted(){
-    if (this.$route.path == "/employment/recruitment") {
+    if (this.$route.path == "/netred/personal") {
       this.thisIndex = 0;
-    }else if (this.$route.path == "/employment/job") {
+    }else if (this.$route.path == "/netred/atlas") {
       this.thisIndex = 1;
     }
-    else if (this.$route.path == "/employment/family") {
+    else if (this.$route.path == "/netred/information") {
       this.thisIndex = 2;
     }
   }

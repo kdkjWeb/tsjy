@@ -1,20 +1,20 @@
 <template>
     <div class="information">
-        <div class="information_list" v-for="(item,index) in informationList" :key="index" @click="details(item)">
-            <img :src="item.src" alt="">
+        <div class="information_list" v-for="(item,index) in list" :key="index" @click="details(item)">
+            <img :src="item.imgUrl" alt="">
             <div class="information_list_des">
-                <h6>{{item.title}}</h6>
-                <p class="information_content">{{item.content}}</p>
-                <p class="information_time">{{item.time}}</p>
+                <h6>{{item.titile}}</h6>
+                <p class="information_content">{{item.newsText}}</p>
+                <p class="information_time">{{item.pubDate}}</p>
             </div>
         </div>
         <div class="page">
         <el-pagination class="pagination"
                      background
                      @current-change="handleCurrentChange"
-                     :current-page.sync="currentPage1"
-                     :page-size="100"
-                     :total="1000"
+                     :current-page.sync="currentPage"
+                     :page-size="pageSize"
+                     :total="total"
                      layout="prev, pager, next">
       </el-pagination>
       </div>
@@ -68,6 +68,7 @@ export {default} from './informationCtr'
 }
 
 .page{
+  width:100%;
   margin: 40px auto 80px;
 }
 .pagination {

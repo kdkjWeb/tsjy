@@ -1,84 +1,59 @@
 export default{
-    data() {
-        return {
-            currentPage1:5,
-            netredList: [
-                {
-                    src: 'http://pic30.nipic.com/20130621/7447430_093529761000_2.jpg',
-                    name: '美女图片',
-                    title: '如果实现单行文本的溢出显示'
-                },{
-                    src: 'http://img2.imgtn.bdimg.com/it/u=862591842,2864954084&fm=27&gp=0.jpg',
-                    name: '美女图片',
-                    title: '如果实现单行文本的溢出显示'
-                },{
-                    src: 'http://pic30.nipic.com/20130621/7447430_093529761000_2.jpg',
-                    name: '美女图片',
-                    title: '如果实现单行文本的溢出显示'
-                },{
-                    src: 'http://img2.imgtn.bdimg.com/it/u=862591842,2864954084&fm=27&gp=0.jpg',
-                    name: '美女图片',
-                    title: '如果实现单行文本的溢出显示'
-                },{
-                    src: 'http://pic30.nipic.com/20130621/7447430_093529761000_2.jpg',
-                    name: '美女图片',
-                    title: '如果实现单行文本的溢出显示'
-                },{
-                    src: 'http://img2.imgtn.bdimg.com/it/u=862591842,2864954084&fm=27&gp=0.jpg',
-                    name: '美女图片',
-                    title: '如果实现单行文本的溢出显示'
-                },{
-                    src: 'http://img2.imgtn.bdimg.com/it/u=862591842,2864954084&fm=27&gp=0.jpg',
-                    name: '美女图片',
-                    title: '如果实现单行文本的溢出显示'
-                },{
-                    src: 'http://img2.imgtn.bdimg.com/it/u=862591842,2864954084&fm=27&gp=0.jpg',
-                    name: '美女图片',
-                    title: '如果实现单行文本的溢出显示'
-                },{
-                    src: 'http://img2.imgtn.bdimg.com/it/u=862591842,2864954084&fm=27&gp=0.jpg',
-                    name: '美女图片',
-                    title: '如果实现单行文本的溢出显示'
-                },{
-                    src: 'http://img2.imgtn.bdimg.com/it/u=862591842,2864954084&fm=27&gp=0.jpg',
-                    name: '美女图片',
-                    title: '如果实现单行文本的溢出显示'
-                },{
-                    src: 'http://img2.imgtn.bdimg.com/it/u=862591842,2864954084&fm=27&gp=0.jpg',
-                    name: '美女图片',
-                    title: '如果实现单行文本的溢出显示'
-                },{
-                    src: 'http://img2.imgtn.bdimg.com/it/u=862591842,2864954084&fm=27&gp=0.jpg',
-                    name: '美女图片',
-                    title: '如果实现单行文本的溢出显示'
-                },{
-                    src: 'http://img2.imgtn.bdimg.com/it/u=862591842,2864954084&fm=27&gp=0.jpg',
-                    name: '美女图片',
-                    title: '如果实现单行文本的溢出显示'
-                },{
-                    src: 'http://img2.imgtn.bdimg.com/it/u=862591842,2864954084&fm=27&gp=0.jpg',
-                    name: '美女图片',
-                    title: '如果实现单行文本的溢出显示'
-                },{
-                    src: 'http://img2.imgtn.bdimg.com/it/u=862591842,2864954084&fm=27&gp=0.jpg',
-                    name: '美女图片',
-                    title: '如果实现单行文本的溢出显示'
-                }
-            ]
-        }
-    },
-    methods: {
-        handleSizeChange(val) {
-            console.log(`每页 ${val} 条`);
-          },
-        handleCurrentChange(val) {
-        console.log(`当前页: ${val}`);
-        },
-        //查看详情页面
-        details(item){
-            this.$router.push({
-                name: 'atlasdetails'
-            })
-        }
+  data() {
+    return {
+      currentPage: 1,
+      pageSize: 10,
+      total: null,
+      banner: {},
+      list: []
     }
+  },
+  methods: {
+    /**
+     * 分页 当前第几页
+     */
+    handleCurrentChange(val) {
+      this.currentPage = val;
+      this.getList();
+    },
+    /**
+     * 获取网红个人图集数据
+     */
+    getList(){
+      this.$p({
+        url: this.$api.memeQueryImgs,
+        params: {
+          pageSize: this.pageSize,
+          current: this.currentPage
+        }
+      }).then(res=> {
+        this.total = res.data.total;
+        var arr = res.data.list;
+        arr.forEach((e, index)=> {
+          arr[index].imgUrl1 = this.$baseU + e.imgUrl1;
+
+        });
+
+        if (this.currentPage == 1) {
+          this.banner = arr[0];
+        }
+        this.list = JSON.parse(JSON.stringify(arr));
+
+      }, errRes=> {
+
+      })
+    },
+    //查看详情页面
+    details(item){
+      this.$router.push({
+        name: 'atlasdetails',
+        query:{
+          id:item.id
+        }
+      })
+    },
+  },
+  mounted(){
+    this.getList();
+  }
 }

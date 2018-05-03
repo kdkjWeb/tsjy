@@ -5,7 +5,7 @@
           <li :class="thisIndex==index?'liAct':''" v-for="(item,index) in tabBarList" :key="index" @click="toLink(index)">{{item.title}}</li>
         </ul>
       </div>
-      <router-view></router-view>
+      <router-view class="container"></router-view>
     </div>
 </template>
 <script>
@@ -31,5 +31,8 @@
     border:3px solid #97857b;
     background-color: #97857b;
     color:white;
+  }
+  .container {
+    background-color: white;
   }
 </style>

@@ -1,18 +1,18 @@
 <template>
   <div class="personal">
-      <div class="personal_list" v-for="(item,index) in netredList" :key="index" @click="details">
-          <img :src="item.src" alt="">
-          <p>{{item.name}}</p>
-          <p>{{item.title}}</p>
+      <div class="personal_list" v-for="(item,index) in list" :key="index" @click="details(item)">
+          <img :src="item.imgUrl" alt="">
+          <p>{{item.memeName}}</p>
+          <p>{{item.memeActName}}</p>
       </div>
 
       <div class="page">
         <el-pagination class="pagination"
                      background
                      @current-change="handleCurrentChange"
-                     :current-page.sync="currentPage1"
-                     :page-size="100"
-                     :total="1000"
+                     :current-page.sync="currentPage"
+                     :page-size="pageSize"
+                     :total="total"
                      layout="prev, pager, next">
       </el-pagination>
       </div>
@@ -34,14 +34,13 @@ export {default} from './personalCtr'
     padding: 65px 60px 0;
     display: flex;
     display: -webkit-flex;
-    justify-content: space-between;
     flex-wrap: wrap;
 }
 .personal_list{
     width: 330px;
     border: 1px solid #ddd;
     text-align: center;
-    margin-bottom: 40px;
+    margin: 0 13px 40px;
     border-radius: 5px;
     overflow: hidden;
 }
@@ -56,6 +55,7 @@ export {default} from './personalCtr'
 }
 
 .page{
+  width:100%;
   margin: 40px auto 80px;
 }
 .pagination {

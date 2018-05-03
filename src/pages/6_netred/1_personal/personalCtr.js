@@ -1,84 +1,59 @@
 export default{
-    data() {
-        return {
-            currentPage1:5,
-            netredList: [
-                {
-                    src: 'http://img2.imgtn.bdimg.com/it/u=862591842,2864954084&fm=27&gp=0.jpg',
-                    name: '美女图片',
-                    title: '如果实现单行文本的溢出显示'
-                },{
-                    src: 'http://img2.imgtn.bdimg.com/it/u=862591842,2864954084&fm=27&gp=0.jpg',
-                    name: '美女图片',
-                    title: '如果实现单行文本的溢出显示'
-                },{
-                    src: 'http://img2.imgtn.bdimg.com/it/u=862591842,2864954084&fm=27&gp=0.jpg',
-                    name: '美女图片',
-                    title: '如果实现单行文本的溢出显示'
-                },{
-                    src: 'http://img2.imgtn.bdimg.com/it/u=862591842,2864954084&fm=27&gp=0.jpg',
-                    name: '美女图片',
-                    title: '如果实现单行文本的溢出显示'
-                },{
-                    src: 'http://img2.imgtn.bdimg.com/it/u=862591842,2864954084&fm=27&gp=0.jpg',
-                    name: '美女图片',
-                    title: '如果实现单行文本的溢出显示'
-                },{
-                    src: 'http://img2.imgtn.bdimg.com/it/u=862591842,2864954084&fm=27&gp=0.jpg',
-                    name: '美女图片',
-                    title: '如果实现单行文本的溢出显示'
-                },{
-                    src: 'http://img2.imgtn.bdimg.com/it/u=862591842,2864954084&fm=27&gp=0.jpg',
-                    name: '美女图片',
-                    title: '如果实现单行文本的溢出显示'
-                },{
-                    src: 'http://img2.imgtn.bdimg.com/it/u=862591842,2864954084&fm=27&gp=0.jpg',
-                    name: '美女图片',
-                    title: '如果实现单行文本的溢出显示'
-                },{
-                    src: 'http://img2.imgtn.bdimg.com/it/u=862591842,2864954084&fm=27&gp=0.jpg',
-                    name: '美女图片',
-                    title: '如果实现单行文本的溢出显示'
-                },{
-                    src: 'http://img2.imgtn.bdimg.com/it/u=862591842,2864954084&fm=27&gp=0.jpg',
-                    name: '美女图片',
-                    title: '如果实现单行文本的溢出显示'
-                },{
-                    src: 'http://img2.imgtn.bdimg.com/it/u=862591842,2864954084&fm=27&gp=0.jpg',
-                    name: '美女图片',
-                    title: '如果实现单行文本的溢出显示'
-                },{
-                    src: 'http://img2.imgtn.bdimg.com/it/u=862591842,2864954084&fm=27&gp=0.jpg',
-                    name: '美女图片',
-                    title: '如果实现单行文本的溢出显示'
-                },{
-                    src: 'http://img2.imgtn.bdimg.com/it/u=862591842,2864954084&fm=27&gp=0.jpg',
-                    name: '美女图片',
-                    title: '如果实现单行文本的溢出显示'
-                },{
-                    src: 'http://img2.imgtn.bdimg.com/it/u=862591842,2864954084&fm=27&gp=0.jpg',
-                    name: '美女图片',
-                    title: '如果实现单行文本的溢出显示'
-                },{
-                    src: 'http://img2.imgtn.bdimg.com/it/u=862591842,2864954084&fm=27&gp=0.jpg',
-                    name: '美女图片',
-                    title: '如果实现单行文本的溢出显示'
-                }
-            ]
-        }
-    },
-    methods: {
-        handleSizeChange(val) {
-            console.log(`每页 ${val} 条`);
-          },
-        handleCurrentChange(val) {
-        console.log(`当前页: ${val}`);
-        },
-        //点击到详情页面
-        details(){
-            this.$router.push({
-                name: 'netRedDetails'
-            })
-        }
+  data() {
+    return {
+      currentPage: 1,
+      pageSize: 9,
+      total: null,
+      banner: {},
+      list: []
     }
+  },
+  methods: {
+    /**
+     * 分页 当前第几页
+     */
+    handleCurrentChange(val) {
+      this.currentPage = val;
+      this.getList();
+    },
+    /**
+     * 获取网红个人展示列表
+     */
+    getList(){
+      this.$p({
+        url: this.$api.memeQuery,
+        params: {
+          pageSize: this.pageSize,
+          current: this.currentPage,
+        }
+      }).then(res=> {
+        this.total = res.data.total;
+        var arr = res.data.list;
+        arr.forEach((e, index)=> {
+          arr[index].pubDate = e.pubDate.split(" ")[0];
+          arr[index].imgUrl = this.$baseU + e.imgUrl;
+        });
+
+        if (this.currentPage == 1) {
+          this.banner = arr[0];
+        }
+        this.list = JSON.parse(JSON.stringify(arr));
+
+      }, errRes=> {
+
+      })
+    },
+    //点击到详情页面
+    details(item){
+      this.$router.push({
+        name: 'netRedDetails',
+        query:{
+          id:item.id
+        }
+      })
+    }
+  },
+  mounted(){
+    this.getList();
+  }
 }

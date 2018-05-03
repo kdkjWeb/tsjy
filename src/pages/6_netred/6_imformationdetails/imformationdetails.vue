@@ -1,9 +1,9 @@
 <template>
   <div class="container">
-      <img src="http://pic31.photophoto.cn/20140609/0034034883622832_b.jpg" alt="" width="100%" height="500">
-      <h4>{{title}}<a :href="relaviveVideo">相关视频</a></h4>
-      <p>{{time}}</p>
-      <div v-html="content"></div>
+      <img :src="item.imgUrl" alt="" width="100%" height="500">
+      <h4>{{item.titile}}<a :href="item.linkUrl">相关视频</a></h4>
+      <p>{{item.pubTime}}</p>
+      <div v-html="item.newsText"></div>
   </div>
 </template>
 

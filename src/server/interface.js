@@ -26,6 +26,13 @@ Interface.uploadUnionFile = 'uploadUnionFile'; //上传视频文件，或者音�
 Interface.newsQuery = 'news/query';  //所有一级页面查询接口
 Interface.findOneById = 'news/findOneById';  //所有一级页面详情
 
+/**
+ * 网红页面查询信息
+ */
+Interface.memeQuery = 'meme/query'; //网红个人展示
+Interface.memeQueryImgs = 'meme/queryImgs'; //网红个人图集
+Interface.findOneById = 'meme/findOneById'; //网红个人展示 详情
+Interface.findImgsById = 'meme/findImgsById'; //网红个人图集 详情
 
 
 export default Interface;
