@@ -3,22 +3,22 @@
       <div class="amusement">
         <div class="amusement_music">
           <div class="amusement_video">
-            <video id="video" :poster="amusement.video.bgSrc" controls="controls" width="828" height="495" :src="amusement.video.src"></video>
+            <video id="video" :poster="detail.imgUrl" controls="controls" width="828" height="495" :src="detail.videoUrl"></video>
           </div>
           <div class="amusement_list" :class="{amusement_list_active: amusement.btnFlag}">
-            <h3 class="amusement_title">相关视屏</h3>
+            <h3 class="amusement_title">相关视频</h3>
             <ul class="amusement_video_list">
-              <li v-for="(item,index) in amusement.videoList" :key="index" @click="changeVedio(item)">
-                <img :src="item.src" width="80" height="65" alt="">
-                <span>{{item.title}}</span>
+              <li v-for="(item,index) in amusement.videoList" :key="index" @click="changeVideo(item)">
+                <img :src="item.imgUrl" width="80" height="65" alt="">
+                <span>{{item.titile}}</span>
               </li>
             </ul>
             <div class="amusement_btn" @click="amusementBtn">{{amusement.btn}}</div>
           </div>
         </div>
       </div>
-      <h1>{{title}}</h1>
-      <div class="content">{{content}}</div>
+      <h1>{{detail.titile}}</h1>
+      <div class="content">{{detail.newsText}}</div>
   </div>
 </template>
 

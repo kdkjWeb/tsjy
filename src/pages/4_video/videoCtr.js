@@ -15,51 +15,11 @@ export default {
       amusement: {
         btn: '>',
         btnFlag: false,
-        video: {
-          src: 'http://ugcws.video.gtimg.com/b03997jxz2a.m701.mp4?vkey=66B78BA998E725057CAAC415CB0FEFF31057EE033ECB8E5644CD71386C76A4EF553C2608E21ED09D856728C485712FDD175C919D252234FE5D772843306EFD52361FB4D07BCD5AC3193F24C06CDF6AC9D84D901B75851429664CD84D88F14D8F1E0C0C66DE01F6A9F2DC5F5EDD985370898D6A8D2EE29A72&br=14&platform=2&fmt=auto&level=0&sdtfrom=v1010&guid=e6208066eecaa6998591391ddc7c9598',
-          bgSrc: 'http://pic11.photophoto.cn/20090529/0034034544305310_b.jpg'
-        },
-        videoList: [
-          {
-            src: 'http://pic11.photophoto.cn/20090529/0034034544305310_b.jpg',
-            title: '弄你喀什就啊阿卡萨卡萨弄你喀什就啊阿卡萨卡萨',
-            videosrc: 'http://ugcws.video.gtimg.com/b03997jxz2a.m701.mp4?vkey=66B78BA998E725057CAAC415CB0FEFF31057EE033ECB8E5644CD71386C76A4EF553C2608E21ED09D856728C485712FDD175C919D252234FE5D772843306EFD52361FB4D07BCD5AC3193F24C06CDF6AC9D84D901B75851429664CD84D88F14D8F1E0C0C66DE01F6A9F2DC5F5EDD985370898D6A8D2EE29A72&br=14&platform=2&fmt=auto&level=0&sdtfrom=v1010&guid=e6208066eecaa6998591391ddc7c9598'
-          },{
-            src: 'http://pic36.photophoto.cn/20150708/0034034816424961_b.jpg',
-            title: '弄你喀什就啊阿卡萨卡萨弄你喀什就啊阿卡萨卡萨',
-            videosrc: 'http://ugcws.video.gtimg.com/b03997jxz2a.m701.mp4?vkey=66B78BA998E725057CAAC415CB0FEFF31057EE033ECB8E5644CD71386C76A4EF553C2608E21ED09D856728C485712FDD175C919D252234FE5D772843306EFD52361FB4D07BCD5AC3193F24C06CDF6AC9D84D901B75851429664CD84D88F14D8F1E0C0C66DE01F6A9F2DC5F5EDD985370898D6A8D2EE29A72&br=14&platform=2&fmt=auto&level=0&sdtfrom=v1010&guid=e6208066eecaa6998591391ddc7c9598'
-          },{
-            src: 'http://pic11.photophoto.cn/20090529/0034034544305310_b.jpg',
-            title: '弄你喀什就啊阿卡萨卡萨弄你喀什就啊阿卡萨卡萨',
-            videosrc: 'http://ugcws.video.gtimg.com/b03997jxz2a.m701.mp4?vkey=66B78BA998E725057CAAC415CB0FEFF31057EE033ECB8E5644CD71386C76A4EF553C2608E21ED09D856728C485712FDD175C919D252234FE5D772843306EFD52361FB4D07BCD5AC3193F24C06CDF6AC9D84D901B75851429664CD84D88F14D8F1E0C0C66DE01F6A9F2DC5F5EDD985370898D6A8D2EE29A72&br=14&platform=2&fmt=auto&level=0&sdtfrom=v1010&guid=e6208066eecaa6998591391ddc7c9598'
-          },{
-            src: 'http://pic36.photophoto.cn/20150708/0034034816424961_b.jpg',
-            title: '弄你喀什就啊阿卡萨卡萨弄你喀什就啊阿卡萨卡萨',
-            videosrc: 'http://ugcws.video.gtimg.com/b03997jxz2a.m701.mp4?vkey=66B78BA998E725057CAAC415CB0FEFF31057EE033ECB8E5644CD71386C76A4EF553C2608E21ED09D856728C485712FDD175C919D252234FE5D772843306EFD52361FB4D07BCD5AC3193F24C06CDF6AC9D84D901B75851429664CD84D88F14D8F1E0C0C66DE01F6A9F2DC5F5EDD985370898D6A8D2EE29A72&br=14&platform=2&fmt=auto&level=0&sdtfrom=v1010&guid=e6208066eecaa6998591391ddc7c9598'
-          },{
-            src: 'http://pic11.photophoto.cn/20090529/0034034544305310_b.jpg',
-            title: '弄你喀什就啊阿卡萨卡萨弄你喀什就啊阿卡萨卡萨',
-            videosrc: 'http://ugcws.video.gtimg.com/b03997jxz2a.m701.mp4?vkey=66B78BA998E725057CAAC415CB0FEFF31057EE033ECB8E5644CD71386C76A4EF553C2608E21ED09D856728C485712FDD175C919D252234FE5D772843306EFD52361FB4D07BCD5AC3193F24C06CDF6AC9D84D901B75851429664CD84D88F14D8F1E0C0C66DE01F6A9F2DC5F5EDD985370898D6A8D2EE29A72&br=14&platform=2&fmt=auto&level=0&sdtfrom=v1010&guid=e6208066eecaa6998591391ddc7c9598'
-          },{
-            src: 'http://pic36.photophoto.cn/20150708/0034034816424961_b.jpg',
-            title: '弄你喀什就啊阿卡萨卡萨弄你喀什就啊阿卡萨卡萨',
-            videosrc: 'http://ugcws.video.gtimg.com/b03997jxz2a.m701.mp4?vkey=66B78BA998E725057CAAC415CB0FEFF31057EE033ECB8E5644CD71386C76A4EF553C2608E21ED09D856728C485712FDD175C919D252234FE5D772843306EFD52361FB4D07BCD5AC3193F24C06CDF6AC9D84D901B75851429664CD84D88F14D8F1E0C0C66DE01F6A9F2DC5F5EDD985370898D6A8D2EE29A72&br=14&platform=2&fmt=auto&level=0&sdtfrom=v1010&guid=e6208066eecaa6998591391ddc7c9598'
-          },{
-            src: 'http://pic11.photophoto.cn/20090529/0034034544305310_b.jpg',
-            title: '弄你喀什就啊阿卡萨卡萨弄你喀什就啊阿卡萨卡萨',
-            videosrc: 'http://ugcws.video.gtimg.com/b03997jxz2a.m701.mp4?vkey=66B78BA998E725057CAAC415CB0FEFF31057EE033ECB8E5644CD71386C76A4EF553C2608E21ED09D856728C485712FDD175C919D252234FE5D772843306EFD52361FB4D07BCD5AC3193F24C06CDF6AC9D84D901B75851429664CD84D88F14D8F1E0C0C66DE01F6A9F2DC5F5EDD985370898D6A8D2EE29A72&br=14&platform=2&fmt=auto&level=0&sdtfrom=v1010&guid=e6208066eecaa6998591391ddc7c9598'
-          },{
-            src: 'http://pic36.photophoto.cn/20150708/0034034816424961_b.jpg',
-            title: '弄你喀什就啊阿卡萨卡萨弄你喀什就啊阿卡萨卡萨',
-            videosrc: 'http://ugcws.video.gtimg.com/b03997jxz2a.m701.mp4?vkey=66B78BA998E725057CAAC415CB0FEFF31057EE033ECB8E5644CD71386C76A4EF553C2608E21ED09D856728C485712FDD175C919D252234FE5D772843306EFD52361FB4D07BCD5AC3193F24C06CDF6AC9D84D901B75851429664CD84D88F14D8F1E0C0C66DE01F6A9F2DC5F5EDD985370898D6A8D2EE29A72&br=14&platform=2&fmt=auto&level=0&sdtfrom=v1010&guid=e6208066eecaa6998591391ddc7c9598'
-          },{
-            src: 'http://pic11.photophoto.cn/20090529/0034034544305310_b.jpg',
-            title: '弄你喀什就啊阿卡萨卡萨弄你喀什就啊阿卡萨卡萨',
-            videosrc: 'http://ugcws.video.gtimg.com/b03997jxz2a.m701.mp4?vkey=66B78BA998E725057CAAC415CB0FEFF31057EE033ECB8E5644CD71386C76A4EF553C2608E21ED09D856728C485712FDD175C919D252234FE5D772843306EFD52361FB4D07BCD5AC3193F24C06CDF6AC9D84D901B75851429664CD84D88F14D8F1E0C0C66DE01F6A9F2DC5F5EDD985370898D6A8D2EE29A72&br=14&platform=2&fmt=auto&level=0&sdtfrom=v1010&guid=e6208066eecaa6998591391ddc7c9598'
-          }
-        ]
+        video: {},
+        videoList: []
       },
-      list:[]
+      list:[],
+      isTrans:true,
     }
   },
   methods:{
@@ -74,30 +34,37 @@ export default {
       }
     },
     //点击右侧相关视屏的每一个
-    changeVedio(item){
-      let video = document.getElementById('video')
-      this.amusement.video.src = item.videosrc;
-      this.amusement.video.bgSrc = item.src;
+    changeVideo(item){
+      let video = document.getElementById('video');
+      this.amusement.video.videoUrl = item.videoUrl;
+      this.amusement.video.imgUrl = item.imgUrl;
       setTimeout(()=>{
         video.play()
       },0)
     },
     toLink(index) {
       this.thisIndex = index;
+      this.getList(this.tabBarList[this.thisIndex].title);
     },
     handleCurrentChange(val) {
       this.currentPage = val;
       this.getList(this.tabBarList[this.thisIndex].title);
     },
     //点击到详情
-    details() {
+    details(item) {
       if(this.thisIndex == 0){
         this.$router.push({
-          name: 'videoFilm'
+          name: 'videoFilm',
+          query:{
+            id:item.id,
+          }
         })
       }else if(this.thisIndex == 1){
         this.$router.push({
-          name: 'videoReFilm'
+          name: 'videoReFilm',
+          query:{
+            id:item.id,
+          }
         })
       }
     },
@@ -120,12 +87,13 @@ export default {
         arr.forEach((e,index)=>{
           arr[index].pubDate = e.pubDate.split(" ")[0];
           arr[index].imgUrl = this.$baseU + e.imgUrl;
-          arr[index].musicUrl = this.$baseU + e.musicUrl;
-          arr[index].isPlay = false;
+          arr[index].videoUrl = this.$baseU + e.videoUrl;
         });
 
-        if(this.currentPage==1) {
-          this.banner = arr[0];
+        if(this.currentPage==1&&this.thisIndex==0&&this.isTrans == true) {
+          this.isTrans = false;
+          this.amusement.videoList = JSON.parse(JSON.stringify(arr));
+          this.amusement.video = JSON.parse(JSON.stringify(arr[0]));
         }
         this.list = JSON.parse(JSON.stringify(arr));
       },errRes=>{

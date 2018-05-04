@@ -1,9 +1,9 @@
 <template>
   <div class="container">
-      <img src="http://pic31.photophoto.cn/20140609/0034034883622832_b.jpg" alt="" width="100%" height="500"> 
-      <h1>{{title}}</h1>
-      <p><span>发布人：{{name}}</span><span class="time">发布时间：{{time}}</span></p>
-      <div>{{content}}</div>
+      <img :src="detail.imgUrl" alt="" width="100%" height="500">
+      <h1>{{detail.titile}}</h1>
+      <p><span>发布人：{{detail.publisher}}</span><span class="time">发布时间：{{detail.pubDate}}</span></p>
+      <div>{{detail.newsText}}</div>
   </div>
 </template>
 
