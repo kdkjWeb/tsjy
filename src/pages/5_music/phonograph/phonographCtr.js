@@ -46,7 +46,7 @@ export default{
           break;
         case 3:
           this.$router.push({
-            name: 'orderMusic'
+            name: 'musicOrder'
           });
           // this.showAlert = !this.showAlert;
           break;

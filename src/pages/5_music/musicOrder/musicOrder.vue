@@ -59,7 +59,7 @@
   </div>
 </template>
 <script>
-  export default require('./orderMusicCtr');
+  export default require('./musicOrderCtr');
 </script>
 <style scoped>
   .container {

@@ -35,7 +35,7 @@ import recommendfilm from '@/pages/4_video/recommendfilm/recommendfilm'
 import music from '@/pages/5_music/music'
 import phonograph from '@/pages/5_music/phonograph/phonograph'
 import musicDetail from '@/pages/5_music/musicDetail/musicDetail'
-import orderMusic from '@/pages/5_music/orderMusic/orderMusic'
+import musicOrder from '@/pages/5_music/musicOrder/musicOrder'
 // 探城
 import citySearcher from '@/pages/9_citySearcher/citySearcher'
 import cityDetail from '@/pages/9_citySearcher/cityDetail/cityDetail'
@@ -163,10 +163,10 @@ let musicRoute = {
     name: 'musicDetail',
     component: musicDetail
   },
-  orderMusic:{
-    path: '/orderMusic',
-    name: 'orderMusic',
-    component: orderMusic
+  musicOrder:{
+    path: '/musicOrder',
+    name: 'musicOrder',
+    component: musicOrder
   },
 };
 // 网红
@@ -329,7 +329,7 @@ export default {
     employmentRoute.familyDetail,
     employmentRoute.familyForm,
     videoRoute.video,videoRoute.wonderful,videoRoute.recommendfilm,
-    musicRoute.music,musicRoute.phonograph,musicRoute.musicDetail,musicRoute.orderMusic,
+    musicRoute.music,musicRoute.phonograph,musicRoute.musicDetail,musicRoute.musicOrder,
     netRedRoute.netRed,netRedRoute.personDetail,netRedRoute.atlasdetails,netRedRoute.imformationdetails,
     wishRoute,
     fleaRoute.flea,fleaRoute.fleaDetail,

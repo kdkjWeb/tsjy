@@ -1,7 +1,7 @@
 <template>
     <div class="container">
       <div class="ad">
-        <img :src="banner.imgUrl" alt="">
+        <img src="../../assets/images/city.png" alt="">
       </div>
       <div class="actHeader">
         <ul class="clear">

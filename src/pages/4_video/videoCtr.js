@@ -5,6 +5,9 @@ export default {
   data(){
     return {
       thisIndex:0,
+      currentPage:1,
+      pageSize:9,
+      total:null,
       tabBarList:[
         {"title":"精彩VIDEO"},
         {"title":"推荐影视"},
@@ -56,38 +59,7 @@ export default {
           }
         ]
       },
-      currentPage1:5,
-      list:[{
-        title:"2017年度盘点",
-        src:"http://pic31.photophoto.cn/20140609/0034034883622832_b.jpg",
-        des:"创意方法论线下沙龙为设计工作创意方法论线下沙龙为设计工作创意方法论线下沙龙为设计工作创意方法论线下沙龙为设计工作",
-        time:"2017-03-02"
-      },{
-        title:"2017年度盘点",
-        src:"http://pic31.photophoto.cn/20140609/0034034883622832_b.jpg",
-        des:"创意方法论线下沙龙为设计工作创意方法论线下沙龙为设计工作创意方法论线下沙龙为设计工作创意方法论线下沙龙为设计工作",
-        time:"2017-03-02"
-      },{
-        title:"2017年度盘点",
-        src:"http://pic31.photophoto.cn/20140609/0034034883622832_b.jpg",
-        des:"创意方法论线下沙龙为设计工作创意方法论线下沙龙为设计工作创意方法论线下沙龙为设计工作创意方法论线下沙龙为设计工作",
-        time:"2017-03-02"
-      },{
-        title:"2017年度盘点",
-        src:"http://pic31.photophoto.cn/20140609/0034034883622832_b.jpg",
-        des:"创意方法论线下沙龙为设计工作创意方法论线下沙龙为设计工作创意方法论线下沙龙为设计工作创意方法论线下沙龙为设计工作",
-        time:"2017-03-02"
-      },{
-        title:"2017年度盘点",
-        src:"http://pic31.photophoto.cn/20140609/0034034883622832_b.jpg",
-        des:"创意方法论线下沙龙为设计工作创意方法论线下沙龙为设计工作创意方法论线下沙龙为设计工作创意方法论线下沙龙为设计工作",
-        time:"2017-03-02"
-      },{
-        title:"2017年度盘点",
-        src:"http://pic31.photophoto.cn/20140609/0034034883622832_b.jpg",
-        des:"创意方法论线下沙龙为设计工作创意方法论线下沙龙为设计工作创意方法论线下沙龙为设计工作创意方法论线下沙龙为设计工作",
-        time:"2017-03-02"
-      }]
+      list:[]
     }
   },
   methods:{
@@ -113,11 +85,9 @@ export default {
     toLink(index) {
       this.thisIndex = index;
     },
-    handleSizeChange(val) {
-      console.log(`每页 ${val} 条`);
-    },
     handleCurrentChange(val) {
-      console.log(`当前页: ${val}`);
+      this.currentPage = val;
+      this.getList(this.tabBarList[this.thisIndex].title);
     },
     //点击到详情
     details() {
@@ -130,8 +100,40 @@ export default {
           name: 'videoReFilm'
         })
       }
+    },
+    /**
+     * 获取列表
+     */
+    getList(str){
+      this.$p({
+        url:this.$api.newsQuery,
+        params:{
+          pageSize:this.pageSize,
+          current:this.currentPage,
+          category:4,
+          type:str
+        }
+      }).then(res=>{
+        this.activeIndex = null;
+        this.total = res.data.total;
+        var arr = res.data.list;
+        arr.forEach((e,index)=>{
+          arr[index].pubDate = e.pubDate.split(" ")[0];
+          arr[index].imgUrl = this.$baseU + e.imgUrl;
+          arr[index].musicUrl = this.$baseU + e.musicUrl;
+          arr[index].isPlay = false;
+        });
+
+        if(this.currentPage==1) {
+          this.banner = arr[0];
+        }
+        this.list = JSON.parse(JSON.stringify(arr));
+      },errRes=>{
+
+      })
     }
   },
   mounted(){
+    this.getList(this.tabBarList[this.thisIndex].title);
   }
 }

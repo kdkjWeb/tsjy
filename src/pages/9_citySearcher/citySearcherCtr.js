@@ -8,7 +8,7 @@ export default {
       currentPage:1,
       pageSize:10,
       total:null,
-      banner:{},
+      // banner:{},
       list:[],
       tabBarList:[
         {"title":"探吃"},
@@ -55,9 +55,9 @@ export default {
           arr[index].imgUrl = this.$baseU + e.imgUrl;
         });
 
-        if(this.currentPage==1) {
-          this.banner = arr[0];
-        }
+        // if(this.currentPage==1) {
+        //   this.banner = arr[0];
+        // }
         this.list = JSON.parse(JSON.stringify(arr));
       },errRes=>{
 

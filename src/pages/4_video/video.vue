@@ -27,7 +27,7 @@
       <!--列表-->
       <div class="con">
         <div class="conB clear" v-for="item,index in list" :key="index" @click="details">
-          <img :src="item.src" alt="">
+          <img :src="item.imgUrl" alt="加载失败">
           <div class="conDes">
             <p>{{item.title}}</p>
           </div>
@@ -36,9 +36,9 @@
       <el-pagination class="pagination"
                      background
                      @current-change="handleCurrentChange"
-                     :current-page.sync="currentPage1"
-                     :page-size="100"
-                     :total="1000"
+                     :current-page.sync="currentPage"
+                     :page-size="pageSize"
+                     :total="total"
                      layout="prev, pager, next">
       </el-pagination>
     </div>
@@ -173,12 +173,12 @@
   .con {
     display:flex;
     flex-direction: row;
-    justify-content: space-between;
+    /*justify-content: space-between;*/
     flex-wrap: wrap;
   }
   .conB {
     width:335px;
-    margin-top:50px;
+    margin:50px 13px 0;
   }
   .conB img{
     width:100%;
