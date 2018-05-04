@@ -1,7 +1,7 @@
 <template>
   <div class="job">
       <div class="job_header">
-        <span>选择你需要的人才</span>
+        <!--<span>选择你需要的人才</span>-->
         <span class="job_btn" @click="alertOpen">发布信息</span>
       </div>
       <ul>

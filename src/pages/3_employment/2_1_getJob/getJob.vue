@@ -2,29 +2,31 @@
     <div class="container">
       <div class="headerT">基本信息</div>
       <div class="conT">
-        <h2>姓名</h2>
-        <p>基本信息:男|23岁|现居地:成都</p>
-        <p>期望职位:UI</p>
-        <p>工作经验:3年</p>
-        <p>学历:本科</p>
-        <p>期望薪资:50000元/月</p>
+        <h2>姓名:{{detail.tutorName}}</h2>
+        <p>基本信息:{{detail.gender==1?"男":"女"}}|{{detail.age}}岁|现居地:{{detail.addr}}</p>
+        <p>期望职位:{{detail.position}}</p>
+        <p>工作经验:{{detail.experience}}</p>
+        <p>学历:{{detail.edu}}</p>
+        <p>期望薪资:{{detail.expSalary}}{{detail.unit}}</p>
       </div>
       <div class="headerT">自我介绍</div>
       <div class="conT">
-        <ol type="1">
-          <li v-for="(item,index) in list" :key="index">{{item}}</li>
-        </ol>
+        <p>{{detail.selfDesc}}</p>
+        <!--<ol type="1">-->
+          <!--<li v-for="(item,index) in list" :key="index">{{item}}</li>-->
+        <!--</ol>-->
       </div>
 
       <div class="headerT">工作经历</div>
       <div class="conT">
-        <p>2017/01 - 2018/08</p>
-        <p>工作岗位:本科</p>
-        <p>职位月薪:50000元/月</p>
+        <p>{{detail.beginTime}} - {{detail.endTime}}</p>
+        <p>工作岗位:{{detail.jobPosition}}</p>
+        <p>职位月薪:{{detail.jobSalary}}{{detail.unit}}</p>
         <p>工作内容</p>
-        <ol type="1">
-          <li v-for="(item,index) in list" :key="index">{{item}}</li>
-        </ol>
+        <p>{{detail.jobDesc}}</p>
+        <!--<ol type="1">-->
+          <!--<li v-for="(item,index) in list" :key="index">{{item}}</li>-->
+        <!--</ol>-->
       </div>
     </div>
 </template>

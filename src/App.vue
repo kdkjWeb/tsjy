@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" v-cloak>
     <div class="headerBox">
       <header class="header">
       <div class="header_btn">
@@ -221,6 +221,9 @@
 </script>
 <!--清除样式-->
 <style>
+  [v-cloak] {
+    display: none!important;
+  }
   html {
     height:100%;
     overflow: auto;
@@ -234,7 +237,8 @@
     background-color: #f2f2f2;
   }
   body {
-    min-height:100%;
+    min-height:calc(100% + 60px);
+    padding-bottom:1px;
   }
   * {
     padding:0;
@@ -242,7 +246,6 @@
   }
   #app {
     width:100%;
-    height:100%;
     font-size:14px;
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
   }
@@ -429,7 +432,6 @@
     min-width: 1200px;
     height: 60px;
     background-color: #4d484f;
-    margin-top: 190px;
   }
 
 </style>

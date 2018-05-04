@@ -6,22 +6,52 @@ export default {
     return {
       src:"",
       form: {
-        name: '',
-        nickname: '',
-        sex: '',
-        year: "",
-        height: "",
-        weight: '',
-        school: '',
-        country: '',
-        native:'',
-        date:''
+        type:2,
+        tutorName: '',
+        position: '',
+        expSalary:'',
+        gender: '',
+        age: "",
+        addr: "",
+        graduateSchool: '',
+        edu: '',
+        experience: '',
+        selfDesc:'',
+        beginTime:'',
+        endTime:'',
+        jobPosition:'',
+        jobSalary:'',
+        jobDesc:'',
+        unit:'',
       }
     }
   },
   methods: {
     onSubmit() {
-      console.log('submit!');
+      for(var key in this.form) {
+        if(this.form[key]=="") {
+          this.$message({
+            message: "请将信息填写完整",
+            type: 'warning',
+            duration: 1500
+          });
+          return;
+        }
+      }
+
+      this.$p({
+        url:this.$api.tutorAdd,
+        params:this.form
+      }).then(res=>{
+        this.$message({
+          message: "提交成功",
+          type: 'success',
+          duration: 1500
+        });
+        this.$router.go(-1);
+      },errRes=>{
+
+      });
     },
     /**
      * 上传图片

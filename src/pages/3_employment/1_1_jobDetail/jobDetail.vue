@@ -1,23 +1,24 @@
 <template>
     <div class="container">
-      <h2>招聘XXXXXX</h2>
-      <p>发布时间 : 2017-02-06</p>
-      <p class="scalar"><span>6000 - 8000</span>元/月</p>
+      <h2>招聘{{detail.position}}</h2>
+      <p>发布时间 : {{detail.pubDate}}</p>
+      <p class="scalar"><span>{{detail.minSalary}} - {{detail.maxSalary}}</span>{{detail.unit}}</p>
       <ul class="tags clear">
-        <li  v-for="(item,index) in list" :key="index">{{item}}</li>
+        <li  v-for="(item,index) in detail.bonusList" :key="index">{{item.bonus}}</li>
       </ul>
-      <p><span>招聘人数 : 10人</span><span>学历 : 大专</span></p>
+      <p><span>招聘人数 : {{detail.hireAmount}}人</span><span>学历 : {{detail.minEdu}}</span></p>
 
       <div class="jobRequire">
         <p>招聘简章 : </p>
-        <ol type="1">
-          <li v-for="(item,index) in list" :key="index">{{item}}</li>
-        </ol>
+        <p>{{detail.hireDescription}}</p>
+        <!--<ol type="1">-->
+          <!--<li v-for="(item,index) in list" :key="index"></li>-->
+        <!--</ol>-->
       </div>
 
       <div class="seePhone">
         <p @click="seePhone">查看电话</p>
-        <span v-if="showPhone">18999999999</span>
+        <span v-if="showPhone">{{detail.telePhone}}</span>
       </div>
     </div>
 </template>

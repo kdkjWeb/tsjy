@@ -1,14 +1,14 @@
 <template>
   <div class="job">
       <ul>
-        <li class="job_list" v-for="(item,index) in jobList" :key="index">
+        <li class="job_list" v-for="(item,index) in list" :key="index">
           <div class="job_left">
-            <img :src="item.src" alt="">
-            <p>发布人：{{item.name}}</p>
+            <img :src="item.head" alt="">
+            <p>发布人：{{item.publisher}}</p>
           </div>
           <div class="job_right">
-            <p class="job_right_top"><span>【{{item.subject}}】</span><span @click="toJobDetail">{{item.content}}</span><span class="job_right_price"><span>{{item.price}}</span>/{{item.unit}}</span></p>
-            <p class="job_right_time">{{item.time}}</p>
+            <p class="job_right_top"><span>【{{item.position}}】</span><span @click="toJobDetail(item)">{{item.titile}}000000</span><span class="job_right_price"><span>{{item.minSalary}} - {{item.maxSalary}}</span>/{{item.unit}}</span></p>
+            <p class="job_right_time">{{item.pubDate}}</p>
           </div>
         </li>
       </ul>
@@ -16,9 +16,9 @@
         <el-pagination class="pagination"
                      background
                      @current-change="handleCurrentChange"
-                     :current-page.sync="currentPage1"
-                     :page-size="100"
-                     :total="1000"
+                     :current-page.sync="currentPage"
+                     :page-size="pageSize"
+                     :total="total"
                      layout="prev, pager, next">
       </el-pagination>
       </div>

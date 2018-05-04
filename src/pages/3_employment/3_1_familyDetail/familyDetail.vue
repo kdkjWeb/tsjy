@@ -2,19 +2,19 @@
   <div class="container">
     <div class="info">
       <div class="info_img">
-        <img :src="user.src" alt="" width="100%" height="100%">
+        <img :src="user.head" alt="" width="100%" height="100%">
       </div>
       <div class="info_list">
         <h1>{{user.name}}</h1>
-        <p>姓&emsp;&emsp;名：{{user.stagename}}</p>
-        <p>性&emsp;&emsp;别：{{user.sex}}</p>
+        <p>姓&emsp;&emsp;名：{{user.tutorName}}</p>
+        <p>性&emsp;&emsp;别：{{user.gender==1?"男":"女"}}</p>
         <p>年&emsp;&emsp;龄：{{user.age}}岁</p>
-        <p>工作经验：{{user.weight}}kg</p>
-        <p>学&emsp;&emsp;历：{{user.height}}cm</p>
-        <p>毕业学校：{{user.school}}</p>
-        <p>擅长学科：{{user.birthday}}</p>
-        <p>电&emsp;&emsp;话：{{user.birthday}}</p>
-        <p>自我介绍：{{user.birthday}}</p>
+        <p>工作经验：{{user.experience}}</p>
+        <p>学&emsp;&emsp;历：{{user.edu}}</p>
+        <p>毕业学校：{{user.graduateSchool}}</p>
+        <p>擅长学科：{{user.doWellIn}}</p>
+        <p>电&emsp;&emsp;话：{{user.mPhone}}</p>
+        <p>自我介绍：{{user.selfDesc}}</p>
       </div>
     </div>
   </div>
