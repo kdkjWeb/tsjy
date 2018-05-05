@@ -10,40 +10,49 @@
           </div>
         </el-form-item>
         <el-form-item label="姓名 ：">
-          <el-input v-model="form.name" placeholder="请输入姓名"></el-input>
+          <el-input v-model="form.tutorName" placeholder="请输入姓名"></el-input>
         </el-form-item>
         <el-form-item label="家教专业 ：">
-          <el-input v-model="form.nickname" placeholder="请输入家教"></el-input>
+          <el-input v-model="form.major" placeholder="请输入家教专业"></el-input>
         </el-form-item>
         <el-form-item label="性别 ：">
-          <el-select v-model="form.sex" placeholder="请选择性别">
-            <el-option label="男" :value="0"></el-option>
-            <el-option label="女" :value="1"></el-option>
+          <el-select v-model="form.gender" placeholder="请选择性别">
+            <el-option label="男" value="1"></el-option>
+            <el-option label="女" value="0"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item label="年龄 ：">
-          <el-input v-model="form.year" type="number" placeholder="请输入年龄"></el-input>
+          <el-input v-model="form.age" type="number" placeholder="请输入年龄"></el-input>
         </el-form-item>
         <el-form-item label="学历 ：">
-          <el-input v-model="form.height" placeholder="请输入学历"></el-input>
+          <el-select v-model="form.edu" placeholder="请选择学历">
+            <el-option label="博士" value="博士"></el-option>
+            <el-option label="研究生" value="研究生"></el-option>
+            <el-option label="本科" value="本科"></el-option>
+            <el-option label="专科" value="专科"></el-option>
+            <el-option label="高中" value="高中"></el-option>
+            <el-option label="初中" value="初中"></el-option>
+            <el-option label="小学" value="小学"></el-option>
+            <el-option label="无" value="无"></el-option>
+          </el-select>
         </el-form-item>
         <el-form-item label="毕业学校 ：">
-          <el-input v-model="form.weight" placeholder="请输入毕业学校"></el-input>
+          <el-input v-model="form.graduateSchool" placeholder="请输入毕业学校"></el-input>
         </el-form-item>
         <el-form-item label="工作经验 ：">
-          <el-input v-model="form.school" placeholder="请输入工作经验"></el-input>
+          <el-input v-model="form.experience" type="number" placeholder="请输入工作经验"></el-input>
         </el-form-item>
         <el-form-item label="联系手机 ：">
-          <el-input v-model="form.country" type="number" placeholder="请输入手机"></el-input>
+          <el-input v-model="form.mPhone" type="number" placeholder="请输入手机"></el-input>
         </el-form-item>
         <el-form-item label="擅长学科 ：">
-          <el-input v-model="form.nation" placeholder="请输入擅长学科"></el-input>
+          <el-input v-model="form.doWellIn" placeholder="请输入擅长学科"></el-input>
         </el-form-item>
         <el-form-item label="自我介绍 ：">
-          <el-input type="textarea" :rows="5" v-model="form.nation"></el-input>
+          <el-input type="textarea" :rows="5" v-model="form.selfDesc"></el-input>
         </el-form-item>
       </el-form>
-      <div class="submitBtn">报名</div>
+      <div class="submitBtn" @click="onSubmit">报名</div>
     </div>
   </div>
 </template>
