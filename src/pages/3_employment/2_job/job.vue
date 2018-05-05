@@ -4,29 +4,28 @@
         <span>选择你需要的人才</span>
         <span class="job_btn" @click="publishJob">发布求职</span>
       </div>
-      <ul>
-        <li class="job_list" v-for="(item,index) in jobList" :key="index">
-          <div class="job_left">
-            <img :src="item.src" alt="">
-            <p>发布人：{{item.name}}</p>
-          </div>
-          <div class="job_right">
-            <p class="job_right_top"><span>【{{item.subject}}】</span><span @click="toJobDetail">{{item.content}}</span><span class="job_right_price"><span>{{item.price}}</span>/{{item.unit}}</span></p>
-            <p class="job_right_time">{{item.time}}</p>
-          </div>
-        </li>
-      </ul>
-
-      <div class="page">
-        <el-pagination class="pagination"
+    <ul>
+      <li class="job_list" v-for="(item,index) in list" :key="index">
+        <div class="job_left">
+          <img :src="item.head" alt="">
+          <p>发布人：{{item.publisher}}</p>
+        </div>
+        <div class="job_right">
+          <p class="job_right_top"><span>【{{item.position}}】</span><span @click="toJobDetail(item)">{{item.titile}}000000</span><span class="job_right_price"><span>{{item.expSalary}}</span>/{{item.unit}}</span></p>
+          <p class="job_right_time">{{item.pubDate}}</p>
+        </div>
+      </li>
+    </ul>
+    <div class="page">
+      <el-pagination class="pagination"
                      background
                      @current-change="handleCurrentChange"
-                     :current-page.sync="currentPage1"
-                     :page-size="100"
-                     :total="1000"
+                     :current-page.sync="currentPage"
+                     :page-size="pageSize"
+                     :total="total"
                      layout="prev, pager, next">
       </el-pagination>
-      </div>
+    </div>
   </div>
 </template>
 
@@ -60,6 +59,7 @@ export {default} from './jobCtr'
   text-align: center;
   border-radius: 5px;
   color: #fff;
+  cursor: pointer;
 }
 .job ul{
   border: 1px solid #ddd;

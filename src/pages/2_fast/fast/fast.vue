@@ -1,11 +1,12 @@
 <template>
   <div class="container">
     <div class="ad">
-      <img :src="banner.imgUrl" alt="">
-      <div class="des">
-        <div><p>{{banner.titile}}</p><p>{{banner.pubDate}}</p></div>
-        <p>{{banner.newsText}}</p>
-      </div>
+      <!--<img :src="banner.imgUrl" alt="">-->
+      <img src="../../../assets/images/fast.png" alt="">
+      <!--<div class="des">-->
+        <!--<div><p>{{banner.titile}}</p><p>{{banner.pubDate}}</p></div>-->
+        <!--<p>{{banner.newsText}}</p>-->
+      <!--</div>-->
     </div>
     <div class="con">
       <div class="conB clear" v-for="(item,index) in list" :key="index" @click="details(item)">

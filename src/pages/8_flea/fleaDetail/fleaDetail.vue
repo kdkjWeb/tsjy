@@ -1,14 +1,14 @@
 <template>
   <div class="details">
     <div class="detailsPerson">
-      <img src="../../../../static/wish1.png" alt="">
-      <span>发布人:王小二</span>
-      <span>联系人:王小二</span>
-      <span>联系方式:13585972111</span>
+      <img :src="detail.head" alt="">
+      <span>发布人:{{detail.publisher}}</span>
+      <span>联系人:{{detail.conName}}</span>
+      <span>联系方式:{{detail.conPhone}}</span>
     </div>
-    <h3><span>【二手转让】</span>{{title}}</h3>
-    <p><span class="time">发布时间：{{time}}</span></p>
-    <div>{{content}}</div>
+    <h3><span>【{{detail.type}}】</span>{{detail.titile}}</h3>
+    <p><span class="time">发布时间：{{detail.pubDate}}</span></p>
+    <div>{{detail.newsText}}</div>
   </div>
 </template>
 

@@ -35,6 +35,21 @@ Interface.memeQueryImgs = 'meme/queryImgs'; //网红个人图集
 Interface.memefindOneById = 'meme/findOneById'; //网红个人展示 详情
 Interface.findImgsById = 'meme/findImgsById'; //网红个人图集 详情
 
+/**
+ * 招聘信息
+ */
+Interface.hireQuery = 'hire/query'; //招聘信息列表
+// Interface.hirefindOneById='hire/findOneById' ;  //招聘信息查询详情
+
+/**
+ * 家教求职信息
+ */
+Interface.tutorQuery = 'tutor/query';  //家教求职信息列表
+Interface.tutorfindOneById = 'tutor/findOneById';  //家教求职查询详情
+Interface.tutorAdd = 'tutor/add';  //家教求职信息添加
+
+
+
 
 /**
  * 许愿树接口

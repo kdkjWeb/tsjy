@@ -3,20 +3,20 @@
       <div class="amusement">
         <div class="amusement_music">
           <div class="amusement_video">
-            <video id="video" :poster="amusement.video.bgSrc" controls="controls" width="830" height="495" :src="amusement.video.src"></video>
+            <video id="video" :poster="amusement.video.imgUrl" controls="controls" width="830" height="495" :src="amusement.video.videoUrl"></video>
           </div>
           <div class="amusement_list" :class="{amusement_list_active: amusement.btnFlag}">
-            <h3 class="amusement_title">相关视屏</h3>
+            <h3 class="amusement_title">相关视频</h3>
             <ul class="amusement_video_list">
-              <li v-for="(item,index) in amusement.videoList" :key="index" @click="changeVedio(item)">
-                <img :src="item.src" width="80" height="65" alt="">
-                <span>{{item.title}}</span>
+              <li v-for="(item,index) in amusement.videoList" :key="index" @click="changeVideo(item)">
+                <img :src="item.imgUrl" width="80" height="65" alt="">
+                <span>{{item.titile}}</span>
               </li>
             </ul>
             <div class="amusement_btn" @click="amusementBtn">{{amusement.btn}}</div>
           </div>
         </div>
-        <div class="amusementT"><p>vue学习视频</p><p>2017-03-02</p></div>
+        <div class="amusementT"><p>{{amusement.video.titile}}</p><p>{{amusement.video.pubDate}}</p></div>
       </div>
       <div class="actHeader">
         <ul class="clear">
@@ -26,10 +26,10 @@
 
       <!--列表-->
       <div class="con">
-        <div class="conB clear" v-for="item,index in list" :key="index" @click="details">
+        <div class="conB clear" v-for="(item,index) in list" :key="index" @click="details(item)">
           <img :src="item.imgUrl" alt="加载失败">
           <div class="conDes">
-            <p>{{item.title}}</p>
+            <p>{{item.titile}}</p>
           </div>
         </div>
       </div>
@@ -100,6 +100,7 @@
   }
   .amusement_video_list li{
     padding-bottom: 15px;
+    cursor: pointer;
   }
   .amusement_video_list li img{
     vertical-align: middle;
@@ -142,6 +143,7 @@
     text-align: center;
     line-height: 60px;
     color: #fff;
+    cursor: pointer;
   }
   .amusement_more{
     margin: 55px auto 90px;
@@ -179,6 +181,7 @@
   .conB {
     width:335px;
     margin:50px 13px 0;
+    cursor: pointer;
   }
   .conB img{
     width:100%;

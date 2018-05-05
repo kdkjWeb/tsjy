@@ -1,55 +1,14 @@
 export default{
     data() {
         return {
-            title: '这个是这个视屏的标题',
-            content: '习近平指出，当前，世界经济出现了一些积极向好势头，但面临的诸多问题并未从根本上解决。我去年在达沃斯指出的全球增长动能不足、全球经济治理滞后、全球发展失衡这三大根本性矛盾仍然比较突出。近来，反全球化思潮和保护主义情绪升温，加剧了世界经济中的风险和不确定性。第四次工业革命方兴未艾，但也蕴含不少风险和挑战。现在世界上的问题这么多，挑战这么多，还是要通过平等协商，加强多边合作来应对。历史一再证明，封闭最终只能走进死胡同，只有开放合作，道路才能越走越宽。大国在这方面承担着重要而特殊的责任。中国作为负责任的大国，愿同国际社会一道，在开放中合作、以合作求共赢，为给世界带来光明、稳定、美好的前景发挥积极作用，作出更多建设性贡献。在前几天刚结束的博鳌亚洲论坛年会上，我宣布了中国扩大开放的一系列重大举措。我们言必行，行必果，因为这是我们对中国人民、世界人民的庄严承诺。',
-            amusement: {
-                btn: '>',
-                btnFlag: false,
-                video: {
-                  src: 'http://ugcws.video.gtimg.com/b03997jxz2a.m701.mp4?vkey=66B78BA998E725057CAAC415CB0FEFF31057EE033ECB8E5644CD71386C76A4EF553C2608E21ED09D856728C485712FDD175C919D252234FE5D772843306EFD52361FB4D07BCD5AC3193F24C06CDF6AC9D84D901B75851429664CD84D88F14D8F1E0C0C66DE01F6A9F2DC5F5EDD985370898D6A8D2EE29A72&br=14&platform=2&fmt=auto&level=0&sdtfrom=v1010&guid=e6208066eecaa6998591391ddc7c9598',
-                  bgSrc: 'http://pic11.photophoto.cn/20090529/0034034544305310_b.jpg'
-                },
-                videoList: [
-                  {
-                    src: 'http://pic11.photophoto.cn/20090529/0034034544305310_b.jpg',
-                    title: '弄你喀什就啊阿卡萨卡萨弄你喀什就啊阿卡萨卡萨',
-                    videosrc: 'http://ugcws.video.gtimg.com/b03997jxz2a.m701.mp4?vkey=66B78BA998E725057CAAC415CB0FEFF31057EE033ECB8E5644CD71386C76A4EF553C2608E21ED09D856728C485712FDD175C919D252234FE5D772843306EFD52361FB4D07BCD5AC3193F24C06CDF6AC9D84D901B75851429664CD84D88F14D8F1E0C0C66DE01F6A9F2DC5F5EDD985370898D6A8D2EE29A72&br=14&platform=2&fmt=auto&level=0&sdtfrom=v1010&guid=e6208066eecaa6998591391ddc7c9598'
-                  },{
-                    src: 'http://pic36.photophoto.cn/20150708/0034034816424961_b.jpg',
-                    title: '弄你喀什就啊阿卡萨卡萨弄你喀什就啊阿卡萨卡萨',
-                    videosrc: 'http://ugcws.video.gtimg.com/b03997jxz2a.m701.mp4?vkey=66B78BA998E725057CAAC415CB0FEFF31057EE033ECB8E5644CD71386C76A4EF553C2608E21ED09D856728C485712FDD175C919D252234FE5D772843306EFD52361FB4D07BCD5AC3193F24C06CDF6AC9D84D901B75851429664CD84D88F14D8F1E0C0C66DE01F6A9F2DC5F5EDD985370898D6A8D2EE29A72&br=14&platform=2&fmt=auto&level=0&sdtfrom=v1010&guid=e6208066eecaa6998591391ddc7c9598'
-                  },{
-                    src: 'http://pic11.photophoto.cn/20090529/0034034544305310_b.jpg',
-                    title: '弄你喀什就啊阿卡萨卡萨弄你喀什就啊阿卡萨卡萨',
-                    videosrc: 'http://ugcws.video.gtimg.com/b03997jxz2a.m701.mp4?vkey=66B78BA998E725057CAAC415CB0FEFF31057EE033ECB8E5644CD71386C76A4EF553C2608E21ED09D856728C485712FDD175C919D252234FE5D772843306EFD52361FB4D07BCD5AC3193F24C06CDF6AC9D84D901B75851429664CD84D88F14D8F1E0C0C66DE01F6A9F2DC5F5EDD985370898D6A8D2EE29A72&br=14&platform=2&fmt=auto&level=0&sdtfrom=v1010&guid=e6208066eecaa6998591391ddc7c9598'
-                  },{
-                    src: 'http://pic36.photophoto.cn/20150708/0034034816424961_b.jpg',
-                    title: '弄你喀什就啊阿卡萨卡萨弄你喀什就啊阿卡萨卡萨',
-                    videosrc: 'http://ugcws.video.gtimg.com/b03997jxz2a.m701.mp4?vkey=66B78BA998E725057CAAC415CB0FEFF31057EE033ECB8E5644CD71386C76A4EF553C2608E21ED09D856728C485712FDD175C919D252234FE5D772843306EFD52361FB4D07BCD5AC3193F24C06CDF6AC9D84D901B75851429664CD84D88F14D8F1E0C0C66DE01F6A9F2DC5F5EDD985370898D6A8D2EE29A72&br=14&platform=2&fmt=auto&level=0&sdtfrom=v1010&guid=e6208066eecaa6998591391ddc7c9598'
-                  },{
-                    src: 'http://pic11.photophoto.cn/20090529/0034034544305310_b.jpg',
-                    title: '弄你喀什就啊阿卡萨卡萨弄你喀什就啊阿卡萨卡萨',
-                    videosrc: 'http://ugcws.video.gtimg.com/b03997jxz2a.m701.mp4?vkey=66B78BA998E725057CAAC415CB0FEFF31057EE033ECB8E5644CD71386C76A4EF553C2608E21ED09D856728C485712FDD175C919D252234FE5D772843306EFD52361FB4D07BCD5AC3193F24C06CDF6AC9D84D901B75851429664CD84D88F14D8F1E0C0C66DE01F6A9F2DC5F5EDD985370898D6A8D2EE29A72&br=14&platform=2&fmt=auto&level=0&sdtfrom=v1010&guid=e6208066eecaa6998591391ddc7c9598'
-                  },{
-                    src: 'http://pic36.photophoto.cn/20150708/0034034816424961_b.jpg',
-                    title: '弄你喀什就啊阿卡萨卡萨弄你喀什就啊阿卡萨卡萨',
-                    videosrc: 'http://ugcws.video.gtimg.com/b03997jxz2a.m701.mp4?vkey=66B78BA998E725057CAAC415CB0FEFF31057EE033ECB8E5644CD71386C76A4EF553C2608E21ED09D856728C485712FDD175C919D252234FE5D772843306EFD52361FB4D07BCD5AC3193F24C06CDF6AC9D84D901B75851429664CD84D88F14D8F1E0C0C66DE01F6A9F2DC5F5EDD985370898D6A8D2EE29A72&br=14&platform=2&fmt=auto&level=0&sdtfrom=v1010&guid=e6208066eecaa6998591391ddc7c9598'
-                  },{
-                    src: 'http://pic11.photophoto.cn/20090529/0034034544305310_b.jpg',
-                    title: '弄你喀什就啊阿卡萨卡萨弄你喀什就啊阿卡萨卡萨',
-                    videosrc: 'http://ugcws.video.gtimg.com/b03997jxz2a.m701.mp4?vkey=66B78BA998E725057CAAC415CB0FEFF31057EE033ECB8E5644CD71386C76A4EF553C2608E21ED09D856728C485712FDD175C919D252234FE5D772843306EFD52361FB4D07BCD5AC3193F24C06CDF6AC9D84D901B75851429664CD84D88F14D8F1E0C0C66DE01F6A9F2DC5F5EDD985370898D6A8D2EE29A72&br=14&platform=2&fmt=auto&level=0&sdtfrom=v1010&guid=e6208066eecaa6998591391ddc7c9598'
-                  },{
-                    src: 'http://pic36.photophoto.cn/20150708/0034034816424961_b.jpg',
-                    title: '弄你喀什就啊阿卡萨卡萨弄你喀什就啊阿卡萨卡萨',
-                    videosrc: 'http://ugcws.video.gtimg.com/b03997jxz2a.m701.mp4?vkey=66B78BA998E725057CAAC415CB0FEFF31057EE033ECB8E5644CD71386C76A4EF553C2608E21ED09D856728C485712FDD175C919D252234FE5D772843306EFD52361FB4D07BCD5AC3193F24C06CDF6AC9D84D901B75851429664CD84D88F14D8F1E0C0C66DE01F6A9F2DC5F5EDD985370898D6A8D2EE29A72&br=14&platform=2&fmt=auto&level=0&sdtfrom=v1010&guid=e6208066eecaa6998591391ddc7c9598'
-                  },{
-                    src: 'http://pic11.photophoto.cn/20090529/0034034544305310_b.jpg',
-                    title: '弄你喀什就啊阿卡萨卡萨弄你喀什就啊阿卡萨卡萨',
-                    videosrc: 'http://ugcws.video.gtimg.com/b03997jxz2a.m701.mp4?vkey=66B78BA998E725057CAAC415CB0FEFF31057EE033ECB8E5644CD71386C76A4EF553C2608E21ED09D856728C485712FDD175C919D252234FE5D772843306EFD52361FB4D07BCD5AC3193F24C06CDF6AC9D84D901B75851429664CD84D88F14D8F1E0C0C66DE01F6A9F2DC5F5EDD985370898D6A8D2EE29A72&br=14&platform=2&fmt=auto&level=0&sdtfrom=v1010&guid=e6208066eecaa6998591391ddc7c9598'
-                  }
-                ]
-              }
+          id:"",
+          detail:{},
+          amusement: {
+            btn: '>',
+            btnFlag: false,
+            video: {},
+            videoList: []
+          }
         }
     },
     methods: {
@@ -63,6 +22,63 @@ export default{
             this.amusement.btnFlag = !this.amusement.btnFlag
             }
         },
-    }
-        
+      //点击右侧相关视屏的每一个
+      changeVideo(item){
+        let video = document.getElementById('video');
+        this.detail.videoUrl = item.videoUrl;
+        this.detail.imgUrl = item.imgUrl;
+        setTimeout(()=>{
+          video.play()
+        },0)
+      },
+      /**
+       * 获取列表
+       */
+      getList(str){
+        this.$p({
+          url:this.$api.newsQuery,
+          params:{
+            pageSize:9,
+            current:1,
+            category:4,
+            type:str
+          }
+        }).then(res=>{
+          var arr = res.data.list;
+          arr.forEach((e,index)=>{
+            arr[index].pubDate = e.pubDate.split(" ")[0];
+            arr[index].imgUrl = this.$baseU + e.imgUrl;
+            arr[index].videoUrl = this.$baseU + e.videoUrl;
+          });
+          this.amusement.videoList = JSON.parse(JSON.stringify(arr));
+        },errRes=>{
+
+        })
+      },
+      /**
+       * 查询视频详情
+       */
+      getDetail(){
+        this.$g({
+          url:this.$api.findOneById,
+          params:{
+            id:this.id,
+          }
+        }).then(res=>{
+          var j = JSON.parse(JSON.stringify(res.data));
+          j.pubDate = j.pubDate.split(" ")[0];
+          j.imgUrl = this.$baseU + j.imgUrl;
+          j.musicUrl = this.$baseU + j.musicUrl;
+          j.videoUrl = this.$baseU + j.videoUrl;
+          this.detail = JSON.parse(JSON.stringify(j));
+        },errRes=>{
+
+        });
+      }
+    },
+  mounted(){
+      this.id = this.$route.query.id;
+    this.getList("精彩VIDEO");
+    this.getDetail();
+  }
 }

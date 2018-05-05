@@ -4,16 +4,16 @@
       <span>查看家教信息</span>
       <span class="job_btn" @click="toPublish">发布信息</span>
     </div>
-      <div class="teacher" v-for="(item,index) in teacherList" :key="index" @click="toFamilyDetail">
-          <img :src="item.src" alt="">
+      <div class="teacher" v-for="(item,index) in list" :key="index" @click="toFamilyDetail(item)">
+          <img :src="item.head" alt="加载失败">
           <div class="family_content">
-             <h4>{{item.subject}}</h4>
-             <p>{{item.name}}</p>
-             <p>{{item.sex}}</p>
+             <h4>{{item.position}}</h4>
+             <p>{{item.tutorName}}</p>
+             <p>{{item.gender==1?"男":"女"}}</p>
              <p>{{item.age}}岁</p>
-             <p>{{item.empiric}}年工作经验</p>
-             <p class="family_des">{{item.content}}</p>
-             <span>{{item.time}}</span>
+             <p>{{item.experience}}工作经验</p>
+             <p class="family_des">{{item.selfDesc}}</p>
+             <span>{{item.pubDate}}</span>
           </div>
       </div>
   </div>

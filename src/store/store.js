@@ -5,7 +5,7 @@
 
 import Vue from 'vue'
 import Vuex from 'vuex'
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 
 const state = {
@@ -24,4 +24,4 @@ export default new Vuex.Store({
     getters: {
       loginIsYesF:(state)=>state.loginIsYes
     }
-})
+});

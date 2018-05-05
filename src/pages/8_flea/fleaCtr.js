@@ -2,82 +2,93 @@ export default{
   data() {
     return {
       showAlert: false,
-      currentPage1: 5,
-      jobList: [
-        {
-          src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1523947765539&di=1f17c730cabf2559e8a07b797cbb924b&imgtype=0&src=http%3A%2F%2Fnewimg.uumnt.com%2FThumb%2F2017%2F0112%2Fb57a1230e7af1478d8396a5fa436a7e6.jpg',
-          name: '张三',
-          subject: '二手转让',
-          content: '数学老师周末兼职',
-          time: ' 2018-04-16',
-          price: '面议',
-          unit: '天'
-        }, {
-          src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1523947765539&di=1f17c730cabf2559e8a07b797cbb924b&imgtype=0&src=http%3A%2F%2Fnewimg.uumnt.com%2FThumb%2F2017%2F0112%2Fb57a1230e7af1478d8396a5fa436a7e6.jpg',
-          name: '张三',
-          subject: '二手转让',
-          content: '数学老师周末兼职',
-          time: ' 2018-04-16',
-          price: '700',
-          unit: '天'
-        }, {
-          src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1523947765539&di=1f17c730cabf2559e8a07b797cbb924b&imgtype=0&src=http%3A%2F%2Fnewimg.uumnt.com%2FThumb%2F2017%2F0112%2Fb57a1230e7af1478d8396a5fa436a7e6.jpg',
-          name: '张三',
-          subject: '二手转让',
-          content: '数学老师周末兼职',
-          time: ' 2018-06-16',
-          price: '30',
-          unit: '小时'
-        }, {
-          src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1523947765539&di=1f17c730cabf2559e8a07b797cbb924b&imgtype=0&src=http%3A%2F%2Fnewimg.uumnt.com%2FThumb%2F2017%2F0112%2Fb57a1230e7af1478d8396a5fa436a7e6.jpg',
-          name: '张三',
-          subject: ' 二手转让',
-          content: '数学老师周末兼职',
-          time: ' 2018-05-16',
-          price: '2k-5k',
-          unit: '月'
-        }, {
-          src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1523947765539&di=1f17c730cabf2559e8a07b797cbb924b&imgtype=0&src=http%3A%2F%2Fnewimg.uumnt.com%2FThumb%2F2017%2F0112%2Fb57a1230e7af1478d8396a5fa436a7e6.jpg',
-          name: '张三',
-          subject: '二手转让',
-          content: '数学老师周末兼职',
-          time: ' 2018-04-20',
-          price: '500',
-          unit: '天'
-        }, {
-          src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1523947765539&di=1f17c730cabf2559e8a07b797cbb924b&imgtype=0&src=http%3A%2F%2Fnewimg.uumnt.com%2FThumb%2F2017%2F0112%2Fb57a1230e7af1478d8396a5fa436a7e6.jpg',
-          name: '张三',
-          subject: '二手转让',
-          content: '数学老师周末兼职数学老师周末兼职数学老师周末兼职数学老师周末兼职数学老师周末兼职数学老师周末兼职',
-          time: ' 2018-04-18',
-          price: '400',
-          unit: '天'
-        }, {
-          src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1523947765539&di=1f17c730cabf2559e8a07b797cbb924b&imgtype=0&src=http%3A%2F%2Fnewimg.uumnt.com%2FThumb%2F2017%2F0112%2Fb57a1230e7af1478d8396a5fa436a7e6.jpg',
-          name: '张三',
-          subject: '二手转让',
-          content: '数学老师周末兼职',
-          time: ' 2018-04-17',
-          price: '350',
-          unit: '天'
-        }
-      ]
+      currentPage:1,
+      pageSize:10,
+      total:null,
+      list: [],
+      fleaTitle:"",
+      fleaType:"",
+      fleaName:"",
+      fleaPhone:"",
+      fleaContent:"",
     }
   },
   methods: {
-    handleSizeChange(val) {
-      console.log(`每页 ${val} 条`);
-    },
     handleCurrentChange(val) {
-      console.log(`当前页: ${val}`);
+      this.currentPage = val;
+      this.getList();
     },
-    toFleaDetail(){
+    toFleaDetail(item){
       this.$router.push({
         name: "fleaDetail",
+        query:{
+          id:item.id
+        }
+      })
+    },
+    /**
+     * 获取列表
+     */
+    getList(){
+      this.$p({
+        url:this.$api.newsQuery,
+        params:{
+          pageSize:this.pageSize,
+          current:this.currentPage,
+          category:6
+        }
+      }).then(res=>{
+        this.activeIndex = null;
+        this.total = res.data.total;
+        var arr = res.data.list;
+        arr.forEach((e,index)=>{
+          arr[index].pubDate = e.pubDate.split(" ")[0];
+          arr[index].head = this.$baseU + e.head;
+        });
+        this.list = JSON.parse(JSON.stringify(arr));
+      },errRes=>{
+
       })
     },
     alertOpen(){
       this.showAlert = !this.showAlert;
+    },
+    /**
+     * 发布跳蚤
+     */
+    sendFlea(){
+      if(this.fleaTitle==""||this.fleaType==""||this.fleaName==""||this.fleaPhone==""||this.fleaContent=="") {
+        this.$message({
+          message: "请填写完整信息",
+          type: 'warning',
+          duration: 1500
+        });
+        return;
+      }
+      this.$p({
+        url:this.$api.newAdd,
+        params:{
+          category:6,
+          conName:this.fleaName,
+          conPhone:this.fleaPhone,
+          titile:this.fleaTitle,
+          newsText:this.fleaContent,
+          type:this.fleaType
+        }
+      }).then(res=>{
+        this.$message({
+          message: "发布成功",
+          type: 'success',
+          duration: 1500
+        });
+        this.showAlert = !this.showAlert;
+        this.getList();
+      },errRes=>{
+
+      })
     }
+  },
+  mounted(){
+    this.getList();
   }
 }

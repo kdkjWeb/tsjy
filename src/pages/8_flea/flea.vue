@@ -1,18 +1,18 @@
 <template>
   <div class="job">
       <div class="job_header">
-        <span>选择你需要的人才</span>
+        <!--<span>选择你需要的人才</span>-->
         <span class="job_btn" @click="alertOpen">发布信息</span>
       </div>
       <ul>
-        <li class="job_list" v-for="(item,index) in jobList" :key="index">
+        <li class="job_list" v-for="(item,index) in list" :key="index">
           <div class="job_left">
-            <img :src="item.src" alt="">
-            <p>发布人：{{item.name}}</p>
+            <img :src="item.head" alt="">
+            <p>发布人：{{item.publisher}}</p>
           </div>
           <div class="job_right">
-            <p class="job_right_top"><span class="flea_type">【{{item.subject}}】</span><span @click="toFleaDetail">{{item.content}}</span></p>
-            <p class="job_right_time">{{item.time}}</p>
+            <p class="job_right_top"><span class="flea_type">【{{item.type}}】</span><span @click="toFleaDetail(item)">{{item.titile}}</span></p>
+            <p class="job_right_time">{{item.pubDate}}</p>
           </div>
         </li>
       </ul>
@@ -21,9 +21,9 @@
         <el-pagination class="pagination"
                      background
                      @current-change="handleCurrentChange"
-                     :current-page.sync="currentPage1"
-                     :page-size="100"
-                     :total="1000"
+                     :current-page.sync="currentPage"
+                     :page-size="pageSize"
+                     :total="total"
                      layout="prev, pager, next">
         </el-pagination>
       </div>
@@ -31,12 +31,17 @@
       <div class="alertBox">
         <i class="iconfont icon-remove" @click="alertOpen"></i>
         <p>发表信息</p>
-        <el-input v-model="input" placeholder="请输入标题"></el-input>
-        <el-input v-model="input" placeholder="请输入类型"></el-input>
-        <el-input v-model="input" placeholder="请输入联系人"></el-input>
-        <el-input v-model="input" type="number" placeholder="请输入手机号"></el-input>
-        <el-input type="textarea" :rows="3" v-model="input" placeholder="更多介绍"></el-input>
-        <div class="alertBtn">确定</div>
+        <el-input v-model="fleaTitle" placeholder="请输入标题"></el-input>
+        <el-select v-model="fleaType" placeholder="请输入类型">
+          <el-option label="微商" value="微商"></el-option>
+          <el-option label="二手转让" value="二手转让"></el-option>
+          <el-option label="寻求合作" value="寻求合作"></el-option>
+          <el-option label="其他" value="其他"></el-option>
+        </el-select>
+        <el-input v-model="fleaName" placeholder="请输入联系人"></el-input>
+        <el-input v-model="fleaPhone" type="number" placeholder="请输入手机号"></el-input>
+        <el-input type="textarea" :rows="3" v-model="fleaContent" placeholder="更多介绍"></el-input>
+        <div class="alertBtn" @click="sendFlea">确定</div>
       </div>
     </div>
   </div>
@@ -72,6 +77,7 @@ export {default} from './fleaCtr'
   text-align: center;
   border-radius: 5px;
   color: #fff;
+  cursor: pointer;
 }
 .job ul{
   border: 1px solid #ddd;
@@ -170,6 +176,10 @@ export {default} from './fleaCtr'
     margin-bottom:20px;
   }
 .alertBox .el-input {
+  margin-bottom:20px;
+}
+.el-select {
+  width:100%;
   margin-bottom:20px;
 }
   .alertBtn {
