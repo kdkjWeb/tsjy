@@ -148,7 +148,7 @@ export default {
       this.$p({
         url: 'Prizes/insertWinner',
         params: {
-          userid:this.$common.getStorage("token"),
+          userid:this.$c.getStorage("token"),
           prize:rewardId
         }
       }).then(res=>{

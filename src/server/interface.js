@@ -34,6 +34,7 @@ Interface.memeQuery = 'meme/query'; //网红个人展示
 Interface.memeQueryImgs = 'meme/queryImgs'; //网红个人图集
 Interface.memefindOneById = 'meme/findOneById'; //网红个人展示 详情
 Interface.findImgsById = 'meme/findImgsById'; //网红个人图集 详情
+Interface.memeAdd = 'meme/add'; //添加网红  或者添加报名者
 
 /**
  * 招聘信息
@@ -48,6 +49,13 @@ Interface.tutorQuery = 'tutor/query';  //家教求职信息列表
 Interface.tutorfindOneById = 'tutor/findOneById';  //家教求职查询详情
 Interface.tutorAdd = 'tutor/add';  //家教求职信息添加
 
+/**
+ * 活动信息
+ */
+Interface.activeQuery = 'activity/query';
+Interface.activeFindOneById = 'activity/findOneById';
+Interface.activeAdd = 'activity/add';
+
 
 
 
@@ -55,6 +63,6 @@ Interface.tutorAdd = 'tutor/add';  //家教求职信息添加
  * 许愿树接口
  */
 Interface.wishingTree = 'wishingTree/addWishes';    //开始许愿
-Interface.getLeaves = 'wishingTree/getLeaves'
+Interface.getLeaves = 'wishingTree/getLeaves';
 
 export default Interface;

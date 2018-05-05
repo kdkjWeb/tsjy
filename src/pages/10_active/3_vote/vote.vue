@@ -1,20 +1,20 @@
 <template>
   <div class="container">
     <div class="con">
-      <div class="conB clear" v-for="item,index in list" :key="index" @click="toVoteSign">
-        <img :src="item.src" alt="">
+      <div class="conB clear" v-for="item,index in list" :key="index" @click="toVoteSign(item)">
+        <img :src="item.imgUrl" alt="">
         <div class="conDes">
           <p>{{item.title}}</p>
-          <p><button class="btn">参与投票10</button><span>{{item.time}}</span></p>
+          <p><button class="btn">参与投票{{item.e}}</button><span>{{item.pubDate}}</span></p>
         </div>
       </div>
     </div>
     <el-pagination class="pagination"
                    background
                    @current-change="handleCurrentChange"
-                   :current-page.sync="currentPage1"
-                   :page-size="100"
-                   :total="1000"
+                   :current-page.sync="currentPage"
+                   :page-size="pageSize"
+                   :total="total"
                    layout="prev, pager, next">
     </el-pagination>
   </div>

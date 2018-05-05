@@ -84,6 +84,7 @@
     letter-spacing: 2px;
     background-color: #da854c;
     margin:50px auto;
+    cursor: pointer;
   }
   .input {
     position:relative;
