@@ -1,11 +1,12 @@
 <template>
   <div class="wishtree">
       <div class="tree">
-          <div class="tree_btn">
-              <div class="pre_tree" @click="preTree">上一棵</div>
-              <div class="next_tree" @click="nextTree">下一棵</div>
-          </div>
+           <span class="leaf" v-for="(item,index) in arrWishing" :key="index"></span>
       </div>
+      <div class="tree_btn">
+            <div class="pre_tree" @click="preTree">上一棵</div>
+            <div class="next_tree" @click="nextTree">下一棵</div>
+        </div>
       <h5 class="tree_title">请许愿</h5>
       <div class="tree_content">
           <p>许愿内容</p>
@@ -31,23 +32,32 @@ export {default} from './wishtreeCtr'
 .tree{
     position: relative;
     width: 100%;
-    height: 985px;
+    height: 760px;
     background-image: url('../../../assets/images/wishtree1.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     margin-top: -40px;
 }
-.tree_btn{
+  .leaf{
     position: absolute;
+    width: 30px;
+    height: 50px;
+    display: inline-block;
+    background-image: url('../../../assets/wishPkg.png');
+    background-size: cover;
+  }
+.tree_btn{
+    /* position: absolute;
     bottom: 85px;
     left: 50%;
-    margin-left: -192px;
+    margin-left: -192px; */
     width: 395px;
     height: 46px;
     display: flex;
     display: -webkit-flex;
     justify-content: space-between;
+    margin: 0 auto 50px;
 }
 .tree_btn div{
     width: 153px;

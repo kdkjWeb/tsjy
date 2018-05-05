@@ -36,4 +36,10 @@ Interface.memefindOneById = 'meme/findOneById'; //网红个人展示 详情
 Interface.findImgsById = 'meme/findImgsById'; //网红个人图集 详情
 
 
+/**
+ * 许愿树接口
+ */
+Interface.wishingTree = 'wishingTree/addWishes';    //开始许愿
+Interface.getLeaves = 'wishingTree/getLeaves'
+
 export default Interface;
