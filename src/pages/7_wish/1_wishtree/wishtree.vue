@@ -1,7 +1,9 @@
 <template>
   <div class="wishtree">
       <div class="tree">
-           <span class="leaf" v-for="(item,index) in arrWishing" :key="index"></span>
+          <div class="tree_list" ref="leaf">
+                  <span class="leaf" v-for="(item,index) in arrWishing" :key="index"></span>
+          </div>
       </div>
       <div class="tree_btn">
             <div class="pre_tree" @click="preTree">上一棵</div>
@@ -10,10 +12,10 @@
       <h5 class="tree_title">请许愿</h5>
       <div class="tree_content">
           <p>许愿内容</p>
-          <textarea name="" id="" v-model="wish.content"></textarea>
+          <textarea name="" id="" v-model="wish.content" placeholder="请输入许愿内容"></textarea>
           <p>许愿人</p>
           <div class="tree_name">
-              <input type="text" v-model="wish.name">
+              <input type="text" v-model="wish.name" placeholder="请输入许愿人姓名">
               <div @click="send"><span class="iconfont icon-fasong"></span>发布</div>
           </div>
       </div>
@@ -32,21 +34,31 @@ export {default} from './wishtreeCtr'
 .tree{
     position: relative;
     width: 100%;
-    height: 760px;
+    height: 700px;
     background-image: url('../../../assets/images/wishtree1.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     margin-top: -40px;
 }
-  .leaf{
-    position: absolute;
-    width: 30px;
-    height: 50px;
-    display: inline-block;
-    background-image: url('../../../assets/wishPkg.png');
+.tree_list{
+    position: relative;
+    width: 60%;
+    height: 640px;
+    background-image: url('../../../assets/images/tree.png');
     background-size: cover;
-  }
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 100px auto 0;
+}
+.leaf{
+position: absolute;
+width: 30px;
+height: 50px;
+display: inline-block;
+background-image: url('../../../assets/wishPkg.png');
+background-size: cover;
+}
 .tree_btn{
     /* position: absolute;
     bottom: 85px;

@@ -55,6 +55,7 @@ Interface.tutorAdd = 'tutor/add';  //家教求职信息添加
  * 许愿树接口
  */
 Interface.wishingTree = 'wishingTree/addWishes';    //开始许愿
-Interface.getLeaves = 'wishingTree/getLeaves'
+Interface.getLeaves = 'wishingTree/getLeaves';  //获取许愿内容
+Interface.getTreeHole = 'wishingTree/query'    //获取神秘树洞列表
 
 export default Interface;

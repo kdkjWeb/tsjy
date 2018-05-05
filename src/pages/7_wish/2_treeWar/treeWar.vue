@@ -9,14 +9,14 @@
         </div>
       </div>
       <div class="list">
-        <div class="listB clear" v-for="item,index in list" :key="index">
+        <div class="listB clear" v-for="(item,index) in list" :key="index">
           <div class="headImg">
-            <img :src="item.src" alt="">
-            <p>{{item.name}}</p>
+            <img :src="`http://192.168.20.133:8886${item.user.profilehead}`" width="70" height="70" alt="加载失败">
+            <p>{{item.user.username}}</p>
           </div>
           <div class="listC">
-            <p>{{item.title}}</p>
-            <p><span>{{item.timer}}</span><i class="iconfont icon-icon_share"></i></p>
+            <p>{{item.content}}</p>
+            <p><span>{{item.createtime}}</span><i class="iconfont icon-icon_share"></i></p>
           </div>
         </div>
       </div>
@@ -24,8 +24,8 @@
                      background
                      @current-change="handleCurrentChange"
                      :current-page.sync="currentPage1"
-                     :page-size="100"
-                     :total="1000"
+                     :page-size="pageSize"
+                     :total="total"
                      layout="prev, pager, next">
       </el-pagination>
 
@@ -36,10 +36,10 @@
           <img src="../../../assets/wish1.png" alt="">
         </div>
         <div class="text">
-          <textarea placeholder="想说什么就说什么吧"></textarea>
+          <textarea v-model="content" placeholder="想说什么就说什么吧"></textarea>
         </div>
       </div>
-      <button class="sendSecret"><i class="iconfont icon-fasong"></i>发送</button>
+      <button class="sendSecret" @click="send"><i class="iconfont icon-fasong"></i>发送</button>
     </div>
   </div>
 
@@ -152,10 +152,11 @@
     width:100%;
     border:1px solid #e2e2e2;
     resize:none;
-    border-radius: 40px;
+    border-radius: 10px;
     height:100px;
     padding:15px 30px;
     box-sizing: border-box;
+    outline: none;
   }
   .sendSecret {
     width:100px;

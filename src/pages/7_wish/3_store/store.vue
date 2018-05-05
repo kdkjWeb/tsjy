@@ -3,14 +3,14 @@
       <div class="ad">
         <img src="../../../assets/images/store.png" alt="">
         <div class="des">
-          把你的忧愁、忧虑讲出啊来，让大家帮你排忧解难
+          把你的忧愁、忧虑讲出来，让大家帮你排忧解难
           <div class="hr"></div>
         </div>
       </div>
       <div class="store_dis">
           <div class="store_content">
             <img :src="userImg" alt="" width="60px" height="60">
-            <textarea name="" id="" v-model="content"></textarea>
+            <textarea name="" id="" v-model="content" placeholder=" 把你的忧愁、忧虑讲出来，让大家帮你排忧解难"></textarea>
           </div>
           <div class="store_btn" @click="send"><span class="iconfont icon-fasong"></span>发送</div>
         </div>
