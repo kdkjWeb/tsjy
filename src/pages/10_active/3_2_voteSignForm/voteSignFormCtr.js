@@ -6,41 +6,64 @@ export default {
     return {
       src:"",
       form: {
-        name: '',
-        nickname: '',
-        sex: '',
-        year: "",
-        height: "",
-        weight: '',
-        school: '',
-        country: '',
-        native:'',
-        date:''
+        actId:"",
+        userId:"",
+        imgUrl:"",
+        memeName: '',
+        memeActName:'',
+        gender: '',
+        age: "",
+        hight:"",
+        weight:"",
+        graduateSchool: '',
+        nationality: '',
+        nation:"",
+        birthday:""
       }
     }
   },
   methods: {
     onSubmit() {
-      console.log('submit!');
+      for(var key in this.form) {
+        if(this.form[key]=="") {
+          this.$message({
+            message: "请将信息填写完整",
+            type: 'warning',
+            duration: 1500
+          });
+          console.log(this.form);
+          return;
+        }
+      }
+
+      this.$p({
+        url:this.$api.memeAdd,
+        params:this.form
+      }).then(res=>{
+        this.$message({
+          message: "提交成功",
+          type: 'success',
+          duration: 1500
+        });
+        this.$router.go(-1);
+      },errRes=>{
+
+      });
     },
     /**
      * 上传图片
      */
     upPic(e){
-      // var myFrom = new FormData();
-      // myFrom.append("id", this.id);
-      // myFrom.append("file", e.target.files[0]);
+      console.log(e);
+      var myFrom = new FormData();
+      myFrom.append("imgFile", e.target.files[0]);
       this.previewPicture(e.target.files[0]);
-      // this.$p({
-      //   url: "carousel/uploadPic",
-      //   params:myFrom
-      // }).then(res=>{
-      //   this.$message({
-      //     message:"上传图片成功",
-      //     type: 'success',
-      //     duration: 2000
-      //   });
-      // });
+      this.$p({
+        url:this.$api.uploadFile,
+        params:myFrom
+      }).then(res=>{
+        this.form.imgUrl = res.data.path;
+      });
     },
     /**
      * 图片预览
@@ -64,5 +87,10 @@ export default {
         this.src = e.target.result;
       }
     },
+  },
+  mounted(){
+    console.log(this.$route.query.id);
+    this.form.actId = this.$route.query.id;
+    this.form.userId = JSON.parse(this.$c.getStorage("userInfo")).id;
   }
 }

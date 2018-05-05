@@ -10,40 +10,40 @@
           </div>
         </el-form-item>
         <el-form-item label="名称 ：">
-          <el-input v-model="form.name" placeholder="请输入姓名"></el-input>
+          <el-input v-model="form.memeName" placeholder="请输入姓名"></el-input>
         </el-form-item>
         <el-form-item label="艺名 ：">
-          <el-input v-model="form.nickname" placeholder="请输入艺名"></el-input>
+          <el-input v-model="form.memeActName" placeholder="请输入艺名"></el-input>
         </el-form-item>
         <el-form-item label="性别 ：">
-          <el-select v-model="form.sex" placeholder="请选择性别">
-            <el-option label="男" :value="0"></el-option>
-            <el-option label="女" :value="1"></el-option>
+          <el-select v-model="form.gender" placeholder="请选择性别">
+            <el-option label="男" value="1"></el-option>
+            <el-option label="女" value="0"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item label="年龄 ：">
-          <el-input v-model="form.year" type="number" placeholder="请输入年龄"></el-input>
+          <el-input v-model="form.age" type="number" placeholder="请输入年龄"></el-input>
         </el-form-item>
         <el-form-item label="身高 ：">
-          <el-input v-model="form.height" placeholder="请输入身高"></el-input>
+          <el-input v-model="form.hight" type="number" placeholder="请输入身高"></el-input>
         </el-form-item>
         <el-form-item label="体重 ：">
-          <el-input v-model="form.weight" placeholder="请输入体重"></el-input>
+          <el-input v-model="form.weight" type="number" placeholder="请输入体重"></el-input>
         </el-form-item>
         <el-form-item label="学校 ：">
-          <el-input v-model="form.school" placeholder="请输入学校"></el-input>
+          <el-input v-model="form.graduateSchool" placeholder="请输入学校"></el-input>
         </el-form-item>
         <el-form-item label="国籍 ：">
-          <el-input v-model="form.country" placeholder="请输入国籍"></el-input>
+          <el-input v-model="form.nationality" placeholder="请输入国籍"></el-input>
         </el-form-item>
         <el-form-item label="民族 ：">
           <el-input v-model="form.nation" placeholder="请输入民族"></el-input>
         </el-form-item>
         <el-form-item label="出生日期 ：">
-            <el-date-picker type="date" placeholder="选择日期" v-model="form.date" style="width: 100%;"></el-date-picker>
+            <el-date-picker type="date" placeholder="选择日期" v-model="form.birthday" style="width: 100%;"></el-date-picker>
         </el-form-item>
       </el-form>
-        <div class="submitBtn">报名</div>
+        <div class="submitBtn" @click="onSubmit">报名</div>
       </div>
     </div>
 </template>
@@ -75,6 +75,7 @@
     letter-spacing: 2px;
     background-color: #da854c;
     margin:50px auto;
+    cursor: pointer;
   }
   .input {
     position:relative;

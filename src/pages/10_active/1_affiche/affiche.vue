@@ -1,28 +1,24 @@
 <template>
     <div class="container">
       <div class="ad">
-        <img src="http://pic31.photophoto.cn/20140609/0034034883622832_b.jpg" alt="">
-        <div class="des">
-          <div><p>2017年终盘点</p><p>2017-03-02</p></div>
-          <p>创意方法论线下沙龙为设计工作创意方法论线下沙龙为设计工作创意方法论线下沙龙为设计工作创意方法论线下沙龙为设计工作</p>
-        </div>
+        <img src="../../../assets/images/active.png" alt="">
       </div>
       <div class="con">
-        <div class="conB clear" v-for="item,index in list" :key="index" @click="details">
-          <img :src="item.src" alt="">
+        <div class="conB clear" v-for="(item,index) in list" :key="index" @click="details(item)">
+          <img :src="item.imgUrl" alt="">
           <div class="conDes">
-            <p>{{item.title}}</p>
-            <p>{{item.des}}</p>
-            <p>{{item.time}}</p>
+            <p>{{item.titile}}</p>
+            <p>{{item.newsText}}</p>
+            <p>{{item.pubDate}}</p>
           </div>
         </div>
       </div>
       <el-pagination class="pagination"
                      background
                      @current-change="handleCurrentChange"
-                     :current-page.sync="currentPage1"
-                     :page-size="100"
-                     :total="1000"
+                     :current-page.sync="currentPage"
+                     :page-size="pageSize"
+                     :total="total"
                      layout="prev, pager, next">
       </el-pagination>
     </div>

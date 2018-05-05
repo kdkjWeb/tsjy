@@ -1,34 +1,34 @@
 <template>
     <div class="container">
       <div class="intro">
-        <h1>2018最美模特大赛</h1>
-        <p>该书讲述了在僻静街道旁的一家杂货店，只要写下烦恼投进店前门卷帘门的投信口，第二天就会在店后的牛奶箱里得到回答：因男友身患绝症，年轻女孩月兔在爱情与梦想间徘徊；松冈克郎为了音乐梦想离家漂泊，却在现实中寸步难行；少年浩介面临家庭巨变，挣扎在亲情与未来的迷茫中……他们将困惑写成信投进杂货店，奇妙的事情随即不断发生。该书讲述了在僻静街道旁的一家杂货店，只要写下烦恼投进店前门卷帘门的投信口，第二天就会在店后的牛奶箱里得到回答该书讲述了在僻静街道旁的一家杂货店，只要写下烦恼投进店前门卷帘门的投信口，第二天就会在店后的牛奶箱里得到回答</p>
+        <h1>{{item.title}}</h1>
+        <p>{{item.content}}</p>
         <div class="number">
           <div class="numberB">
             <div class="numberC">
               <p>参赛选手</p>
-              <p>123</p>
+              <p>{{item.joins}}</p>
             </div>
             <div class="numberC orange">
               <p>累计投票</p>
-              <p>123</p>
+              <p>{{item.voteTotal}}</p>
             </div>
             <div class="numberC blue">
               <p>访问次数</p>
-              <p>123</p>
+              <p>{{item.view}}</p>
             </div>
           </div>
           <div class="numberT">
             <div class="numberTime">
-              <p>投票开始时间 : 2018-05-06 12:00</p>
-              <p>投票结束时间 : 2018-05-06 12:00</p>
+              <p>投票开始时间 : {{item.signBegin}}</p>
+              <p>投票结束时间 : {{item.signEnd}}</p>
             </div>
-            <div class="numberD">剩余 <p>12</p> 天</div>
+            <div class="numberD">剩余 <p>{{item.rest}}</p> 天</div>
           </div>
         </div>
         <p>
           <span>规则</span><br/>
-       该书讲述了在僻静街道旁的一家杂货店，只要写下烦恼投进店前门卷帘门的投信口，第二天就会在店后的牛奶箱里得到回答：因男友身患绝症，年轻女孩月兔在爱情与梦想间徘徊；松冈克郎为了音乐梦想离家漂泊，却在现实中寸步难行；少年浩介面临家庭巨变，挣扎在亲情与未来的迷茫中……他们将困惑写成信投进杂货店，奇妙的事情随即不断发生。该书讲述了在僻静街道旁的一家杂货店，只要写下烦恼投进店前门卷帘门的投信口，第二天就会在店后的牛奶箱里得到回答该书讲述了在僻静街道旁的一家杂货店，只要写下烦恼投进店前门卷帘门的投信口，第二天就会在店后的牛奶箱里得到回答
+       {{item.rule}}
         </p>
         <div class="signBtn" @click="signBtn">我要报名</div>
         <div class="look">
@@ -123,6 +123,11 @@
   }
   .intro>p {
     line-height: 30px;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .number {
     margin:50px auto;
@@ -245,12 +250,11 @@
   .con {
     display:flex;
     flex-direction: row;
-    justify-content: space-between;
     flex-wrap: wrap;
   }
   .conB {
     width:330px;
-    margin-top:50px;
+    margin:50px 18px 0;
     border-radius: 5px 5px 0 0;
   }
   .conB img{
@@ -373,10 +377,11 @@
     width:100%;
     border:1px solid #e2e2e2;
     resize:none;
-    border-radius: 40px;
+    border-radius: 10px;
     height:100px;
     padding:15px 30px;
     box-sizing: border-box;
+    outline:none;
   }
   .sendSecret {
     width:100px;

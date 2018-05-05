@@ -4,6 +4,8 @@
 export default {
   data(){
     return {
+      id:"",
+      item:{},
       currentPage1: 1,
       listPerson: [{
         num: "1",
@@ -86,7 +88,10 @@ export default {
     },
     toIntroduce(){
       this.$router.push({
-        name:"voteAffiche"
+        name:"voteAffiche",
+        query:{
+          id:this.id
+        }
       })
     },
     toVipDetail(){
@@ -96,7 +101,10 @@ export default {
     },
     signBtn(){
       this.$router.push({
-        name:"voteSignForm"
+        name:"voteSignForm",
+        query:{
+          id:this.id
+        }
       })
     },
     handleSizeChange(val) {
@@ -104,9 +112,26 @@ export default {
     },
     handleCurrentChange(val) {
       console.log(`当前页: ${val}`);
+    },
+
+    getDetail(){
+      this.$g({
+        url:this.$api.activeFindOneById,
+        params:{
+          id:this.id,
+        }
+      }).then(res=>{
+        var j = JSON.parse(JSON.stringify(res.data));
+        j.pubDate = j.pubDate.split(" ")[0];
+        j.imgUrl = this.$baseU + j.imgUrl;
+        this.item = JSON.parse(JSON.stringify(j));
+      },errRes=>{
+
+      });
     }
   },
   mounted(){
-
+    this.id = this.$route.query.id;
+    this.getDetail();
   }
 }
