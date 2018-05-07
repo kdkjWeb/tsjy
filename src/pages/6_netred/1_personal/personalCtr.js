@@ -4,18 +4,10 @@ export default{
       currentPage: 1,
       pageSize: 9,
       total: null,
-      banner: {},
       list: []
     }
   },
   methods: {
-    /**
-     * 分页 当前第几页
-     */
-    handleCurrentChange(val) {
-      this.currentPage = val;
-      this.getList();
-    },
     /**
      * 获取网红个人展示列表
      */
@@ -33,10 +25,6 @@ export default{
           arr[index].pubDate = e.pubDate.split(" ")[0];
           arr[index].imgUrl = this.$baseU + e.imgUrl;
         });
-
-        if (this.currentPage == 1) {
-          this.banner = arr[0];
-        }
         this.list = JSON.parse(JSON.stringify(arr));
 
       }, errRes=> {

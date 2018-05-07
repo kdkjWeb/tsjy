@@ -11,7 +11,7 @@
           <p>发布人：{{item.publisher}}</p>
         </div>
         <div class="job_right">
-          <p class="job_right_top"><span>【{{item.position}}】</span><span @click="toJobDetail(item)">{{item.titile}}000000</span><span class="job_right_price"><span>{{item.expSalary}}</span>/{{item.unit}}</span></p>
+          <p class="job_right_top"><span>【{{item.position}}】</span><span @click="toJobDetail(item)">{{item.title}}</span><span class="job_right_price"><span>{{item.expSalary}}</span>/{{item.unit}}</span></p>
           <p class="job_right_time">{{item.pubDate}}</p>
         </div>
       </li>

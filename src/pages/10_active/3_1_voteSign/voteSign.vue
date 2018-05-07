@@ -18,71 +18,79 @@
               <p>{{item.view}}</p>
             </div>
           </div>
-          <div class="numberT">
+          <div class="numberT" v-if="item.status==0||item.status==1">
             <div class="numberTime">
-              <p>投票开始时间 : {{item.signBegin}}</p>
-              <p>投票结束时间 : {{item.signEnd}}</p>
+              <p>报名开始时间 : {{item.signBegin}}</p>
+              <p>报名结束时间 : {{item.signEnd}}</p>
             </div>
-            <div class="numberD">剩余 <p>{{item.rest}}</p> 天</div>
+            <div class="numberD">剩余 <p>{{item.signRest}}</p> 天</div>
+          </div>
+          <div class="numberT" v-if="item.status==2||item.status==3">
+            <div class="numberTime">
+              <p>投票开始时间 : {{item.voteBegin}}</p>
+              <p>投票结束时间 : {{item.voteEnd}}</p>
+            </div>
+            <div class="numberD">剩余 <p>{{item.voteRest}}</p> 天</div>
           </div>
         </div>
         <p>
           <span>规则</span><br/>
        {{item.rule}}
         </p>
-        <div class="signBtn" @click="signBtn">我要报名</div>
+        <div class="signBtn" :class="item.status==1?'':'signBtnFalse'" @click="signBtn">我要报名</div>
         <div class="look">
           <div @click="toRanking">排行榜</div>
           <div class="blue" @click="toIntroduce">活动介绍</div>
         </div>
       </div>
-      <div class="signPeople">
+      <!--v-if="item.status==2||item.status==3"-->
+      <div class="signPeople" >
         <div class="search clear">
-          <input type="text" placeholder="请输入选手姓名或编号">
-          <div class="searchBtn">搜索</div>
+          <input type="text" placeholder="请输入选手姓名或编号" v-model="searchText">
+          <div class="searchBtn" @click="search">搜索</div>
         </div>
         <div class="con">
-          <div class="conB clear" v-for="item,index in listPerson" :key="index" @click="toVipDetail">
-            <img :src="item.src" alt="">
+          <div class="conB clear" v-for="(item,index) in listPerson" :key="index" >
+            <img :src="item.imgUrl" alt="" @click="toVipDetail(item)">
             <div class="conDes">
-              <p class="num">{{item.num}}</p>
-              <p class="name">{{item.name}}</p>
-              <p><button class="btn " :class="index==2?'aRBtn':''">投票10</button><span>{{item.time}}</span></p>
+              <p class="num">{{item.id}}</p>
+              <p class="name">{{item.memeName}}</p>
+              <p><button class="btn " :class="item.status!=2?'aRBtn':''" @click="voteBtn(item,index)">投票{{item.voteTotal}}</button></p>
             </div>
           </div>
         </div>
         <el-pagination class="pagination"
                        background
-                       @current-change="handleCurrentChange"
-                       :current-page.sync="currentPage1"
-                       :page-size="100"
-                       :total="1000"
+                       @current-change="handleCurrentPerson"
+                       :current-page.sync="currentPerson"
+                       :page-size="sizePerson"
+                       :total="totalPerson"
                        layout="prev, pager, next">
         </el-pagination>
-        <div class="look">
-          <div @click="toRanking">排行榜</div>
-          <div class="blue" @click="toIntroduce">活动介绍</div>
-        </div>
+        <!--<div class="look">-->
+          <!--<div @click="toRanking">排行榜</div>-->
+          <!--<div class="blue" @click="toIntroduce">活动介绍</div>-->
+        <!--</div>-->
       </div>
       <div class="comment">
         <div class="list">
-          <div class="listB clear" v-for="item,index in list" :key="index">
+          <div class="listB clear" v-for="(item,index) in list" :key="index">
             <div class="headImg">
-              <img :src="item.src" alt="">
-              <p>{{item.name}}</p>
+              <img :src="item.user.profilehead" alt="">
+              <p>{{item.user.nickname}}</p>
             </div>
             <div class="listC">
-              <p>{{item.title}}</p>
-              <p><span>{{item.timer}}</span></p>
+              <p>{{item.content}}</p>
+              <p><span>{{item.creationTime}}</span></p>
             </div>
           </div>
         </div>
         <el-pagination class="pagination"
                        background
-                       @current-change="handleCurrentChange"
-                       :current-page.sync="currentPage1"
-                       :page-size="100"
-                       :total="1000"
+                       @current-change="handleCurrentComment"
+                       :current-page.sync="currentComment"
+                       :page-size="sizeComment"
+                       :total="totalComment"
                        layout="prev, pager, next">
         </el-pagination>
       </div>
@@ -92,10 +100,10 @@
             <img src="../../../assets/wish1.png" alt="">
           </div>
           <div class="text">
-            <textarea placeholder="想说什么就说什么吧"></textarea>
+            <textarea placeholder="想说什么就说什么吧" v-model="commentText"></textarea>
           </div>
         </div>
-        <button class="sendSecret"><i class="iconfont icon-fasong"></i>发送</button>
+        <button class="sendSecret" @click="comment"><i class="iconfont icon-fasong"></i>发送</button>
       </div>
     </div>
     </div>
@@ -200,6 +208,9 @@
    cursor: pointer;
    letter-spacing: 2px;
    font-size:15px;
+ }
+ .signBtnFalse {
+   background-color: #797979;
  }
   .look {
     text-align: right;

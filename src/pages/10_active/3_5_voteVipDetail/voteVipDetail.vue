@@ -2,18 +2,18 @@
   <div class="container">
     <div class="info">
       <div class="info_img">
-        <img :src="user.src" alt="" width="100%" height="100%">
+        <img :src="user.imgUrl" alt="" width="100%" height="100%">
       </div>
       <div class="info_list">
-        <h1>{{user.name}}</h1>
-        <p>艺名：{{user.stagename}}</p>
-        <p>性别：{{user.sex}}</p>
-        <p>国籍：{{user.country}}</p>
-        <p>民族：{{user.ethnic}}族</p>
+        <h1>{{user.memeName}}</h1>
+        <p>艺名：{{user.memeActName}}</p>
+        <p>性别：{{user.gender==1?"男":"女"}}</p>
+        <p>国籍：{{user.nationality}}</p>
+        <p>民族：{{user.nation}}族</p>
         <p>年龄：{{user.age}}岁</p>
         <p>体重：{{user.weight}}kg</p>
-        <p>身高：{{user.height}}cm</p>
-        <p>学校：{{user.school}}</p>
+        <p>身高：{{user.hight}}cm</p>
+        <p>学校：{{user.graduateSchool}}</p>
         <p>出生日期：{{user.birthday}}</p>
       </div>
     </div>

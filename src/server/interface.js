@@ -55,6 +55,9 @@ Interface.tutorAdd = 'tutor/add';  //家教求职信息添加
 Interface.activeQuery = 'activity/query';
 Interface.activeFindOneById = 'activity/findOneById';
 Interface.activeAdd = 'activity/add';
+Interface.queryCommentsByActId='message/queryCommentsByActId';
+Interface.addComment='message/addComment';
+Interface.addVote='activity/addVote';
 
 
 
