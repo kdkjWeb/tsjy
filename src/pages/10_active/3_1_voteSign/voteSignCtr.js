@@ -92,6 +92,7 @@ export default {
      * 搜索
      */
     search(){
+      this.currentPerson = 1;
       if(this.searchText=="" ){
         this.$message({
           message: "请输入要搜索的内容",
