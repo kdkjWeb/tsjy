@@ -3,13 +3,11 @@ export default {
         return {
             carousel: [
                 {
-                    src: 'http://pic31.photophoto.cn/20140609/0034034883622832_b.jpg'
+                    src: '../../../static/useImg/scroll1.png'
                 },{
-                    src: 'http://pic35.photophoto.cn/20150519/0034034853356364_b.jpg'
+                    src: '../../../static/useImg/scroll2.png'
                 },{
-                    src: 'http://pic36.photophoto.cn/20150708/0034034816424961_b.jpg'
-                },{
-                    src: 'http://pic11.photophoto.cn/20090529/0034034544305310_b.jpg'
+                    src: '../../../static/useImg/scroll3.png'
                 }
             ],
             wish:{
@@ -210,11 +208,11 @@ export default {
             }else{
                 this.amusement.btn = '>'
                 this.amusement.btnFlag = !this.amusement.btnFlag
-            } 
+            }
         },
         //点击右侧相关视屏的每一个
         changeVedio(item){
-            let video = document.getElementById('video') 
+            let video = document.getElementById('video')
            this.amusement.video.src = item.videosrc;
            this.amusement.video.bgSrc = item.src;
            setTimeout(()=>{
@@ -229,7 +227,7 @@ export default {
                 break;
                 case 1:
                 console.log(1);
-                break; 
+                break;
             }
         },
         //点击许愿树左侧
@@ -240,10 +238,10 @@ export default {
                 break;
                 case 1:
                 console.log(1);
-                break; 
+                break;
                 case 2:
                 console.log(2);
-                break; 
+                break;
             }
         }
     }
