@@ -31,7 +31,6 @@ export default {
             type: 'warning',
             duration: 1500
           });
-          console.log(this.form);
           return;
         }
       }
@@ -54,7 +53,6 @@ export default {
      * 上传图片
      */
     upPic(e){
-      console.log(e);
       var myFrom = new FormData();
       myFrom.append("imgFile", e.target.files[0]);
       this.previewPicture(e.target.files[0]);
@@ -89,7 +87,6 @@ export default {
     },
   },
   mounted(){
-    console.log(this.$route.query.id);
     this.form.actId = this.$route.query.id;
     this.form.userId = JSON.parse(this.$c.getStorage("userInfo")).id;
   }

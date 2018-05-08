@@ -138,7 +138,6 @@ export default {
             d=0;
           }
           this.circleId = d;
-          console.log(d);
         },250)
       },250)
     },
@@ -198,7 +197,6 @@ export default {
             array.push({phone:i,name:name})
           }
           this.rewardName = array;
-          console.log(array);
           var arr = Object.keys(res.data);
           var dom,t,h;
         this.$nextTick(() => {
@@ -258,9 +256,7 @@ export default {
         var thank = {id:null,msg:"我是谢谢参与"}
         arrNew.splice(4,0,btn);
         arrNew.splice(7,0,thank);
-        console.log(arrNew);
         this.rewardList = JSON.parse(JSON.stringify(arrNew));
-        console.log(this.rewardList);
 
       })
     }

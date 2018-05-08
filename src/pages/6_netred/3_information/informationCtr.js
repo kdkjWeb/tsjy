@@ -21,7 +21,6 @@ export default{
        * 获取网红个人数据
        */
       getList(str){
-        console.log(str);
         this.$p({
           url: this.$api.newsQuery,
           params: {

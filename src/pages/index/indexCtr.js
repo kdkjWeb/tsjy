@@ -342,7 +342,6 @@ export default {
                   type: '精彩VIDEO'
                 }
               }).then(res=>{
-                  console.log(res)
                   this.amusement.video = res.data.list[0]
                   this.amusement.videoList = res.data.list
               },err=>{

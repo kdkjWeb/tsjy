@@ -15,12 +15,7 @@ export default {
     }
   },
   methods:{
-    handleSizeChange(val) {
-      console.log(`每页 ${val} 条`);
-    },
     handleCurrentChange(val) {
-      console.log(`当前页: ${val}`);
-
       this.getTreeHoleList(this.pageSize,val)
     },
 
@@ -78,7 +73,6 @@ export default {
                     current: current
                 }
             }).then(res=>{
-              console.log(res)
                 if(res.code == 0){
                    this.total = res.data.total
                     this.list = res.data.list

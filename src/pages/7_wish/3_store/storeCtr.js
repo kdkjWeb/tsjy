@@ -173,12 +173,7 @@ export default{
             })
         },
 
-        handleSizeChange(val) {
-            console.log(`每页 ${val} 条`);
-          },
-
         handleCurrentChange(val) {
-        console.log(`当前页: ${val}`);
         this.getDisList(val,this.pageSize)
         },
 
@@ -209,7 +204,6 @@ export default{
 
         //楼主用户交叉评论第三级，总共只有三级列表
        threeDis(index,item){
-        console.log(item)
            //判断用户是否登录
         if(!this.isLogin()){
             return
@@ -229,7 +223,6 @@ export default{
             }
         }).then(res=>{
             if(res.code == 0){
-                console.log(res)
                 this.allList = res.data.list
                 this.total = res.data.total
             }

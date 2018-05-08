@@ -59,7 +59,6 @@ export default {
         if (load || load == undefined) {
           loading.close();
         }
-        console.log(errRes);
         this.$message({
           message: "网络可能出错了，请刷新后重试！",
           type: 'error',
