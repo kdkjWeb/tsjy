@@ -3,6 +3,10 @@
      <!-- 首页的轮播图 -->
      <el-carousel :interval="5000" arrow="always" height="500px" class="carousel">
         <el-carousel-item v-for="(item,index) in carousel" :key="index">
+        <div class="sweiper">
+            <h1 class="sweiper_title">{{item.title}}</h1>
+            <p class="sweiper_content">{{item.content}}</p>
+        </div>
         <img :src="item.src" alt="">
         </el-carousel-item>
     </el-carousel>
@@ -22,10 +26,6 @@
                             <span>{{item.firstTitle}}</span>
                             <span>{{item.seconedTitle}}</span>
                         </div>
-                        <!-- <div class="wishNext_bottom">
-                            <span>热门活动</span>
-                            <span>POPULAR ACTIVITY</span>
-                        </div> -->
                     </div>
                 </div>
             </div>
@@ -40,7 +40,7 @@
             </div>
             <div class="main_header">
                 <ul>
-                    <li v-for="(item,index) in alerts.header" :key="index">
+                    <li v-for="(item,index) in alerts.header" :key="index" @click="goInformation(index)">
                         <a href="javascript:void(0)">{{item.title}}</a>
                     </li>
                 </ul>
@@ -82,7 +82,7 @@
             </div>
             <div class="main_header">
                 <ul>
-                    <li v-for="(item,index) in amusement.header" :key="index">
+                    <li v-for="(item,index) in amusement.header" :key="index" @click="goEntertainment(index)">
                         <a href="javascript:void(0)">{{item.title}}</a>
                     </li>
                 </ul>
@@ -116,7 +116,7 @@
             </div>
             <div class="main_header">
                 <ul>
-                    <li v-for="(item,index) in exploreCity.header" :key="index">
+                    <li v-for="(item,index) in exploreCity.header" :key="index" @click="goExploreCity(index)">
                         <a href="javascript:void(0)">{{item.title}}</a>
                     </li>
                 </ul>
@@ -158,7 +158,7 @@
             </div>
             <div class="main_header">
                 <ul>
-                    <li v-for="(item,index) in netRed.header" :key="index">
+                    <li v-for="(item,index) in netRed.header" :key="index" @click="goNetRed(index)">
                         <a href="javascript:void(0)">{{item.title}}</a>
                     </li>
                 </ul>
@@ -200,8 +200,37 @@ export {default} from './indexCtr'
 
 <style scoped>
 .carousel img{
+    position: relative;
     width: 100%;
     height: 100%;
+}
+.sweiper{
+    position: absolute;
+    z-index: 999;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 880px;
+    height: 260px;
+    color: #fff;
+    background-image: url('./../../assets/images/bannerBg.png');
+    background-color: rgba(0, 0, 0, .3);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.sweiper_title{
+    text-align: center;
+    padding-top: 15px;
+    font-weight: 100;
+    letter-spacing: 3px;
+}
+.sweiper_content{
+    width: 70%;
+    margin: 50px auto;
+    text-align: center;
+    line-height: 35px;
+    font-size: 14px;
+    font-weight: 100;
 }
 /* 公用的头部标题和头部导航 */
 .main_top{

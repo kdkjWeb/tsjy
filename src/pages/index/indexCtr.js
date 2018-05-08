@@ -3,10 +3,16 @@ export default {
         return {
             carousel: [
                 {
+                    title: '我们和刘雯聊了聊她的春夏衣橱',
+                    content: '你不喜欢红色可能只因为觉得他不好穿，显黑啦，找不到场合啦等等，但是说真的，没有人比我们穿红色更美，为什么？往下看',
                     src: '../../../static/useImg/scroll1.png'
                 },{
+                    title: '我们和刘雯聊了聊她的春夏衣橱2',
+                    content: '你不喜欢红色可能只因为觉得他不好穿，显黑啦，找不到场合啦等等，但是说真的，没有人比我们穿红色更美，为什么？往下看',
                     src: '../../../static/useImg/scroll2.png'
                 },{
+                    title: '我们和刘雯聊了聊她的春夏衣橱3',
+                    content: '你不喜欢红色可能只因为觉得他不好穿，显黑啦，找不到场合啦等等，但是说真的，没有人比我们穿红色更美，为什么？往下看',
                     src: '../../../static/useImg/scroll3.png'
                 }
             ],
@@ -223,10 +229,14 @@ export default {
         wishNext(index){
             switch(index){
                 case 0:
-                console.log(0);
+                this.$router.push({
+                    name: 'luckDraw'
+                })
                 break;
                 case 1:
-                console.log(1);
+                this.$router.push({
+                    name: 'affiche'
+                })
                 break;
             }
         },
@@ -234,13 +244,145 @@ export default {
         wishNav(index){
             switch(index){
                 case 0:
-                console.log(0);
+                this.$router.push({
+                    name: 'wishtree'
+                })
                 break;
                 case 1:
-                console.log(1);
+                this.$router.push({
+                    name: 'treeWar'
+                })
                 break;
                 case 2:
-                console.log(2);
+                this.$router.push({
+                    name: 'store'
+                })
+                break;
+            }
+        },
+        //点击资讯模块的标题到指定页面
+        goInformation(index){
+            switch(index){
+                case 0:
+                this.$router.push({
+                    name: 'fast'
+                })
+                break;
+                case 1:
+                this.$router.push({
+                    name: 'recruitment'
+                })
+                break;
+                case 2:
+                this.$router.push({
+                    name: 'job'
+                })
+                break;
+                case 3:
+                this.$router.push({
+                    name: 'family'
+                })
+                break;
+                case 4:
+                this.$router.push({
+                    name: 'flea'
+                })
+                break;
+            }
+        },
+        // 点击娱乐模块到指定页面
+        goEntertainment(index){
+            switch(index){
+                case 0:
+                this.$router.push({
+                    name: 'video',
+                    params:{
+                        type: 1
+                    }
+                })
+                break;
+                case 1:
+                this.$router.push({
+                    name: 'video',
+                    params:{
+                        type: 1
+                    }
+                })
+                break;
+                case 2:
+                this.$router.push({
+                    name: 'music',
+                    params:{
+                        type: 1
+                    }
+                })
+                break;
+                case 3:
+                this.$router.push({
+                    name: 'music',
+                    params:{
+                        type: 1
+                    }
+                })
+                break;
+                case 4:
+                this.$router.push({
+                    name: 'phonograph'
+                })
+                break;
+                case 5:
+                this.$router.push({
+                    name: 'musicDetail'
+                })
+                break;
+            }
+        },
+        //点击探城模块到指定页面
+        goExploreCity(index){
+            switch(index){
+                case 0:
+                this.$router.push({
+                    name: 'citySearcher',
+                    params:{
+                        type: 1
+                    }
+                })
+                break;
+                case 1:
+                this.$router.push({
+                    name: 'citySearcher',
+                    params:{
+                        type: 2
+                    }
+                })
+                break;
+                case 2:
+                this.$router.push({
+                    name: 'citySearcher',
+                    params:{
+                        type: 3
+                    }
+                })
+                break;
+            }
+        },
+        //点击网红模块到指定页面
+        goNetRed(index){
+            switch(index){
+                case 0:
+                this.$router.push({
+                    name: 'personal'
+                })
+                break;
+                case 1:
+                this.$router.push({
+                    name: 'information'
+                })
+                break;
+                case 2:
+                this.$router.push({
+                    name: 'atlas'
+                })
                 break;
             }
         }
