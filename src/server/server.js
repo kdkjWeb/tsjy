@@ -39,6 +39,8 @@ export default {
         }
         if (res.data.code == 0) {
           resolve(res.data);
+        }else if(res.data.code == 401) {
+
         } else {
           this.$message({
             message: res.data.msg,

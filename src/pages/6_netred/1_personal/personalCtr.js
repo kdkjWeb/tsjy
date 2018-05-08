@@ -9,6 +9,13 @@ export default{
   },
   methods: {
     /**
+     * 分页 当前第几页
+     */
+    handleCurrentChange(val) {
+      this.currentPage = val;
+      this.getList();
+    },
+    /**
      * 获取网红个人展示列表
      */
     getList(){

@@ -88,7 +88,7 @@ export default{
         params:json
       }).then((res)=>{
         this.$message({
-          message:"保存成功",
+          message:"保存成功,请重新登录",
           type: 'success',
           duration: 1500
         });
@@ -100,7 +100,7 @@ export default{
             path:"/"
           });
           this.$store.commit("setloginIsYes",false);
-        },1000);
+        },1500);
 
 
         // }
@@ -116,7 +116,7 @@ export default{
         url:this.$api.logout,
         params:{}
       }).then(res=>{
-
+        this.$c.removeStorage("userInfo");
       });
     },
     /**

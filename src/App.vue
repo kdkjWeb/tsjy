@@ -6,6 +6,7 @@
         <div class="login" @click="loginBox(1)" v-if="!this.$store.state.loginIsYes">登录</div>
         <div class="register" @click="loginBox(0)" v-if="!this.$store.state.loginIsYes">注册</div>
         <div class="personCenter" @click="toPerson" v-if="this.$store.state.loginIsYes">个人中心</div>
+        <div class="personCenter" @click="logout" v-if="this.$store.state.loginIsYes">退出登录</div>
       </div>
       <div class="logo">
         <img src="@/assets/images/login.jpg" alt="">
@@ -183,6 +184,23 @@
         })
       },
       /**
+       * 退出登录
+       */
+      logout(){
+        this.$g({
+          url:this.$api.logout,
+          params:{}
+        }).then(res=>{
+          this.$store.commit("setloginIsYes",false);
+          this.$c.removeStorage("userInfo");
+          this.$message({
+            message:"退出成功",
+            type: 'success',
+            duration: 1500
+          });
+        });
+      },
+      /**
        * 是否登录
        */
       loginYes(){
@@ -339,8 +357,7 @@
   .header_btn{
     display: flex;
     display: -webkit-flex;
-    justify-content: space-between;
-    width: 130px;
+    width: 180px;
     height: 25px;
     line-height: 25px;
     float: right;
@@ -356,6 +373,7 @@
   .header_btn div.login{
     /* width: 65px; */
     cursor: pointer;
+    margin-right:20px;
   }
   .nav{
     width: 100%;
@@ -421,7 +439,8 @@
     background-color:#97857b ;
   }
   .header_btn .personCenter {
-  width:80px;
+    width:80px;
+    margin-right:20px;
 }
 
 
