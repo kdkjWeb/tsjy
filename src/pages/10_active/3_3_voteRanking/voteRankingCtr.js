@@ -4,43 +4,44 @@
 export default {
   data(){
     return {
-      currentPage1: 1,
-      listPerson: [{
-        num: "1",
-        src: "../../static/person.png",
-        name: "杨幂"
-      }, {
-        num: "1",
-        src: "../../static/person.png",
-        name: "杨幂"
-      }, {
-        num: "1",
-        src: "../../static/person.png",
-        name: "杨幂"
-      }, {
-        num: "1",
-        src: "../../static/person.png",
-        name: "杨幂"
-      }, {
-        num: "1",
-        src: "../../static/person.png",
-        name: "杨幂"
-      }, {
-        num: "1",
-        src: "../../static/person.png",
-        name: "杨幂"
-      }]
+      id:"",
+      listPerson: []
     }
   },
   methods: {
-    handleSizeChange(val) {
-      console.log(`每页 ${val} 条`);
+    toVipDetail(item){
+      this.$router.push({
+        name:"voteVipDetail",
+        query:{
+          id:item.id
+        }
+      })
     },
-    handleCurrentChange(val) {
-      console.log(`当前页: ${val}`);
-    }
+    getPersonList(){
+      this.$p({
+        url: this.$api.memeQuery,
+        params:{
+          pageSize:20,
+          current:1,
+          actId:this.id
+        },
+        load:false
+      }).then(res=> {
+        this.totalPerson = res.data.total;
+        var arr = res.data.list;
+        arr.forEach((e, index)=> {
+          arr[index].pubDate = e.pubDate.split(" ")[0];
+          arr[index].imgUrl = this.$baseU + e.imgUrl;
+        });
+        this.listPerson = JSON.parse(JSON.stringify(arr));
+
+      }, errRes=> {
+
+      })
+    },
   },
   mounted(){
-
+    this.id = this.$route.query.id;
+    this.getPersonList();
   }
 }

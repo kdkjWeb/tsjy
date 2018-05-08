@@ -2,22 +2,14 @@
     <div class="container">
       <div class="signPeople">
         <div class="con">
-          <div class="conB clear" v-for="item,index in listPerson" :key="index">
-            <img :src="item.src" alt="">
+          <div class="conB clear" v-for="(item,index) in listPerson" :key="index" @click="toVipDetail(item)">
+            <img :src="item.imgUrl" alt="">
             <div class="conDes">
-              <p class="num">{{item.num}}</p>
-              <p class="name">{{item.name}}</p>
+              <p class="num">{{index+1}}</p>
+              <p class="name">{{item.memeName}}</p>
             </div>
           </div>
         </div>
-        <el-pagination class="pagination"
-                       background
-                       @current-change="handleCurrentChange"
-                       :current-page.sync="currentPage1"
-                       :page-size="100"
-                       :total="1000"
-                       layout="prev, pager, next">
-        </el-pagination>
       </div>
     </div>
 </template>
@@ -40,12 +32,11 @@
   .con {
     display:flex;
     flex-direction: row;
-    justify-content: space-between;
     flex-wrap: wrap;
   }
   .conB {
     width:330px;
-    margin-top:50px;
+    margin:50px 18px 0;
     border-radius: 5px 5px 0 0;
   }
   .conB img{
