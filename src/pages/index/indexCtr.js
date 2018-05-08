@@ -162,14 +162,17 @@ export default {
         wishNext(index){
             switch(index){
                 case 0:
+                  this.$emit("changeIndex",9);
                 this.$router.push({
                     name: 'luckDraw'
-                })
+                });
+
                 break;
                 case 1:
+                  this.$emit("changeIndex",9);
                 this.$router.push({
                     name: 'affiche'
-                })
+                });
                 break;
             }
         },
@@ -177,19 +180,22 @@ export default {
         wishNav(index){
             switch(index){
                 case 0:
+                  this.$emit("changeIndex",6);
                 this.$router.push({
                     name: 'wishtree'
-                })
+                });
                 break;
                 case 1:
-                this.$router.push({
+                  this.$emit("changeIndex",6);
+                  this.$router.push({
                     name: 'treeWar'
-                })
+                });
                 break;
                 case 2:
-                this.$router.push({
+                  this.$emit("changeIndex",6);
+                  this.$router.push({
                     name: 'store'
-                })
+                });
                 break;
             }
         },
@@ -197,29 +203,38 @@ export default {
         goInformation(index){
             switch(index){
                 case 0:
-                this.$router.push({
+                  this.$emit("changeIndex",1);
+
+                  this.$router.push({
                     name: 'fast'
-                })
+                });
                 break;
                 case 1:
-                this.$router.push({
+                  this.$emit("changeIndex",2);
+
+                  this.$router.push({
                     name: 'recruitment'
-                })
+                });
                 break;
                 case 2:
-                this.$router.push({
+                  this.$emit("changeIndex",2);
+                  this.$router.push({
                     name: 'job'
-                })
+                });
                 break;
                 case 3:
-                this.$router.push({
+                  this.$emit("changeIndex",2);
+
+                  this.$router.push({
                     name: 'family'
-                })
+                });
                 break;
                 case 4:
-                this.$router.push({
+                  this.$emit("changeIndex",7);
+
+                  this.$router.push({
                     name: 'flea'
-                })
+                });
                 break;
             }
         },
@@ -227,46 +242,54 @@ export default {
         goEntertainment(index){
             switch(index){
                 case 0:
-                this.$router.push({
+                  this.$emit("changeIndex",3);
+
+                  this.$router.push({
                     name: 'video',
-                    params:{
-                        type: 1
+                    query:{
+                        type: 0
                     }
-                })
+                });
                 break;
                 case 1:
-                this.$router.push({
+                  this.$emit("changeIndex",3);
+
+                  this.$router.push({
                     name: 'video',
-                    params:{
+                    query:{
                         type: 1
                     }
-                })
+                });
                 break;
                 case 2:
+                  this.$emit("changeIndex",4);
                 this.$router.push({
                     name: 'music',
-                    params:{
-                        type: 1
+                    query:{
+                        type: 2
                     }
-                })
+                });
                 break;
                 case 3:
+                  this.$emit("changeIndex",4);
                 this.$router.push({
                     name: 'music',
-                    params:{
+                  query:{
                         type: 1
                     }
-                })
+                });
                 break;
                 case 4:
+                  this.$emit("changeIndex",4);
                 this.$router.push({
                     name: 'phonograph'
-                })
+                });
                 break;
                 case 5:
+                  this.$emit("changeIndex",4);
                 this.$router.push({
-                    name: 'musicDetail'
-                })
+                    name: 'musicOrder'
+                });
                 break;
             }
         },
@@ -274,28 +297,31 @@ export default {
         goExploreCity(index){
             switch(index){
                 case 0:
+                  this.$emit("changeIndex",8);
                 this.$router.push({
                     name: 'citySearcher',
-                    params:{
-                        type: 1
+                    query:{
+                        type: 0
                     }
-                })
+                });
                 break;
                 case 1:
+                  this.$emit("changeIndex",8);
                 this.$router.push({
                     name: 'citySearcher',
-                    params:{
-                        type: 2
+                  query:{
+                        type: 1
                     }
-                })
+                });
                 break;
                 case 2:
+                  this.$emit("changeIndex",8);
                 this.$router.push({
                     name: 'citySearcher',
-                    params:{
-                        type: 3
+                  query:{
+                        type: 2
                     }
-                })
+                });
                 break;
             }
         },
@@ -303,19 +329,22 @@ export default {
         goNetRed(index){
             switch(index){
                 case 0:
+                  this.$emit("changeIndex",5);
                 this.$router.push({
                     name: 'personal'
-                })
+                });
                 break;
                 case 1:
+                  this.$emit("changeIndex",5);
                 this.$router.push({
                     name: 'information'
-                })
+                });
                 break;
                 case 2:
+                  this.$emit("changeIndex",5);
                 this.$router.push({
                     name: 'atlas'
-                })
+                });
                 break;
             }
         },

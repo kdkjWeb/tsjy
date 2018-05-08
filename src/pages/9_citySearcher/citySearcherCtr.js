@@ -20,6 +20,11 @@ export default {
   methods:{
     toLink(item,index) {
       this.thisIndex = index;
+      this.$router.push({
+        query:{
+          type:index
+        }
+      });
       this.currentPage = 1;
       this.getList(item.title);
     },
@@ -65,6 +70,7 @@ export default {
     }
   },
   mounted(){
-    this.getList(this.tabBarList[0].title);
+    this.thisIndex = this.$route.query.type;
+    this.getList(this.tabBarList[this.thisIndex].title);
   }
 }

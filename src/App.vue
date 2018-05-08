@@ -28,7 +28,7 @@
         </li>
       </ul>
     </nav>
-    <router-view/>
+    <router-view @changeIndex="changeIndex"/>
     <footer class="footer"></footer>
     <loginReg
       :show="show"
@@ -211,6 +211,10 @@
        */
       regSuc(){
         this.login = true;
+      },
+      changeIndex(val){
+        console.log(val);
+        this.thisIndex = val;
       }
     },
     mounted(){
@@ -224,6 +228,8 @@
         this.thisIndex = 4;
       }else if (this.$route.path.indexOf("/netred")>=0||this.$route.path.indexOf("/netRed")>=0||this.$route.path.indexOf("/imformationdetails")>=0) {
         this.thisIndex = 5;
+      }else if (this.$route.path.indexOf("/wish")>=0||this.$route.path.indexOf("/netRed")>=0||this.$route.path.indexOf("/imformationdetails")>=0) {
+        this.thisIndex = 6;
       }else if (this.$route.path.indexOf("/flea")>=0) {
         this.thisIndex = 7;
       }else if (this.$route.path.indexOf("/citySearcher")>=0) {

@@ -44,6 +44,11 @@ export default {
     },
     toLink(index) {
       this.thisIndex = index;
+      this.$router.push({
+        query:{
+         type:index
+        }
+      });
       this.getList(this.tabBarList[this.thisIndex].title);
     },
     handleCurrentChange(val) {
@@ -69,6 +74,32 @@ export default {
       }
     },
     /**
+     * 获取banner播放列表
+     */
+    getBannerList(){
+      this.$p({
+        url:this.$api.newsQuery,
+        params:{
+          pageSize:this.pageSize,
+          current:1,
+          category:4,
+          type:"精彩VIDEO"
+        }
+      }).then(res=>{
+        var arrBanner = res.data.list;
+          arrBanner.forEach((e,index)=>{
+          arrBanner[index].pubDate = e.pubDate.split(" ")[0];
+          arrBanner[index].imgUrl = this.$baseU + e.imgUrl;
+          arrBanner[index].videoUrl = this.$baseU + e.videoUrl;
+        });
+          this.isTrans = false;
+          this.amusement.videoList = JSON.parse(JSON.stringify(arrBanner));
+          this.amusement.video = JSON.parse(JSON.stringify(arrBanner[0]));
+      },errRes=>{
+
+      })
+    },
+    /**
      * 获取列表
      */
     getList(str){
@@ -89,12 +120,6 @@ export default {
           arr[index].imgUrl = this.$baseU + e.imgUrl;
           arr[index].videoUrl = this.$baseU + e.videoUrl;
         });
-
-        if(this.currentPage==1&&this.thisIndex==0&&this.isTrans == true) {
-          this.isTrans = false;
-          this.amusement.videoList = JSON.parse(JSON.stringify(arr));
-          this.amusement.video = JSON.parse(JSON.stringify(arr[0]));
-        }
         this.list = JSON.parse(JSON.stringify(arr));
       },errRes=>{
 
@@ -102,6 +127,10 @@ export default {
     }
   },
   mounted(){
+    if(this.$route.query.type) {
+      this.thisIndex = this.$route.query.type;
+    }
+    this.getBannerList();
     this.getList(this.tabBarList[this.thisIndex].title);
   }
 }
