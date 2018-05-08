@@ -18,14 +18,14 @@ export default{
             var user = JSON.parse(this.$c.getStorage('userInfo'))
             //判断用户是否登录
             if(!user){
-                this.$message.error({
-                    message: '您还没有登录，请登录！',
+                this.$message.warning({
+                    message: '您还没有登录，或登录已过期，请重新登录后操作',
                   });
                   this.wish.content = '';
                   this.wish.name = '';
                 return;
             }
-            
+
             if(!this.wish.content || !this.wish.name){
                 this.$message.error({
                     message: '错了哦，输入内容不全',
@@ -33,7 +33,7 @@ export default{
                 return;
             }
 
-            
+
 
             this.$p({
                 url: this.$api.wishingTree,

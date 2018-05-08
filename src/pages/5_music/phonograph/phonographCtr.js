@@ -72,7 +72,16 @@ export default{
       this.activeIndex = index;
     },
     showSendF(){
-      this.showSendAlert = !this.showSendAlert;
+      if(this.$c.getStorage("userInfo")) {
+        this.showSendAlert = !this.showSendAlert;
+      }else {
+        this.$message({
+          message: "您还没有登录，或登录已过期，请重新登录后操作",
+          type: 'warning',
+          duration: 1500
+        });
+        return;
+      }
     },
     /**
      * 上传声音
@@ -156,7 +165,11 @@ export default{
         arr.forEach((e,index)=>{
           arr[index].pubDate = e.pubDate.split(" ")[0];
           arr[index].imgUrl = this.$baseU + e.imgUrl;
-          arr[index].head = this.$baseU + e.head;
+          if(arr[index].head) {
+            arr[index].head = this.$baseU + e.head;
+          }else {
+            arr[index].head = "../../../static/useImg/defaultHead.jpg";
+          }
           arr[index].musicUrl = this.$baseU + e.musicUrl;
           arr[index].isPlay = false;
         });

@@ -21,10 +21,22 @@ export default{
           }
         })
       },
+      /**
+       * 点击发布求职
+       */
       publishJob(){
-        this.$router.push({
-          name:"getJobForm"
-        })
+        if(this.$c.getStorage("userInfo")) {
+          this.$router.push({
+            name:"getJobForm"
+          })
+        }else {
+          this.$message({
+            message: "您还没有登录，或登录已过期，请重新登录后操作",
+            type: 'warning',
+            duration: 1500
+          });
+          return;
+        }
       },
       /**
        * 获取列表
@@ -42,7 +54,11 @@ export default{
           var arr = res.data.list;
           arr.forEach((e,index)=>{
             arr[index].pubDate = e.pubDate.split(" ")[0];
-            arr[index].head = this.$baseU + e.head;
+            if(arr[index].head) {
+              arr[index].head = this.$baseU + e.head;
+            }else {
+              arr[index].head = "../../../static/useImg/defaultHead.jpg";
+            }
           });
           this.list = JSON.parse(JSON.stringify(arr));
         },errRes=>{

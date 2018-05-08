@@ -40,7 +40,13 @@ export default {
         if (res.data.code == 0) {
           resolve(res.data);
         }else if(res.data.code == 401) {
-
+          this.$message({
+            message: "您还没有登录，或者登录已过期，请重新登录",
+            type: 'error',
+            duration: 1500
+          });
+          this.$store.commit("setloginIsYes",false);
+          this.$c.removeStorage("userInfo");
         } else {
           this.$message({
             message: res.data.msg,
@@ -90,7 +96,15 @@ export default {
           }
           if (res.data.code == 0) {
             resolve(res.data);
-          } else {
+          } else if(res.data.code == 401) {
+            this.$message({
+              message: "您还没有登录，或者登录已过期，请重新登录",
+              type: 'error',
+              duration: 1500
+            });
+            this.$store.commit("setloginIsYes",false);
+            this.$c.removeStorage("userInfo");
+          }else {
             this.$message({
               message: res.data.msg,
               type: 'warning',

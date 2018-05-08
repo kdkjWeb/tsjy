@@ -43,7 +43,11 @@ export default{
         var arr = res.data.list;
         arr.forEach((e,index)=>{
           arr[index].pubDate = e.pubDate.split(" ")[0];
-          arr[index].head = this.$baseU + e.head;
+          if(arr[index].head) {
+            arr[index].head = this.$baseU + e.head;
+          }else {
+            arr[index].head = "../../../static/useImg/defaultHead.jpg";
+          }
         });
         this.list = JSON.parse(JSON.stringify(arr));
       },errRes=>{
@@ -51,7 +55,16 @@ export default{
       })
     },
     alertOpen(){
-      this.showAlert = !this.showAlert;
+      if(this.$c.getStorage("userInfo")) {
+        this.showAlert = !this.showAlert;
+      }else {
+        this.$message({
+          message: "您还没有登录，或登录已过期，请重新登录后操作",
+          type: 'warning',
+          duration: 1500
+        });
+        return;
+      }
     },
     /**
      * 发布跳蚤

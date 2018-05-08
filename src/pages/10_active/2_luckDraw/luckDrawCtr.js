@@ -18,6 +18,16 @@ export default {
      * 奖品按钮 circle 为旋转次数 btnFalse为是否可以重复点击
      */
     rewardBtn(index){
+      if(this.$c.getStorage("userInfo")) {
+
+      }else {
+        this.$message({
+          message: "您还没有登录，或登录已过期，请重新登录后操作",
+          type: 'warning',
+          duration: 1500
+        });
+        return;
+      }
       this.circle = 2;
       if(index !=4) {
         return false;
@@ -148,7 +158,7 @@ export default {
       this.$p({
         url: 'Prizes/insertWinner',
         params: {
-          userid:this.$c.getStorage("token"),
+          userid:JSON.parse(this.$c.getStorage("userInfo")).id,
           prize:rewardId
         }
       }).then(res=>{

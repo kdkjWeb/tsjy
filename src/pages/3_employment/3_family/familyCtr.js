@@ -20,10 +20,22 @@ export default{
           }
         })
       },
+      /**
+       * 发布家教信息
+       */
       toPublish(){
-        this.$router.push({
-          name:"familyForm"
-        })
+        if(this.$c.getStorage("userInfo")) {
+          this.$router.push({
+            name:"familyForm"
+          })
+        }else {
+          this.$message({
+            message: "您还没有登录，或登录已过期，请重新登录后操作",
+            type: 'warning',
+            duration: 1500
+          });
+          return;
+        }
       },
       /**
        * 获取列表

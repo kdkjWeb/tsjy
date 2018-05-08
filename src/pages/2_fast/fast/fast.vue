@@ -10,7 +10,7 @@
     </div>
     <div class="con">
       <div class="conB clear" v-for="(item,index) in list" :key="index" @click="details(item)">
-        <img :src="item.imgUrl" alt="">
+        <img :src="item.imgUrl" alt="加载失败">
         <div class="conDes">
           <p>{{item.titile}}</p>
           <p>{{item.newsText}}</p>
@@ -117,4 +117,7 @@
     margin-top:50px;
   }
 
+  .conB{
+    box-shadow: 0 0 10px 1px rgba(0,0,0,.1);
+  }
 </style>

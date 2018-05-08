@@ -44,49 +44,65 @@ export default {
       })
     },
     signBtn(){
-      if(this.item.status !=1) {
+      if(!this.$c.getStorage("userInfo")) {
         this.$message({
-          message: "现在不能报名",
+          message: "您还没有登录，或登录已过期，请重新登录后操作",
           type: 'warning',
           duration: 1500
         });
-        return ;
+        return;
       }
-      this.$router.push({
-        name:"voteSignForm",
-        query:{
-          id:this.id
+        if(this.item.status !=1) {
+          this.$message({
+            message: "现在不能报名",
+            type: 'warning',
+            duration: 1500
+          });
+          return ;
         }
-      })
+        this.$router.push({
+          name:"voteSignForm",
+          query:{
+            id:this.id
+          }
+        })
     },
     /**
      * 投票按钮
      */
     voteBtn(item,index){
-      // if(this.item.status !=2) {
-      //   this.$message({
-      //     message: "现在不能投票",
-      //     type: 'warning',
-      //     duration: 1500
-      //   });
-      //   return ;
-      // }
-      this.$p({
-        url:this.$api.addVote,
-        params:{
-          actId:this.id,
-          memeId:item.id
-        }
-      }).then(res=>{
+      if(!this.$c.getStorage("userInfo")) {
         this.$message({
-          message: "投票成功",
-          type: 'success',
+          message: "您还没有登录，或登录已过期，请重新登录后操作",
+          type: 'warning',
           duration: 1500
         });
-        this.listPerson[index].voteTotal = parseInt(this.listPerson[index].voteTotal) + 1;
-      },errRes=>{
+        return;
+      }
+        if(this.item.status !=2) {
+          this.$message({
+            message: "现在不能投票",
+            type: 'warning',
+            duration: 1500
+          });
+          return ;
+        }
+        this.$p({
+          url:this.$api.addVote,
+          params:{
+            actId:this.id,
+            memeId:item.id
+          }
+        }).then(res=>{
+          this.$message({
+            message: "投票成功",
+            type: 'success',
+            duration: 1500
+          });
+          this.listPerson[index].voteTotal = parseInt(this.listPerson[index].voteTotal) + 1;
+        },errRes=>{
 
-      })
+        })
     },
     /**
      * 搜索
@@ -191,6 +207,14 @@ export default {
       })
     },
     comment(){
+      if(!this.$c.getStorage("userInfo")) {
+        this.$message({
+          message: "您还没有登录，或登录已过期，请重新登录后操作",
+          type: 'warning',
+          duration: 1500
+        });
+        return;
+      }
       if(this.commentText=="") {
         this.$message({
           message: "请填写想说的话",

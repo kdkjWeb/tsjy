@@ -31,7 +31,7 @@ export default {
       //判断用户是否登录
       if(!user){
         this.$message.error({
-            message: '您还没有登录，请登录！',
+            message: '您还没有登录，或登录已过期，请重新登录后操作',
           });
           this.wish.content = '';
           this.wish.name = '';
@@ -44,7 +44,7 @@ export default {
           });
         return;
     }
-    
+
     this.$p({
       url: this.$api.wishingTree,
       params: {
@@ -62,7 +62,7 @@ export default {
                   this.currentPage1 = 1;
                   this.getTreeHoleList(this.pageSize,this.current)
                   this.content = '';
-                  
+
             }
         },err=>{
             this.$message.error('服务器异常');
@@ -98,6 +98,6 @@ export default {
       this.getTreeHoleList(this.pageSize,this.current);
 
       this.getUserSrc();
-      
+
   }
 }

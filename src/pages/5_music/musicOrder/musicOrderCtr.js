@@ -64,7 +64,17 @@ export default {
       }
     },
     alertOpen(){
-      this.showAlert = !this.showAlert;
+      if(this.$c.getStorage("userInfo")) {
+        this.showAlert = !this.showAlert;
+      }else {
+        this.$message({
+          message: "您还没有登录，或登录已过期，请重新登录后操作",
+          type: 'warning',
+          duration: 1500
+        });
+        return;
+      }
+
     },
     toMusicDetail(item){
       this.$router.push({

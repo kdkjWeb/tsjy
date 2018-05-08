@@ -10,7 +10,17 @@ export default {
   },
   methods:{
     seePhone(){
-      this.showPhone = true;
+      if(this.$c.getStorage("userInfo")) {
+        this.showPhone = true;
+      }else {
+        this.$message({
+          message: "您还没有登录，或登录已过期，请重新登录后操作",
+          type: 'warning',
+          duration: 1500
+        });
+        return;
+      }
+
     },
     /**
      * 查询详情

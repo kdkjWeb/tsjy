@@ -54,10 +54,12 @@ export {default} from './familyCtr'
   text-align: center;
   border-radius: 5px;
   color: #fff;
+  cursor: pointer;
 }
 .teacher{
     padding: 30px;
     width: 450px;
+    height:343px;
     border: 1px solid #ddd;
     margin-bottom: 40px;
 }

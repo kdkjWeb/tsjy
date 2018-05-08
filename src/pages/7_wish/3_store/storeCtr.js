@@ -22,18 +22,18 @@ export default{
         isLogin(){
              if(!this.user){
                 this.$message.error({
-                    message: '您还没有登录，请登录！',
+                    message: '您还没有登录，或登录已过期，请重新登录后操作',
                 });
                 this.content = '';
                 return false;
             }else{
                 return true
             }
-            
+
         },
         //点击发送按钮
         send() {
-            
+
             //判断用户是否登录
             if(!this.isLogin()){
                 return
@@ -70,7 +70,7 @@ export default{
             })
 
         },
-        
+
         firstSend(index,id) {
             //判读用户是否输入内容
             if(!this.firstContent){
@@ -140,7 +140,7 @@ export default{
         },
 
         threeSend(index,id1,item){
-            
+
             if(!this.threeContent){
                 this.$message.error({
                     message: '请说出你的忧愁，让大家帮你一起解忧！',
@@ -204,7 +204,7 @@ export default{
        this.seconedId = item.id;
        this.threeId = '';
 
-        
+
        },
 
         //楼主用户交叉评论第三级，总共只有三级列表

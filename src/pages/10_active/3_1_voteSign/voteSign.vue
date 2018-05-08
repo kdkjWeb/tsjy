@@ -44,18 +44,18 @@
         </div>
       </div>
       <!--v-if="item.status==2||item.status==3"-->
-      <div class="signPeople" >
+      <div class="signPeople" v-if="item.status==2||item.status==3">
         <div class="search clear">
           <input type="text" placeholder="请输入选手姓名或编号" v-model="searchText">
           <div class="searchBtn" @click="search">搜索</div>
         </div>
         <div class="con">
-          <div class="conB clear" v-for="(item,index) in listPerson" :key="index" >
-            <img :src="item.imgUrl" alt="" @click="toVipDetail(item)">
+          <div class="conB clear" v-for="(items,index) in listPerson" :key="index" >
+            <img :src="items.imgUrl" alt="" @click="toVipDetail(items)">
             <div class="conDes">
-              <p class="num">{{item.id}}</p>
-              <p class="name">{{item.memeName}}</p>
-              <p><button class="btn " :class="item.status!=2?'aRBtn':''" @click="voteBtn(item,index)">投票{{item.voteTotal}}</button></p>
+              <p class="num">{{items.id}}</p>
+              <p class="name">{{items.memeName}}</p>
+              <p><button class="btn " :class="item.status!=2?'aRBtn':''" @click="voteBtn(items,index)">投票{{items.voteTotal}}</button></p>
             </div>
           </div>
         </div>
