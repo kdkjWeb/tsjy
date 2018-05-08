@@ -39,7 +39,7 @@ export default{
           id:item.id
         }
       })
-    }
+    },
   },
   mounted(){
     this.getList();
