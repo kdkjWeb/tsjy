@@ -16,14 +16,6 @@ export default{
         send() {
 
             var user = JSON.parse(this.$c.getStorage('userInfo'))
-
-            if(!this.wish.content || !this.wish.name){
-                this.$message.error({
-                    message: '错了哦，输入内容不全',
-                  });
-                return;
-            }
-
             //判断用户是否登录
             if(!user){
                 this.$message.error({
@@ -33,6 +25,15 @@ export default{
                   this.wish.name = '';
                 return;
             }
+            
+            if(!this.wish.content || !this.wish.name){
+                this.$message.error({
+                    message: '错了哦，输入内容不全',
+                  });
+                return;
+            }
+
+            
 
             this.$p({
                 url: this.$api.wishingTree,

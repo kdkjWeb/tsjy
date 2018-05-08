@@ -4,13 +4,16 @@ export default{
             firstIndex: null,
             seconedIndex: null,
             threeIndex: null,
-            currentPage1:5,
+            currentPage1:1,
+            pageSize: 10,
+            current: 1,
+            total: 0,
             content: '',
             firstContent: '',
             seconedContent: '',
             threeContent: '',
             userImg: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1523947765539&di=1f17c730cabf2559e8a07b797cbb924b&imgtype=0&src=http%3A%2F%2Fnewimg.uumnt.com%2FThumb%2F2017%2F0112%2Fb57a1230e7af1478d8396a5fa436a7e6.jpg',
-            allList: [
+            /*allList: [
                 {
                     src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1523947765539&di=1f17c730cabf2559e8a07b797cbb924b&imgtype=0&src=http%3A%2F%2Fnewimg.uumnt.com%2FThumb%2F2017%2F0112%2Fb57a1230e7af1478d8396a5fa436a7e6.jpg',
                     name: '张三',
@@ -99,69 +102,224 @@ export default{
                     star: '79',
                     disList: []
                 }
-            ]
+            ]*/
+            allList: [],
+            user: {}
         }
     },
     methods: {
+        isLogin(){
+             if(!this.user){
+                this.$message.error({
+                    message: '您还没有登录，请登录！',
+                });
+                this.content = '';
+                return false;
+            }else{
+                return true
+            }
+            
+        },
         //点击发送按钮
         send() {
+            
+            //判断用户是否登录
+            if(!this.isLogin()){
+                return
+            }
+            //判读用户是否输入内容
             if(!this.content){
                 this.$message.error({
                     message: '请说出你的忧愁，让大家帮你一起解忧！',
                     center: true
                   });
+                  return;
             }
+            //提交操作用户留言
+            this.$p({
+                url: this.$api.wishingTree,
+                params:{
+                    type: 3,
+                    userid: this.user.id,
+                    content: this.content,
+                }
+            }).then(res=>{
+                if(res.code == 0){
+                    this.$message({
+                        message: '恭喜你，已经留下你的秘密！',
+                        type: 'success'
+                      });
+                      this.content = '';
+                      this.current = 1;
+                      this.currentPage1 = 1;
+                      this.getDisList(this.current,this.pageSize)
+                }
+            },err=>{
+
+            })
 
         },
-        firstSend() {
+        firstSend(index,id) {
+           
+            //判读用户是否输入内容
             if(!this.firstContent){
                 this.$message.error({
                     message: '请说出你的忧愁，让大家帮你一起解忧！',
                     center: true
                   });
+                  return;
             }
-            this.firstIndex = null;
+            this.firstIndex = index;
+
+            this.$p({
+                url: this.$api.addMessage,
+                params: {
+                    content: this.firstContent,
+                    leafId: id,
+                    userid: this.user.id,
+                    type: 1
+                }
+            }).then(res=>{
+                if(res.code == 0){
+                    this.$message({
+                        message: '评论成功！',
+                        type: 'success'
+                      });
+                      this.firstIndex = null;
+                      this.firstContent = '';
+                      this.getDisList(this.current,this.pageSize)
+                }
+            },err=>{
+
+            })
+
+
         },
-        seconedSend() {
+        seconedSend(index,id,id1,item) {
             if(!this.seconedContent){
                 this.$message.error({
                     message: '请说出你的忧愁，让大家帮你一起解忧！',
                     center: true
                   });
+                  return;
             }
-            this.seconedIndex = null;
+            this.$p({
+                url: this.$api.addMessage,
+                params: {
+                    content: this.seconedContent,
+                    belongmessageid: id,
+                    leafId: id1,
+                    userid: this.user.id,
+                    type: 1
+                }
+            }).then(res=>{
+                if(res.code == 0){
+                    this.$message({
+                        message: '评论成功！',
+                        type: 'success'
+                      });
+                      this.$set(item,'isShow',false)
+                      console.log(item)
+                      this.seconedContent = '';
+                      this.getDisList(this.current,this.pageSize)
+                }
+            },err=>{
+
+            })
         },
-        threeSend(){
+        threeSend(index,id,id1,item){
             if(!this.threeContent){
                 this.$message.error({
                     message: '请说出你的忧愁，让大家帮你一起解忧！',
                     center: true
                   });
+                  return;
             }
-            this.threeIndex = null;
+            this.$p({
+                url: this.$api.addMessage,
+                params: {
+                    content: this.threeContent,
+                    belongmessageid: id,
+                    leafId: id1,
+                    userid: this.user.id,
+                    type: 1
+                }
+            }).then(res=>{
+                if(res.code == 0){
+                    this.$message({
+                        message: '评论成功！',
+                        type: 'success'
+                      });
+                      this.$set(item,'isShow1',false)
+                      this.threeContent = '';
+                      this.getDisList(this.current,this.pageSize)
+                }
+            },err=>{
+
+            })
         },
         handleSizeChange(val) {
             console.log(`每页 ${val} 条`);
           },
         handleCurrentChange(val) {
         console.log(`当前页: ${val}`);
+        this.getDisList(val,this.pageSize)
         },
        //评论楼主的问题
        firstDis(index){
+        //判断用户是否登录
+        if(!this.isLogin()){
+            return
+        }
         this.firstIndex = index;
         this.seconedIndex = null;
         this.threeIndex = null;
        },
        //楼主用户交叉评论
-       seconedDis(index){
+       seconedDis(index,item){
+            //判断用户是否登录
+        if(!this.isLogin()){
+            return
+        }
         this.seconedIndex = index;
         this.firstIndex = null;
         this.threeIndex = null;
+        this.$set(item,'isShow',true)
        },
-       threeDis(index){
+       threeDis(index,item){
+           //判断用户是否登录
+        if(!this.isLogin()){
+            return
+        }
         this.threeIndex = index;
         this.firstIndex = null;
         this.seconedIndex = null;
+        this.$set(item,'isShow1',true)
+       },
+
+       //获取用户所有的评论列表
+       getDisList(current,pageSize){
+        this.$p({
+            url: this.$api.getTreeHole,
+            params:{
+              type: 3,
+              current: current,
+              pageSize: pageSize
+            }
+        }).then(res=>{
+            if(res.code == 0){
+                console.log(res)
+                this.allList = res.data.list
+                this.total = res.data.total
+            }
+        },err=>{
+
+        })
        }
+    },
+    mounted(){
+        this.user = JSON.parse(this.$c.getStorage('userInfo'))
+        
+        this.getDisList(this.current,this.pageSize)
     }
 }

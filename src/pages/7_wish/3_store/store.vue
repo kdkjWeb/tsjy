@@ -17,61 +17,61 @@
       <div class="list">
         
         <ul class="listB">
-          <li class="job_list" v-for="(item,index) in allList" :key="index">
+          <li class="job_list" v-for="(item,index) in allList" :key="index" :data-id="item.id">
           <div class="job_left">
-            <img :src="item.src" alt="">
-            <p>{{item.name}}</p>
+            <img :src="`http://192.168.20.133:8886${item.user.profilehead}`" width="70" height="70" alt="加载失败">
+            <p>{{item.user.username}}</p>
           </div>
           <div class="job_right">
             <p>{{item.content}}</p>
             <div class="store_bottom">
-              <div>{{item.time}}</div>
-              <div class="share"><span class="iconfont icon-icon_share"></span><span @click="firstDis(index)" class="dis">评论【{{item.star}}】</span></div>
+              <div>{{item.createtime}}</div>
+              <div class="share"><span class="iconfont icon-icon_share"></span><span @click="firstDis(index)" class="dis">评论【{{item.comCounts}}】</span></div>
             </div>
             <!-- 用户输入评论内容 -->
             <div class="dis_content" v-if="firstIndex == index">
               <textarea name="" id="" v-model="firstContent"></textarea>
-              <div class="store_btn dis_content_btn" @click="firstSend"><span class="iconfont icon-fasong"></span>发送</div>
+              <div class="store_btn dis_content_btn" @click="firstSend(index,item.id)"><span class="iconfont icon-fasong"></span>发送</div>
             </div>
        
-            <ul class="user_dis_list" v-if="item.disList.length>0">
-              <li class="seconed_dis" v-for="(item,index) in item.disList" :key="index">
+            <ul class="user_dis_list" v-if="item.messageList">
+              <li class="seconed_dis" v-for="(item,index) in item.messageList" :key="index" :data-id="item.id" :parent-id="item.leafId">
                 <div class="seconed_dis_top">
                   <div class="seconed_dis_img"> 
-                    <img :src="item.src" alt="">
+                    <img :src="`http://192.168.20.133:8886${item.user.profilehead}`" width="70" height="70" alt="加载失败">
                   </div>
                   <div class="seconed_dis_content">
                     <p class="seconed_dis_content_top">
-                      <span>{{item.name}}</span>
-                      <span class="time">{{item.time}}</span>
-                      <span @click="seconedDis(index)" class="reply">回复</span>
+                      <span>{{item.user.username}}</span>
+                      <span class="time">{{item.creationTime}}</span>
+                      <span @click="seconedDis(index,item)" class="reply">回复</span>
                     </p>
                     <p>{{item.content}}</p>
                   </div>
                 </div>
-                <div class="dis_content" v-if="seconedIndex == index">
+                <div class="dis_content" v-if="item.isShow">
                   <textarea name="" id="" v-model="seconedContent"></textarea>
-                  <div class="store_btn dis_content_btn" @click="seconedSend"><span class="iconfont icon-fasong"></span>发送</div>
+                  <div class="store_btn dis_content_btn" @click="seconedSend(index,item.id,item.leafId,item)"><span class="iconfont icon-fasong"></span>发送</div>
                 </div>
 
-              <ul class="user_dis_list" v-if="item.threeList.length>0">
-              <li class="seconed_dis" v-for="(item,index) in item.threeList" :key="index">
+              <ul class="user_dis_list" v-if="item.childList.length>0">
+              <li class="seconed_dis" v-for="(item,index) in item.childList" :key="index" :data-id="item.id" :parent-id="item.leafId">
                 <div class="seconed_dis_top">
                   <div class="seconed_dis_img"> 
-                    <img :src="item.src" alt="">
+                    <img :src="`http://192.168.20.133:8886${item.user.profilehead}`" width="70" height="70" alt="加载失败">
                   </div>
                   <div class="seconed_dis_content">
                     <p class="seconed_dis_content_top">
-                      <span>{{item.name}}</span>
-                      <span class="time">{{item.time}}</span>
-                      <span @click="threeDis(index)" class="reply">回复</span>
+                      <span>{{item.user.username}}</span>
+                      <span class="time">{{item.creationTime}}</span>
+                      <span @click="threeDis(index,item)" class="reply">回复</span>
                     </p>
                     <p>{{item.content}}</p>
                   </div>
                 </div>
-                <div class="dis_content" v-if="threeIndex == index">
+                <div class="dis_content" v-if="item.isShow1">
                   <textarea name="" id="" v-model="threeContent"></textarea>
-                  <div class="store_btn dis_content_btn" @click="threeSend"><span class="iconfont icon-fasong"></span>发送</div>
+                  <div class="store_btn dis_content_btn" @click="threeSend(index,item.id,item.leafId,item)"><span class="iconfont icon-fasong"></span>发送</div>
                 </div>
               </li>
             </ul>
@@ -90,8 +90,8 @@
                      background
                      @current-change="handleCurrentChange"
                      :current-page.sync="currentPage1"
-                     :page-size="100"
-                     :total="1000"
+                     :page-size="pageSize"
+                     :total="total"
                      layout="prev, pager, next">
       </el-pagination>
       </div>

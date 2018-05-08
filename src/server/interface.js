@@ -64,8 +64,11 @@ Interface.activeAdd = 'activity/add';
  */
 Interface.wishingTree = 'wishingTree/addWishes';    //开始许愿
 Interface.getLeaves = 'wishingTree/getLeaves';  //获取许愿内容
-Interface.getTreeHole = 'wishingTree/query'    //获取神秘树洞列表
-Interface.getLeaves = 'wishingTree/getLeaves';
+Interface.getTreeHole = 'wishingTree/query';   //获取神秘树洞列表
 
+/**
+ * 发布评论接口
+ */ 
+Interface.addMessage = 'message/addComment';   //发布评论接口
 
 export default Interface;

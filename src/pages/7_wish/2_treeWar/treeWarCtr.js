@@ -4,7 +4,7 @@
 export default {
   data(){
     return {
-      pageSize: 2,
+      pageSize: 10,
       total: 0,
       content: '',
       current: 1,
@@ -26,15 +26,8 @@ export default {
     //点击发送按钮
     send(){
       var user = JSON.parse(this.$c.getStorage('userInfo'))
-      //判断用户是否输入内容
-      if(!this.content){
-        this.$message.error({
-            message: '错了哦，输入内容不全',
-          });
-        return;
-    }
-    //判断用户是否登录
-    if(!user){
+      //判断用户是否登录
+      if(!user){
         this.$message.error({
             message: '您还没有登录，请登录！',
           });
@@ -42,6 +35,14 @@ export default {
           this.wish.name = '';
         return;
     }
+      //判断用户是否输入内容
+      if(!this.content){
+        this.$message.error({
+            message: '错了哦，输入内容不全',
+          });
+        return;
+    }
+    
     this.$p({
       url: this.$api.wishingTree,
       params: {
@@ -55,6 +56,8 @@ export default {
                     message: '恭喜你，已经留下你的秘密！',
                     type: 'success'
                   });
+                  this.current = 1;
+                  this.currentPage1 = 1;
                   this.getTreeHoleList(this.pageSize,this.current)
                   this.content = '';
                   
