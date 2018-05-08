@@ -20,7 +20,7 @@
           <li class="job_list" v-for="(item,index) in allList" :key="index" :data-id="item.id">
           <div class="job_left">
             <img :src="`http://192.168.20.133:8886${item.user.profilehead}`" width="70" height="70" alt="加载失败">
-            <p>{{item.user.username}}</p>
+            <p>{{item.user.nickname?item.user.nickname:'游客'}}</p>
           </div>
           <div class="job_right">
             <p>{{item.content}}</p>
@@ -49,12 +49,12 @@
                     <p>{{item.content}}</p>
                   </div>
                 </div>
-                <div class="dis_content" v-if="item.isShow">
+                <div class="dis_content" v-if="item.id == seconedId">
                   <textarea name="" id="" v-model="seconedContent"></textarea>
                   <div class="store_btn dis_content_btn" @click="seconedSend(index,item.id,item.leafId,item)"><span class="iconfont icon-fasong"></span>发送</div>
                 </div>
 
-              <ul class="user_dis_list" v-if="item.childList.length>0">
+              <ul class="user_dis_list user_dis_list1" v-if="item.childList.length>0">
               <li class="seconed_dis" v-for="(item,index) in item.childList" :key="index" :data-id="item.id" :parent-id="item.leafId">
                 <div class="seconed_dis_top">
                   <div class="seconed_dis_img"> 
@@ -69,9 +69,9 @@
                     <p>{{item.content}}</p>
                   </div>
                 </div>
-                <div class="dis_content" v-if="item.isShow1">
+                <div class="dis_content" v-if="item.id == threeId">
                   <textarea name="" id="" v-model="threeContent"></textarea>
-                  <div class="store_btn dis_content_btn" @click="threeSend(index,item.id,item.leafId,item)"><span class="iconfont icon-fasong"></span>发送</div>
+                  <div class="store_btn dis_content_btn" @click="threeSend(index,item.leafId,item)"><span class="iconfont icon-fasong"></span>发送</div>
                 </div>
               </li>
             </ul>
@@ -265,18 +265,24 @@ export {default} from './storeCtr'
 
 /* 评论列表展示 */
 .user_dis_list{
-  border: 1px solid #e4e4e4;
+  /* border: 1px solid #e4e4e4; */
   background-color: #fafafa;
   margin-top: 10px;
 }
+.user_dis_list1{
+  background-color: #fff;
+  width: calc(100% - 50px);
+  margin-left: 50px;
+}
 .seconed_dis{
   margin-bottom: 20px;
-  border-bottom: 1px solid #e4e4e4;
+  /* border-bottom: 1px solid #e4e4e4; */
   padding: 10px;
+  border: 1px solid #e4e4e4; 
 }
-.seconed_dis:last-child{
+/* .seconed_dis:last-child{
   border-bottom: none;
-}
+} */
 .seconed_dis_top{
   display: -webkit-flex;
   display: flex;

@@ -9,7 +9,9 @@ export default {
       content: '',
       current: 1,
       currentPage1:1,
-      list:[]
+      list:[],
+      userSrc: '',
+      user: {}
     }
   },
   methods:{
@@ -84,10 +86,18 @@ export default {
             },err=>{
                 this.$message.error('服务器异常');
             })
+      },
+      //判断用户是否登录，如果登录拿到用户头像，否则默认头像
+      getUserSrc(){
+       this.user = JSON.parse(this.$c.getStorage('userInfo'))
+       this.userSrc = this.user? `http://192.168.20.133:8886${this.user.profilehead}` : '../../../assets/images/treeWar.png'
       }
   },
   mounted(){
       //调用函数，获取神秘树洞的列表
-      this.getTreeHoleList(this.pageSize,this.current)
+      this.getTreeHoleList(this.pageSize,this.current);
+
+      this.getUserSrc();
+      
   }
 }
