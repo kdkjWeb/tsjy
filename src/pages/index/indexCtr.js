@@ -1,6 +1,7 @@
 export default {
     data() {
         return {
+            pageSize: 6,
             carousel: [
                 {
                     title: '我们和刘雯聊了聊她的春夏衣橱',
@@ -50,37 +51,8 @@ export default {
                         title: '跳蚤'
                     }
                 ],
-                notice: [
-                    {
-                        type: '数学',
-                        content: '招募全职培训班数学老师',
-                        time: '2018-02-04'
-                    },{
-                        type: '绘画',
-                        content: '招募全职古风少女条漫主笔',
-                        time: '2018-02-05'
-                    },{
-                        type: '英语',
-                        content: '招募全职培训班英语老师',
-                        time: '2018-02-06'
-                    },{
-                        type: '语文',
-                        content: '招募全职培训班语文老师',
-                        time: '2018-02-07'
-                    },{
-                        type: '舞蹈',
-                        content: '招募全职培训班舞蹈老师',
-                        time: '2018-02-08'
-                    },{
-                        type: '数学',
-                        content: '招募全职培训班数学老师',
-                        time: '2018-02-04'
-                    },{
-                        type: '数学',
-                        content: '招募全职培训班数学老师',
-                        time: '2018-02-04'
-                    }
-                ],
+                //快讯模块下的招聘列表
+                notice: [],
                 leftTopShow:{
                     src: 'http://pic31.photophoto.cn/20140609/0034034883622832_b.jpg'
                 },
@@ -92,7 +64,7 @@ export default {
             amusement: {
                 header: [
                     {
-                        title: '精彩VIEDEO'
+                        title: '精彩VIDEO'
                     },{
                         title: '推荐影视'
                     },{
@@ -111,45 +83,7 @@ export default {
                     src: 'http://ugcws.video.gtimg.com/n0399r7p6ai.m701.mp4?vkey=44CB870471A0FE0CC8DDE3B132AAA3BD8EB700249AF640DC1C056B534F821F6A02846517ED59DD2796D4DF642A6013E64DBE4603ADAE0E942E796C23F903D03F00AC69150605248B7D9118CC923C7B4BA82DD5E95C5C6CEBA9B617B7AD72D536981E93CE2A0567E86F13F9547EBF91EB9A7DBA69ED797A22&br=14&platform=2&fmt=auto&level=0&sdtfrom=v1010&guid=e6208066eecaa6998591391ddc7c9598',
                     bgSrc: 'http://pic11.photophoto.cn/20090529/0034034544305310_b.jpg'
                 },
-                videoList: [
-                    {
-                        src: 'http://pic11.photophoto.cn/20090529/0034034544305310_b.jpg',
-                        title: '弄你喀什就啊阿卡萨卡萨弄你喀什就啊阿卡萨卡萨',
-                        videosrc: 'http://ugcydzd.qq.com/n0500gyfy0d.m701.mp4?vkey=AE062E3FB2918AF4C50EA5EC07E4496788AF64415F8795F7B3C37C0588E50DD32B2ED22D08E91235747C81E8EA5B3494200405DFF4A11448004015EF9DA1C662F9F45441136C593F912D7A72B48D442EF1C0AFB193DC29F3F800E575AC0DD4E9E27B367B061AD752E63350D7F632EFF832D726DC86ECEB55&br=14&platform=2&fmt=auto&level=0&sdtfrom=v1010&guid=e6208066eecaa6998591391ddc7c9598'
-                    },{
-                        src: 'http://pic36.photophoto.cn/20150708/0034034816424961_b.jpg',
-                        title: '弄你喀什就啊阿卡萨卡萨弄你喀什就啊阿卡萨卡萨',
-                        videosrc: 'http://ugcws.video.gtimg.com/n0399r7p6ai.m701.mp4?vkey=44CB870471A0FE0CC8DDE3B132AAA3BD8EB700249AF640DC1C056B534F821F6A02846517ED59DD2796D4DF642A6013E64DBE4603ADAE0E942E796C23F903D03F00AC69150605248B7D9118CC923C7B4BA82DD5E95C5C6CEBA9B617B7AD72D536981E93CE2A0567E86F13F9547EBF91EB9A7DBA69ED797A22&br=14&platform=2&fmt=auto&level=0&sdtfrom=v1010&guid=e6208066eecaa6998591391ddc7c9598'
-                    },{
-                        src: 'http://pic11.photophoto.cn/20090529/0034034544305310_b.jpg',
-                        title: '弄你喀什就啊阿卡萨卡萨弄你喀什就啊阿卡萨卡萨',
-                        videosrc: 'http://ugcydzd.qq.com/n0500gyfy0d.m701.mp4?vkey=AE062E3FB2918AF4C50EA5EC07E4496788AF64415F8795F7B3C37C0588E50DD32B2ED22D08E91235747C81E8EA5B3494200405DFF4A11448004015EF9DA1C662F9F45441136C593F912D7A72B48D442EF1C0AFB193DC29F3F800E575AC0DD4E9E27B367B061AD752E63350D7F632EFF832D726DC86ECEB55&br=14&platform=2&fmt=auto&level=0&sdtfrom=v1010&guid=e6208066eecaa6998591391ddc7c9598'
-                    },{
-                        src: 'http://pic36.photophoto.cn/20150708/0034034816424961_b.jpg',
-                        title: '弄你喀什就啊阿卡萨卡萨弄你喀什就啊阿卡萨卡萨',
-                        videosrc: 'http://ugcydzd.qq.com/n0500gyfy0d.m701.mp4?vkey=AE062E3FB2918AF4C50EA5EC07E4496788AF64415F8795F7B3C37C0588E50DD32B2ED22D08E91235747C81E8EA5B3494200405DFF4A11448004015EF9DA1C662F9F45441136C593F912D7A72B48D442EF1C0AFB193DC29F3F800E575AC0DD4E9E27B367B061AD752E63350D7F632EFF832D726DC86ECEB55&br=14&platform=2&fmt=auto&level=0&sdtfrom=v1010&guid=e6208066eecaa6998591391ddc7c9598'
-                    },{
-                        src: 'http://pic11.photophoto.cn/20090529/0034034544305310_b.jpg',
-                        title: '弄你喀什就啊阿卡萨卡萨弄你喀什就啊阿卡萨卡萨',
-                        videosrc: 'http://ugcydzd.qq.com/n0500gyfy0d.m701.mp4?vkey=AE062E3FB2918AF4C50EA5EC07E4496788AF64415F8795F7B3C37C0588E50DD32B2ED22D08E91235747C81E8EA5B3494200405DFF4A11448004015EF9DA1C662F9F45441136C593F912D7A72B48D442EF1C0AFB193DC29F3F800E575AC0DD4E9E27B367B061AD752E63350D7F632EFF832D726DC86ECEB55&br=14&platform=2&fmt=auto&level=0&sdtfrom=v1010&guid=e6208066eecaa6998591391ddc7c9598'
-                    },{
-                        src: 'http://pic36.photophoto.cn/20150708/0034034816424961_b.jpg',
-                        title: '弄你喀什就啊阿卡萨卡萨弄你喀什就啊阿卡萨卡萨',
-                        videosrc: 'http://ugcydzd.qq.com/n0500gyfy0d.m701.mp4?vkey=AE062E3FB2918AF4C50EA5EC07E4496788AF64415F8795F7B3C37C0588E50DD32B2ED22D08E91235747C81E8EA5B3494200405DFF4A11448004015EF9DA1C662F9F45441136C593F912D7A72B48D442EF1C0AFB193DC29F3F800E575AC0DD4E9E27B367B061AD752E63350D7F632EFF832D726DC86ECEB55&br=14&platform=2&fmt=auto&level=0&sdtfrom=v1010&guid=e6208066eecaa6998591391ddc7c9598'
-                    },{
-                        src: 'http://pic11.photophoto.cn/20090529/0034034544305310_b.jpg',
-                        title: '弄你喀什就啊阿卡萨卡萨弄你喀什就啊阿卡萨卡萨',
-                        videosrc: 'http://ugcydzd.qq.com/n0500gyfy0d.m701.mp4?vkey=AE062E3FB2918AF4C50EA5EC07E4496788AF64415F8795F7B3C37C0588E50DD32B2ED22D08E91235747C81E8EA5B3494200405DFF4A11448004015EF9DA1C662F9F45441136C593F912D7A72B48D442EF1C0AFB193DC29F3F800E575AC0DD4E9E27B367B061AD752E63350D7F632EFF832D726DC86ECEB55&br=14&platform=2&fmt=auto&level=0&sdtfrom=v1010&guid=e6208066eecaa6998591391ddc7c9598'
-                    },{
-                        src: 'http://pic36.photophoto.cn/20150708/0034034816424961_b.jpg',
-                        title: '弄你喀什就啊阿卡萨卡萨弄你喀什就啊阿卡萨卡萨',
-                        videosrc: 'http://ugcydzd.qq.com/n0500gyfy0d.m701.mp4?vkey=AE062E3FB2918AF4C50EA5EC07E4496788AF64415F8795F7B3C37C0588E50DD32B2ED22D08E91235747C81E8EA5B3494200405DFF4A11448004015EF9DA1C662F9F45441136C593F912D7A72B48D442EF1C0AFB193DC29F3F800E575AC0DD4E9E27B367B061AD752E63350D7F632EFF832D726DC86ECEB55&br=14&platform=2&fmt=auto&level=0&sdtfrom=v1010&guid=e6208066eecaa6998591391ddc7c9598'
-                    },{
-                        src: 'http://pic11.photophoto.cn/20090529/0034034544305310_b.jpg',
-                        title: '弄你喀什就啊阿卡萨卡萨弄你喀什就啊阿卡萨卡萨',
-                        videosrc: 'http://ugcydzd.qq.com/n0500gyfy0d.m701.mp4?vkey=AE062E3FB2918AF4C50EA5EC07E4496788AF64415F8795F7B3C37C0588E50DD32B2ED22D08E91235747C81E8EA5B3494200405DFF4A11448004015EF9DA1C662F9F45441136C593F912D7A72B48D442EF1C0AFB193DC29F3F800E575AC0DD4E9E27B367B061AD752E63350D7F632EFF832D726DC86ECEB55&br=14&platform=2&fmt=auto&level=0&sdtfrom=v1010&guid=e6208066eecaa6998591391ddc7c9598'
-                    }
-                ]
+                videoList: []
             },
             exploreCity: {
                 header: [
@@ -219,8 +153,7 @@ export default {
         //点击右侧相关视屏的每一个
         changeVedio(item){
             let video = document.getElementById('video')
-           this.amusement.video.src = item.videosrc;
-           this.amusement.video.bgSrc = item.src;
+           this.amusement.video = item;
            setTimeout(()=>{
             video.play()
            },0)
@@ -385,6 +318,42 @@ export default {
                 })
                 break;
             }
+        },
+        //获取快讯模块的招聘信息列表
+        getInformationList(){
+            this.$p({
+                url: this.$api.hireQuery,
+                params: {
+                    pageSize:this.pageSize,
+                }
+            }).then(res=>{
+                this.alerts.notice = res.data.list
+            },err=>{
+
+            })
+        },
+        //获取娱乐下面的所有视频列表
+        getEntertainmentList(){
+            this.$p({
+                url:this.$api.newsQuery,
+                params:{
+                  pageSize: this.pageSize + 10,
+                  category: 4,
+                  type: '精彩VIDEO'
+                }
+              }).then(res=>{
+                  console.log(res)
+                  this.amusement.video = res.data.list[0]
+                  this.amusement.videoList = res.data.list
+              },err=>{
+
+              })
         }
+    },
+    mounted(){
+        //页面加载获取快讯模块的招聘信息列表
+        this.getInformationList()
+        //页面加载获取娱乐下面的视频列表
+        this.getEntertainmentList()
     }
 }

@@ -60,9 +60,9 @@
                     <ul>
                         <li v-for="(item,index) in alerts.notice" :key="index">
                             <a href="">
-                                <span class="type">【{{item.type}}】</span>
-                                {{item.content}}
-                                <span class="time">{{item.time}}</span>
+                                <span class="type">【{{item.position}}】</span>
+                                {{item.title}}
+                                <span class="time">{{item.pubDate}}</span>
                             </a>
                         </li>
                     </ul>
@@ -89,14 +89,14 @@
             </div>
             <div class="amusement_music">
                 <div class="amusement_video">
-                    <video id="video" :poster="amusement.video.bgSrc" controls="controls" width="930" height="495" :src="amusement.video.src"></video>
+                    <video id="video" :poster="`http://192.168.20.133:8886${amusement.video.imgUrl}`" controls="controls" width="930" height="495" :src="`http://192.168.20.133:8886${amusement.video.videoUrl}`"></video>
                 </div>
                 <div class="amusement_list" :class="{amusement_list_active: amusement.btnFlag}">
                     <h3 class="amusement_title">相关视屏</h3>
                     <ul class="amusement_video_list">
                         <li v-for="(item,index) in amusement.videoList" :key="index" @click="changeVedio(item)">
-                            <img :src="item.src" width="80" height="65" alt="">
-                            <span>{{item.title}}</span>
+                            <img :src="`http://192.168.20.133:8886${item.imgUrl}`" width="80" height="65" alt="">
+                            <span>{{item.newsText}}</span>
                         </li>
                     </ul>
                     <div class="amusement_btn" @click="amusementBtn">{{amusement.btn}}</div>
