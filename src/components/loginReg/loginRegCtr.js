@@ -52,6 +52,11 @@ export default {
           password:this.passLg
         }
       }).then((res)=>{
+        this.$message({
+          message:"登录成功",
+          type: 'success',
+          duration: 1500
+        });
         this.$emit("loginYes");
         this.$emit("close");
         this.$c.setStorage("userInfo",JSON.stringify(res.data));
