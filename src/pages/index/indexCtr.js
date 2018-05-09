@@ -53,13 +53,8 @@ export default {
                 ],
                 //快讯模块下的招聘列表
                 notice: [],
-                leftTopShow:{
-                    // src: 'http://pic31.photophoto.cn/20140609/0034034883622832_b.jpg'
-                },
-                leftBottomShow: {
-                    //src: 'http://pic11.photophoto.cn/20090529/0034034544305310_b.jpg',
-                   // title: '万能家教'
-                }
+                leftTopShow:{},
+                leftBottomShow: {}
             },
             amusement: {
                 header: [
@@ -79,10 +74,7 @@ export default {
                 ],
                 btn: '>',
                 btnFlag: false,
-                video: {
-                    src: 'http://ugcws.video.gtimg.com/n0399r7p6ai.m701.mp4?vkey=44CB870471A0FE0CC8DDE3B132AAA3BD8EB700249AF640DC1C056B534F821F6A02846517ED59DD2796D4DF642A6013E64DBE4603ADAE0E942E796C23F903D03F00AC69150605248B7D9118CC923C7B4BA82DD5E95C5C6CEBA9B617B7AD72D536981E93CE2A0567E86F13F9547EBF91EB9A7DBA69ED797A22&br=14&platform=2&fmt=auto&level=0&sdtfrom=v1010&guid=e6208066eecaa6998591391ddc7c9598',
-                    bgSrc: 'http://pic11.photophoto.cn/20090529/0034034544305310_b.jpg'
-                },
+                video: {},
                 videoList: []
             },
             exploreCity: {
@@ -95,21 +87,9 @@ export default {
                         title: '探逛'
                     }
                 ],
-                leftShow: {
-                    src: 'http://pic31.photophoto.cn/20140609/0034034883622832_b.jpg',
-                    title: '展示标题',
-                    time: '2018-04-16'
-                },
-                rightTopShow:{
-                    src: 'http://pic31.photophoto.cn/20140609/0034034883622832_b.jpg',
-                    title: '展示标题',
-                    time: '2018-04-16'
-                },
-                rightBottomShow: {
-                    src: 'http://pic11.photophoto.cn/20090529/0034034544305310_b.jpg',
-                    title: '万能家教',
-                    time: '2018-04-16'
-                }
+                leftShow: {},
+                rightTopShow:{},
+                rightBottomShow: {}
             },
             netRed: {
                 header: [
@@ -121,21 +101,9 @@ export default {
                         title: '个人图集'
                     }
                 ],
-                leftShow: {
-                    src: 'http://pic36.photophoto.cn/20150708/0034034816424961_b.jpg',
-                    title: '展示标题',
-                    time: '2018-04-16'
-                },
-                rightTopShow:{
-                    src: 'http://pic35.photophoto.cn/20150519/0034034853356364_b.jpg',
-                    title: '展示标题',
-                    time: '2018-04-16'
-                },
-                rightBottomShow: {
-                    src: 'http://pic11.photophoto.cn/20090529/0034034544305310_b.jpg',
-                    title: '万能家教',
-                    time: '2018-04-16'
-                }
+                leftShow: {},
+                rightTopShow:{},
+                rightBottomShow: {}
             }
         }
     },
@@ -393,26 +361,83 @@ export default {
               })
         },
         //获取探城模块下的数据
-        getcitySearcherList(str,arr){
-            this.$p({
-                url:this.$api.newsQuery,
-                params:{
-                  pageSize: 1,
-                  category:8,
-                  type:str
-                }
-              }).then(res=>{
-                  console.log(res)
-                 return res;
-              },err=>{
-
-              })
+        getcitySearcherList(str){
+            return new Promise((resolve,reject)=>{
+                this.$p({
+                    url:this.$api.newsQuery,
+                    params:{
+                      pageSize: 1,
+                      category:8,
+                      type:str
+                    }
+                  }).then(res=>{
+                        let data = res.data.list[0];
+                        resolve(data)
+                  },err=>{
+    
+                  })
+            })
         },
-        getcityEatList(type,arr){
-            console.log(this.getcitySearcherList(type,arr))
-           // this.exploreCity.leftShow = this.getcitySearcherList(type,arr)
-           // console.log(this.exploreCity.leftShow)
-        }
+        //获取探城下面的探吃第一条数据
+        getcityEatList(type){
+             this.getcitySearcherList(type).then(res=>{
+                this.exploreCity.leftShow = res;
+             });
+        },
+         //获取探城下面的探玩第一条数据
+         getcityPlayList(type){
+            this.getcitySearcherList(type).then(res=>{
+               this.exploreCity.rightTopShow = res;
+            });
+       },
+        //获取探城下面的探逛第一条数据
+        getcityVisitList(type){
+            this.getcitySearcherList(type).then(res=>{
+               this.exploreCity.rightBottomShow = res;
+            });
+       },
+       //获取网红模块的个人展示列表
+       getPersonalList(){
+        this.$p({
+            url: this.$api.memeQuery,
+            params: {
+              pageSize: 1,
+            }
+          }).then(res=>{
+            this.netRed.leftShow = res.data.list[0]
+          },err=>{
+
+          })
+       },
+       //获取网红模块的个人图集列表
+       getNetredAtlasList(){
+        this.$p({
+            url: this.$api.memeQueryImgs,
+            params: {
+              pageSize: 1,
+            }
+          }).then(res=>{
+            this.netRed.rightBottomShow = res.data.list[0]
+          },err=>{
+
+          })
+       },
+       //获取网红模块的最新资讯列表
+       getNetredInformationList(){
+        this.$p({
+            url: this.$api.newsQuery,
+            params: {
+              pageSize: 4,
+              category: 7,
+              type: '最新资讯'
+            }
+          }).then(res=>{
+              console.log(res)
+            this.netRed.rightTopShow = res.data.list[0]
+          },err=>{
+
+          })
+       }
     },
     mounted(){
         //页面加载获取快讯模块的招聘信息列表
@@ -421,6 +446,17 @@ export default {
         this.getEntertainmentList()
         //获取快讯模块下最新的两条数据
         this.getInformationList1()
-        this.getcityEatList('探吃',this.exploreCity.leftShow)
+        //获取探城下面的探吃第一条数据
+        this.getcityEatList('探吃')
+        //获取探城下面的探玩第一条数据
+        this.getcityPlayList('探玩')
+        //获取探城下面的探逛第一条数据
+        this.getcityVisitList('探逛')
+        //获取网红模块的个人展示列表
+        this.getPersonalList()
+        //获取网红模块的个人图集列表
+        this.getNetredAtlasList()
+         //获取网红模块的最新资讯列表
+        this.getNetredInformationList()
     }
 }

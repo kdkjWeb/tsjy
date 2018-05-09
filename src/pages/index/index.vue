@@ -129,9 +129,10 @@
                     
                     <div class="topBar"></div>
                     <div class="exploreCity_content">
-                        <img :src="exploreCity.leftShow.src" width="100%" height="100%" alt="">
-                        <span class="title">{{exploreCity.leftShow.title}}</span>
-                        <span class="time">{{exploreCity.leftShow.time}}</span>
+                        <img :src="`http://192.168.20.133:8886${exploreCity.leftShow.imgUrl}`" width="100%" height="100%" alt="">
+                        <span class="title">{{exploreCity.leftShow.titile}}</span>
+                        <span class="time">{{exploreCity.leftShow.pubDate}}</span>
+                        <div class="vip"></div>
                     </div> 
                     <a class="more exploreCity_more">
                         <span>更多</span>
@@ -139,14 +140,16 @@
                 </div>
                 <div class="exploreCity_right">
                     <div class="alerts_left_top">
-                        <img :src="exploreCity.rightTopShow.src" width="100%" height="100%" alt="">
-                        <span class="title">{{exploreCity.rightTopShow.title}}</span>
-                        <span class="time">{{exploreCity.rightTopShow.time}}</span>
+                        <img :src="`http://192.168.20.133:8886${exploreCity.rightTopShow.imgUrl}`" width="100%" height="100%" alt="">
+                        <span class="title">{{exploreCity.rightTopShow.titile}}</span>
+                        <span class="time">{{exploreCity.rightTopShow.pubDate}}</span>
+                         <div class="vip"></div>
                     </div>
                     <div class="alerts_left_bottom">
-                       <img :src="exploreCity.rightBottomShow.src" width="100%" height="100%" alt="">
-                       <span class="title">{{exploreCity.rightTopShow.title}}</span>
-                       <span class="time">{{exploreCity.rightTopShow.time}}</span>
+                       <img :src="`http://192.168.20.133:8886${exploreCity.rightBottomShow.imgUrl}`" width="100%" height="100%" alt="">
+                       <span class="title">{{exploreCity.rightBottomShow.titile}}</span>
+                       <span class="time">{{exploreCity.rightBottomShow.pubDate}}</span>
+                        <div class="vip"></div>
                     </div>
                 </div>
             </div>
@@ -171,9 +174,16 @@
                     
                     <div class="topBar"></div>
                     <div class="exploreCity_content">
-                        <img :src="netRed.leftShow.src" width="100%" height="100%" alt="">
-                        <span class="title">{{netRed.leftShow.title}}</span>
-                        <span class="time">{{netRed.leftShow.time}}</span>
+                        <img :src="`http://192.168.20.133:8886${netRed.leftShow.imgUrl}`" width="100%" height="100%" alt="">
+                        <div class="netred_title">
+                            <h2>{{netRed.leftShow.memeActName}}网红</h2>
+                            <p>网红基本信息</p>
+                            <p>{{netRed.leftShow.memeName}}</p>
+                        </div>
+              
+                        <!-- <ul class="netRed_list">
+                            <li v-for="(item,index) in netRed.leftShow" :key="index"></li>
+                        </ul> -->
                     </div> 
                     <a class="more exploreCity_more">
                         <span>更多</span>
@@ -181,14 +191,14 @@
                 </div>
                 <div class="exploreCity_right">
                     <div class="alerts_left_top">
-                        <img :src="netRed.rightTopShow.src" width="100%" height="100%" alt="">
-                        <span class="title">{{netRed.rightTopShow.title}}</span>
-                        <span class="time">{{netRed.rightTopShow.time}}</span>
+                        <img :src="'http://192.168.20.133:8886'+netRed.rightTopShow.imgUrl" width="100%" height="100%" alt="">
+                        <span class="title">{{netRed.rightTopShow.titile}}</span>
+                        <span class="time">{{netRed.rightTopShow.pubDate}}</span>
                     </div>
                     <div class="alerts_left_bottom">
-                       <img :src="netRed.rightBottomShow.src" width="100%" height="100%" alt="">
-                       <span class="title">{{netRed.rightBottomShow.title}}</span>
-                       <span class="time">{{netRed.rightBottomShow.time}}</span>
+                       <img :src="`http://192.168.20.133:8886${netRed.rightBottomShow.imgUrl1}`" width="100%" height="100%" alt="">
+                       <span class="title">{{netRed.rightBottomShow.imgName}}</span>
+                       <span class="time">{{netRed.rightBottomShow.pubDate}}</span>
                     </div>
                 </div>
             </div>
@@ -590,5 +600,48 @@ export {default} from './indexCtr'
     bottom: 0;
     left: 0;
 }
-
+.vip{
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: url('../../assets/images/vip.png') no-repeat;
+}
+.netred_title{
+    position: absolute;
+    top: 70px;
+    right: 30px;
+    height: 100px;
+    color: #fff;
+}
+.netred_title h2{
+    letter-spacing: 5px;
+    font-weight: 100;
+    font-size: 32px;
+}
+.netred_title h2::after{
+    display: block;
+    content: '';
+    width: 75%;
+    height: 6px;
+    background: #fff;
+    margin: 30px 0 17px;
+}
+.netred_title p{
+    font-weight: 400;
+    padding-bottom: 5px;
+}
+.netRed_list{
+    position: absolute;
+    bottom: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 625px;
+}
+.netRed_list li{
+    height: 90px;
+    background: #fff;
+}
 </style>
