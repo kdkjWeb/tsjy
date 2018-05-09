@@ -9,7 +9,7 @@
         <div class="personCenter" @click="logout" v-if="this.$store.state.loginIsYes">退出登录</div>
       </div>
       <div class="logo">
-        <img src="@/assets/images/login.jpg" alt="">
+        <img src="@/assets/logo.png" alt="">
       </div>
     </header>
     </div>
