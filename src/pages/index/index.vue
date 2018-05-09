@@ -180,12 +180,25 @@
                             <p>网红基本信息</p>
                             <p>{{netRed.leftShow.memeName}}</p>
                         </div>
+<<<<<<< HEAD
 
                         <!-- <ul class="netRed_list">
                             <li v-for="(item,index) in netRed.leftShow" :key="index"></li>
                         </ul> -->
                     </div>
                     <a class="more exploreCity_more" @click="netRedss">
+=======
+              
+                        <ul class="netRed_list">
+                            <li v-for="(item,index) in netRed.netAll" :key="index">
+                                <p>{{item.titile}}</p>
+                                <p>{{item.newsText}}</p>
+                                <!-- <span>{{item.pubDate}}</span> -->
+                            </li>
+                        </ul>
+                    </div> 
+                    <a class="more exploreCity_more">
+>>>>>>> fb493c6cdcd8aedec5573204ae1e4ba97e527f11
                         <span>更多</span>
                     </a>
                 </div>
@@ -424,6 +437,7 @@ export {default} from './indexCtr'
 .alerts_left_top{
     position: relative;
     height: 445px;
+    cursor: pointer;
 }
 .alerts_left_top span.title{
     position: absolute;
@@ -441,6 +455,7 @@ export {default} from './indexCtr'
     position: relative;
     height: 355px;
     margin-top: 35px;
+    cursor: pointer;
 }
 .alerts_left_bottom span.title{
     position: absolute;
@@ -577,6 +592,7 @@ export {default} from './indexCtr'
     width: 650px;
     height: 670px;
     margin-top: 70px;
+    cursor: pointer;
 }
 .exploreCity_content span.title{
     position: absolute;
@@ -642,7 +658,27 @@ export {default} from './indexCtr'
     width: 625px;
 }
 .netRed_list li{
+    position: relative;
     height: 90px;
     background: #fff;
+    border-bottom: 1px solid #ddd;
+    box-sizing: border-box;
+    padding: 20px;
+    cursor: pointer;
+}
+.netRed_list li p:first-child{
+    font-weight: bold;
+}
+.netRed_list li p{
+    padding-bottom: 13px;
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.netRed_list li span{
+    position: absolute;
+    top: 20px;
+    right: 20px;
 }
 </style>

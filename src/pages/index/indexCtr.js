@@ -103,7 +103,8 @@ export default {
                 ],
                 leftShow: {},
                 rightTopShow:{},
-                rightBottomShow: {}
+                rightBottomShow: {},
+                netAll: []
             }
         }
     },
@@ -493,6 +494,7 @@ export default {
           }).then(res=>{
               console.log(res)
             this.netRed.rightTopShow = res.data.list[0]
+            this.netRed.netAll = res.data.list
           },err=>{
 
           })
