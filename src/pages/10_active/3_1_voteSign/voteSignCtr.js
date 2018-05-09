@@ -71,14 +71,14 @@ export default {
      * 投票按钮
      */
     voteBtn(item,index){
-      if(!this.$c.getStorage("userInfo")) {
-        this.$message({
-          message: "您还没有登录，或登录已过期，请重新登录后操作",
-          type: 'warning',
-          duration: 1500
-        });
-        return;
-      }
+      // if(!this.$c.getStorage("userInfo")) {
+      //   this.$message({
+      //     message: "您还没有登录，或登录已过期，请重新登录后操作",
+      //     type: 'warning',
+      //     duration: 1500
+      //   });
+      //   return;
+      // }
         if(this.item.status !=2) {
           this.$message({
             message: "现在不能投票",
@@ -197,7 +197,11 @@ export default {
             arr[index].creationTime = e.creationTime.split(" ")[0];
           }
           if(arr[index].user) {
-            arr[index].user.profilehead = this.$baseU + e.user.profilehead;
+            if(arr[index].user.profilehead) {
+              arr[index].user.profilehead = this.$baseU + e.user.profilehead;
+            }else {
+              arr[index].user.profilehead = "../../../static/useImg/defaultHead.jpg";
+            }
           }
         });
         this.list = JSON.parse(JSON.stringify(arr));
