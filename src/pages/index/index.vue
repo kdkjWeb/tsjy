@@ -48,11 +48,14 @@
             <div class="alerts_main">
                 <div class="alerts_left">
                     <div class="alerts_left_top">
-                        <img :src="alerts.leftTopShow.src" width="100%" height="100%" alt="">
+                        <img :src="`http://192.168.20.133:8886${alerts.leftTopShow.imgUrl}`" width="100%" height="100%" alt="加载失败">
+                        <span class="title">{{alerts.leftTopShow.titile}}</span>
+                        <span class="time">{{alerts.leftTopShow.pubDate}}</span>
                     </div>
                     <div class="alerts_left_bottom">
-                       <img :src="alerts.leftBottomShow.src" width="100%" height="100%" alt="">
-                       <span class="title">{{alerts.leftBottomShow.title}}</span>
+                       <img :src="`http://192.168.20.133:8886${alerts.leftBottomShow.imgUrl}`" width="100%" height="100%" alt="加载失败">
+                       <span class="title">{{alerts.leftBottomShow.titile}}</span>
+                        <span class="time">{{alerts.leftTopShow.pubDate}}</span>
                     </div>
                 </div>
                 <div class="alerts_right">
@@ -136,14 +139,14 @@
                 </div>
                 <div class="exploreCity_right">
                     <div class="alerts_left_top">
-                        <img :src="exploreCity.leftTopShow.src" width="100%" height="100%" alt="">
-                        <span class="title">{{exploreCity.leftTopShow.title}}</span>
-                        <span class="time">{{exploreCity.leftTopShow.time}}</span>
+                        <img :src="exploreCity.rightTopShow.src" width="100%" height="100%" alt="">
+                        <span class="title">{{exploreCity.rightTopShow.title}}</span>
+                        <span class="time">{{exploreCity.rightTopShow.time}}</span>
                     </div>
                     <div class="alerts_left_bottom">
-                       <img :src="exploreCity.leftBottomShow.src" width="100%" height="100%" alt="">
-                       <span class="title">{{exploreCity.leftBottomShow.title}}</span>
-                       <span class="time">{{exploreCity.leftBottomShow.time}}</span>
+                       <img :src="exploreCity.rightBottomShow.src" width="100%" height="100%" alt="">
+                       <span class="title">{{exploreCity.rightTopShow.title}}</span>
+                       <span class="time">{{exploreCity.rightTopShow.time}}</span>
                     </div>
                 </div>
             </div>
@@ -178,14 +181,14 @@
                 </div>
                 <div class="exploreCity_right">
                     <div class="alerts_left_top">
-                        <img :src="netRed.leftTopShow.src" width="100%" height="100%" alt="">
-                        <span class="title">{{netRed.leftTopShow.title}}</span>
-                        <span class="time">{{netRed.leftTopShow.time}}</span>
+                        <img :src="netRed.rightTopShow.src" width="100%" height="100%" alt="">
+                        <span class="title">{{netRed.rightTopShow.title}}</span>
+                        <span class="time">{{netRed.rightTopShow.time}}</span>
                     </div>
                     <div class="alerts_left_bottom">
-                       <img :src="netRed.leftBottomShow.src" width="100%" height="100%" alt="">
-                       <span class="title">{{netRed.leftBottomShow.title}}</span>
-                       <span class="time">{{netRed.leftBottomShow.time}}</span>
+                       <img :src="netRed.rightBottomShow.src" width="100%" height="100%" alt="">
+                       <span class="title">{{netRed.rightBottomShow.title}}</span>
+                       <span class="time">{{netRed.rightBottomShow.time}}</span>
                     </div>
                 </div>
             </div>
@@ -550,7 +553,7 @@ export {default} from './indexCtr'
     content: "<";
     width: 18px;
     height: 60px;
-    background: rgba(0, 0, 0, .3);
+    background: rgba(0, 0, 0, .6);
     text-align: center;
     line-height: 60px;
     color: #fff;

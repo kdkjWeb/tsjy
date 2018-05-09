@@ -54,11 +54,11 @@ export default {
                 //快讯模块下的招聘列表
                 notice: [],
                 leftTopShow:{
-                    src: 'http://pic31.photophoto.cn/20140609/0034034883622832_b.jpg'
+                    // src: 'http://pic31.photophoto.cn/20140609/0034034883622832_b.jpg'
                 },
                 leftBottomShow: {
-                    src: 'http://pic11.photophoto.cn/20090529/0034034544305310_b.jpg',
-                    title: '万能家教'
+                    //src: 'http://pic11.photophoto.cn/20090529/0034034544305310_b.jpg',
+                   // title: '万能家教'
                 }
             },
             amusement: {
@@ -100,12 +100,12 @@ export default {
                     title: '展示标题',
                     time: '2018-04-16'
                 },
-                leftTopShow:{
+                rightTopShow:{
                     src: 'http://pic31.photophoto.cn/20140609/0034034883622832_b.jpg',
                     title: '展示标题',
                     time: '2018-04-16'
                 },
-                leftBottomShow: {
+                rightBottomShow: {
                     src: 'http://pic11.photophoto.cn/20090529/0034034544305310_b.jpg',
                     title: '万能家教',
                     time: '2018-04-16'
@@ -126,12 +126,12 @@ export default {
                     title: '展示标题',
                     time: '2018-04-16'
                 },
-                leftTopShow:{
+                rightTopShow:{
                     src: 'http://pic35.photophoto.cn/20150519/0034034853356364_b.jpg',
                     title: '展示标题',
                     time: '2018-04-16'
                 },
-                leftBottomShow: {
+                rightBottomShow: {
                     src: 'http://pic11.photophoto.cn/20090529/0034034544305310_b.jpg',
                     title: '万能家教',
                     time: '2018-04-16'
@@ -376,6 +376,42 @@ export default {
               },err=>{
 
               })
+        },
+        //获取快讯模块下最新的两条数据
+        getInformationList1(){
+            this.$p({
+                url:this.$api.newsQuery,
+                params:{
+                  pageSize: 2,
+                  category:1
+                }
+              }).then(res=>{
+                  this.alerts.leftTopShow = res.data.list[0]
+                  this.alerts.leftBottomShow = res.data.list[1]
+              },err=>{
+
+              })
+        },
+        //获取探城模块下的数据
+        getcitySearcherList(str,arr){
+            this.$p({
+                url:this.$api.newsQuery,
+                params:{
+                  pageSize: 1,
+                  category:8,
+                  type:str
+                }
+              }).then(res=>{
+                  console.log(res)
+                 return res;
+              },err=>{
+
+              })
+        },
+        getcityEatList(type,arr){
+            console.log(this.getcitySearcherList(type,arr))
+           // this.exploreCity.leftShow = this.getcitySearcherList(type,arr)
+           // console.log(this.exploreCity.leftShow)
         }
     },
     mounted(){
@@ -383,5 +419,8 @@ export default {
         this.getInformationList()
         //页面加载获取娱乐下面的视频列表
         this.getEntertainmentList()
+        //获取快讯模块下最新的两条数据
+        this.getInformationList1()
+        this.getcityEatList('探吃',this.exploreCity.leftShow)
     }
 }
