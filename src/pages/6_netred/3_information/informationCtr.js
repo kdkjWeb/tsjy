@@ -49,7 +49,7 @@ export default{
         //点击到详情页面
         details(item){
             this.$router.push({
-                name: 'imformationdetails',
+                name: 'imforDetails',
               query:{
                   id:item.id
               }

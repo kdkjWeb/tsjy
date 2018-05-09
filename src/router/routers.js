@@ -49,7 +49,7 @@ import information from '@/pages/6_netred/3_information/information'
 import atlas from '@/pages/6_netred/2_atlas/atlas'
 import personaldetails from '@/pages/6_netred/4_personaldetails/personaldetails'
 import atlasdetails from '@/pages/6_netred/5_atlasdetails/atlasdetails'
-import imformationdetails from '@/pages/6_netred/6_imformationdetails/imformationdetails'
+import imforDetails from '@/pages/6_netred/6_imformationdetails/imformationdetails'
 
 // 许愿树
 import wish from '@/pages/7_wish/0_activeH/activeH'
@@ -202,10 +202,10 @@ let netRedRoute = {
     name: 'atlasdetails',
     component: atlasdetails
   },
-  imformationdetails: {
-    path: 'imformationdetails',
-    name: 'imformationdetails',
-    component: imformationdetails
+  imforDetails: {
+    path: '/imforDetails',
+    name: 'imforDetails',
+    component: imforDetails
   }
 
 };
@@ -330,7 +330,7 @@ export default {
     employmentRoute.familyForm,
     videoRoute.video,videoRoute.wonderful,videoRoute.recommendfilm,
     musicRoute.music,musicRoute.phonograph,musicRoute.musicDetail,musicRoute.musicOrder,
-    netRedRoute.netRed,netRedRoute.personDetail,netRedRoute.atlasdetails,netRedRoute.imformationdetails,
+    netRedRoute.netRed,netRedRoute.personDetail,netRedRoute.atlasdetails,netRedRoute.imforDetails,
     wishRoute,
     fleaRoute.flea,fleaRoute.fleaDetail,
     cityRouter.city,cityRouter.cityDetail,

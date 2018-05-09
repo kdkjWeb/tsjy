@@ -381,7 +381,7 @@ export default {
           });
         }else if(index == 1) {
           this.$router.push({
-            name: 'imformationdetails',
+            name: 'imforDetails',
             query:{
               id:id
             }
