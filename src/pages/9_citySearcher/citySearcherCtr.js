@@ -70,7 +70,12 @@ export default {
     }
   },
   mounted(){
-    this.thisIndex = this.$route.query.type;
+    if(this.$route.query.type) {
+      this.thisIndex = this.$route.query.type;
+    }else {
+      this.thisIndex = 0;
+    }
+
     this.getList(this.tabBarList[this.thisIndex].title);
   }
 }

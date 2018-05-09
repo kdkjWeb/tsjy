@@ -47,12 +47,12 @@
             </div>
             <div class="alerts_main">
                 <div class="alerts_left">
-                    <div class="alerts_left_top">
+                    <div class="alerts_left_top" @click="fastDetail(alerts.leftTopShow.id)">
                         <img :src="`http://192.168.20.133:8886${alerts.leftTopShow.imgUrl}`" width="100%" height="100%" alt="加载失败">
                         <span class="title">{{alerts.leftTopShow.titile}}</span>
                         <span class="time">{{alerts.leftTopShow.pubDate}}</span>
                     </div>
-                    <div class="alerts_left_bottom">
+                    <div class="alerts_left_bottom" @click="fastDetail(alerts.leftBottomShow.id)">
                        <img :src="`http://192.168.20.133:8886${alerts.leftBottomShow.imgUrl}`" width="100%" height="100%" alt="加载失败">
                        <span class="title">{{alerts.leftBottomShow.titile}}</span>
                         <span class="time">{{alerts.leftTopShow.pubDate}}</span>
@@ -61,15 +61,15 @@
                 <div class="alerts_right">
                     <div class="topBar"></div>
                     <ul>
-                        <li v-for="(item,index) in alerts.notice" :key="index">
-                            <a href="">
+                        <li v-for="(item,index) in alerts.notice" :key="index" @click="jobDetail(item)">
+                            <a >
                                 <span class="type">【{{item.position}}】</span>
                                 {{item.title}}
                                 <span class="time">{{item.pubDate}}</span>
                             </a>
                         </li>
                     </ul>
-                    <a class="more alerts_more">
+                    <a class="more alerts_more" @click="job">
                         <span>更多</span>
                     </a>
                 </div>
@@ -105,7 +105,7 @@
                     <div class="amusement_btn" @click="amusementBtn">{{amusement.btn}}</div>
                 </div>
             </div>
-            <a class="more amusement_more">
+            <a class="more amusement_more" @click="video">
                     <span>更多</span>
             </a>
         </div>
@@ -126,26 +126,26 @@
             </div>
             <div class="alerts_main">
                 <div class="exploreCity_left">
-                    
+
                     <div class="topBar"></div>
-                    <div class="exploreCity_content">
+                    <div class="exploreCity_content" @click="cityDetail(exploreCity.leftShow.id)">
                         <img :src="`http://192.168.20.133:8886${exploreCity.leftShow.imgUrl}`" width="100%" height="100%" alt="">
                         <span class="title">{{exploreCity.leftShow.titile}}</span>
                         <span class="time">{{exploreCity.leftShow.pubDate}}</span>
                         <div class="vip"></div>
-                    </div> 
-                    <a class="more exploreCity_more">
+                    </div>
+                    <a class="more exploreCity_more" @click="city">
                         <span>更多</span>
                     </a>
                 </div>
                 <div class="exploreCity_right">
-                    <div class="alerts_left_top">
+                    <div class="alerts_left_top" @click="cityDetail(exploreCity.rightTopShow.id)">
                         <img :src="`http://192.168.20.133:8886${exploreCity.rightTopShow.imgUrl}`" width="100%" height="100%" alt="">
                         <span class="title">{{exploreCity.rightTopShow.titile}}</span>
                         <span class="time">{{exploreCity.rightTopShow.pubDate}}</span>
                          <div class="vip"></div>
                     </div>
-                    <div class="alerts_left_bottom">
+                    <div class="alerts_left_bottom" @click="cityDetail(exploreCity.rightBottomShow.id)">
                        <img :src="`http://192.168.20.133:8886${exploreCity.rightBottomShow.imgUrl}`" width="100%" height="100%" alt="">
                        <span class="title">{{exploreCity.rightBottomShow.titile}}</span>
                        <span class="time">{{exploreCity.rightBottomShow.pubDate}}</span>
@@ -171,7 +171,7 @@
             </div>
             <div class="alerts_main">
                 <div class="exploreCity_left">
-                    
+
                     <div class="topBar"></div>
                     <div class="exploreCity_content">
                         <img :src="`http://192.168.20.133:8886${netRed.leftShow.imgUrl}`" width="100%" height="100%" alt="">
@@ -180,12 +180,12 @@
                             <p>网红基本信息</p>
                             <p>{{netRed.leftShow.memeName}}</p>
                         </div>
-              
+
                         <!-- <ul class="netRed_list">
                             <li v-for="(item,index) in netRed.leftShow" :key="index"></li>
                         </ul> -->
-                    </div> 
-                    <a class="more exploreCity_more">
+                    </div>
+                    <a class="more exploreCity_more" @click="netRedss">
                         <span>更多</span>
                     </a>
                 </div>
@@ -469,6 +469,7 @@ export {default} from './indexCtr'
     border: 1px solid #ddd;
     border-bottom: none;
     background-color: #fff;
+    cursor: pointer;
 }
 .alerts_right ul li a{
     color: #777777;
@@ -492,7 +493,7 @@ export {default} from './indexCtr'
 }
 
 
-/* 娱乐 */ 
+/* 娱乐 */
 .amusement_music{
     /* position: relative; */
     display: flex;

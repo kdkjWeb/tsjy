@@ -316,6 +316,65 @@ export default {
                 break;
             }
         },
+        //点击快讯展示到指定页面
+        fastDetail(id) {
+          this.$emit("changeIndex",1);
+          this.$router.push({
+            name: 'fastdetails',
+            query:{
+              id:id,
+            }
+          });
+        },
+        //点击招聘到指定页面
+      jobDetail(item){
+        this.$emit("changeIndex",2);
+        this.$router.push({
+          name: 'jobDetail',
+          query:{
+            id:item.id,
+          }
+        });
+
+      },
+      //点击快讯下面的更多
+      job(){
+        this.$emit("changeIndex",2);
+        this.$router.push({
+          name: 'recruitment'
+        });
+      },
+      //点击视频下面的更多
+      video(){
+        this.$emit("changeIndex",3);
+        this.$router.push({
+          name: 'video'
+        });
+      },
+      //探城模块详情
+      cityDetail(id){
+        this.$emit("changeIndex",8);
+        this.$router.push({
+          name: 'cityDetail',
+          query:{
+            id:id
+          }
+        });
+      },
+      //探城
+      city(){
+        this.$emit("changeIndex",8);
+        this.$router.push({
+          name: 'citySearcher'
+        });
+      },
+      //网红更多
+      netRedss(){
+        this.$emit("changeIndex",5);
+        this.$router.push({
+          name: 'netred'
+        });
+      },
         //获取快讯模块的招聘信息列表
         getInformationList(){
             this.$p({
@@ -374,7 +433,7 @@ export default {
                         let data = res.data.list[0];
                         resolve(data)
                   },err=>{
-    
+
                   })
             })
         },
