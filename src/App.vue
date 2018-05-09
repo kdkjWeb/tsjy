@@ -213,7 +213,6 @@
         this.login = true;
       },
       changeIndex(val){
-        console.log(val);
         this.thisIndex = val;
       }
     },

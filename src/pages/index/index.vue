@@ -173,42 +173,32 @@
                 <div class="exploreCity_left">
 
                     <div class="topBar"></div>
-                    <div class="exploreCity_content">
+                    <div class="exploreCity_content" @click="netRedDetail(netRed.leftShow.id,0)">
                         <img :src="`http://192.168.20.133:8886${netRed.leftShow.imgUrl}`" width="100%" height="100%" alt="">
                         <div class="netred_title">
                             <h2>{{netRed.leftShow.memeActName}}网红</h2>
                             <p>网红基本信息</p>
                             <p>{{netRed.leftShow.memeName}}</p>
                         </div>
-<<<<<<< HEAD
-
-                        <!-- <ul class="netRed_list">
-                            <li v-for="(item,index) in netRed.leftShow" :key="index"></li>
-                        </ul> -->
+                      <ul class="netRed_list">
+                        <li v-for="(item,index) in netRed.netAll" :key="index" @click.stop="netRedDetail(item.id,1)">
+                          <p>{{item.titile}}</p>
+                          <p>{{item.newsText}}</p>
+                          <!-- <span>{{item.pubDate}}</span> -->
+                        </li>
+                      </ul>
                     </div>
                     <a class="more exploreCity_more" @click="netRedss">
-=======
-              
-                        <ul class="netRed_list">
-                            <li v-for="(item,index) in netRed.netAll" :key="index">
-                                <p>{{item.titile}}</p>
-                                <p>{{item.newsText}}</p>
-                                <!-- <span>{{item.pubDate}}</span> -->
-                            </li>
-                        </ul>
-                    </div> 
-                    <a class="more exploreCity_more">
->>>>>>> fb493c6cdcd8aedec5573204ae1e4ba97e527f11
                         <span>更多</span>
                     </a>
                 </div>
                 <div class="exploreCity_right">
-                    <div class="alerts_left_top">
+                    <div class="alerts_left_top" @click="netRedDetail(netRed.rightTopShow.id,1)">
                         <img :src="'http://192.168.20.133:8886'+netRed.rightTopShow.imgUrl" width="100%" height="100%" alt="">
                         <span class="title">{{netRed.rightTopShow.titile}}</span>
                         <span class="time">{{netRed.rightTopShow.pubDate}}</span>
                     </div>
-                    <div class="alerts_left_bottom">
+                    <div class="alerts_left_bottom" @click="netRedDetail(netRed.rightBottomShow.id,2)">
                        <img :src="`http://192.168.20.133:8886${netRed.rightBottomShow.imgUrl1}`" width="100%" height="100%" alt="">
                        <span class="title">{{netRed.rightBottomShow.imgName}}</span>
                        <span class="time">{{netRed.rightBottomShow.pubDate}}</span>

@@ -369,6 +369,34 @@ export default {
           name: 'citySearcher'
         });
       },
+      //网红详情
+      netRedDetail(id,index){
+        this.$emit("changeIndex",5);
+        if(index == 2) {
+          this.$router.push({
+            name: 'atlasdetails',
+            query:{
+              id:id
+            }
+          });
+        }else if(index == 1) {
+          this.$router.push({
+            name: 'imformationdetails',
+            query:{
+              id:id
+            }
+          });
+        }
+        else if(index == 0) {
+          this.$router.push({
+            name: 'netRedDetails',
+            query:{
+              id:id
+            }
+          });
+        }
+
+      },
       //网红更多
       netRedss(){
         this.$emit("changeIndex",5);
@@ -492,7 +520,6 @@ export default {
               type: '最新资讯'
             }
           }).then(res=>{
-              console.log(res)
             this.netRed.rightTopShow = res.data.list[0]
             this.netRed.netAll = res.data.list
           },err=>{

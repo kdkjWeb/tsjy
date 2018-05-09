@@ -115,7 +115,6 @@ export default {
      */
     circleFun(rewardId,giftname){
       var stopIndex = this.giftName(giftname)+1;
-      console.log(stopIndex,"stopIndex");
       this.circleId = 0;
       var circleInt;
       setTimeout(()=>{
