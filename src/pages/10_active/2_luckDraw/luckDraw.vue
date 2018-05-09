@@ -18,7 +18,8 @@
             <div class="rewBox">
               <div class="rewList" v-for="(item,index) in rewardList" :key="index">
                 <div class="pru" :class="[index==4?'org':'',index==circleId?'yes':'']" @click="rewardBtn(index)">
-                  <img :src="`static/reward${index}.png`" alt="">
+                  <img :src="`static/reward${index}.png`" alt="" v-if="index==4">
+                  <div class="pruName" v-if="index!=4">{{item.giftname}}</div>
                 </div>
               </div>
             </div>
@@ -126,6 +127,20 @@
     border-radius: 20px;
     box-shadow: 0 4px 5px 0 #5b341b inset;
     position:relative;
+  }
+  .pruName {
+    font-family:"sans-serif";
+    font-size:50px;
+    font-weight: bold;
+    color:white;
+    text-align: center;
+    position:absolute;
+    width:70%;
+    transform: translate(-50%,-50%);
+    top:50%;
+    left:50%;
+    word-break: break-all;
+    letter-spacing: 5px;
   }
   .yes:after {
     content: "";

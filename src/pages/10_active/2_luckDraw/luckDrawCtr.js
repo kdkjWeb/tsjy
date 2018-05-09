@@ -59,7 +59,9 @@ export default {
     getRandomNum(){
       this.$g({
         url:"Gift/getRandomNum",
-        params:{}
+        params:{
+          userid:JSON.parse(this.$c.getStorage("userInfo")).id
+        }
       }).then(res=>{
           if(res.data.id) {
             this.rewardId = res.data.id;
@@ -75,32 +77,36 @@ export default {
      * 通过giftname 来获取index
      */
     giftName(name){
-      switch (name) {
-        case "靠背套装":
-          return 0;
-          break;
-        case "绕线器":
-          return 1;
-          break;
-        case "零钱包":
-          return 2;
-          break;
-        case "洗衣液":
-          return 7;
-          break;
-        case "手机支架":
-          return 3;
-          break;
-        case "毛巾":
-          return 6;
-          break;
-        case "餐具套盒":
-          return 4;
-          break;
-        case "":
-          return 5;
-          break;
-      }
+      var arr = this.rewardList;
+      var thisIndex;
+      arr.forEach((e,index)=>{
+        if(e.giftname == name) {
+          if(index<3){
+            thisIndex = index;
+          }else if(index>=3) {
+            switch (index) {
+              case 3:
+                thisIndex =  7;
+                break;
+              case 5:
+                thisIndex =  3;
+                break;
+              case 6:
+                thisIndex =  6;
+                break;
+              case 7:
+                thisIndex =  5;
+                break;
+              case 8:
+                thisIndex =  4;
+                break;
+            }
+          }
+          return ;
+        }
+      });
+      return thisIndex;
+
     },
     /**
      * 旋转次数，以及停止的位置操作
@@ -109,6 +115,7 @@ export default {
      */
     circleFun(rewardId,giftname){
       var stopIndex = this.giftName(giftname)+1;
+      console.log(stopIndex,"stopIndex");
       this.circleId = 0;
       var circleInt;
       setTimeout(()=>{
@@ -118,7 +125,7 @@ export default {
             if(stopIndex <=0) {
               clearInterval(circleInt);
               this.btnFalse = true;
-              this.remberReward(rewardId);
+              this.remberReward(rewardId,giftname);
               return false;
             }
           }
@@ -144,9 +151,8 @@ export default {
     /**
      * 告诉后台抽中了某一个奖项
      */
-    remberReward(rewardId){
-      if(rewardId==null) {
-        rewardId = '';
+    remberReward(rewardId,giftname){
+      if(giftname=="谢谢参与") {
         this.$message({
           message: '很遗憾，您没有中奖！',
           type: 'warning',
@@ -163,7 +169,7 @@ export default {
       }).then(res=>{
         this.$message({
           message: '恭喜你中奖了！',
-          type: 'warning',
+          type: 'success',
           duration: 1500
         });
         this.giftUser();
@@ -228,34 +234,35 @@ export default {
         var arr = JSON.parse(JSON.stringify(res.data.list));
         var arrNew = [];
         arr.forEach(function(e,index) {
-          switch (e.giftname) {
-            case "靠背套装":
-              arrNew.splice(0,0,e);
-              break;
-            case "绕线器":
-              arrNew.splice(1,0,e);
-              break;
-            case "零钱包":
-              arrNew.splice(2,0,e);
-              break;
-            case "洗衣液":
-              arrNew.splice(3,0,e);
-              break;
-            case "手机支架":
-              arrNew.splice(4,0,e);
-              break;
-            case "毛巾":
-              arrNew.splice(5,0,e);
-              break;
-            case "餐具套盒":
-              arrNew.splice(6,0,e);
-              break;
-          }
+          // switch (e.giftname) {
+          //   case "靠背套装":
+          //     arrNew.splice(0,0,e);
+          //     break;
+          //   case "绕线器":
+          //     arrNew.splice(1,0,e);
+          //     break;
+          //   case "零钱包":
+          //     arrNew.splice(2,0,e);
+          //     break;
+          //   case "洗衣液":
+          //     arrNew.splice(3,0,e);
+          //     break;
+          //   case "手机支架":
+          //     arrNew.splice(4,0,e);
+          //     break;
+          //   case "毛巾":
+          //     arrNew.splice(5,0,e);
+          //     break;
+          //   case "餐具套盒":
+          //     arrNew.splice(6,0,e);
+          //     break;
+          // }
+          arrNew.splice(index,0,e);
         });
         var btn = {msg:"我是按钮"};
-        var thank = {id:null,msg:"我是谢谢参与"}
+        // var thank = {id:null,msg:"我是谢谢参与"};
         arrNew.splice(4,0,btn);
-        arrNew.splice(7,0,thank);
+        // arrNew.splice(7,0,thank);
         this.rewardList = JSON.parse(JSON.stringify(arrNew));
 
       })
