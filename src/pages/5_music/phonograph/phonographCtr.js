@@ -59,7 +59,7 @@ export default{
       var audio = this.$refs[_m][0];
       audio.play();
       if(index != this.activeIndex&&this.activeIndex!=null) {
-          this.list[this.activeIndex].isPlay = !this.list[this.activeIndex].isPlay;
+          this.list[this.activeIndex].isPlay = false;
           var _mBefore = 'audio'+this.activeIndex;
           var audioBefore = this.$refs[_mBefore][0];
           audioBefore.pause();
