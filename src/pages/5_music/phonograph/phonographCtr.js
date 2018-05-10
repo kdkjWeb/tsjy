@@ -87,7 +87,7 @@ export default{
      * 上传声音
      */
     upFileVoice(e){
-      var reg = /(\.mp3|\.wma|\.WAV)$/gi;
+      var reg = /(\.mp3|\.wma|\.WAV|\.m4a)$/gi;
       if(!reg.test(e.target.files[0].name)) {
           this.$message({
           message: "请上传 mp3,wma,wav 格式",

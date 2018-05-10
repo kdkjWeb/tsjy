@@ -27,6 +27,12 @@ export default{
         });
         return false;
       }
+      if(files[0].size > 200*1024) {
+        this.$message.error({
+          message: '请上传200kb以内的图片',
+        });
+        return false;
+      }
 
       //调用创建图片
       this.createImage(files[0]);
