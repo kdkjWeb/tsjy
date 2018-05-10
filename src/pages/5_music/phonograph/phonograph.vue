@@ -20,8 +20,9 @@
           <div class="job_right">
             <p class="job_right_top">{{item.titile}}</p>
             <p class="job_right_time"></p>
-            <span class="iconfont icon-play" :class="[item.isPlay?'icon-step':'icon-play']" @click="play(index)"></span>
-             <audio :ref="['audio'+index]" :src="item.musicUrl"  controls></audio>
+            <span class="iconfont icon-play" :class="[item.isPlay?'icon-step':'icon-play']" @click="playMusic(index)"></span>
+             <audio :ref="['audio'+index]" controls :src="item.musicUrl">
+             </audio>
           </div>
         </li>
       </ul>
@@ -34,6 +35,14 @@
         <div class="alertBtn" @click="sendMyVoice">确定</div>
       </div>
     </div>
+    <el-pagination class="pagination"
+                   background
+                   @current-change="handleCurrentChange"
+                   :current-page.sync="currentPage"
+                   :page-size="pageSize"
+                   :total="total"
+                   layout="prev, pager, next">
+    </el-pagination>
   </div>
 </template>
 
@@ -208,4 +217,9 @@ color:white;
 audio {
   display: none;
 }
+.pagination {
+  text-align: center;
+  margin-top:50px;
+}
+
 </style>

@@ -20,6 +20,13 @@ export default{
     }
   },
   methods: {
+    /**
+     * 分页 当前第几页
+     */
+    handleCurrentChange(val) {
+      this.currentPage = val;
+      this.getList("留声机");
+    },
     toLink(index) {
       this.thisIndex = index;
       switch (index) {
@@ -53,7 +60,7 @@ export default{
       }
     },
     //播放音乐
-    play(index){
+    playMusic(index){
       this.list[index].isPlay = !this.list[index].isPlay;
       var _m='audio'+index;
       var audio = this.$refs[_m][0];
@@ -72,16 +79,7 @@ export default{
       this.activeIndex = index;
     },
     showSendF(){
-      if(this.$c.getStorage("userInfo")) {
-        this.showSendAlert = !this.showSendAlert;
-      }else {
-        this.$message({
-          message: "您还没有登录，或登录已过期，请重新登录后操作",
-          type: 'warning',
-          duration: 1500
-        });
-        return;
-      }
+      this.showSendAlert = !this.showSendAlert;
     },
     /**
      * 上传声音
@@ -90,7 +88,7 @@ export default{
       var reg = /(\.mp3|\.wma|\.WAV|\.m4a)$/gi;
       if(!reg.test(e.target.files[0].name)) {
           this.$message({
-          message: "请上传 mp3,wma,wav 格式",
+          message: "请上传 mp3,wma,wav,m4a 格式",
           type: 'warning',
           duration: 1500
         });
@@ -114,6 +112,14 @@ export default{
      * 发布留声
      */
     sendMyVoice(){
+      if(!this.$c.getStorage("userInfo")) {
+        this.$message({
+          message: "您还没有登录，或登录已过期，请重新登录后操作",
+          type: 'warning',
+          duration: 1500
+        });
+        return;
+      }
       if(this.voiceFile==""||this.voiceInput=="") {
         this.$message({
           message: "请输入完整信息",
