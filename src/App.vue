@@ -313,7 +313,7 @@
     color:white;
   }
   .el-pagination.is-background .el-pager li:not(.disabled).active {
-    background-color: #97857b;
+    background-color: #97857b !important;
     border-color:#97857b;
     color:white;
   }
