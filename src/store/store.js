@@ -5,6 +5,8 @@
 
 import Vue from 'vue'
 import Vuex from 'vuex'
+import promise from 'es6-promise';
+promise.polyfill();
 Vue.use(Vuex);
 
 

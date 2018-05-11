@@ -78,6 +78,15 @@ export default{
         });
         return;
       }
+      var reg=/^[0-9]*$/;
+      if(!reg.test(this.form["fleaPhone"])){
+        this.$message({
+          message: "请输入正确的电话",
+          type: 'warning',
+          duration: 1500
+        });
+        return;
+      }
       this.$p({
         url:this.$api.newAdd,
         params:{

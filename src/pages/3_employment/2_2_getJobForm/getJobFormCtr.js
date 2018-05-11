@@ -38,6 +38,15 @@ export default {
           return;
         }
       }
+      var reg=/^[0-9]*$/;
+      if(!reg.test(this.form["expSalary"])||!reg.test(this.form["age"])||!reg.test(this.form["experience"])||!reg.test(this.form["jobSalary"])){
+        this.$message({
+          message: "薪资,年龄，工作经验等请输入数字",
+          type: 'warning',
+          duration: 1500
+        });
+        return;
+      }
 
       this.$p({
         url:this.$api.tutorAdd,

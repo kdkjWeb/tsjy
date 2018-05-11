@@ -29,7 +29,7 @@
       </ul>
     </nav>
     <router-view @changeIndex="changeIndex"/>
-    <footer class="footer"></footer>
+    <footer class="footer">冀ICP备17008089号</footer>
     <loginReg
       :show="show"
       :login="login"
@@ -214,7 +214,8 @@
       },
       changeIndex(val){
         this.thisIndex = val;
-      }
+      },
+
     },
     mounted(){
       if (this.$route.path.indexOf("/fast")>=0) {
@@ -456,6 +457,9 @@
     min-width: 1200px;
     height: 60px;
     background-color: #4d484f;
+    text-align: center;
+    line-height: 60px;
+    color:white;
   }
 
 </style>

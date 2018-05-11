@@ -39,6 +39,9 @@ Vue.prototype.$api = Interface;
 import common from './util/common.js'
 Vue.prototype.$c = common;
 
+// ie使用
+import 'babel-polyfill'
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

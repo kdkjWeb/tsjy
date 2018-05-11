@@ -1,7 +1,8 @@
 /**
  * Created by kdkjPC on 2018/4/14.
  */
-
+import promise from 'es6-promise';
+promise.polyfill();
 export default {
   /**
    * 查询数据 并且赋值
