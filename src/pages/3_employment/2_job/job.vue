@@ -11,7 +11,7 @@
           <p>发布人：{{item.publisher}}</p>
         </div>
         <div class="job_right">
-          <p class="job_right_top"><span>【{{item.position}}】</span><span @click="toJobDetail(item)">{{item.title}}</span><span class="job_right_price"><span>{{item.expSalary}}</span>/{{item.unit}}</span></p>
+          <p class="job_right_top"><span>【{{item.position}}】</span><span @click="toJobDetail(item)">{{item.jobDesc}}</span><span class="job_right_price"><span>{{item.expSalary}}</span>/{{item.unit}}</span></p>
           <p class="job_right_time">{{item.pubDate}}</p>
         </div>
       </li>
@@ -108,6 +108,13 @@ export {default} from './jobCtr'
 .job_right_top span:nth-of-type(2) {
   cursor: pointer;
   text-decoration: underline;
+  display: inline-block;
+  width:500px;
+  height:20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: middle;
 }
 .job_right_time{
   padding-top: 20px;

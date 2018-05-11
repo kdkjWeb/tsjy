@@ -22,7 +22,7 @@
           </el-select>
         </el-form-item>
         <el-form-item label="年龄 ：">
-          <el-input v-model="form.age" type="number" placeholder="请输入年龄"></el-input>
+          <el-input v-model="form.age" placeholder="请输入年龄"></el-input>
         </el-form-item>
         <el-form-item label="学历 ：">
           <el-select v-model="form.edu" placeholder="请选择学历">
@@ -40,10 +40,10 @@
           <el-input v-model="form.graduateSchool" placeholder="请输入毕业学校"></el-input>
         </el-form-item>
         <el-form-item label="工作经验 ：">
-          <el-input v-model="form.experience" type="number" placeholder="请输入工作经验"></el-input>
+          <el-input v-model="form.experience" placeholder="请输入工作经验"></el-input>
         </el-form-item>
         <el-form-item label="联系手机 ：">
-          <el-input v-model="form.mPhone" type="number" placeholder="请输入手机"></el-input>
+          <el-input v-model="form.mPhone" placeholder="请输入手机"></el-input>
         </el-form-item>
         <el-form-item label="擅长学科 ：">
           <el-input v-model="form.doWellIn" placeholder="请输入擅长学科"></el-input>

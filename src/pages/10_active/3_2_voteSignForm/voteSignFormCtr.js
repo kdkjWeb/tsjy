@@ -34,6 +34,15 @@ export default {
           return;
         }
       }
+      var reg=/^[0-9]*$/;
+      if(!reg.test(this.form["hight"])||!reg.test(this.form["age"])||!reg.test(this.form["weight"])){
+        this.$message({
+          message: "体重，身高，年龄请输入数字",
+          type: 'warning',
+          duration: 1500
+        });
+        return;
+      }
 
       this.$p({
         url:this.$api.memeAdd,

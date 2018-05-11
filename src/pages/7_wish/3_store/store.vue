@@ -15,7 +15,7 @@
           <div class="store_btn" @click="send"><span class="iconfont icon-fasong"></span>发送</div>
         </div>
       <div class="list">
-        
+
         <ul class="listB">
           <li class="job_list" v-for="(item,index) in allList" :key="index" :data-id="item.id">
           <div class="job_left">
@@ -33,11 +33,11 @@
               <textarea name="" id="" v-model="firstContent"></textarea>
               <div class="store_btn dis_content_btn" @click="firstSend(index,item.id)"><span class="iconfont icon-fasong"></span>发送</div>
             </div>
-       
+
             <ul class="user_dis_list" v-if="item.messageList">
               <li class="seconed_dis" v-for="(item,index) in item.messageList" :key="index" :data-id="item.id" :parent-id="item.leafId">
                 <div class="seconed_dis_top">
-                  <div class="seconed_dis_img"> 
+                  <div class="seconed_dis_img">
                     <img :src="`http://192.168.20.133:8886${item.user.profilehead}`" width="70" height="70" alt="加载失败">
                   </div>
                   <div class="seconed_dis_content">
@@ -57,7 +57,7 @@
               <ul class="user_dis_list user_dis_list1" v-if="item.childList.length>0">
               <li class="seconed_dis" v-for="(item,index) in item.childList" :key="index" :data-id="item.id" :parent-id="item.leafId">
                 <div class="seconed_dis_top">
-                  <div class="seconed_dis_img"> 
+                  <div class="seconed_dis_img">
                     <img :src="`http://192.168.20.133:8886${item.user.profilehead}`" width="70" height="70" alt="加载失败">
                   </div>
                   <div class="seconed_dis_content">
@@ -89,7 +89,7 @@
         <el-pagination class="pagination"
                      background
                      @current-change="handleCurrentChange"
-                     :current-page.sync="currentPage1"
+                     :current-page.sync="current"
                      :page-size="pageSize"
                      :total="total"
                      layout="prev, pager, next">
@@ -278,7 +278,7 @@ export {default} from './storeCtr'
   margin-bottom: 20px;
   /* border-bottom: 1px solid #e4e4e4; */
   padding: 10px;
-  border: 1px solid #e4e4e4; 
+  border: 1px solid #e4e4e4;
 }
 /* .seconed_dis:last-child{
   border-bottom: none;

@@ -80,6 +80,13 @@ export {default} from './recruitmentCtr'
 .job_right_top span:nth-of-type(2) {
   cursor: pointer;
   text-decoration: underline;
+  display: inline-block;
+  width:500px;
+  height:20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: middle;
 }
 .job_right_price{
   font-size: 14px;

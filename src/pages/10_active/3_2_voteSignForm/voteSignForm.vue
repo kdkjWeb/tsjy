@@ -22,13 +22,13 @@
           </el-select>
         </el-form-item>
         <el-form-item label="年龄 ：">
-          <el-input v-model="form.age" type="number" placeholder="请输入年龄"></el-input>
+          <el-input v-model="form.age" placeholder="请输入年龄"></el-input>
         </el-form-item>
         <el-form-item label="身高 ：">
-          <el-input v-model="form.hight" type="number" placeholder="请输入身高"></el-input>
+          <el-input v-model="form.hight" placeholder="请输入身高"></el-input>
         </el-form-item>
         <el-form-item label="体重 ：">
-          <el-input v-model="form.weight" type="number" placeholder="请输入体重"></el-input>
+          <el-input v-model="form.weight" placeholder="请输入体重"></el-input>
         </el-form-item>
         <el-form-item label="学校 ：">
           <el-input v-model="form.graduateSchool" placeholder="请输入学校"></el-input>

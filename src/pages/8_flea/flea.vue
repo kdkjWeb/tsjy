@@ -39,7 +39,7 @@
           <el-option label="其他" value="其他"></el-option>
         </el-select>
         <el-input v-model="fleaName" placeholder="请输入联系人"></el-input>
-        <el-input v-model="fleaPhone" type="number" placeholder="请输入手机号"></el-input>
+        <el-input v-model="fleaPhone" placeholder="请输入手机号"></el-input>
         <el-input type="textarea" :rows="3" v-model="fleaContent" placeholder="更多介绍"></el-input>
         <div class="alertBtn" @click="sendFlea">确定</div>
       </div>

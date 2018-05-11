@@ -33,7 +33,15 @@ export default {
           return;
         }
       }
-
+      var reg=/^[0-9]*$/;
+      if(!reg.test(this.form["mPhone"])||!reg.test(this.form["age"])||!reg.test(this.form["experience"])){
+        this.$message({
+          message: "薪资,电话，工作经验等请输入数字",
+          type: 'warning',
+          duration: 1500
+        });
+        return;
+      }
       this.$p({
         url:this.$api.tutorAdd,
         params:this.form

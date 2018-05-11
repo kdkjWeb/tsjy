@@ -10,7 +10,7 @@
             <el-input v-model="form.position" placeholder="请输入职位"></el-input>
           </el-form-item>
           <el-form-item label="期望薪资 ：">
-            <el-input v-model="form.expSalary" type="number" placeholder="请输入期望薪资"></el-input>
+            <el-input v-model="form.expSalary" placeholder="请输入期望薪资"></el-input>
           </el-form-item>
           <el-form-item label="性别 ：">
             <el-select v-model="form.gender" placeholder="请选择性别">
@@ -19,7 +19,7 @@
             </el-select>
           </el-form-item>
           <el-form-item label="年龄 ：">
-            <el-input v-model="form.age" type="number" placeholder="请输入年龄"></el-input>
+            <el-input v-model="form.age" placeholder="请输入年龄"></el-input>
           </el-form-item>
 
           <el-form-item label="现居地址 ：">
@@ -41,7 +41,7 @@
             </el-select>
           </el-form-item>
           <el-form-item label="工作年限 ：">
-            <el-input v-model="form.experience" type="number" placeholder="请输入年限"></el-input>
+            <el-input v-model="form.experience" placeholder="请输入年限"></el-input>
           </el-form-item>
           <el-form-item label="自我介绍 ：">
             <el-input type="textarea" :rows="5" v-model="form.selfDesc"></el-input>
@@ -65,7 +65,7 @@
             <el-input v-model="form.jobPosition" placeholder="请输入职位"></el-input>
           </el-form-item>
           <el-form-item label="薪资待遇 ：">
-            <el-input v-model="form.jobSalary" type="number" placeholder="请输入期望薪资"></el-input>
+            <el-input v-model="form.jobSalary" placeholder="请输入期望薪资"></el-input>
           </el-form-item>
           <el-form-item label="工作内容 ：">
             <el-input type="textarea" :rows="5" v-model="form.jobDesc"></el-input>

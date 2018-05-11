@@ -342,5 +342,5 @@ export default {
     activeRouter.voteAffiche,
     activeRouter.voteVipDetail,
     psersonalRoute
-  ]
+  ],
 }
