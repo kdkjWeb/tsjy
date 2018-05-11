@@ -8,7 +8,6 @@ export default {
       total: 0,
       content: '',
       current: 1,
-      currentPage1:1,
       list:[],
       userSrc: '',
       user: {}
@@ -16,6 +15,8 @@ export default {
   },
   methods:{
     handleCurrentChange(val) {
+      this.current = val;
+      console.log(this.current);
       this.getTreeHoleList(this.pageSize,val)
     },
 
@@ -28,8 +29,8 @@ export default {
         this.$message.error({
             message: '您还没有登录，或登录已过期，请重新登录后操作',
           });
-          this.wish.content = '';
-          this.wish.name = '';
+          this.content = '';
+          this.name = '';
         return;
     }
       //判断用户是否输入内容
@@ -54,7 +55,6 @@ export default {
                     type: 'success'
                   });
                   this.current = 1;
-                  this.currentPage1 = 1;
                   this.getTreeHoleList(this.pageSize,this.current)
                   this.content = '';
 
@@ -74,8 +74,18 @@ export default {
                 }
             }).then(res=>{
                 if(res.code == 0){
-                   this.total = res.data.total
-                    this.list = res.data.list
+
+                  this.total = res.data.total;
+                  var arr = res.data.list;
+                  arr.forEach((e,index)=>{
+                    arr[index].createtime = e.createtime.split(" ")[0];
+                    if(arr[index].user.profilehead) {
+                      arr[index].user.profilehead = this.$baseU + e.user.profilehead;
+                    }else {
+                      arr[index].user.profilehead = "../../../static/useImg/defaultHead.jpg";
+                    }
+                  });
+                  this.list = JSON.parse(JSON.stringify(arr));
                 }
             },err=>{
                 this.$message.error('服务器异常');
@@ -83,8 +93,8 @@ export default {
       },
       //判断用户是否登录，如果登录拿到用户头像，否则默认头像
       getUserSrc(){
-       this.user = JSON.parse(this.$c.getStorage('userInfo'))
-       this.userSrc = this.user? `http://192.168.20.133:8886${this.user.profilehead}` : '../../../assets/images/treeWar.png'
+       this.user = JSON.parse(this.$c.getStorage('userInfo'));
+       this.userSrc = this.user? this.$baseU + this.user.profilehead : '../../../../static/userImg/defaultHead.jpg'
       }
   },
   mounted(){

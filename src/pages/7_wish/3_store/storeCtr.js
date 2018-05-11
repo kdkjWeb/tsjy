@@ -4,7 +4,6 @@ export default{
             firstIndex: null,
             seconedId: '',
             threeId: '',
-            currentPage1:1,
             pageSize: 10,
             current: 1,
             total: 0,
@@ -62,7 +61,6 @@ export default{
                       });
                       this.content = '';
                       this.current = 1;
-                      this.currentPage1 = 1;
                       this.getDisList(this.current,this.pageSize)
                 }
             },err=>{
@@ -174,7 +172,8 @@ export default{
         },
 
         handleCurrentChange(val) {
-        this.getDisList(val,this.pageSize)
+          this.current = val;
+          this.getDisList(this.current,this.pageSize);
         },
 
        //评论楼主的问题

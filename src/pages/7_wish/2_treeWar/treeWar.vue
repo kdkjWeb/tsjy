@@ -11,7 +11,7 @@
       <div class="list">
         <div class="listB clear" v-for="(item,index) in list" :key="index">
           <div class="headImg">
-            <img :src="`http://192.168.20.133:8886${item.user.profilehead}`" width="70" height="70" alt="加载失败">
+            <img :src="item.user.profilehead" width="70" height="70" alt="加载失败">
             <p>{{item.user.nickname?item.user.nickname:'游客'}}</p>
           </div>
           <div class="listC">
@@ -23,7 +23,7 @@
       <el-pagination class="pagination"
                      background
                      @current-change="handleCurrentChange"
-                     :current-page.sync="currentPage1"
+                     :current-page.sync="current"
                      :page-size="pageSize"
                      :total="total"
                      layout="prev, pager, next">
