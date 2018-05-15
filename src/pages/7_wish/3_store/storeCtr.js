@@ -222,8 +222,42 @@ export default{
             }
         }).then(res=>{
             if(res.code == 0){
-                this.allList = res.data.list
-                this.total = res.data.total
+                // this.allList = res.data.list
+                this.total = res.data.total;
+              var arr = JSON.parse(JSON.stringify(res.data.list));
+              arr.forEach((e,index)=>{
+                arr[index].createtime = e.createtime.split(" ")[0];
+                if(arr[index].user.profilehead) {
+                  arr[index].user.profilehead = this.$baseU + e.user.profilehead;
+                }else {
+                  arr[index].user.profilehead = "../../../static/useImg/defaultHead.jpg";
+                }
+                if(e.messageList) {
+                var twoArr = JSON.parse(JSON.stringify(e.messageList));
+                  twoArr.forEach((el,indexl)=>{
+                    twoArr[indexl].creationTime = el.creationTime.split(" ")[0];
+                    if(twoArr[indexl].user.profilehead) {
+                      twoArr[indexl].user.profilehead = this.$baseU + el.user.profilehead;
+                    }else {
+                      twoArr[indexl].user.profilehead = "../../../static/useImg/defaultHead.jpg";
+                    }
+                    if(el.childList) {
+                      var threeArr = JSON.parse(JSON.stringify(el.childList));
+                      threeArr.forEach((ell,indexll)=>{
+                        threeArr[indexll].creationTime = ell.creationTime.split(" ")[0];
+                        if(threeArr[indexll].user.profilehead) {
+                          threeArr[indexll].user.profilehead = this.$baseU + ell.user.profilehead;
+                        }else {
+                          threeArr[indexll].user.profilehead = "../../../static/useImg/defaultHead.jpg";
+                        }
+                      });
+                      twoArr[indexl].childList = JSON.parse(JSON.stringify(threeArr));
+                    }
+                  });
+                  arr[index].messageList = JSON.parse(JSON.stringify(twoArr));
+                }
+              });
+              this.allList = JSON.parse(JSON.stringify(arr));
             }
         },err=>{
 

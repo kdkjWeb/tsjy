@@ -19,7 +19,7 @@
         <ul class="listB">
           <li class="job_list" v-for="(item,index) in allList" :key="index" :data-id="item.id">
           <div class="job_left">
-            <img :src="`http://192.168.20.133:8886${item.user.profilehead}`" width="70" height="70" alt="加载失败">
+            <img :src="item.user.profilehead" width="70" height="70" alt="加载失败">
             <p>{{item.user.nickname?item.user.nickname:'游客'}}</p>
           </div>
           <div class="job_right">
@@ -38,7 +38,7 @@
               <li class="seconed_dis" v-for="(item,index) in item.messageList" :key="index" :data-id="item.id" :parent-id="item.leafId">
                 <div class="seconed_dis_top">
                   <div class="seconed_dis_img">
-                    <img :src="`http://192.168.20.133:8886${item.user.profilehead}`" width="70" height="70" alt="加载失败">
+                    <img :src="item.user.profilehead" width="70" height="70" alt="加载失败">
                   </div>
                   <div class="seconed_dis_content">
                     <p class="seconed_dis_content_top">
@@ -58,7 +58,7 @@
               <li class="seconed_dis" v-for="(item,index) in item.childList" :key="index" :data-id="item.id" :parent-id="item.leafId">
                 <div class="seconed_dis_top">
                   <div class="seconed_dis_img">
-                    <img :src="`http://192.168.20.133:8886${item.user.profilehead}`" width="70" height="70" alt="加载失败">
+                    <img :src="item.user.profilehead" width="70" height="70" alt="加载失败">
                   </div>
                   <div class="seconed_dis_content">
                     <p class="seconed_dis_content_top">

@@ -11,8 +11,8 @@
       <div class="list">
         <div class="listB clear" v-for="(item,index) in list" :key="index">
           <div class="headImg">
-            <img :src="item.user.profilehead" width="70" height="70" alt="加载失败">
-            <p>{{item.user.nickname?item.user.nickname:'游客'}}</p>
+            <img src="../../../assets/images/treeWarHead.png" width="70" height="70" alt="加载失败">
+            <p>神秘树洞</p>
           </div>
           <div class="listC">
             <p>{{item.content}}</p>
@@ -33,7 +33,7 @@
     <div class="send clear">
       <div>
         <div class="sendImg">
-          <img :src="userSrc" alt="">
+          <img src="../../../assets/images/treeWarHead.png" alt="">
         </div>
         <div class="text">
           <textarea v-model="content" placeholder="想说什么就说什么吧"></textarea>

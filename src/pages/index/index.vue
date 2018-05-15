@@ -135,7 +135,7 @@
               <img :src="exploreCity.leftShow.imgUrl" width="100%" height="100%" alt="">
               <span class="title">{{exploreCity.leftShow.titile}}</span>
               <span class="time">{{exploreCity.leftShow.pubDate}}</span>
-              <div class="vip"></div>
+              <div class="vip">探吃</div>
             </div>
             <a class="more exploreCity_more" @click="city">
               <span>更多</span>
@@ -146,13 +146,13 @@
               <img :src="exploreCity.rightTopShow.imgUrl" width="100%" height="100%" alt="">
               <span class="title">{{exploreCity.rightTopShow.titile}}</span>
               <span class="time">{{exploreCity.rightTopShow.pubDate}}</span>
-              <div class="vip"></div>
+              <div class="vip">探玩</div>
             </div>
             <div class="alerts_left_bottom" @click="cityDetail(exploreCity.rightBottomShow.id)">
               <img :src="exploreCity.rightBottomShow.imgUrl" width="100%" height="100%" alt="">
               <span class="title">{{exploreCity.rightBottomShow.titile}}</span>
               <span class="time">{{exploreCity.rightBottomShow.pubDate}}</span>
-              <div class="vip"></div>
+              <div class="vip">探逛</div>
             </div>
           </div>
         </div>
@@ -679,7 +679,12 @@
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    background: url('../../assets/images/vip.png') no-repeat;
+    background-color: rgb(203,102,39);
+    text-align: center;
+    line-height: 70px;
+    color:white;
+    font-size:16px;
+    /*background: url('../../assets/images/vip.png') no-repeat;*/
   }
 
   .netred_title {

@@ -34,7 +34,7 @@ export {default} from './wishtreeCtr'
 .tree{
     position: relative;
     width: 100%;
-    height: 700px;
+    height: 900px;
     background-image: url('../../../assets/images/wishtree1.png');
     background-size: cover;
     background-position: center;

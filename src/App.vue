@@ -28,6 +28,15 @@
         </li>
       </ul>
     </nav>
+    <div class="toTop">
+      <ul>
+        <li v-for="(item,index) in codeImg" @click="toTipTop(index)">
+          <span v-if="item.text">{{item.text}}</span>
+          <i class="iconfont" :class="item.icon" v-if="item.icon"></i>
+          <div class="code" v-if="item.src"><img :src="item.src" alt=""></div>
+        </li>
+      </ul>
+    </div>
     <router-view @changeIndex="changeIndex"/>
     <footer class="footer">冀ICP备17008089号</footer>
     <loginReg
@@ -88,10 +97,43 @@
             title: '活动',
             href:''
           }
+        ],
+        codeImg:[
+          {
+            icon:'icon-weixin1',
+            src:'../static/useImg/weixinCode.jpg'
+          },
+          {
+            icon:'icon-qq',
+            src:'../static/useImg/defaultHead.jpg'
+          },
+          {
+            text:"APP",
+            src:'../static/useImg/defaultHead.jpg'
+          },
+          {
+            icon:'icon-zuojiantou2-copy',
+          }
+
         ]
       }
     },
     methods:{
+      toTipTop(index){
+        if(index != 3) {
+          return ;
+        }
+        var scrollTop = setInterval(()=>{
+          var m = window.scrollY;
+          m-=20;
+          document.body.scrollTop = m;
+          document.documentElement.scrollTop = m;
+          if(m<=0) {
+            clearInterval(scrollTop);
+          }
+        },20);
+
+      },
       toLink(index){
         this.thisIndex = index;
         switch (index) {
@@ -392,6 +434,9 @@
     margin:  0px auto 35px;
     padding-top: 60px;
   }
+  .logo img{
+    height:60px;
+  }
   .nav>ul.nav_bar{
     width: 900px;
     margin: 0 auto;
@@ -460,6 +505,55 @@
     text-align: center;
     line-height: 60px;
     color:white;
+  }
+
+
+  .toTop {
+    position:fixed;
+    right:20px;
+    bottom:200px;
+    width:60px;
+    z-index:999;
+  }
+  .toTop li ,.toTop a{
+    display:block;
+    width:60px;
+    height:60px;
+    background-color:rgb(150,133,123);
+    cursor: pointer;
+    font-size:16px;
+    line-height: 60px;
+    text-align: center;
+    color:white;
+    position:relative;
+  }
+  .toTop li i,.toTop a i {
+    font-size:30px;
+  }
+  .toTop li:nth-of-type(3) i {
+    font-size:16px;
+  }
+  .toTop li:hover,.toTop a:hover {
+    background-color: rgb(77,72,79);
+  }
+  .toTop li:hover .code {
+    display: block;
+  }
+  .code {
+    position:absolute;
+    top:0;
+    right:70px;
+    width:200px;
+    height:200px;
+    background-color: rgba(0, 0, 0,.1);
+    z-index:999;
+    text-align: center;
+    display: none;
+  }
+  .code img {
+    width:150px;
+    height:150px;
+    margin-top:25px;
   }
 
 </style>
