@@ -105,11 +105,10 @@
           },
           {
             icon:'icon-qq',
-            src:'../static/useImg/defaultHead.jpg'
+            src:'../static/useImg/qqCode.jpg'
           },
           {
             text:"APP",
-            src:'../static/useImg/defaultHead.jpg'
           },
           {
             icon:'icon-zuojiantou2-copy',

@@ -10,7 +10,8 @@
 
       <div class="jobRequire">
         <p>招聘简章 : </p>
-        <p>{{detail.hireDescription}}</p>
+        <!--<p>{{detail.hireDescription}}</p>-->
+        <p v-html="detail.hireDescription"></p>
         <!--<ol type="1">-->
           <!--<li v-for="(item,index) in list" :key="index"></li>-->
         <!--</ol>-->

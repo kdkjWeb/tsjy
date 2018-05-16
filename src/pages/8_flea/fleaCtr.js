@@ -79,7 +79,7 @@ export default{
         return;
       }
       var reg=/^[0-9]*$/;
-      if(!reg.test(this.form["fleaPhone"])){
+      if(!reg.test(this.fleaPhone)){
         this.$message({
           message: "请输入正确的电话",
           type: 'warning',

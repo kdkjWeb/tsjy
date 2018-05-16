@@ -20,7 +20,7 @@
           <li class="job_list" v-for="(item,index) in allList" :key="index" :data-id="item.id">
           <div class="job_left">
             <img :src="item.user.profilehead" width="70" height="70" alt="加载失败">
-            <p>{{item.user.nickname?item.user.nickname:'游客'}}</p>
+            <p>{{item.user.nickname?item.user.nickname:'蒙面人'}}</p>
           </div>
           <div class="job_right">
             <p>{{item.content}}</p>
