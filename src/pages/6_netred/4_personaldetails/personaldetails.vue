@@ -7,7 +7,8 @@
           <div class="info_list">
               <h1>{{user.memeName}}</h1>
               <p>艺名：{{user.memeActName}}</p>
-              <p>性别：{{user.sex}}</p>
+              <p>性别：{{user.gender==1?"男":"女"}}</p>
+              <!--<p>{{item.gender==1?"男":"女"}}</p>-->
               <p>国籍：{{user.nationality}}</p>
               <p>民族：{{user.nation}}族</p>
               <p>年龄：{{user.age}}岁</p>
