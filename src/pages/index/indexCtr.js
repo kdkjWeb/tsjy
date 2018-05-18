@@ -53,8 +53,12 @@ export default {
         ],
         //快讯模块下的招聘列表
         notice: [],
-        leftTopShow: {},
-        leftBottomShow: {}
+        leftTopShow: {
+          imgUrl: ''
+        },
+        leftBottomShow: {
+          imgUrl: ''
+        }
       },
       amusement: {
         header: [
@@ -87,9 +91,15 @@ export default {
             title: '探逛'
           }
         ],
-        leftShow: {},
-        rightTopShow: {},
-        rightBottomShow: {}
+        leftShow: {
+          imgUrl: ''
+        },
+        rightTopShow: {
+          imgUrl: ''
+        },
+        rightBottomShow: {
+          imgUrl: ''
+        }
       },
       netRed: {
         header: [
@@ -101,9 +111,15 @@ export default {
             title: '个人图集'
           }
         ],
-        leftShow: {},
-        rightTopShow: {},
-        rightBottomShow: {},
+        leftShow: {
+          imgUrl: ''
+        },
+        rightTopShow: {
+          imgUrl: ''
+        },
+        rightBottomShow: {
+          imgUrl: ''
+        },
         netAll: []
       }
     }
@@ -409,10 +425,13 @@ export default {
       this.$p({
         url: this.$api.hireQuery,
         params: {
-          pageSize: this.pageSize,
+          pageSize: 6,
         }
       }).then(res=> {
-        this.alerts.notice = res.data.list
+        if(res.code == 0){
+
+          this.alerts.notice = res.data.list.splice(0,6)
+        }
       }, err=> {
 
       })
@@ -428,13 +447,15 @@ export default {
         }
       }).then(res=> {
 
-        var arr = JSON.parse(JSON.stringify(res.data.list));
-        arr.forEach((e, index)=> {
-          arr[index].imgUrl = this.$baseU + e.imgUrl;
-          arr[index].videoUrl = this.$baseU + e.videoUrl;
-        });
-        this.amusement.videoList = JSON.parse(JSON.stringify(arr));
-        this.amusement.video = arr[0];
+        if(res.code == 0){
+          var arr = JSON.parse(JSON.stringify(res.data.list));
+          arr.forEach((e, index)=> {
+            arr[index].imgUrl = this.$baseU + e.imgUrl;
+            arr[index].videoUrl = this.$baseU + e.videoUrl;
+          });
+          this.amusement.videoList = JSON.parse(JSON.stringify(arr));
+          this.amusement.video = arr[0];
+        }
       }, err=> {
 
       })
@@ -448,10 +469,14 @@ export default {
           category: 1
         }
       }).then(res=> {
-        this.alerts.leftTopShow = res.data.list[0];
-        this.alerts.leftBottomShow = res.data.list[1];
-        this.alerts.leftTopShow.imgUrl = this.$baseU + res.data.list[0].imgUrl;
-        this.alerts.leftBottomShow.imgUrl = this.$baseU + res.data.list[1].imgUrl;
+
+          if(res.code == 0){
+            this.alerts.leftTopShow = res.data.list[0];
+            this.alerts.leftBottomShow = res.data.list[1];
+            this.alerts.leftTopShow.imgUrl = this.$baseU + res.data.list[0].imgUrl;
+            this.alerts.leftBottomShow.imgUrl = this.$baseU + res.data.list[1].imgUrl;
+          }
+
       }, err=> {
 
       })
@@ -477,22 +502,28 @@ export default {
     //获取探城下面的探吃第一条数据
     getcityEatList(type){
       this.getcitySearcherList(type).then(res=> {
-        this.exploreCity.leftShow = res;
-        this.exploreCity.leftShow.imgUrl = this.$baseU + res.imgUrl;
+        if(res.code == 0){
+          this.exploreCity.leftShow = res;
+          this.exploreCity.leftShow.imgUrl = this.$baseU + res.imgUrl;
+        }
       });
     },
     //获取探城下面的探玩第一条数据
     getcityPlayList(type){
       this.getcitySearcherList(type).then(res=> {
-        this.exploreCity.rightTopShow = res;
-        this.exploreCity.rightTopShow.imgUrl = this.$baseU + res.imgUrl;
+          if(res){
+            this.exploreCity.rightTopShow = res;
+            this.exploreCity.rightTopShow.imgUrl = this.$baseU + res.imgUrl;
+          }
       });
     },
     //获取探城下面的探逛第一条数据
     getcityVisitList(type){
       this.getcitySearcherList(type).then(res=> {
-        this.exploreCity.rightBottomShow = res;
-        this.exploreCity.rightBottomShow.imgUrl = this.$baseU + res.imgUrl;
+            if(res){
+              this.exploreCity.rightBottomShow = res;
+              this.exploreCity.rightBottomShow.imgUrl = this.$baseU + res.imgUrl;
+            }
       });
     },
     //获取网红模块的个人展示列表
@@ -503,8 +534,10 @@ export default {
           pageSize: 1,
         }
       }).then(res=> {
-        this.netRed.leftShow = res.data.list[0];
-        this.netRed.leftShow.imgUrl = this.$baseU + res.data.list[0].imgUrl;
+          if(res.code == 0){
+            this.netRed.leftShow = res.data.list[0];
+            this.netRed.leftShow.imgUrl = this.$baseU + res.data.list[0].imgUrl;
+          }
       }, err=> {
 
       })
@@ -517,8 +550,10 @@ export default {
           pageSize: 1,
         }
       }).then(res=> {
-        this.netRed.rightBottomShow = res.data.list[0];
-        this.netRed.rightBottomShow.imgUrl1 = this.$baseU + res.data.list[0].imgUrl1;
+          if(res.code == 0){
+            this.netRed.rightBottomShow = res.data.list[0];
+            this.netRed.rightBottomShow.imgUrl = this.$baseU + res.data.list[0].imgUrl1;
+          }
       }, err=> {
 
       })
@@ -533,9 +568,11 @@ export default {
           type: '最新资讯'
         }
       }).then(res=> {
-        this.netRed.rightTopShow = res.data.list[0];
-        this.netRed.rightTopShow.imgUrl = this.$baseU + res.data.list[0].imgUrl;
-        this.netRed.netAll = res.data.list
+          if(res.code == 0){
+            this.netRed.rightTopShow = res.data.list[0];
+            this.netRed.rightTopShow.imgUrl = this.$baseU + res.data.list[0].imgUrl;
+            this.netRed.netAll = res.data.list
+          }
       }, err=> {
 
       })
@@ -557,7 +594,7 @@ export default {
     //获取网红模块的个人展示列表
     this.getPersonalList()
     //获取网红模块的个人图集列表
-    this.getNetredAtlasList()
+   // this.getNetredAtlasList()
     //获取网红模块的最新资讯列表
     this.getNetredInformationList()
   }

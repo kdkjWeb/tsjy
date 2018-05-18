@@ -2,7 +2,8 @@
     <div class="container">
       <div class="intro">
         <h1>{{item.title}}</h1>
-        <p>{{item.content}}</p>
+       <!-- <p>{{item.content}}</p>-->
+        <p v-html="item.content" ></p>
         <div class="number">
           <div class="numberB">
             <div class="numberC">
@@ -35,7 +36,8 @@
         </div>
         <p>
           <span>规则</span><br/>
-       {{item.rule}}
+       <!--{{item.rule}}-->
+        <p v-html="item.rule" ></p>
         </p>
         <div class="signBtn" :class="item.status==1?'':'signBtnFalse'" @click="signBtn">我要报名</div>
         <div class="look">
@@ -80,7 +82,8 @@
               <p>{{item.user.nickname}}</p>
             </div>
             <div class="listC">
-              <p>{{item.content}}</p>
+              <!--<p>{{item.content}}</p>-->
+              <p v-html="item.content" ></p>
               <p><span>{{item.creationTime}}</span></p>
             </div>
           </div>

@@ -13,7 +13,8 @@
         <img :src="item.imgUrl" alt="加载失败">
         <div class="conDes">
           <p>{{item.titile}}</p>
-          <p>{{item.newsText}}</p>
+          <!--<p>{{item.newsText}}</p>-->
+        <!--  <div v-html="item.newsText"></div>-->
           <p>{{item.pubDate}}</p>
         </div>
       </div>
@@ -98,6 +99,11 @@
     box-sizing: border-box;
     border-top:none;
     float: left;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+
   }
   .conDes p:nth-of-type(1) {
     color:#333;

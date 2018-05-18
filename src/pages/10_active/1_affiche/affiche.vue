@@ -8,7 +8,8 @@
           <img :src="item.imgUrl" alt="">
           <div class="conDes">
             <p>{{item.titile}}</p>
-            <p>{{item.newsText}}</p>
+            <!--<p>{{item.newsText}}</p>-->
+            <div v-html="item.newsText" ></div>
             <p>{{item.pubDate}}</p>
           </div>
         </div>

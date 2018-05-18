@@ -18,7 +18,8 @@
         </div>
       </div>
       <h1>{{detail.titile}}</h1>
-      <div class="content">{{detail.newsText}}</div>
+      <!--<div class="content">{{detail.newsText}}</div>-->
+    <div v-html="detail.newsText" class="content"></div>
   </div>
 </template>
 
@@ -112,5 +113,6 @@ export {default} from './wonderfulfilmCtr'
   .details h1{
     padding: 50px 0 40px;
   }
+
 </style>
 

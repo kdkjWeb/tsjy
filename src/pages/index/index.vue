@@ -103,6 +103,7 @@
               <li v-for="(item,index) in amusement.videoList" :key="index" @click="changeVedio(item)">
                 <img :src="item.imgUrl" width="80" height="65" alt="">
                 <span>{{item.newsText}}</span>
+                <!--<span v-html="item.newsText" ></span>-->
               </li>
             </ul>
             <div class="amusement_btn" @click="amusementBtn">{{amusement.btn}}</div>
@@ -132,7 +133,7 @@
 
             <div class="topBar"></div>
             <div class="exploreCity_content" @click="cityDetail(exploreCity.leftShow.id)">
-              <img :src="exploreCity.leftShow.imgUrl" width="100%" height="100%" alt="">
+              <img :src="exploreCity.leftShow.imgUrl" width="100%" height="100%" alt="加載失敗">
               <span class="title">{{exploreCity.leftShow.titile}}</span>
               <span class="time">{{exploreCity.leftShow.pubDate}}</span>
               <div class="vip">探吃</div>
@@ -143,13 +144,13 @@
           </div>
           <div class="exploreCity_right">
             <div class="alerts_left_top" @click="cityDetail(exploreCity.rightTopShow.id)">
-              <img :src="exploreCity.rightTopShow.imgUrl" width="100%" height="100%" alt="">
+              <img :src="exploreCity.rightTopShow.imgUrl" width="100%" height="100%" alt="加載失敗">
               <span class="title">{{exploreCity.rightTopShow.titile}}</span>
               <span class="time">{{exploreCity.rightTopShow.pubDate}}</span>
               <div class="vip">探玩</div>
             </div>
             <div class="alerts_left_bottom" @click="cityDetail(exploreCity.rightBottomShow.id)">
-              <img :src="exploreCity.rightBottomShow.imgUrl" width="100%" height="100%" alt="">
+              <img :src="exploreCity.rightBottomShow.imgUrl" width="100%" height="100%" alt="加載失敗">
               <span class="title">{{exploreCity.rightBottomShow.titile}}</span>
               <span class="time">{{exploreCity.rightBottomShow.pubDate}}</span>
               <div class="vip">探逛</div>
@@ -177,7 +178,7 @@
 
             <div class="topBar"></div>
             <div class="exploreCity_content" @click="netRedDetail(netRed.leftShow.id,0)">
-              <img :src="netRed.leftShow.imgUrl" width="100%" height="100%" alt="">
+              <img :src="netRed.leftShow.imgUrl" width="100%" height="100%" alt="加載失敗">
               <div class="netred_title">
                 <h2>{{netRed.leftShow.memeActName}}网红</h2>
                 <p>网红基本信息</p>
@@ -197,12 +198,12 @@
           </div>
           <div class="exploreCity_right">
             <div class="alerts_left_top" @click="netRedDetail(netRed.rightTopShow.id,1)">
-              <img :src="netRed.rightTopShow.imgUrl" width="100%" height="100%" alt="">
+              <img :src="netRed.rightTopShow.imgUrl" width="100%" height="100%" alt="加載失敗">
               <span class="title">{{netRed.rightTopShow.titile}}</span>
               <span class="time">{{netRed.rightTopShow.pubDate}}</span>
             </div>
             <div class="alerts_left_bottom" @click="netRedDetail(netRed.rightBottomShow.id,2)">
-              <img :src="netRed.rightBottomShow.imgUrl1" width="100%" height="100%" alt="">
+              <img :src="netRed.rightBottomShow.imgUrl" width="100%" height="100%" alt="加載失敗">
               <span class="title">{{netRed.rightBottomShow.imgName}}</span>
               <span class="time">{{netRed.rightBottomShow.pubDate}}</span>
             </div>

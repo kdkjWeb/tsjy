@@ -3,7 +3,8 @@
     <img :src="item.imgUrl" alt="" width="100%" height="500">
     <h3>{{item.titile}}</h3>
     <p><span>发布人：{{item.publisher}}</span><span class="time">发布时间：{{item.pubDate}}</span></p>
-    <div>{{item.newsText}}</div>
+    <!--<div>{{item.newsText}}</div>-->
+    <div v-html="item.newsText" ></div>
   </div>
 </template>
 

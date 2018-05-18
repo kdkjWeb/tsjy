@@ -4,7 +4,8 @@
             <img :src="item.imgUrl" alt="">
             <div class="information_list_des">
                 <h6>{{item.titile}}</h6>
-                <p class="information_content">{{item.newsText}}</p>
+                <!--<p class="information_content">{{item.newsText}}</p>-->
+              <!--<div v-html="item.newsText" class="information_content"></div>-->
                 <p class="information_time">{{item.pubDate}}</p>
             </div>
         </div>

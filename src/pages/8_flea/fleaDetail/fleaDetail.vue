@@ -8,7 +8,8 @@
     </div>
     <h3><span>【{{detail.type}}】</span>{{detail.titile}}</h3>
     <p><span class="time">发布时间：{{detail.pubDate}}</span></p>
-    <div>{{detail.newsText}}</div>
+    <!--<div>{{detail.newsText}}</div>-->
+    <div v-html="detail.newsText" ></div>
   </div>
 </template>
 
