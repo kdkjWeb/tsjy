@@ -430,7 +430,13 @@ export default {
       }).then(res=> {
         if(res.code == 0){
 
-          this.alerts.notice = res.data.list.splice(0,6)
+         //this.alerts.notice = res.data.list
+         //console.log(res.data.list)
+         var arr = res.data.list
+         arr.forEach((e,index)=>{
+          arr[index].pubDate = e.pubDate.split(" ")[0];
+         })
+         this.alerts.notice = JSON.parse(JSON.stringify(arr));
         }
       }, err=> {
 
@@ -503,7 +509,9 @@ export default {
     getcityEatList(type){
       this.getcitySearcherList(type).then(res=> {
         if(res.code == 0){
-          this.exploreCity.leftShow = res;
+          var json = res;
+          json.pubDate = json.pubDate.split(" ")[0]
+          this.exploreCity.leftShow = json;
           this.exploreCity.leftShow.imgUrl = this.$baseU + res.imgUrl;
         }
       });
@@ -512,7 +520,9 @@ export default {
     getcityPlayList(type){
       this.getcitySearcherList(type).then(res=> {
           if(res){
-            this.exploreCity.rightTopShow = res;
+            var json = res;
+            json.pubDate = json.pubDate.split(" ")[0]
+            this.exploreCity.rightTopShow = json;
             this.exploreCity.rightTopShow.imgUrl = this.$baseU + res.imgUrl;
           }
       });
@@ -521,7 +531,9 @@ export default {
     getcityVisitList(type){
       this.getcitySearcherList(type).then(res=> {
             if(res){
-              this.exploreCity.rightBottomShow = res;
+              var json = res;
+              json.pubDate = json.pubDate.split(" ")[0]
+              this.exploreCity.rightBottomShow = json;
               this.exploreCity.rightBottomShow.imgUrl = this.$baseU + res.imgUrl;
             }
       });
@@ -551,7 +563,9 @@ export default {
         }
       }).then(res=> {
           if(res.code == 0){
-            this.netRed.rightBottomShow = res.data.list[0];
+            var json = res.data.list[0]
+            json.pubDate = json.pubDate.split(" ")[0]
+            this.netRed.rightBottomShow = json
             this.netRed.rightBottomShow.imgUrl = this.$baseU + res.data.list[0].imgUrl1;
           }
       }, err=> {
@@ -569,7 +583,9 @@ export default {
         }
       }).then(res=> {
           if(res.code == 0){
-            this.netRed.rightTopShow = res.data.list[0];
+            var json = res.data.list[0]
+            json.pubDate = json.pubDate.split(" ")[0]
+            this.netRed.rightTopShow = json;
             this.netRed.rightTopShow.imgUrl = this.$baseU + res.data.list[0].imgUrl;
             this.netRed.netAll = res.data.list
           }

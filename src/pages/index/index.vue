@@ -52,12 +52,12 @@
             <div class="alerts_left_top" @click="fastDetail(alerts.leftTopShow.id)">
               <img :src="alerts.leftTopShow.imgUrl" width="100%" height="100%" alt="加载失败">
               <span class="title">{{alerts.leftTopShow.titile}}</span>
-              <span class="time">{{alerts.leftTopShow.pubDate}}</span>
+              <!-- <span class="time">{{alerts.leftTopShow.pubDate}}</span> -->
             </div>
             <div class="alerts_left_bottom" @click="fastDetail(alerts.leftBottomShow.id)">
               <img :src="alerts.leftBottomShow.imgUrl" width="100%" height="100%" alt="加载失败">
               <span class="title">{{alerts.leftBottomShow.titile}}</span>
-              <span class="time">{{alerts.leftTopShow.pubDate}}</span>
+              <!-- <span class="time">{{alerts.leftTopShow.pubDate}}</span> -->
             </div>
           </div>
           <div class="alerts_right">
@@ -472,7 +472,7 @@
     left: 20px;
     color: #fff;
     display: inline-block;
-    width: 60%;
+    width: 75%;
     overflow: hidden;
     -ms-text-overflow: ellipsis;
     text-overflow: ellipsis;
@@ -498,7 +498,7 @@
     bottom: 10px;
     left: 20px;
     display: inline-block;
-    width: 60%;
+    width: 75%;
     overflow: hidden;
     -ms-text-overflow: ellipsis;
     text-overflow: ellipsis;
@@ -538,7 +538,7 @@
   }
 
   .alerts_right ul li a .type {
-    padding: 0px 10px 0 35px;
+    padding: 0px 0px 0 35px;
     color: #d38a55;
   }
 
