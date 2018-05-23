@@ -75,17 +75,21 @@
   .con {
     display:flex;
     flex-direction: row;
-    justify-content: space-between;
+    /*justify-content: space-between;*/
     flex-wrap: wrap;
   }
   .conB {
     width:335px;
     margin-top:50px;
+    box-sizing: border-box;
+    margin-right: 30px;
   }
   .conB img{
     width:100%;
     height:231px;
     float: left;
+    box-sizing: border-box;
+    margin-right: 15px;
   }
   .conDes {
     width:100%;
@@ -97,9 +101,13 @@
     float: left;
   }
   .conDes p:nth-of-type(1) {
+    margin:0;
     color:#333;
     margin-bottom:15px;
     font-size: 15px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
   .conDes p:nth-of-type(2){
     color:#666;

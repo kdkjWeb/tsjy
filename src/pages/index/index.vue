@@ -471,6 +471,12 @@
     bottom: 10px;
     left: 20px;
     color: #fff;
+    display: inline-block;
+    width: 60%;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .alerts_left_top span.time {
@@ -491,6 +497,12 @@
     position: absolute;
     bottom: 10px;
     left: 20px;
+    display: inline-block;
+    width: 60%;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     color: #fff;
   }
 
@@ -650,6 +662,12 @@
     bottom: 10px;
     left: 20px;
     color: #fff;
+    display: inline-block;
+    width: 60%;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .exploreCity_content span.time {

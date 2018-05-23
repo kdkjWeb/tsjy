@@ -48,7 +48,8 @@ export default{
       this.$router.push({
         name: 'atlasdetails',
         query:{
-          id:item.id
+          id:item.id,
+          total: this.total
         }
       })
     },

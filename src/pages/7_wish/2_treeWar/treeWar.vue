@@ -12,7 +12,7 @@
         <div class="listB clear" v-for="(item,index) in list" :key="index">
           <div class="headImg">
             <img src="../../../assets/images/treeWarHead.png" width="70" height="70" alt="加载失败">
-            <p>神秘树洞</p>
+            <p>蒙面人</p>
           </div>
           <div class="listC">
             <p>{{item.content}}</p>

@@ -99,7 +99,7 @@ export default{
       this.$p({
         url: this.$api.memeQueryImgs,
         params: {
-          pageSize:5,
+          pageSize:this.$route.query.total ? this.$route.query.total : 10,
           current:1
         }
       }).then(res=> {

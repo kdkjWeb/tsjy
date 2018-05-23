@@ -43,7 +43,8 @@ export default{
       this.$router.push({
         name: 'netRedDetails',
         query:{
-          id:item.id
+          id:item.id,
+          total: this.total
         }
       })
     },
