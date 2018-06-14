@@ -102,7 +102,7 @@
             <ul class="amusement_video_list">
               <li v-for="(item,index) in amusement.videoList" :key="index" @click="changeVedio(item)">
                 <img :src="item.imgUrl" width="80" height="65" alt="">
-                <span>{{item.newsText}}</span>
+                <span>{{item.titile}}</span>
                 <!--<span v-html="item.newsText" ></span>-->
               </li>
             </ul>
@@ -187,7 +187,8 @@
               <ul class="netRed_list">
                 <li v-for="(item,index) in netRed.netAll" :key="index" @click.stop="netRedDetail(item.id,1)">
                   <p>{{item.titile}}</p>
-                  <p>{{item.newsText}}</p>
+                  <!--<p>{{item.newsText}}</p>-->
+                  <!--<p v-text="item.newsText"></p>-->
                   <!-- <span>{{item.pubDate}}</span> -->
                 </li>
               </ul>
@@ -744,7 +745,7 @@
 
   .netRed_list li {
     position: relative;
-    height: 90px;
+    height:60px;
     background: #fff;
     border-bottom: 1px solid #ddd;
     box-sizing: border-box;

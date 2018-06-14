@@ -14,7 +14,7 @@
              <p>{{item.experience}}年</p>
             <p>{{item.doWellIn}}</p>
              <p class="family_des">{{item.selfDesc}}</p>
-             <span>{{item.pubDate}}</span>
+             <!--<span>{{item.pubDate}}</span>-->
           </div>
       </div>
   </div>

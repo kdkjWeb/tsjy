@@ -508,12 +508,12 @@ export default {
     //获取探城下面的探吃第一条数据
     getcityEatList(type){
       this.getcitySearcherList(type).then(res=> {
-        if(res.code == 0){
+//      if(res.code == 0){
           var json = res;
           json.pubDate = json.pubDate.split(" ")[0]
           this.exploreCity.leftShow = json;
           this.exploreCity.leftShow.imgUrl = this.$baseU + res.imgUrl;
-        }
+//      }
       });
     },
     //获取探城下面的探玩第一条数据
@@ -564,7 +564,7 @@ export default {
       }).then(res=> {
           if(res.code == 0){
             var json = res.data.list[0]
-            json.pubDate = json.pubDate.split(" ")[0]
+//          json.pubDate = json.pubDate.split(" ")[0]
             this.netRed.rightBottomShow = json
             this.netRed.rightBottomShow.imgUrl = this.$baseU + res.data.list[0].imgUrl1;
           }
@@ -610,7 +610,7 @@ export default {
     //获取网红模块的个人展示列表
     this.getPersonalList()
     //获取网红模块的个人图集列表
-   // this.getNetredAtlasList()
+      this.getNetredAtlasList()
     //获取网红模块的最新资讯列表
     this.getNetredInformationList()
   }

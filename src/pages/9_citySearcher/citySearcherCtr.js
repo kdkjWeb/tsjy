@@ -6,7 +6,7 @@ export default {
     return {
       thisIndex:0,
       currentPage:1,
-      pageSize:10,
+      pageSize:9,
       total:null,
       // banner:{},
       list:[],

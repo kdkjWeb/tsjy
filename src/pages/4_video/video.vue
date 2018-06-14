@@ -201,6 +201,11 @@
     color:#333;
     margin-bottom:15px;
     font-size: 15px;
+    white-space:nowrap;
+    text-overflow:ellipsis; 
+    /*-o-text-overflow:ellipsis; 
+    -moz-binding:url('ellipsis.xml#ellipsis'); */
+    overflow:hidden;
   }
   .conDes p:nth-of-type(2){
     color:#666;

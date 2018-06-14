@@ -57,6 +57,7 @@ export {default} from './atlasCtr'
 
 .page{
   margin: 40px auto 80px;
+  width: 100%;
 }
 .pagination {
   text-align: center;

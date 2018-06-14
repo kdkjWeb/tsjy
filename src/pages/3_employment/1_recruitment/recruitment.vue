@@ -6,8 +6,15 @@
             <img :src="item.head" alt="">
             <p>发布人：{{item.publisher}}</p>
           </div>
-          <div class="job_right">
-            <p class="job_right_top"><span>【{{item.position}}】</span><span @click="toJobDetail(item)">{{item.title}}</span><span class="job_right_price"><span>{{item.minSalary}} - {{item.maxSalary}}</span>/{{item.unit}}</span></p>
+          <div class="job_right" @click="toJobDetail(item)">
+            <p class="job_right_top"><span>【{{item.position}}】</span><span >{{item.title}}</span>
+            	<span class="job_right_price">
+            		<span>{{item.minSalary}}</span>
+            		
+            		<!--<span>{{item.minSalary}} - {{item.maxSalary}}</span>-->
+            		<!--{{item.unit}}-->
+            	</span>
+            </p>
             <p class="job_right_time">{{item.pubDate}}</p>
           </div>
         </li>
@@ -70,6 +77,7 @@ export {default} from './recruitmentCtr'
 .job_list .job_right{
   width: 865px;
   padding: 35px 85px 35px 70px;
+  cursor: pointer;
 }
 .job_right_price{
   float: right;

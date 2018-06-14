@@ -109,6 +109,11 @@
     color:#333;
     margin-bottom:15px;
     font-size: 15px;
+      overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
   }
   .conDes p:nth-of-type(2){
     color:#666;
