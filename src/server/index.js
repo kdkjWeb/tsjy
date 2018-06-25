@@ -9,7 +9,7 @@ var baseU = 'http://122.114.91.41:80/';
 const axiosConfig = Axios.create({
     baseURL: "http://122.114.91.41:8900/",
     withCredentials: true,
-    timeout: 10000
+    timeout: 100000
 });
 
 

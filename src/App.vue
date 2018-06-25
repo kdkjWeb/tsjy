@@ -109,6 +109,7 @@
           },
           {
             text:"APP",
+            src:'../static/useImg/Android.png'
           },
           {
             icon:'icon-zuojiantou2-copy',
